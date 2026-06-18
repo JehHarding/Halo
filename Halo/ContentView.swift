@@ -1,21 +1,22 @@
-//
-//  ContentView.swift
-//  Halo
-//
-//  Created by Jeh Harding on 18/06/2026.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var state = AppState()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Halo.bg.ignoresSafeArea()
+            switch state.screen {
+            case .welcome:
+                WelcomeView()
+            case .onboarding:
+                OnboardingView()
+            case .dashboard, .medications, .calendar, .vitals, .carersPack:
+                MainTabView()
+            }
         }
-        .padding()
+        .environment(state)
+        .preferredColorScheme(.light)
     }
 }
 
