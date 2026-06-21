@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halo — Pet health, beautifully kept</title>
+  <title>Halo, Pet health beautifully kept</title>
   <meta name="description" content="Halo keeps your pet's medications, vitals, appointments and carer's pack in one beautiful place. Coming soon." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,15 +137,15 @@
       100% { transform: translateY(0px)  rotate(var(--r,0deg)); }
     }
     /* stagger the delays so they don't all appear at once */
-    .ci-1 { top:10%; left:3%;   --r:-3deg;  animation-delay:0s;    animation-duration:11s;   transition-delay:.00s; }
-    .ci-2 { top:18%; right:4%;  --r:2deg;   animation-delay:-2.5s; animation-duration:13s;   transition-delay:.05s; }
-    .ci-3 { top:52%; left:2%;   --r:-2deg;  animation-delay:-4s;   animation-duration:10s;   transition-delay:.10s; }
-    .ci-4 { top:72%; right:3%;  --r:4deg;   animation-delay:-1s;   animation-duration:14s;   transition-delay:.15s; }
-    .ci-5 { top:82%; left:6%;   --r:-2deg;  animation-delay:-6s;   animation-duration:12s;   transition-delay:.20s; }
-    .ci-6 { top:38%; right:2%;  --r:-4deg;  animation-delay:-3s;   animation-duration:11.5s; transition-delay:.08s; }
-    .ci-7 { top:88%; right:6%;  --r:2deg;   animation-delay:-5s;   animation-duration:13.5s; transition-delay:.18s; }
-    .ci-8 { top:7%;  right:18%; --r:-1deg;  animation-delay:-7s;   animation-duration:10.5s; transition-delay:.03s; }
-    .ci-9 { top:62%; left:16%;  --r:3deg;   animation-delay:-2s;   animation-duration:12.5s; transition-delay:.12s; }
+    .ci-1 { top:14%; left:18%;   --r:-3deg;  animation-delay:0s;    animation-duration:11s;   transition-delay:.00s; }
+    .ci-2 { top:12%; right:16%;  --r:2deg;   animation-delay:-2.5s; animation-duration:13s;   transition-delay:.05s; }
+    .ci-3 { top:36%; left:12%;   --r:-2deg;  animation-delay:-4s;   animation-duration:10s;   transition-delay:.10s; }
+    .ci-4 { top:34%; right:12%;  --r:4deg;   animation-delay:-1s;   animation-duration:14s;   transition-delay:.15s; }
+    .ci-5 { top:58%; left:14%;   --r:-2deg;  animation-delay:-6s;   animation-duration:12s;   transition-delay:.20s; }
+    .ci-6 { top:56%; right:13%;  --r:-4deg;  animation-delay:-3s;   animation-duration:11.5s; transition-delay:.08s; }
+    .ci-7 { top:76%; left:20%;   --r:2deg;   animation-delay:-5s;   animation-duration:13.5s; transition-delay:.18s; }
+    .ci-8 { top:74%; right:18%;  --r:-1deg;  animation-delay:-7s;   animation-duration:10.5s; transition-delay:.03s; }
+    .ci-9 { top:24%; left:28%;   --r:3deg;   animation-delay:-2s;   animation-duration:12.5s; transition-delay:.12s; }
     .problem-inner { max-width: 780px; margin: 0 auto; position: relative; }
     .problem-label {
       font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
@@ -224,24 +224,45 @@
       min-height: 590px;
       background: #fdfaf6;
       border-radius: 46px;
+      border: 11px solid #1c1c1e;
       box-shadow:
-        0 0 0 1px rgba(0,0,0,.06),
-        0 0 0 8px rgba(0,0,0,.035),
-        0 50px 120px rgba(0,0,0,.2),
-        0 12px 32px rgba(0,0,0,.08);
+        inset 0 0 0 1px rgba(255,255,255,.08),
+        0 0 0 1.5px rgba(100,95,92,.5),
+        0 0 0 2.5px rgba(180,174,170,.25),
+        0 50px 120px rgba(0,0,0,.28),
+        0 14px 36px rgba(0,0,0,.14);
       overflow: hidden; position: relative;
     }
-    .iphone.sm { width: 210px; border-radius: 34px; }
+    /* Side buttons */
+    .iphone-wrap { position: relative; display: inline-block; }
+    .iphone-wrap::before {
+      content: '';
+      position: absolute;
+      left: -17px; top: 110px;
+      width: 5px; height: 80px;
+      background: linear-gradient(to right, #2c2c2e, #3a3a3c, #2c2c2e);
+      border-radius: 3px 0 0 3px;
+      box-shadow: 0 -44px 0 #2c2c2e, 0 -34px 0 5px #3a3a3c, 0 -34px 0 6px #2c2c2e;
+    }
+    .iphone-wrap::after {
+      content: '';
+      position: absolute;
+      right: -17px; top: 140px;
+      width: 5px; height: 60px;
+      background: linear-gradient(to left, #2c2c2e, #3a3a3c, #2c2c2e);
+      border-radius: 0 3px 3px 0;
+    }
+    .iphone.sm { width: 210px; border-radius: 34px; border-width: 9px; }
     .iphone::before {
       content: '';
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 86px; height: 28px;
-      background: #0f0e0d;
-      border-radius: 0 0 18px 18px; z-index: 2;
+      position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+      width: 94px; height: 28px;
+      background: #1c1c1e;
+      border-radius: 20px; z-index: 2;
     }
-    .iphone.sm::before { width: 66px; height: 22px; border-radius: 0 0 14px 14px; }
-    .iphone-screen { padding: 36px 0 18px; }
-    .iphone.sm .iphone-screen { padding: 28px 0 14px; }
+    .iphone.sm::before { width: 70px; height: 22px; top: 8px; border-radius: 16px; }
+    .iphone-screen { padding: 44px 0 0; }
+    .iphone.sm .iphone-screen { padding: 34px 0 0; }
     .sb {
       display: flex; justify-content: space-between; align-items: center;
       padding: 0 18px 6px; font-size: 10px; font-weight: 500; color: var(--dark);
@@ -499,7 +520,14 @@
   <div id="glow"></div>
 
   <!-- NAV -->
-  <nav id="nav" style="justify-content:flex-end">
+  <nav id="nav">
+    <a class="nav-logo" href="index.html">
+      <span class="nav-halo-anim">
+        <span class="halo-outer" style="width:36px;height:6px"></span>
+        <span class="halo-inner" style="width:24px;height:4px"></span>
+      </span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;font-weight:400;color:var(--dark)">HALO</span>
+    </a>
     <ul class="nav-links">
       <li><a href="about.html">Our Story</a></li>
       <li><a href="#cta-bottom" class="nav-cta">Join Waitlist</a></li>
@@ -515,10 +543,10 @@
     <div class="rv" style="transition-delay:.06s;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:9px;font-weight:400;color:var(--dark);margin-bottom:28px">HALO</div>
     <p class="hero-cs rv" style="transition-delay:.1s">Coming Soon</p>
     <h1 class="hero-h1 rv" style="transition-delay:.18s">
-      Pet health,<br><em>beautifully</em><br>kept.
+      For the ones<br>who <em>can't</em><br>tell you.
     </h1>
     <p class="hero-tagline rv" style="transition-delay:.28s">
-      Everything your pet's health requires — medications, vitals, vet contacts, and a carer's guide — in one calm, beautiful place.
+      Everything your pet's health requires, medications, vitals, vet contacts, and a carer's guide, in one calm, beautiful place.
     </p>
     <div class="hero-form rv" style="transition-delay:.38s">
       <form class="form-row" onsubmit="onSubmit(event,'h-ok')">
@@ -578,16 +606,20 @@
   <!-- ═══ MARQUEE ═══ -->
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <span>Smart Pet Profile</span><span class="dot">·</span>
+      <span>Weight Log</span><span class="dot">·</span>
+      <span>Breathing Log</span><span class="dot">·</span>
+      <span>Customised Pet Profile</span><span class="dot">·</span>
       <span>Medication Reminders</span><span class="dot">·</span>
-      <span>Weight & Vitals Log</span><span class="dot">·</span>
       <span>Health Calendar</span><span class="dot">·</span>
-      <span>Holiday Carer's Pack</span><span class="dot">·</span>
-      <span>Smart Pet Profile</span><span class="dot">·</span>
+      <span>Vet Appointments</span><span class="dot">·</span>
+      <span>Carer's Instructions</span><span class="dot">·</span>
+      <span>Weight Log</span><span class="dot">·</span>
+      <span>Breathing Log</span><span class="dot">·</span>
+      <span>Customised Pet Profile</span><span class="dot">·</span>
       <span>Medication Reminders</span><span class="dot">·</span>
-      <span>Weight & Vitals Log</span><span class="dot">·</span>
       <span>Health Calendar</span><span class="dot">·</span>
-      <span>Holiday Carer's Pack</span><span class="dot">·</span>
+      <span>Vet Appointments</span><span class="dot">·</span>
+      <span>Carer's Instructions</span><span class="dot">·</span>
     </div>
   </div>
 
@@ -596,11 +628,11 @@
     <!-- floating chaos items — visual metaphor for "everything in your head" -->
     <div class="problem-chaos" aria-hidden="true">
       <div class="chaos-item ci-1">💊 Atenolol · 6.25mg · 8am</div>
-      <div class="chaos-item ci-2">📅 Blood test — Sept 2026</div>
+      <div class="chaos-item ci-2">📅 Blood test, Sept 2026</div>
       <div class="chaos-item ci-3">🩺 Dr. Sharma · 07700 000 000</div>
       <div class="chaos-item ci-4">💊 Furosemide · 1mg · 6pm</div>
       <div class="chaos-item ci-5">❗ Empty stomach before Pimobendan</div>
-      <div class="chaos-item ci-6">📋 Annual scan — Oct 2026</div>
+      <div class="chaos-item ci-6">📋 Annual scan, Oct 2026</div>
       <div class="chaos-item ci-7">🚨 Emergency: Animal Hospital</div>
       <div class="chaos-item ci-8">💊 Clopidogrel · 18.75mg</div>
       <div class="chaos-item ci-9">📞 Cardiology referral needed</div>
@@ -623,26 +655,71 @@
     <div class="feat-t rvl">
       <div class="feat-n">01</div>
       <h2>Smart Pet<br><em>Profile</em></h2>
-      <p>Photo, breed, diagnosis, specialist contacts, microchip — everything that matters about your pet, held in one shareable profile.</p>
+      <p>Photo, breed, diagnosis, specialist contacts, microchip, everything that matters about your pet, held in one shareable profile.</p>
       <p>Not just for you. For every vet, carer, and specialist who needs to understand your pet at a glance.</p>
     </div>
-    <div class="phone-wrap rvr">
+    <div class="phone-wrap rvr" style="animation:phoneFloat 5.2s ease-in-out infinite">
       <div class="iphone">
         <div class="iphone-screen">
-          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-          <div class="profile-s">
-            <div class="prof-avatar"><img src="images/IMG_4727.jpeg" alt="" /></div>
-            <div class="prof-name">Angel</div>
-            <div class="prof-breed">Domestic Shorthair · DOB 20 Oct 2019</div>
-            <div class="prof-chips">
-              <span class="prof-chip">Heart Condition</span>
-              <span class="prof-chip">Atenolol</span>
-              <span class="prof-chip">Clopidogrel</span>
+          <div class="sb"><span>14:08</span><div class="sb-right"><span class="sb-icons">··· ▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div style="padding:0 16px 0">
+            <!-- Avatar row -->
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:7px;margin-bottom:10px">
+              <div style="position:relative">
+                <img src="images/IMG_4727.jpeg" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid #e8c4bb;display:block"/>
+                <div style="position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:#4caf50;border:1.5px solid #fdfaf6"></div>
+              </div>
+              <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid #e2d8ca;display:flex;align-items:center;justify-content:center;color:#b0988a;font-size:16px;line-height:1">+</div>
             </div>
-            <div class="prof-rows">
-              <div class="prof-row"><span class="pr-lbl">Microchip</span><span class="pr-val">9765 4321 001</span></div>
-              <div class="prof-row"><span class="pr-lbl">Cardiologist</span><span class="pr-val">Dr. Sharma</span></div>
-              <div class="prof-row"><span class="pr-lbl">Next scan</span><span class="pr-val">October 2026</span></div>
+            <!-- Greeting -->
+            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#b0988a;margin-bottom:3px">Good Morning</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:#3a3230;line-height:1.2;margin-bottom:3px">Angel is doing <em style="font-style:italic;color:#c9897a">well today</em></div>
+            <div style="font-size:8.5px;color:#b0988a;margin-bottom:14px">Morning meds given · 2 more due at 8pm</div>
+            <!-- Cards -->
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span style="font-size:10.5px;color:#3a3230">How is Angel today?</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">No log yet</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              </div>
+              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg><span style="font-size:10.5px;color:#3a3230">Next Dose</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">In 4h · 8:00pm</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              </div>
+              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="10" width="12" height="10" rx="2"/><path d="M12 10V5"/><path d="M9 5h6"/></svg><span style="font-size:10.5px;color:#3a3230">Weight</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">4.2 kg · Stable</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              </div>
+              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 22 13" fill="none" stroke="#c9897a" stroke-width="1.7" stroke-linecap="round"><line x1="1" y1="6.5" x2="1" y2="7.5"/><line x1="4" y1="5" x2="4" y2="9"/><line x1="7" y1="3" x2="7" y2="11"/><line x1="10" y1="1" x2="10" y2="12"/><line x1="13" y1="3" x2="13" y2="11"/><line x1="16" y1="5" x2="16" y2="9"/><line x1="19" y1="6" x2="19" y2="8"/><line x1="22" y1="6.5" x2="22" y2="7.5"/></svg><span style="font-size:10.5px;color:#3a3230">Breathing</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">24 bpm · Normal</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              </div>
+              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span style="font-size:10.5px;color:#3a3230">Upcoming Events</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">Cardiology · Jun 22</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab bar -->
+          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="#3a3230"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Home</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
             </div>
           </div>
         </div>
@@ -660,21 +737,87 @@
       <p>A precise daily schedule with tap-to-confirm logging. Every dose recorded, every window honoured.</p>
       <p>For pets on multiple medications, one missed dose can matter. Halo makes sure it never happens.</p>
     </div>
-    <div class="phone-wrap rvl">
+    <div class="phone-wrap rvl" style="animation:phoneFloat 5.5s ease-in-out .3s infinite">
       <div class="iphone">
         <div class="iphone-screen">
-          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-          <div class="med-s">
-            <div class="med-date">Thursday, 19 June</div>
-            <div class="med-title-t">Medications</div>
-            <div class="med-list">
-              <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Atenolol</div><div class="md">6.25mg · 8:00am</div></div></div>
-              <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Clopidogrel</div><div class="md">18.75mg · 8:00am</div></div></div>
-              <div class="med-row"><div class="chk todo"></div><div><div class="mn">Furosemide</div><div class="md">1mg · 6:00pm</div></div></div>
+          <div class="sb"><span>14:08</span><div class="sb-right"><span class="sb-icons">··· ▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div style="padding:0 15px 0">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#3a3230;margin-bottom:2px">Medications</div>
+            <div style="font-size:8.5px;color:#b0988a;margin-bottom:14px">Angel · Sunday 21 June</div>
+            <!-- Morning done -->
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#c9897a"></div>
+              <div style="font-size:8.5px;font-weight:600;color:#c9897a;letter-spacing:.3px">Morning · 8:00am · Done</div>
             </div>
-            <div class="med-prog-wrap">
-              <div class="med-prog-bar"><div class="med-prog-fill"></div></div>
-              <div class="med-prog-t">2 of 3 given today</div>
+            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);overflow:hidden;margin-bottom:10px">
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #c9897a;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#c9897a">✓</span></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:#b0988a;text-decoration:line-through">Pimobendan</div><div style="font-size:8px;color:#cbbaa6">1.25mg · given 8:04am</div></div>
+                <span style="font-size:8.5px;color:#b0988a">Done</span>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #c9897a;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#c9897a">✓</span></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:#b0988a;text-decoration:line-through">Furosemide</div><div style="font-size:8px;color:#cbbaa6">10mg · given 8:04am</div></div>
+                <span style="font-size:8.5px;color:#b0988a">Done</span>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #c9897a;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#c9897a">✓</span></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:#b0988a;text-decoration:line-through">Taurine</div><div style="font-size:8px;color:#cbbaa6">250mg · given 8:04am</div></div>
+                <span style="font-size:8.5px;color:#b0988a">Done</span>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              </div>
+            </div>
+            <!-- divider -->
+            <div style="border-top:1px solid rgba(226,216,202,.4);margin-bottom:10px"></div>
+            <!-- Evening pending -->
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#e2d8ca"></div>
+              <div style="font-size:8.5px;font-weight:600;color:#b0988a;letter-spacing:.3px">Evening · 8:00pm</div>
+            </div>
+            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);overflow:hidden">
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #e2d8ca;flex-shrink:0"></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:#3a3230">Furosemide</div><div style="font-size:8px;color:#b0988a">10mg · evening dose</div></div>
+                <div style="background:#f7ede8;border-radius:6px;padding:2px 7px;font-size:7.5px;color:#c9897a">8pm</div>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #e2d8ca;flex-shrink:0"></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:#3a3230">Atenolol</div><div style="font-size:8px;color:#b0988a">6.25mg · evening dose</div></div>
+                <div style="background:#f7ede8;border-radius:6px;padding:2px 7px;font-size:7.5px;color:#c9897a">8pm</div>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #e2d8ca;flex-shrink:0"></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:#3a3230">Taurine</div><div style="font-size:8px;color:#b0988a">250mg · evening dose</div></div>
+                <div style="background:#f7ede8;border-radius:6px;padding:2px 7px;font-size:7.5px;color:#c9897a">8pm</div>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab bar -->
+          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg></div>
+              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Meds</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
             </div>
           </div>
         </div>
@@ -689,32 +832,84 @@
     <div class="feat-t rvl">
       <div class="feat-n">03</div>
       <h2>Health<br><em>Calendar</em></h2>
-      <p>All upcoming appointments in one place — blood tests, specialist visits, annual checks — each with the vet's direct contact attached.</p>
+      <p>All upcoming appointments in one place, blood tests, specialist visits, annual checks, each with the vet's direct contact attached.</p>
       <p>Reminders in advance, so nothing is ever missed and nothing lives in your head alone.</p>
     </div>
-    <div class="phone-wrap rvr">
+    <div class="phone-wrap rvr" style="animation:phoneFloat 5.3s ease-in-out .5s infinite">
       <div class="iphone">
         <div class="iphone-screen">
-          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-          <div class="cal-s">
-            <div class="cal-title-t">Appointments</div>
-            <div class="cal-sub">Upcoming · June 2026</div>
-            <div class="appt-list">
-              <div class="appt-item">
-                <div class="appt-name">Blood Test</div>
-                <div class="appt-detail">20 June 2026 · 9:00am</div>
-                <div class="appt-vet">Dr. Sharma · 07700 000 000</div>
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">··· ▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div style="padding:0 14px 0">
+            <!-- Calendar header -->
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1.1">Calendar</div>
+                <div style="font-size:8.5px;color:#b0988a;margin-top:2px">Angel's appointments</div>
               </div>
-              <div class="appt-item upcoming">
-                <div class="appt-name">3-Monthly Blood Tests</div>
-                <div class="appt-detail">September 2026</div>
-                <div class="appt-vet">Cardiology team</div>
+              <div style="width:28px;height:28px;border-radius:7px;background:#3a3230;display:flex;align-items:center;justify-content:center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fdfaf6" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </div>
-              <div class="appt-item upcoming">
-                <div class="appt-name">Annual Cardiac Scan</div>
-                <div class="appt-detail">October 2026</div>
-                <div class="appt-vet">Referral to be booked</div>
+            </div>
+            <!-- Calendar rows -->
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <!-- Row 1 -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+                <div style="min-width:30px;text-align:center">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">22</div>
+                  <div style="font-size:7px;font-weight:600;color:#b0988a;letter-spacing:1px">JUN</div>
+                </div>
+                <div style="flex:1">
+                  <div style="font-size:10.5px;font-weight:500;color:#3a3230">Cardiology scan</div>
+                  <div style="font-size:8.5px;color:#b0988a;margin-top:2px">Dr. Patel · Cardiology dept</div>
+                  <div style="display:inline-block;font-size:7.5px;color:#c9897a;background:#f7ede8;border-radius:8px;padding:1px 7px;margin-top:5px">in 6 days</div>
+                </div>
               </div>
+              <!-- Row 2 -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+                <div style="min-width:30px;text-align:center">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">14</div>
+                  <div style="font-size:7px;font-weight:600;color:#b0988a;letter-spacing:1px">JUL</div>
+                </div>
+                <div style="flex:1">
+                  <div style="font-size:10.5px;font-weight:500;color:#3a3230">Weight check</div>
+                  <div style="font-size:8.5px;color:#b0988a;margin-top:2px">City Vets</div>
+                  <div style="display:inline-block;font-size:7.5px;color:#c9897a;background:#f7ede8;border-radius:8px;padding:1px 7px;margin-top:5px">in 4 weeks</div>
+                </div>
+              </div>
+              <!-- Row 3 -->
+              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+                <div style="min-width:30px;text-align:center">
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">20</div>
+                  <div style="font-size:7px;font-weight:600;color:#b0988a;letter-spacing:1px">OCT</div>
+                </div>
+                <div style="flex:1">
+                  <div style="font-size:10.5px;font-weight:500;color:#3a3230">Angel's 7th birthday</div>
+                  <div style="font-size:8.5px;color:#b0988a;margin-top:2px">Born 20 October 2019</div>
+                  <div style="display:inline-block;font-size:7.5px;color:#c9897a;background:#f7ede8;border-radius:8px;padding:1px 7px;margin-top:5px">7 years old</div>
+                </div>
+              </div>
+            </div>
+          </div>          <!-- Tab bar -->
+          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Calendar</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
             </div>
           </div>
         </div>
@@ -728,15 +923,15 @@
   <div class="feat-section flip">
     <div class="feat-t rvr">
       <div class="feat-n">04</div>
-      <h2>Weight &<br><em>Vitals Log</em></h2>
-      <p>Log breathing rate, weight, and other key metrics over time. Track trends with a simple chart — and have everything ready before every vet appointment.</p>
-      <p>Built-in 15-second breathing rate counter — the exact measurement cardiologists request.</p>
+      <h2>Vital<br><em>Log</em></h2>
+      <p>Log breathing rate, weight, and other key metrics over time. Track trends with a simple chart, and have everything ready before every vet appointment.</p>
+      <p>Built-in 15-second breathing rate counter, the exact measurement cardiologists request.</p>
       <span class="feat-tag">Only app with this feature</span>
     </div>
     <!-- Two phones side by side -->
-    <div class="phone-wrap rvl" style="gap:18px;align-items:flex-end">
+    <div class="phone-wrap rvl" style="gap:16px;align-items:flex-end">
       <!-- Phone 1: Breathing Rate counter (matches actual app) -->
-      <div class="iphone sm" style="animation:phoneFloat 5s ease-in-out infinite;flex-shrink:0">
+      <div class="iphone sm" style="width:230px;border-radius:38px;animation:phoneFloat 5s ease-in-out infinite;flex-shrink:0">
         <div class="iphone-screen">
           <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
           <div class="vit-s">
@@ -777,7 +972,7 @@
         </div>
       </div>
       <!-- Phone 2: Weight with log entries (matches actual app) -->
-      <div class="iphone sm" style="animation:phoneFloat 5.8s ease-in-out .6s infinite;flex-shrink:0;margin-bottom:24px">
+      <div class="iphone sm" style="width:230px;border-radius:38px;animation:phoneFloat 5.8s ease-in-out .6s infinite;flex-shrink:0;margin-bottom:24px">
         <div class="iphone-screen">
           <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
           <div class="vit-s">
@@ -830,77 +1025,85 @@
     <div class="feat-t rvl">
       <div class="feat-n">05</div>
       <h2>Holiday<br><em>Carer's Pack</em></h2>
-      <p>One tap. A complete care guide — medications, vet contacts, emergency numbers, daily routine — sent via WhatsApp or email in seconds.</p>
+      <p>One tap. A complete care guide, medications, vet contacts, emergency numbers, daily routine, sent via WhatsApp or email in seconds.</p>
       <p>So you can travel knowing whoever is caring for your pet has everything they need to do it exactly as you would.</p>
       <span class="feat-tag">Our favourite</span>
     </div>
-    <div class="phone-wrap rvr">
+    <div class="phone-wrap rvr" style="animation:phoneFloat 5.6s ease-in-out .8s infinite">
       <div class="iphone">
         <div class="iphone-screen">
-          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-          <!-- Carer's Pack background (blurred) -->
-          <div class="pack-s" style="filter:blur(1.5px);opacity:.5">
-            <div class="pack-title-t">Carer's Pack</div>
-            <div class="pack-sub-t">Angel · share with your carer</div>
-            <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin:8px 0 6px">MORNING — 8:00 AM</div>
-            <div style="background:#fff;border-radius:8px;border:1px solid rgba(226,216,202,.55);padding:10px 12px;margin-bottom:7px">
-              <div style="font-size:11px;font-weight:500;color:var(--dark)">Pimobendan <span style="float:right;color:var(--rose);font-size:10px">1.25 mg</span></div>
-              <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Give 30–60 min before food on empty stomach</div>
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">··· ▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div style="padding:0 14px 0">
+            <!-- Pack header -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230">Carer's Pack</div>
+                <div style="font-size:8.5px;color:#b0988a">Angel · share with your carer</div>
+              </div>
+              <span style="font-size:9px;color:#a89278;border:1px solid #e2d8ca;border-radius:6px;padding:3px 9px">Edit</span>
             </div>
-            <div style="background:#fff;border-radius:8px;border:1px solid rgba(226,216,202,.55);padding:10px 12px">
-              <div style="font-size:11px;font-weight:500;color:var(--dark)">Furosemide <span style="float:right;color:var(--mid);font-size:10px">10 mg</span></div>
-              <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Watch for increased thirst</div>
+            <!-- Tab pills -->
+            <div style="display:flex;gap:6px;margin-bottom:10px">
+              <div style="font-size:8.5px;font-weight:600;color:#fdfaf6;background:#3a3230;border-radius:16px;padding:4px 12px">Medications</div>
+              <div style="font-size:8.5px;color:#b0988a;border:1px solid #e2d8ca;border-radius:16px;padding:4px 12px">Contacts</div>
+              <div style="font-size:8.5px;color:#b0988a;border:1px solid #e2d8ca;border-radius:16px;padding:4px 12px">Feeding</div>
             </div>
-          </div>
-          <!-- Share sheet overlay (matches actual app) -->
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end">
-            <div style="background:rgba(0,0,0,.18);flex:1;border-radius:46px 46px 0 0"></div>
-            <div style="background:#fdfaf6;border-radius:22px 22px 0 0;padding:14px 14px 20px">
-              <!-- handle -->
-              <div style="width:28px;height:3px;background:rgba(58,50,48,.2);border-radius:2px;margin:0 auto 12px"></div>
-              <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--dark);margin-bottom:3px">Share Care Guide</div>
-              <div style="font-size:9px;color:var(--mid);margin-bottom:12px;line-height:1.5">Angel's full care guide — medications, contacts &amp; feeding — ready to send.</div>
-              <!-- WhatsApp -->
-              <div style="display:flex;align-items:center;gap:8px;background:#e8f5ed;border-radius:10px;padding:9px 11px;margin-bottom:6px">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.546 4.085 1.502 5.81L.057 23.386a.5.5 0 0 0 .614.614l5.576-1.445A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.656-.523-5.164-1.43l-.369-.22-3.821.99.997-3.76-.24-.388A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                <span style="font-size:10px;font-weight:500;color:#2d7a4a;flex:1">WhatsApp</span>
-                <span style="font-size:9px;color:#7a9a6a">›</span>
+            <!-- Section label -->
+            <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;margin-bottom:7px">MORNING · 8:00 AM</div>
+            <!-- Med cards -->
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                  <div style="width:28px;height:28px;border-radius:8px;background:#f7ede8;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9897a" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/></svg>
+                  </div>
+                  <div style="flex:1">
+                    <div style="font-size:10.5px;font-weight:500;color:#3a3230">Pimobendan</div>
+                    <div style="font-size:8px;color:#b0988a">1.25mg · empty stomach</div>
+                  </div>
+                  <div style="font-size:8.5px;color:#c9897a;font-weight:600">1.25 mg</div>
+                </div>
+                <div style="font-size:8px;color:#a89278;background:#faf6f1;border-radius:6px;padding:5px 8px">Give 30, 60 min before food</div>
               </div>
-              <!-- Email -->
-              <div style="display:flex;align-items:center;gap:8px;background:#f5f0e8;border-radius:10px;padding:9px 11px;margin-bottom:6px">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7a7068" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><polyline points="3,4 12,13 21,4"/></svg>
-                <span style="font-size:10px;color:#5a5250;flex:1">Email</span>
-                <span style="font-size:9px;color:#b0988a">›</span>
+              <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="width:28px;height:28px;border-radius:8px;background:#f7ede8;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9897a" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/></svg>
+                  </div>
+                  <div style="flex:1">
+                    <div style="font-size:10.5px;font-weight:500;color:#3a3230">Furosemide</div>
+                    <div style="font-size:8px;color:#b0988a">10mg · with food</div>
+                  </div>
+                  <div style="font-size:8.5px;color:#c9897a;font-weight:600">10 mg</div>
+                </div>
               </div>
-              <!-- Save as PDF -->
-              <div style="display:flex;align-items:center;gap:8px;background:#f5f0e8;border-radius:10px;padding:9px 11px;margin-bottom:10px">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7a7068" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-                <span style="font-size:10px;color:#5a5250;flex:1">Save as PDF</span>
-                <span style="font-size:9px;color:#b0988a">›</span>
+              <!-- Share button -->
+              <div style="display:flex;gap:7px;margin-top:4px">
+                <div style="flex:1;background:#3a3230;border-radius:8px;padding:9px 0;text-align:center;font-size:8.5px;letter-spacing:1px;color:#fdfaf6">SHARE</div>
+                <div style="flex:1;background:transparent;border:1px solid #e2d8ca;border-radius:8px;padding:9px 0;text-align:center;font-size:8.5px;color:#a89278">SAVE PDF</div>
               </div>
-              <!-- QR label + code -->
-              <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;text-align:center;margin-bottom:7px">Or scan to open on another device</div>
-              <svg width="54" height="54" viewBox="0 0 54 54" style="display:block;margin:0 auto">
-                <rect width="54" height="54" fill="#fdfaf6" rx="4"/>
-                <g fill="#3a3230">
-                  <rect x="4" y="4" width="16" height="16" rx="1.5" fill="none" stroke="#3a3230" stroke-width="2"/>
-                  <rect x="8" y="8" width="8" height="8" rx=".5"/>
-                  <rect x="34" y="4" width="16" height="16" rx="1.5" fill="none" stroke="#3a3230" stroke-width="2"/>
-                  <rect x="38" y="8" width="8" height="8" rx=".5"/>
-                  <rect x="4" y="34" width="16" height="16" rx="1.5" fill="none" stroke="#3a3230" stroke-width="2"/>
-                  <rect x="8" y="38" width="8" height="8" rx=".5"/>
-                  <rect x="24" y="4" width="3" height="3"/><rect x="28" y="4" width="3" height="3"/>
-                  <rect x="24" y="8" width="3" height="6"/><rect x="28" y="10" width="3" height="3"/>
-                  <rect x="24" y="24" width="3" height="3"/><rect x="28" y="24" width="6" height="3"/>
-                  <rect x="24" y="28" width="6" height="3"/><rect x="31" y="28" width="3" height="6"/>
-                  <rect x="34" y="24" width="8" height="3"/><rect x="44" y="24" width="3" height="3"/>
-                  <rect x="34" y="28" width="3" height="3"/><rect x="38" y="28" width="6" height="3"/>
-                  <rect x="4" y="24" width="3" height="3"/><rect x="8" y="24" width="3" height="3"/>
-                  <rect x="4" y="28" width="6" height="3"/><rect x="12" y="28" width="8" height="3"/>
-                  <rect x="34" y="34" width="6" height="3"/><rect x="42" y="34" width="5" height="3"/>
-                  <rect x="36" y="38" width="3" height="5"/><rect x="41" y="38" width="6" height="3"/>
-                </g>
-              </svg>
+            </div>
+          </div>          <!-- Tab bar -->
+          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:10px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Pack</span>
             </div>
           </div>
         </div>
@@ -940,19 +1143,35 @@
   </section>
 
   <!-- ═══ STORY BRIDGE ═══ -->
-  <section id="story-bridge">
-    <div class="story-bridge-img rvl" id="bridge-img">
-      <img src="images/IMG_6286.PNG" alt="Jehane with Angel" id="bridge-photo" />
-      <div class="bridge-img-overlay"></div>
-      <div class="bridge-img-caption">Jehane &amp; Angel — the reason Halo exists.</div>
+  <section id="story-bridge" style="display:block;padding:80px 60px;max-width:1200px;margin:0 auto">
+    <div class="rv" style="text-align:center;margin-bottom:48px">
+      <span class="label" style="display:block;margin-bottom:10px">Behind Halo</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.15;color:var(--dark)">Born from love.<br><em style="font-style:italic;color:var(--rose)">Built from necessity.</em></h2>
+      <p style="font-size:14px;color:var(--mid);line-height:2;max-width:560px;margin:18px auto 0">Halo began with Angel, a cat with three simultaneous heart conditions and a prognosis that gave her two weeks, two months, or two years. She's still here.</p>
     </div>
-    <div class="story-bridge-txt rvr">
-      <span class="label">Behind Halo</span>
-      <h2>Born from love.<br><em>Built from necessity.</em></h2>
-      <p>Halo began with Angel — a pet who defied every prognosis — and the realisation that no app existed that could hold everything her care required.</p>
-      <p>Three heart conditions. Three daily medications. Blood tests every three months. An annual cardiac scan. And a vet's prognosis that gave her two weeks, two months, or two years.</p>
-      <p>That was six years ago. Angel is still here.</p>
-      <a href="about.html" class="link-arrow">Read Angel's story</a>
+    <!-- Angel photo mosaic -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:10px;margin-bottom:36px" class="rv">
+      <div style="grid-column:1/3;grid-row:1/2;overflow:hidden;border-radius:14px;height:280px">
+        <img src="images/IMG_6286.PNG" alt="Jehane with Angel" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="grid-column:3/4;grid-row:1/2;overflow:hidden;border-radius:14px;height:280px">
+        <img src="images/IMG_4727.jpeg" alt="Angel resting" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="grid-column:4/5;grid-row:1/2;overflow:hidden;border-radius:14px;height:280px">
+        <img src="images/IMG_5631.jpeg" alt="Angel close up" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="grid-column:1/2;grid-row:2/3;overflow:hidden;border-radius:14px;height:220px">
+        <img src="images/IMG_7159.jpeg" alt="Angel looking up" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="grid-column:2/4;grid-row:2/3;overflow:hidden;border-radius:14px;height:220px">
+        <img src="images/IMG_6129.jpeg" alt="Angel relaxed" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+      <div style="grid-column:4/5;grid-row:2/3;overflow:hidden;border-radius:14px;height:220px">
+        <img src="images/IMG_4576.jpeg" alt="Angel sunny" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+      </div>
+    </div>
+    <div style="text-align:center">
+      <a href="about.html" class="story-cta-btn">Read Angel's story →</a>
     </div>
   </section>
 

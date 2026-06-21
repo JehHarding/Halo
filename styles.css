@@ -72,9 +72,8 @@ nav.scrolled {
   border-bottom-color: var(--border);
 }
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px; letter-spacing: 7px; font-weight: 400;
-  color: var(--dark); text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
 }
 .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
 .nav-links a {
@@ -188,6 +187,21 @@ footer {
 .link-arrow { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--rose); text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:gap .2s; }
 .link-arrow:hover { gap:14px; }
 .link-arrow::after { content:'→'; }
+
+/* ─── STORY CTA BUTTON (matches nav Join Waitlist) ─── */
+.story-cta-btn {
+  display: inline-block;
+  padding: 11px 22px;
+  background: var(--rose);
+  color: var(--bg);
+  font-family: 'Inter', sans-serif;
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background .2s;
+  margin-top: 10px;
+}
+.story-cta-btn:hover { background: var(--dark); color: var(--bg); }
 
 /* ─── PAGE HERO ───────────────────────────────── */
 .page-hero { padding:160px 60px 80px; text-align:center; position:relative; z-index:1; }
