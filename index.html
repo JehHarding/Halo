@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halo — Pet health, beautifully kept</title>
+  <meta name="description" content="Halo keeps your pet's medications, vitals, appointments and carer's pack in one beautiful place. Coming soon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2">
+  <style>
+
+    /* ═══════════════════════════════════════
+       HERO — centered, phone + ghost effect
+    ═══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 140px 60px 100px;
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .hero-halo { margin-bottom: 32px; width: 96px; height: 16px; display:inline-block; }
+    .hero-halo .halo-outer { width: 96px; height: 16px; }
+    .hero-halo .halo-inner { width: 62px; height: 10px; }
+
+    .hero-cs {
+      font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 18px;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 100px);
+      font-weight: 300; line-height: 1.02;
+      color: var(--dark); margin-bottom: 22px; letter-spacing: -.5px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--rose); }
+    .hero-tagline {
+      font-size: 15px; color: var(--mid);
+      line-height: 1.85; max-width: 480px; margin: 0 auto 44px;
+    }
+    .hero-form { max-width: 400px; margin: 0 auto; }
+    .hero-note { font-size: 10px; color: var(--light); margin-top: 12px; }
+
+    /* Phone + ghost row */
+    .hero-phones {
+      position: relative;
+      display: flex; align-items: flex-end; justify-content: center;
+      margin-top: 70px; gap: 0;
+      perspective: 1000px;
+    }
+    /* ghost phone — blurred, behind */
+    .hero-phone-ghost {
+      position: absolute;
+      left: 50%; transform: translateX(-50%) translateX(-100px) rotate(-6deg) scale(.88);
+      transform-origin: bottom center;
+      opacity: .18; filter: blur(3px);
+      z-index: 0;
+    }
+    .hero-phone-ghost .iphone { box-shadow: none; }
+    /* main phone */
+    .hero-phone-float {
+      position: relative; z-index: 1;
+      animation: phoneFloat 5s ease-in-out infinite;
+    }
+    @keyframes phoneFloat {
+      0%,100% { transform: translateY(0) rotate(1deg); }
+      50%      { transform: translateY(-14px) rotate(1deg); }
+    }
+    .hero-glow {
+      position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
+      width: 240px; height: 70px;
+      background: radial-gradient(ellipse, rgba(201,137,122,.28) 0%, transparent 70%);
+      filter: blur(22px);
+      animation: glowPulse 5s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes glowPulse {
+      0%,100% { opacity: .5; transform: translateX(-50%) scaleX(1); }
+      50%      { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+    }
+    .hero-scroll-hint {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: .4; animation: scrollHintFade 3s ease-in-out 2s infinite;
+    }
+    @keyframes scrollHintFade {
+      0%,100% { opacity: .4; transform: translateX(-50%) translateY(0); }
+      50%      { opacity: .7; transform: translateX(-50%) translateY(6px); }
+    }
+    .scroll-hint-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--rose), transparent);
+    }
+    .scroll-hint-txt {
+      font-size: 8px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--mid); writing-mode: vertical-rl;
+    }
+
+    /* ═══════════════════════════════════════
+       PROBLEM STATEMENT
+    ═══════════════════════════════════════ */
+    #problem {
+      background: var(--linen);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 100px 60px;
+      text-align: center;
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    /* floating chaos items */
+    .problem-chaos { position:absolute; inset:0; pointer-events:none; }
+    .chaos-item {
+      position: absolute;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px; letter-spacing: .3px;
+      color: var(--light);
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 13px;
+      white-space: nowrap;
+      opacity: 0;
+      animation: chaosFloat 12s ease-in-out infinite;
+      transition: opacity .9s ease;
+    }
+    #problem:hover .chaos-item { opacity: 1; }
+    @keyframes chaosFloat {
+      0%   { transform: translateY(0px) rotate(var(--r,0deg)); }
+      33%  { transform: translateY(-8px) rotate(calc(var(--r,0deg) + 1.2deg)); }
+      66%  { transform: translateY(4px)  rotate(calc(var(--r,0deg) - .8deg)); }
+      100% { transform: translateY(0px)  rotate(var(--r,0deg)); }
+    }
+    /* stagger the delays so they don't all appear at once */
+    .ci-1 { top:10%; left:3%;   --r:-3deg;  animation-delay:0s;    animation-duration:11s;   transition-delay:.00s; }
+    .ci-2 { top:18%; right:4%;  --r:2deg;   animation-delay:-2.5s; animation-duration:13s;   transition-delay:.05s; }
+    .ci-3 { top:52%; left:2%;   --r:-2deg;  animation-delay:-4s;   animation-duration:10s;   transition-delay:.10s; }
+    .ci-4 { top:72%; right:3%;  --r:4deg;   animation-delay:-1s;   animation-duration:14s;   transition-delay:.15s; }
+    .ci-5 { top:82%; left:6%;   --r:-2deg;  animation-delay:-6s;   animation-duration:12s;   transition-delay:.20s; }
+    .ci-6 { top:38%; right:2%;  --r:-4deg;  animation-delay:-3s;   animation-duration:11.5s; transition-delay:.08s; }
+    .ci-7 { top:88%; right:6%;  --r:2deg;   animation-delay:-5s;   animation-duration:13.5s; transition-delay:.18s; }
+    .ci-8 { top:7%;  right:18%; --r:-1deg;  animation-delay:-7s;   animation-duration:10.5s; transition-delay:.03s; }
+    .ci-9 { top:62%; left:16%;  --r:3deg;   animation-delay:-2s;   animation-duration:12.5s; transition-delay:.12s; }
+    .problem-inner { max-width: 780px; margin: 0 auto; position: relative; }
+    .problem-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 28px;
+    }
+    .problem-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 54px);
+      font-weight: 300; line-height: 1.2;
+      color: var(--dark);
+    }
+    .problem-q em { font-style: italic; color: var(--rose); }
+    .problem-divider {
+      width: 40px; height: 1px;
+      background: var(--rose-l);
+      margin: 36px auto;
+    }
+    .problem-a {
+      font-size: 13px; color: var(--mid);
+      line-height: 2; max-width: 520px; margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════════════
+       FEATURES — 5 alternating sections
+    ═══════════════════════════════════════ */
+    .feat-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 120px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .feat-section.flip { direction: rtl; }
+    .feat-section.flip > * { direction: ltr; }
+
+    .feat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px; font-weight: 300;
+      color: var(--rose-ll); line-height: 1;
+      margin-bottom: -6px;
+    }
+    .feat-t h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 50px);
+      font-weight: 300; line-height: 1.15;
+      margin-bottom: 20px; color: var(--dark);
+    }
+    .feat-t h2 em { font-style: italic; color: var(--rose); }
+    .feat-t p {
+      font-size: 14px; color: var(--mid);
+      line-height: 2.05; margin-bottom: 14px;
+      max-width: 400px;
+    }
+    .feat-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 8.5px; letter-spacing: 1.8px;
+      text-transform: uppercase; color: var(--rose);
+      border: 1px solid var(--rose-l); padding: 5px 12px;
+      border-radius: 2px; margin-top: 10px;
+    }
+    .feat-divider-line {
+      height: 1px; background: var(--border);
+      margin: 0 80px; position: relative; z-index: 1;
+    }
+
+    .phone-wrap { display: flex; justify-content: center; }
+
+    /* ═══════════════════════════════════════
+       iPHONE FRAME
+    ═══════════════════════════════════════ */
+    .iphone {
+      width: 280px;
+      min-height: 590px;
+      background: #fdfaf6;
+      border-radius: 46px;
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,.06),
+        0 0 0 8px rgba(0,0,0,.035),
+        0 50px 120px rgba(0,0,0,.2),
+        0 12px 32px rgba(0,0,0,.08);
+      overflow: hidden; position: relative;
+    }
+    .iphone.sm { width: 210px; border-radius: 34px; }
+    .iphone::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 86px; height: 28px;
+      background: #0f0e0d;
+      border-radius: 0 0 18px 18px; z-index: 2;
+    }
+    .iphone.sm::before { width: 66px; height: 22px; border-radius: 0 0 14px 14px; }
+    .iphone-screen { padding: 36px 0 18px; }
+    .iphone.sm .iphone-screen { padding: 28px 0 14px; }
+    .sb {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 18px 6px; font-size: 10px; font-weight: 500; color: var(--dark);
+    }
+    .iphone.sm .sb { padding: 0 14px 5px; font-size: 9px; }
+    .sb-right { display: flex; align-items: center; gap: 4px; }
+    .sb-pill { width: 26px; height: 10px; background: var(--dark); border-radius: 5px; opacity: .5; }
+    .sb-icons { font-size: 9px; color: var(--dark); opacity: .5; }
+
+    /* ── Profile Screen ── */
+    .profile-s { padding: 0 16px 16px; }
+    .iphone.sm .profile-s { padding: 0 12px 12px; }
+    .prof-avatar { width: 70px; height: 70px; border-radius: 50%; background: var(--sand); margin: 6px auto 10px; overflow: hidden; border: 2px solid var(--rose-l); }
+    .iphone.sm .prof-avatar { width: 52px; height: 52px; }
+    .prof-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .prof-name { font-family:'Cormorant Garamond',serif; font-size: 24px; color: var(--dark); text-align: center; margin-bottom: 2px; }
+    .iphone.sm .prof-name { font-size: 18px; }
+    .prof-breed { font-size: 10px; color: var(--mid); text-align: center; letter-spacing: .5px; margin-bottom: 14px; }
+    .iphone.sm .prof-breed { font-size: 8.5px; margin-bottom: 10px; }
+    .prof-chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-bottom: 14px; }
+    .prof-chip { font-size: 9.5px; background: var(--rose-ll); color: var(--rose); border-radius: 20px; padding: 3px 10px; border: 1px solid var(--rose-l); }
+    .iphone.sm .prof-chip { font-size: 8px; padding: 2px 8px; }
+    .prof-rows { display: flex; flex-direction: column; gap: 7px; }
+    .prof-row { background: #fff; border-radius: 9px; padding: 10px 12px; border: 1px solid rgba(226,216,202,.55); display: flex; justify-content: space-between; align-items: center; }
+    .iphone.sm .prof-row { padding: 7px 10px; border-radius: 7px; }
+    .pr-lbl { font-size: 9.5px; color: var(--mid); }
+    .pr-val { font-size: 10.5px; font-weight: 400; color: var(--dark); }
+    .iphone.sm .pr-lbl, .iphone.sm .pr-val { font-size: 8.5px; }
+
+    /* ── Medication Screen ── */
+    .med-s { padding: 0 15px 16px; }
+    .iphone.sm .med-s { padding: 0 11px 12px; }
+    .med-date { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--rose); padding-top: 4px; }
+    .med-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); margin-bottom: 14px; }
+    .iphone.sm .med-title-t { font-size: 16px; margin-bottom: 10px; }
+    .med-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .med-row { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 9px; padding: 11px 12px; border: 1px solid rgba(226,216,202,.55); }
+    .iphone.sm .med-row { gap: 7px; padding: 8px 9px; border-radius: 7px; }
+    .chk { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+    .iphone.sm .chk { width: 15px; height: 15px; font-size: 8px; }
+    .chk.done { background: var(--rose); color: white; }
+    .chk.todo { border: 1.5px solid var(--border); }
+    .mn { font-size: 12px; font-weight: 400; color: var(--dark); }
+    .md { font-size: 9.5px; color: var(--mid); margin-top: 2px; }
+    .iphone.sm .mn { font-size: 10px; }
+    .iphone.sm .md { font-size: 8px; }
+    .med-prog-wrap { background: var(--rose-ll); border-radius: 9px; padding: 10px 12px; }
+    .med-prog-bar { height: 2.5px; background: var(--rose-l); border-radius: 2px; margin-bottom: 6px; }
+    .med-prog-fill { height: 2.5px; background: var(--rose); border-radius: 2px; width: 67%; }
+    .med-prog-t { font-size: 9.5px; color: var(--rose); }
+
+    /* ── Calendar Screen ── */
+    .cal-s { padding: 0 15px 16px; }
+    .cal-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); padding-top: 4px; margin-bottom: 4px; }
+    .cal-sub { font-size: 9px; color: var(--mid); margin-bottom: 14px; letter-spacing: .3px; }
+    .appt-list { display: flex; flex-direction: column; gap: 9px; }
+    .appt-item { background: #fff; border-radius: 9px; padding: 11px 12px; border: 1px solid rgba(226,216,202,.55); border-left: 3px solid var(--rose); }
+    .appt-item.upcoming { border-left-color: var(--rose-l); }
+    .appt-name { font-size: 11.5px; font-weight: 400; color: var(--dark); }
+    .appt-detail { font-size: 9.5px; color: var(--mid); margin-top: 2px; line-height: 1.5; }
+    .appt-vet { font-size: 9px; color: var(--rose); margin-top: 3px; }
+
+    /* ── Vitals Screen ── */
+    .vit-s { padding: 0 15px 16px; }
+    .vit-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); padding-top: 4px; margin-bottom: 2px; }
+    .vit-sub-t { font-size: 9px; color: var(--mid); margin-bottom: 12px; }
+    .vit-chart-box { background: #fff; border-radius: 9px; border: 1px solid rgba(226,216,202,.55); padding: 12px 12px 8px; margin-bottom: 12px; }
+    .vit-svg { width: 100%; height: 66px; }
+    .vit-days-row { display: flex; justify-content: space-between; margin-top: 5px; }
+    .vit-d { font-size: 7.5px; color: var(--light); }
+    .vit-big { display: flex; align-items: baseline; gap: 5px; margin-bottom: 6px; }
+    .vit-n { font-family:'Cormorant Garamond',serif; font-size: 52px; font-weight: 300; color: var(--dark); line-height: 1; }
+    .vit-u { font-size: 12px; color: var(--mid); }
+    .vit-ok { font-size: 9.5px; color: var(--rose); display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
+    .vit-ok-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
+    .vit-log-row { background: #fff; border-radius: 9px; padding: 10px 12px; border: 1px solid rgba(226,216,202,.55); display: flex; justify-content: space-between; align-items: center; }
+    .vit-log-lbl { font-size: 9px; color: var(--mid); }
+    .vit-log-val { font-size: 10px; font-weight: 400; color: var(--dark); }
+
+    /* ── Carer's Pack Screen ── */
+    .pack-s { padding: 0 15px 16px; }
+    .pack-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); padding-top: 4px; }
+    .pack-sub-t { font-size: 9px; color: var(--mid); margin-bottom: 12px; }
+    .pack-doc { background: #fff; border-radius: 9px; border: 1px solid rgba(226,216,202,.55); padding: 14px; margin-bottom: 10px; }
+    .pack-doc-logo { font-family:'Cormorant Garamond',serif; font-size: 12px; letter-spacing: 5px; color: var(--dark); opacity: .3; margin-bottom: 3px; }
+    .pack-doc-name { font-family:'Cormorant Garamond',serif; font-size: 16px; color: var(--dark); margin-bottom: 10px; }
+    .pack-row { font-size: 9.5px; color: var(--mid); padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 7px; }
+    .pack-row:last-child { border-bottom: none; }
+    .pack-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+    .pack-btns { display: flex; gap: 7px; }
+    .pack-btn { flex: 1; padding: 10px 0; background: var(--dark); color: var(--bg); border-radius: 7px; font-size: 9px; letter-spacing: 1.3px; text-transform: uppercase; text-align: center; }
+    .pack-btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--mid); }
+
+    /* ═══════════════════════════════════════
+       STATS STRIP (dark)
+    ═══════════════════════════════════════ */
+    #stats {
+      background: #3a2e29; padding: 90px 60px;
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; position: relative; z-index: 1;
+    }
+    .stat-item {
+      padding: 0 48px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.06);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 6vw, 88px); font-weight: 300;
+      color: rgba(253,250,246,.9); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-n em { font-style: italic; color: var(--rose-l); }
+    .stat-label {
+      font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(253,250,246,.28); line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════ */
+    #testimonials {
+      padding: 120px 60px;
+      position: relative; z-index: 1;
+    }
+    .test-head { text-align: center; margin-bottom: 64px; }
+    .test-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight: 300; line-height: 1.18;
+    }
+    .test-head h2 em { font-style: italic; color: var(--rose); }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .test-card {
+      background: rgba(244,239,230,.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      border-radius: 4px; padding: 40px 36px;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.07);
+    }
+    .test-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 300; font-style: italic;
+      color: var(--dark); line-height: 1.55; margin-bottom: 28px;
+    }
+    .test-q::before { content: '\201C'; color: var(--rose-l); font-size: 44px; line-height: .3; vertical-align: -18px; margin-right: 4px; }
+    .test-footer { display: flex; flex-direction: column; gap: 3px; }
+    .test-name { font-size: 11px; font-weight: 400; color: var(--dark); letter-spacing: .5px; }
+    .test-pet { font-size: 10px; color: var(--light); }
+
+    /* ═══════════════════════════════════════
+       STORY TEASE — compact bridge section
+    ═══════════════════════════════════════ */
+    #story-bridge {
+      background: var(--linen);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    .story-bridge-img {
+      border-radius: 3px; overflow: hidden;
+      aspect-ratio: 4/5;
+      position: relative;
+      cursor: pointer;
+    }
+    .story-bridge-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top; display: block;
+      transition: transform 1s cubic-bezier(.23,1,.32,1);
+    }
+    .story-bridge-img:hover img { transform: scale(1.05); }
+    .bridge-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,22,20,.38) 0%, transparent 55%);
+      opacity: 0; transition: opacity .5s;
+    }
+    .story-bridge-img:hover .bridge-img-overlay { opacity: 1; }
+    .bridge-img-caption {
+      position: absolute; bottom: 18px; left: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-style: italic;
+      color: rgba(253,250,246,.88);
+      opacity: 0; transform: translateY(6px);
+      transition: opacity .5s .1s, transform .5s .1s;
+    }
+    .story-bridge-img:hover .bridge-img-caption { opacity: 1; transform: translateY(0); }
+    .story-bridge-txt h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 3.5vw, 48px);
+      font-weight: 300; line-height: 1.18; margin-bottom: 20px;
+    }
+    .story-bridge-txt h2 em { font-style: italic; color: var(--rose); }
+    .story-bridge-txt p { font-size: 13.5px; color: var(--mid); line-height: 2.05; margin-bottom: 18px; }
+
+    /* ═══════════════════════════════════════
+       BOTTOM CTA
+    ═══════════════════════════════════════ */
+    #cta-bottom {
+      padding: 130px 60px; text-align: center;
+      position: relative; z-index: 1;
+    }
+    .cta-halo { display: flex; justify-content: center; margin-bottom: 40px; }
+    .cta-halo .halo-anim { width: 80px; height: 14px; }
+    .cta-halo .halo-outer { width: 80px; height: 14px; }
+    .cta-halo .halo-inner { width: 52px; height: 9px; }
+    #cta-bottom h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 300; line-height: 1.1; margin-bottom: 14px;
+    }
+    #cta-bottom h2 em { font-style: italic; color: var(--rose); }
+    #cta-bottom .sub {
+      font-size: 14px; color: var(--mid);
+      max-width: 400px; margin: 0 auto 44px; line-height: 1.9;
+    }
+    #cta-bottom .form-row { max-width: 400px; margin: 0 auto; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media(max-width:1100px){
+      .feat-section { gap: 50px; padding: 90px 40px; }
+    }
+    @media(max-width:960px){
+      #hero { padding: 120px 24px 80px; }
+      .hero-phones { margin-top: 50px; }
+      .hero-phone-ghost { display: none; }
+      .feat-section { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
+      .feat-section.flip { direction: ltr; }
+      .feat-divider-line { margin: 0 24px; }
+      #problem { padding: 70px 24px; }
+      #stats { grid-template-columns: 1fr; gap: 0; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); padding: 44px 24px; }
+      .stat-item:last-child { border-bottom: none; }
+      .test-grid { grid-template-columns: 1fr; }
+      #testimonials { padding: 70px 24px; }
+      #story-bridge { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
+      #cta-bottom { padding: 80px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="blob blob-1"></div><div class="blob blob-2"></div>
+    <div class="blob blob-3"></div><div class="blob blob-4"></div><div class="blob blob-5"></div>
+  </div>
+  <div id="glow"></div>
+
+  <!-- NAV -->
+  <nav id="nav" style="justify-content:flex-end">
+    <ul class="nav-links">
+      <li><a href="about.html">Our Story</a></li>
+      <li><a href="#cta-bottom" class="nav-cta">Join Waitlist</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="hero-halo halo-anim rv" style="margin-bottom:14px">
+      <div class="halo-outer"></div>
+      <div class="halo-inner"></div>
+    </div>
+    <div class="rv" style="transition-delay:.06s;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:9px;font-weight:400;color:var(--dark);margin-bottom:28px">HALO</div>
+    <p class="hero-cs rv" style="transition-delay:.1s">Coming Soon</p>
+    <h1 class="hero-h1 rv" style="transition-delay:.18s">
+      Pet health,<br><em>beautifully</em><br>kept.
+    </h1>
+    <p class="hero-tagline rv" style="transition-delay:.28s">
+      Everything your pet's health requires — medications, vitals, vet contacts, and a carer's guide — in one calm, beautiful place.
+    </p>
+    <div class="hero-form rv" style="transition-delay:.38s">
+      <form class="form-row" onsubmit="onSubmit(event,'h-ok')">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Join Waitlist</button>
+      </form>
+      <p class="form-success" id="h-ok"></p>
+    </div>
+
+    <!-- Phone mockup centred, with ghost behind -->
+    <div class="hero-phones rv" style="transition-delay:.5s">
+      <!-- ghost phone (faded, tilted) -->
+      <div class="hero-phone-ghost">
+        <div class="iphone">
+          <div class="iphone-screen">
+            <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+            <div class="med-s">
+              <div class="med-date">Thursday, 19 June</div>
+              <div class="med-title-t">Medications</div>
+              <div class="med-list">
+                <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Atenolol</div><div class="md">6.25mg · 8:00am</div></div></div>
+                <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Clopidogrel</div><div class="md">18.75mg · 8:00am</div></div></div>
+                <div class="med-row"><div class="chk todo"></div><div><div class="mn">Furosemide</div><div class="md">1mg · 6:00pm</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- main phone -->
+      <div class="hero-phone-float">
+        <div class="iphone">
+          <div class="iphone-screen">
+            <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+            <div class="profile-s">
+              <div class="prof-avatar"><img src="images/IMG_4727.jpeg" alt="" /></div>
+              <div class="prof-name">Angel</div>
+              <div class="prof-breed">Domestic Shorthair · Oct 2019</div>
+              <div class="prof-chips">
+                <span class="prof-chip">Heart Condition</span>
+                <span class="prof-chip">Atenolol</span>
+                <span class="prof-chip">Clopidogrel</span>
+              </div>
+              <div class="prof-rows">
+                <div class="prof-row"><span class="pr-lbl">Cardiologist</span><span class="pr-val">Dr. Sharma</span></div>
+                <div class="prof-row"><span class="pr-lbl">Next scan</span><span class="pr-val">October 2026</span></div>
+                <div class="prof-row"><span class="pr-lbl">Blood tests</span><span class="pr-val">3-monthly</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-glow"></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══ MARQUEE ═══ -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Smart Pet Profile</span><span class="dot">·</span>
+      <span>Medication Reminders</span><span class="dot">·</span>
+      <span>Weight & Vitals Log</span><span class="dot">·</span>
+      <span>Health Calendar</span><span class="dot">·</span>
+      <span>Holiday Carer's Pack</span><span class="dot">·</span>
+      <span>Smart Pet Profile</span><span class="dot">·</span>
+      <span>Medication Reminders</span><span class="dot">·</span>
+      <span>Weight & Vitals Log</span><span class="dot">·</span>
+      <span>Health Calendar</span><span class="dot">·</span>
+      <span>Holiday Carer's Pack</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- ═══ PROBLEM ═══ -->
+  <section id="problem">
+    <!-- floating chaos items — visual metaphor for "everything in your head" -->
+    <div class="problem-chaos" aria-hidden="true">
+      <div class="chaos-item ci-1">💊 Atenolol · 6.25mg · 8am</div>
+      <div class="chaos-item ci-2">📅 Blood test — Sept 2026</div>
+      <div class="chaos-item ci-3">🩺 Dr. Sharma · 07700 000 000</div>
+      <div class="chaos-item ci-4">💊 Furosemide · 1mg · 6pm</div>
+      <div class="chaos-item ci-5">❗ Empty stomach before Pimobendan</div>
+      <div class="chaos-item ci-6">📋 Annual scan — Oct 2026</div>
+      <div class="chaos-item ci-7">🚨 Emergency: Animal Hospital</div>
+      <div class="chaos-item ci-8">💊 Clopidogrel · 18.75mg</div>
+      <div class="chaos-item ci-9">📞 Cardiology referral needed</div>
+    </div>
+    <div class="problem-inner">
+      <div class="problem-label rv">The problem</div>
+      <p class="problem-q rv" style="transition-delay:.1s">
+        Your pet can't tell you<br>when something is wrong.<br>
+        <em>Every detail has to live in your head.</em>
+      </p>
+      <div class="problem-divider rv" style="transition-delay:.2s"></div>
+      <p class="problem-a rv" style="transition-delay:.28s">
+        Three different types of medications. An implant. A cardiologist's number. Blood tests every three months. An annual scan. An emergency contact list. Halo holds all of it, so you don't have to!
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURE 01: SMART PET PROFILE ═══ -->
+  <div class="feat-section">
+    <div class="feat-t rvl">
+      <div class="feat-n">01</div>
+      <h2>Smart Pet<br><em>Profile</em></h2>
+      <p>Photo, breed, diagnosis, specialist contacts, microchip — everything that matters about your pet, held in one shareable profile.</p>
+      <p>Not just for you. For every vet, carer, and specialist who needs to understand your pet at a glance.</p>
+    </div>
+    <div class="phone-wrap rvr">
+      <div class="iphone">
+        <div class="iphone-screen">
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div class="profile-s">
+            <div class="prof-avatar"><img src="images/IMG_4727.jpeg" alt="" /></div>
+            <div class="prof-name">Angel</div>
+            <div class="prof-breed">Domestic Shorthair · DOB 20 Oct 2019</div>
+            <div class="prof-chips">
+              <span class="prof-chip">Heart Condition</span>
+              <span class="prof-chip">Atenolol</span>
+              <span class="prof-chip">Clopidogrel</span>
+            </div>
+            <div class="prof-rows">
+              <div class="prof-row"><span class="pr-lbl">Microchip</span><span class="pr-val">9765 4321 001</span></div>
+              <div class="prof-row"><span class="pr-lbl">Cardiologist</span><span class="pr-val">Dr. Sharma</span></div>
+              <div class="prof-row"><span class="pr-lbl">Next scan</span><span class="pr-val">October 2026</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-divider-line"></div>
+
+  <!-- ═══ FEATURE 02: MEDICATION REMINDERS ═══ -->
+  <div class="feat-section flip">
+    <div class="feat-t rvr">
+      <div class="feat-n">02</div>
+      <h2>Medication<br><em>Reminders</em></h2>
+      <p>A precise daily schedule with tap-to-confirm logging. Every dose recorded, every window honoured.</p>
+      <p>For pets on multiple medications, one missed dose can matter. Halo makes sure it never happens.</p>
+    </div>
+    <div class="phone-wrap rvl">
+      <div class="iphone">
+        <div class="iphone-screen">
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div class="med-s">
+            <div class="med-date">Thursday, 19 June</div>
+            <div class="med-title-t">Medications</div>
+            <div class="med-list">
+              <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Atenolol</div><div class="md">6.25mg · 8:00am</div></div></div>
+              <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Clopidogrel</div><div class="md">18.75mg · 8:00am</div></div></div>
+              <div class="med-row"><div class="chk todo"></div><div><div class="mn">Furosemide</div><div class="md">1mg · 6:00pm</div></div></div>
+            </div>
+            <div class="med-prog-wrap">
+              <div class="med-prog-bar"><div class="med-prog-fill"></div></div>
+              <div class="med-prog-t">2 of 3 given today</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-divider-line"></div>
+
+  <!-- ═══ FEATURE 03: HEALTH CALENDAR ═══ -->
+  <div class="feat-section">
+    <div class="feat-t rvl">
+      <div class="feat-n">03</div>
+      <h2>Health<br><em>Calendar</em></h2>
+      <p>All upcoming appointments in one place — blood tests, specialist visits, annual checks — each with the vet's direct contact attached.</p>
+      <p>Reminders in advance, so nothing is ever missed and nothing lives in your head alone.</p>
+    </div>
+    <div class="phone-wrap rvr">
+      <div class="iphone">
+        <div class="iphone-screen">
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div class="cal-s">
+            <div class="cal-title-t">Appointments</div>
+            <div class="cal-sub">Upcoming · June 2026</div>
+            <div class="appt-list">
+              <div class="appt-item">
+                <div class="appt-name">Blood Test</div>
+                <div class="appt-detail">20 June 2026 · 9:00am</div>
+                <div class="appt-vet">Dr. Sharma · 07700 000 000</div>
+              </div>
+              <div class="appt-item upcoming">
+                <div class="appt-name">3-Monthly Blood Tests</div>
+                <div class="appt-detail">September 2026</div>
+                <div class="appt-vet">Cardiology team</div>
+              </div>
+              <div class="appt-item upcoming">
+                <div class="appt-name">Annual Cardiac Scan</div>
+                <div class="appt-detail">October 2026</div>
+                <div class="appt-vet">Referral to be booked</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-divider-line"></div>
+
+  <!-- ═══ FEATURE 04: WEIGHT & VITALS ═══ -->
+  <div class="feat-section flip">
+    <div class="feat-t rvr">
+      <div class="feat-n">04</div>
+      <h2>Weight &<br><em>Vitals Log</em></h2>
+      <p>Log breathing rate, weight, and other key metrics over time. Track trends with a simple chart — and have everything ready before every vet appointment.</p>
+      <p>Built-in 15-second breathing rate counter — the exact measurement cardiologists request.</p>
+      <span class="feat-tag">Only app with this feature</span>
+    </div>
+    <!-- Two phones side by side -->
+    <div class="phone-wrap rvl" style="gap:18px;align-items:flex-end">
+      <!-- Phone 1: Breathing Rate counter (matches actual app) -->
+      <div class="iphone sm" style="animation:phoneFloat 5s ease-in-out infinite;flex-shrink:0">
+        <div class="iphone-screen">
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div class="vit-s">
+            <div class="vit-title-t">Vitals</div>
+            <div class="vit-sub-t">Angel · June 2026</div>
+            <!-- breathing card -->
+            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:12px 12px 10px;margin-bottom:8px">
+              <div style="font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:#b0988a;margin-bottom:6px">Resting Breathing Rate</div>
+              <div style="font-size:8px;color:#8a8078;text-align:center;margin-bottom:8px">Count while your pet is fully relaxed or asleep</div>
+              <!-- tap circle -->
+              <div style="width:64px;height:64px;border-radius:50%;border:6px solid #e8e0d4;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 8px">
+                <div style="font-size:14px;font-weight:300;color:#3a3230;font-family:'Cormorant Garamond',serif">0:15</div>
+                <div style="font-size:6.5px;color:#b0988a;letter-spacing:.3px">tap to start</div>
+              </div>
+              <div style="font-size:7.5px;color:#8a8078;text-align:center;margin-bottom:8px">Tap the circle once for each breath you see</div>
+              <!-- ref ranges -->
+              <div style="display:flex;border-top:1px solid rgba(226,216,202,.4);padding-top:6px">
+                <div style="flex:1;text-align:center"><div style="font-size:8px;font-weight:600;color:#7a9a6a">≤30</div><div style="font-size:6px;color:#b0988a">Normal</div></div>
+                <div style="width:1px;background:rgba(226,216,202,.5)"></div>
+                <div style="flex:1;text-align:center"><div style="font-size:8px;font-weight:600;color:#c9897a">30–40</div><div style="font-size:6px;color:#b0988a">Monitor</div></div>
+                <div style="width:1px;background:rgba(226,216,202,.5)"></div>
+                <div style="flex:1;text-align:center"><div style="font-size:8px;font-weight:600;color:#c0534a">40+</div><div style="font-size:6px;color:#b0988a">Call vet</div></div>
+              </div>
+            </div>
+            <!-- recent readings -->
+            <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;margin:6px 0 4px">Recent Readings</div>
+            <div style="background:#fff;border-radius:8px;border:1px solid rgba(226,216,202,.55);padding:6px 10px">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(226,216,202,.3)">
+                <div style="display:flex;align-items:center;gap:4px"><div style="width:5px;height:5px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:8px;color:#5a5250">Today 8:04 AM</div></div>
+                <div style="display:flex;align-items:center;gap:4px"><div style="font-size:9px;font-weight:600;color:#3a3230">24 bpm</div><div style="font-size:6.5px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 5px">Normal</div></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0">
+                <div style="display:flex;align-items:center;gap:4px"><div style="width:5px;height:5px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:8px;color:#5a5250">Yesterday 8 PM</div></div>
+                <div style="display:flex;align-items:center;gap:4px"><div style="font-size:9px;font-weight:600;color:#3a3230">26 bpm</div><div style="font-size:6.5px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 5px">Normal</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Phone 2: Weight with log entries (matches actual app) -->
+      <div class="iphone sm" style="animation:phoneFloat 5.8s ease-in-out .6s infinite;flex-shrink:0;margin-bottom:24px">
+        <div class="iphone-screen">
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div class="vit-s">
+            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:12px">
+              <!-- header -->
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+                <div>
+                  <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a">Weight</div>
+                  <div style="font-size:20px;font-weight:300;color:#3a3230;line-height:1.1;font-family:'Cormorant Garamond',serif">4.2 <span style="font-size:10px;color:#b0988a">kg</span></div>
+                  <div style="font-size:7.5px;color:#7a9a6a">▲ 0.1 kg since last log · Stable</div>
+                </div>
+                <!-- kg/lbs toggle -->
+                <div style="display:flex;background:#f0ebe3;border-radius:6px;padding:2px">
+                  <div style="font-size:7px;font-weight:600;color:#3a3230;background:#fff;border-radius:4px;padding:2px 6px">kg</div>
+                  <div style="font-size:7px;color:#b0988a;padding:2px 6px">lbs</div>
+                </div>
+              </div>
+              <!-- line chart with data points -->
+              <svg viewBox="0 0 160 44" fill="none" style="width:100%;height:44px;margin-bottom:6px">
+                <defs><linearGradient id="vgw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c9897a" stop-opacity=".18"/><stop offset="100%" stop-color="#c9897a" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0,32 C24,30 48,34 72,30 C96,26 120,22 136,18 C148,15 156,16 160,15 L160,44 L0,44 Z" fill="url(#vgw2)"/>
+                <path d="M0,32 C24,30 48,34 72,30 C96,26 120,22 136,18 C148,15 156,16 160,15" stroke="#c9897a" stroke-width="1.4" stroke-linecap="round"/>
+                <circle cx="0"   cy="32" r="2.5" fill="#c9897a" fill-opacity=".5"/>
+                <circle cx="72"  cy="30" r="2.5" fill="#c9897a" fill-opacity=".5"/>
+                <circle cx="120" cy="22" r="2.5" fill="#c9897a" fill-opacity=".5"/>
+                <circle cx="160" cy="15" r="3.5" fill="#c9897a"/>
+              </svg>
+              <!-- log entries -->
+              <div style="border-top:1px solid rgba(226,216,202,.4);padding-top:6px;display:flex;flex-direction:column;gap:0">
+                <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(226,216,202,.3)"><span style="font-size:8px;color:#8a8078">20 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.2 kg</span></div>
+                <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(226,216,202,.3)"><span style="font-size:8px;color:#8a8078">16 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.1 kg</span></div>
+                <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(226,216,202,.3)"><span style="font-size:8px;color:#8a8078">9 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.1 kg</span></div>
+                <div style="display:flex;justify-content:space-between;padding:3px 0"><span style="font-size:8px;color:#8a8078">2 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.0 kg</span></div>
+              </div>
+              <!-- log button -->
+              <div style="background:#f5eee8;border-radius:7px;padding:7px;text-align:center;margin-top:8px;border:1px solid rgba(201,137,122,.25)">
+                <span style="font-size:7.5px;font-weight:600;color:#c9897a;letter-spacing:1.2px">+ LOG WEIGHT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-divider-line"></div>
+
+  <!-- ═══ FEATURE 05: CARER'S PACK ═══ -->
+  <div class="feat-section">
+    <div class="feat-t rvl">
+      <div class="feat-n">05</div>
+      <h2>Holiday<br><em>Carer's Pack</em></h2>
+      <p>One tap. A complete care guide — medications, vet contacts, emergency numbers, daily routine — sent via WhatsApp or email in seconds.</p>
+      <p>So you can travel knowing whoever is caring for your pet has everything they need to do it exactly as you would.</p>
+      <span class="feat-tag">Our favourite</span>
+    </div>
+    <div class="phone-wrap rvr">
+      <div class="iphone">
+        <div class="iphone-screen">
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
+          <!-- Carer's Pack background (blurred) -->
+          <div class="pack-s" style="filter:blur(1.5px);opacity:.5">
+            <div class="pack-title-t">Carer's Pack</div>
+            <div class="pack-sub-t">Angel · share with your carer</div>
+            <div style="font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin:8px 0 6px">MORNING — 8:00 AM</div>
+            <div style="background:#fff;border-radius:8px;border:1px solid rgba(226,216,202,.55);padding:10px 12px;margin-bottom:7px">
+              <div style="font-size:11px;font-weight:500;color:var(--dark)">Pimobendan <span style="float:right;color:var(--rose);font-size:10px">1.25 mg</span></div>
+              <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Give 30–60 min before food on empty stomach</div>
+            </div>
+            <div style="background:#fff;border-radius:8px;border:1px solid rgba(226,216,202,.55);padding:10px 12px">
+              <div style="font-size:11px;font-weight:500;color:var(--dark)">Furosemide <span style="float:right;color:var(--mid);font-size:10px">10 mg</span></div>
+              <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Watch for increased thirst</div>
+            </div>
+          </div>
+          <!-- Share sheet overlay (matches actual app) -->
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="background:rgba(0,0,0,.18);flex:1;border-radius:46px 46px 0 0"></div>
+            <div style="background:#fdfaf6;border-radius:22px 22px 0 0;padding:14px 14px 20px">
+              <!-- handle -->
+              <div style="width:28px;height:3px;background:rgba(58,50,48,.2);border-radius:2px;margin:0 auto 12px"></div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--dark);margin-bottom:3px">Share Care Guide</div>
+              <div style="font-size:9px;color:var(--mid);margin-bottom:12px;line-height:1.5">Angel's full care guide — medications, contacts &amp; feeding — ready to send.</div>
+              <!-- WhatsApp -->
+              <div style="display:flex;align-items:center;gap:8px;background:#e8f5ed;border-radius:10px;padding:9px 11px;margin-bottom:6px">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.546 4.085 1.502 5.81L.057 23.386a.5.5 0 0 0 .614.614l5.576-1.445A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.656-.523-5.164-1.43l-.369-.22-3.821.99.997-3.76-.24-.388A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                <span style="font-size:10px;font-weight:500;color:#2d7a4a;flex:1">WhatsApp</span>
+                <span style="font-size:9px;color:#7a9a6a">›</span>
+              </div>
+              <!-- Email -->
+              <div style="display:flex;align-items:center;gap:8px;background:#f5f0e8;border-radius:10px;padding:9px 11px;margin-bottom:6px">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7a7068" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><polyline points="3,4 12,13 21,4"/></svg>
+                <span style="font-size:10px;color:#5a5250;flex:1">Email</span>
+                <span style="font-size:9px;color:#b0988a">›</span>
+              </div>
+              <!-- Save as PDF -->
+              <div style="display:flex;align-items:center;gap:8px;background:#f5f0e8;border-radius:10px;padding:9px 11px;margin-bottom:10px">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7a7068" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                <span style="font-size:10px;color:#5a5250;flex:1">Save as PDF</span>
+                <span style="font-size:9px;color:#b0988a">›</span>
+              </div>
+              <!-- QR label + code -->
+              <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;text-align:center;margin-bottom:7px">Or scan to open on another device</div>
+              <svg width="54" height="54" viewBox="0 0 54 54" style="display:block;margin:0 auto">
+                <rect width="54" height="54" fill="#fdfaf6" rx="4"/>
+                <g fill="#3a3230">
+                  <rect x="4" y="4" width="16" height="16" rx="1.5" fill="none" stroke="#3a3230" stroke-width="2"/>
+                  <rect x="8" y="8" width="8" height="8" rx=".5"/>
+                  <rect x="34" y="4" width="16" height="16" rx="1.5" fill="none" stroke="#3a3230" stroke-width="2"/>
+                  <rect x="38" y="8" width="8" height="8" rx=".5"/>
+                  <rect x="4" y="34" width="16" height="16" rx="1.5" fill="none" stroke="#3a3230" stroke-width="2"/>
+                  <rect x="8" y="38" width="8" height="8" rx=".5"/>
+                  <rect x="24" y="4" width="3" height="3"/><rect x="28" y="4" width="3" height="3"/>
+                  <rect x="24" y="8" width="3" height="6"/><rect x="28" y="10" width="3" height="3"/>
+                  <rect x="24" y="24" width="3" height="3"/><rect x="28" y="24" width="6" height="3"/>
+                  <rect x="24" y="28" width="6" height="3"/><rect x="31" y="28" width="3" height="6"/>
+                  <rect x="34" y="24" width="8" height="3"/><rect x="44" y="24" width="3" height="3"/>
+                  <rect x="34" y="28" width="3" height="3"/><rect x="38" y="28" width="6" height="3"/>
+                  <rect x="4" y="24" width="3" height="3"/><rect x="8" y="24" width="3" height="3"/>
+                  <rect x="4" y="28" width="6" height="3"/><rect x="12" y="28" width="8" height="3"/>
+                  <rect x="34" y="34" width="6" height="3"/><rect x="42" y="34" width="5" height="3"/>
+                  <rect x="36" y="38" width="3" height="5"/><rect x="41" y="38" width="6" height="3"/>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="testimonials">
+    <div class="test-head">
+      <span class="label" style="display:block;margin-bottom:12px">Early feedback</span>
+      <h2 class="rv">What pet owners are<br><em>waiting for.</em></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card rv">
+        <p class="test-q">Finally, everything about Mochi in one place. I've been using a notes app and three different reminders for years. This is exactly what I needed.</p>
+        <div class="test-footer">
+          <span class="test-name">Sarah M.</span>
+          <span class="test-pet">Maine Coon, 4 years old</span>
+        </div>
+      </div>
+      <div class="test-card rv" style="transition-delay:.1s">
+        <p class="test-q">The carer's pack is the feature I didn't know I needed until I saw it. I've cancelled trips before because I couldn't explain Bruno's routine to anyone in time.</p>
+        <div class="test-footer">
+          <span class="test-name">Emma R.</span>
+          <span class="test-pet">Labrador, 7 years old</span>
+        </div>
+      </div>
+      <div class="test-card rv" style="transition-delay:.2s">
+        <p class="test-q">My vet asked me to log Biscuit's breathing rate weekly and I never remembered. Knowing there's an app that counts for me changes everything.</p>
+        <div class="test-footer">
+          <span class="test-name">James T.</span>
+          <span class="test-pet">French Bulldog, 5 years old</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STORY BRIDGE ═══ -->
+  <section id="story-bridge">
+    <div class="story-bridge-img rvl" id="bridge-img">
+      <img src="images/IMG_6286.PNG" alt="Jehane with Angel" id="bridge-photo" />
+      <div class="bridge-img-overlay"></div>
+      <div class="bridge-img-caption">Jehane &amp; Angel — the reason Halo exists.</div>
+    </div>
+    <div class="story-bridge-txt rvr">
+      <span class="label">Behind Halo</span>
+      <h2>Born from love.<br><em>Built from necessity.</em></h2>
+      <p>Halo began with Angel — a pet who defied every prognosis — and the realisation that no app existed that could hold everything her care required.</p>
+      <p>Three heart conditions. Three daily medications. Blood tests every three months. An annual cardiac scan. And a vet's prognosis that gave her two weeks, two months, or two years.</p>
+      <p>That was six years ago. Angel is still here.</p>
+      <a href="about.html" class="link-arrow">Read Angel's story</a>
+    </div>
+  </section>
+
+  <!-- ═══ BOTTOM CTA ═══ -->
+  <section id="cta-bottom">
+    <div class="cta-halo rv">
+      <div class="halo-anim">
+        <div class="halo-outer" style="margin:0 auto"></div>
+        <div class="halo-inner"></div>
+      </div>
+    </div>
+    <h2 class="rv" style="transition-delay:.1s">Halo is <em>coming.</em><br>Be the first to know.</h2>
+    <div class="rv" style="transition-delay:.28s">
+      <form class="form-row" onsubmit="onSubmit(event,'b-ok')">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Join Waitlist</button>
+      </form>
+      <p class="form-success" id="b-ok"></p>
+      <p class="form-note" style="text-align:center">haloapp.co.uk</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="foot-logo">HALO</span>
+    <div class="foot-links">
+      <a href="about.html">Our Story</a>
+      <a href="mailto:hello@haloapp.co.uk">Contact</a>
+    </div>
+    <div class="foot-r">
+      <div>© 2026 Halo. All rights reserved.</div>
+      <div><a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const glow=document.getElementById('glow');
+    let gx=innerWidth/2,gy=innerHeight/2,cx=gx,cy=gy;
+    document.addEventListener('mousemove',e=>{gx=e.clientX;gy=e.clientY;});
+    (function animGlow(){cx+=(gx-cx)*.07;cy+=(gy-cy)*.07;glow.style.left=cx+'px';glow.style.top=cy+'px';requestAnimationFrame(animGlow);})();
+    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>glow.classList.add('on-link'));el.addEventListener('mouseleave',()=>glow.classList.remove('on-link'));});
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+    const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:0.12});
+    document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
+    function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
+  </script>
+</body>
+</html>

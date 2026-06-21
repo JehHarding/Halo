@@ -1,0 +1,207 @@
+/* ─── HALO SHARED STYLES ──────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #fdfaf6;
+  --linen:   #f4efe6;
+  --sand:    #ede5d8;
+  --border:  #e2d8ca;
+  --light:   #cbbaa6;
+  --mid:     #a89278;
+  --dark:    #3a3230;
+  --ink:     #1a1618;
+  --rose:    #c9897a;
+  --rose-l:  #e8c4bb;
+  --rose-ll: #f7ede8;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--dark);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── CURSOR (glow blob + visible pointer) ─── */
+#glow {
+  position: fixed;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle, rgba(201,137,122,.16) 0%, rgba(201,137,122,.06) 40%, transparent 70%);
+  transition: width .55s ease, height .55s ease, opacity .4s ease;
+  mix-blend-mode: multiply;
+  will-change: left, top;
+}
+#glow.on-link { width: 280px; height: 280px; }
+
+/* ─── AMBIENT DAPPLED LIGHT ───────────────────── */
+.ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; filter: blur(90px); will-change: transform; }
+.blob-1 { width:700px;height:500px;background:rgba(201,137,122,.12);top:-100px;left:-200px;animation:drift1 22s ease-in-out infinite; }
+.blob-2 { width:500px;height:600px;background:rgba(232,196,187,.09);top:20%;right:-180px;animation:drift2 28s ease-in-out infinite; }
+.blob-3 { width:800px;height:400px;background:rgba(237,229,216,.16);bottom:0;left:10%;animation:drift3 20s ease-in-out infinite; }
+.blob-4 { width:400px;height:400px;background:rgba(196,164,110,.07);top:55%;left:40%;animation:drift4 25s ease-in-out infinite; }
+.blob-5 { width:350px;height:550px;background:rgba(201,137,122,.06);bottom:20%;right:5%;animation:drift5 32s ease-in-out infinite; }
+
+@keyframes drift1 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(60px,50px) scale(1.08)} }
+@keyframes drift2 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-50px,70px) scale(.92)} }
+@keyframes drift3 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(40px,-40px) scale(1.06)} }
+@keyframes drift4 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-70px,-30px) scale(1.1)} }
+@keyframes drift5 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,60px) scale(.95)} }
+
+/* ─── NAV ─────────────────────────────────────── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 60px;
+  transition: background .4s, padding .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(253,250,246,.92);
+  backdrop-filter: blur(18px);
+  padding: 14px 60px;
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; letter-spacing: 7px; font-weight: 400;
+  color: var(--dark); text-decoration: none;
+}
+.nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+.nav-links a {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--mid); text-decoration: none; transition: color .2s;
+}
+.nav-links a:hover { color: var(--dark); }
+.nav-links a.active { color: var(--dark); }
+.nav-cta {
+  padding: 9px 20px;
+  background: var(--rose); color: var(--bg) !important;
+  border-radius: 2px;
+  transition: background .2s !important;
+}
+.nav-cta:hover { background: var(--dark) !important; color: var(--bg) !important; }
+
+/* ─── FOOTER ──────────────────────────────────── */
+footer {
+  background: var(--linen);
+  border-top: 1px solid var(--border);
+  padding: 44px 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative; z-index: 1;
+}
+.foot-logo { font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:6px; color:var(--light); }
+.foot-links { display:flex; gap:28px; }
+.foot-links a { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); text-decoration:none; transition:color .2s; }
+.foot-links a:hover { color:var(--rose); }
+.foot-r { font-size:10px; color:var(--light); line-height:1.9; text-align:right; }
+.foot-r a { color:var(--light); text-decoration:none; transition:color .2s; }
+.foot-r a:hover { color:var(--rose); }
+
+/* ─── SHARED TYPOGRAPHY ───────────────────────── */
+.label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--rose); display:block; margin-bottom:14px; }
+.label.lt { color:rgba(232,196,187,.55); }
+.sec-title { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,4vw,56px); font-weight:300; line-height:1.1; letter-spacing:.3px; }
+.sec-title em { font-style:italic; color:var(--rose); }
+.pull-q { font-family:'Cormorant Garamond',serif; font-size:clamp(18px,2vw,24px); font-style:italic; font-weight:300; color:var(--rose); padding:20px 0 20px 20px; border-left:2px solid var(--rose-l); line-height:1.5; margin:26px 0; }
+
+/* ─── HALO RING (concentric ovals, one unit) ─── */
+.halo-anim {
+  display: inline-block;
+  position: relative;
+  animation: haloFloat 3.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 14px rgba(201,137,122,.35));
+}
+.halo-outer {
+  border: 1.5px solid var(--rose);
+  border-radius: 50%;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+.halo-inner {
+  border: 1px solid rgba(201,137,122,.32);
+  border-radius: 50%;
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+@keyframes haloFloat { 0%,100%{transform:translateY(0) scaleX(1)} 50%{transform:translateY(-10px) scaleX(1.05)} }
+
+/* ─── FORM ────────────────────────────────────── */
+.form-row { display:flex; }
+.form-row input {
+  flex:1; padding:14px 18px;
+  border:1px solid var(--border); border-right:none;
+  background:rgba(255,255,255,.7); backdrop-filter:blur(8px);
+  font-family:'Inter',sans-serif; font-size:12px; color:var(--dark);
+  outline:none; border-radius:2px 0 0 2px; transition:border-color .2s;
+}
+.form-row input:focus { border-color:var(--rose-l); }
+.form-row input::placeholder { color:var(--light); }
+.form-row button {
+  padding:14px 22px; background:var(--rose); color:var(--bg);
+  border:1px solid var(--rose); font-family:'Inter',sans-serif;
+  font-size:9px; letter-spacing:2.5px; text-transform:uppercase;
+  border-radius:0 2px 2px 0; transition:background .25s, border-color .25s; white-space:nowrap;
+}
+.form-row button:hover { background:var(--dark); border-color:var(--dark); }
+.form-note { font-size:10px; color:var(--light); margin-top:10px; }
+.form-success { font-size:12px; color:var(--rose); min-height:18px; margin-top:8px; }
+
+/* ─── MARQUEE — soft linen curtain ───────────── */
+.marquee-wrap {
+  overflow: hidden;
+  background: linear-gradient(to right, var(--linen), rgba(244,239,230,.6), var(--linen));
+  padding: 16px 0;
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+/* soft veil sweeping over */
+.marquee-wrap::before, .marquee-wrap::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.marquee-wrap::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+.marquee-track { display:flex; width:max-content; animation:marquee 35s linear infinite; }
+.marquee-track span { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--mid); padding:0 32px; white-space:nowrap; }
+.marquee-track span.dot { color:var(--rose-l); padding:0 10px; letter-spacing:0; font-size:8px; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ─── REVEAL ──────────────────────────────────── */
+.rv  { opacity:0; transform:translateY(26px); transition:opacity .85s ease,transform .85s ease; }
+.rvl { opacity:0; transform:translateX(-32px); transition:opacity .9s ease,transform .9s ease; }
+.rvr { opacity:0; transform:translateX(32px);  transition:opacity .9s ease,transform .9s ease; }
+.rv.on, .rvl.on, .rvr.on { opacity:1; transform:translate(0); }
+
+/* ─── LINK ARROW ──────────────────────────────── */
+.link-arrow { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--rose); text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:gap .2s; }
+.link-arrow:hover { gap:14px; }
+.link-arrow::after { content:'→'; }
+
+/* ─── PAGE HERO ───────────────────────────────── */
+.page-hero { padding:160px 60px 80px; text-align:center; position:relative; z-index:1; }
+.page-hero .sec-title { font-size:clamp(42px,5.5vw,74px); margin-bottom:16px; }
+.page-hero p { font-size:14px; color:var(--mid); max-width:520px; margin:0 auto; line-height:1.95; }
+
+/* ─── RESPONSIVE ──────────────────────────────── */
+@media(max-width:960px){
+  #glow { display:none; }
+  nav { padding:16px 24px; }
+  nav.scrolled { padding:12px 24px; }
+  .nav-links li:not(:last-child) { display:none; }
+  footer { flex-direction:column; gap:18px; padding:32px 24px; text-align:center; }
+  .foot-links { justify-content:center; flex-wrap:wrap; gap:16px; }
+  .foot-r { text-align:center; }
+  .page-hero { padding:110px 24px 60px; }
+}
