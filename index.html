@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halo, Pet health beautifully kept</title>
-  <meta name="description" content="Halo keeps your pet's medications, vitals, appointments and carer's pack in one beautiful place. Coming soon." />
+  <title>Halo, Pet health kept</title>
+  <meta name="description" content="Halo keeps your pet's medications, vitals, appointments and carer's pack in one place. Coming soon." />
+  <meta property="og:title" content="Halo, Pet health kept" />
+  <meta property="og:description" content="Because they can't remind you. Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><ellipse cx='16' cy='16' rx='14' ry='5' fill='none' stroke='%23c9897a' stroke-width='2'/><ellipse cx='16' cy='16' rx='9' ry='3' fill='none' stroke='%23e8c4bb' stroke-width='1.2'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -402,7 +407,10 @@
       border: 1px solid var(--border);
       border-radius: 4px; padding: 40px 36px;
       transition: transform .3s ease, box-shadow .3s ease;
+      display: flex; flex-direction: column;
     }
+    .test-q { flex: 1; }
+    .test-footer { margin-top: auto; padding-top: 24px; }
     .test-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 60px rgba(0,0,0,.07);
@@ -522,9 +530,9 @@
   <!-- NAV -->
   <nav id="nav">
     <a class="nav-logo" href="index.html">
-      <span class="nav-halo-anim">
-        <span class="halo-outer" style="width:36px;height:6px"></span>
-        <span class="halo-inner" style="width:24px;height:4px"></span>
+      <span class="halo-anim" style="width:38px;height:7px;display:inline-block;position:relative;margin-bottom:2px">
+        <span class="halo-outer" style="width:38px;height:7px"></span>
+        <span class="halo-inner" style="width:25px;height:4px"></span>
       </span>
       <span style="font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:5px;font-weight:400;color:var(--dark)">HALO</span>
     </a>
@@ -546,7 +554,7 @@
       For the ones<br>who <em>can't</em><br>tell you.
     </h1>
     <p class="hero-tagline rv" style="transition-delay:.28s">
-      Everything your pet's health requires, medications, vitals, vet contacts, and a carer's guide, in one calm, beautiful place.
+      Because they can't remind you. Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed.
     </p>
     <div class="hero-form rv" style="transition-delay:.38s">
       <form class="form-row" onsubmit="onSubmit(event,'h-ok')">
@@ -581,7 +589,7 @@
           <div class="iphone-screen">
             <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
             <div class="profile-s">
-              <div class="prof-avatar"><img src="images/IMG_4727.jpeg" alt="" /></div>
+              <div class="prof-avatar"><img src="images/home/IMG_Angel_avatar.jpeg" alt="" /></div>
               <div class="prof-name">Angel</div>
               <div class="prof-breed">Domestic Shorthair · Oct 2019</div>
               <div class="prof-chips">
@@ -635,7 +643,6 @@
       <div class="chaos-item ci-6">📋 Annual scan, Oct 2026</div>
       <div class="chaos-item ci-7">🚨 Emergency: Animal Hospital</div>
       <div class="chaos-item ci-8">💊 Clopidogrel · 18.75mg</div>
-      <div class="chaos-item ci-9">📞 Cardiology referral needed</div>
     </div>
     <div class="problem-inner">
       <div class="problem-label rv">The problem</div>
@@ -645,7 +652,7 @@
       </p>
       <div class="problem-divider rv" style="transition-delay:.2s"></div>
       <p class="problem-a rv" style="transition-delay:.28s">
-        Three different types of medications. An implant. A cardiologist's number. Blood tests every three months. An annual scan. An emergency contact list. Halo holds all of it, so you don't have to!
+        Three medications, a cardiologist's number, an implant, quarterly blood tests, an annual scan, an emergency contact list. It's a lot to carry. Let Halo carry it for you.
       </p>
     </div>
   </section>
@@ -655,8 +662,7 @@
     <div class="feat-t rvl">
       <div class="feat-n">01</div>
       <h2>Smart Pet<br><em>Profile</em></h2>
-      <p>Photo, breed, diagnosis, specialist contacts, microchip, everything that matters about your pet, held in one shareable profile.</p>
-      <p>Not just for you. For every vet, carer, and specialist who needs to understand your pet at a glance.</p>
+      <p>Stop re-explaining your pet's history at every appointment. Halo keeps their profile complete, shareable, and always up to date, for every vet, carer, and specialist who needs it at a glance.</p>
     </div>
     <div class="phone-wrap rvr" style="animation:phoneFloat 5.2s ease-in-out infinite">
       <div class="iphone">
@@ -666,7 +672,7 @@
             <!-- Avatar row -->
             <div style="display:flex;justify-content:flex-end;align-items:center;gap:7px;margin-bottom:10px">
               <div style="position:relative">
-                <img src="images/IMG_4727.jpeg" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid #e8c4bb;display:block"/>
+                <img src="images/home/IMG_Angel_avatar.jpeg" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid #e8c4bb;display:block"/>
                 <div style="position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:#4caf50;border:1.5px solid #fdfaf6"></div>
               </div>
               <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid #e2d8ca;display:flex;align-items:center;justify-content:center;color:#b0988a;font-size:16px;line-height:1">+</div>
@@ -734,8 +740,7 @@
     <div class="feat-t rvr">
       <div class="feat-n">02</div>
       <h2>Medication<br><em>Reminders</em></h2>
-      <p>A precise daily schedule with tap-to-confirm logging. Every dose recorded, every window honoured.</p>
-      <p>For pets on multiple medications, one missed dose can matter. Halo makes sure it never happens.</p>
+      <p>For pets on multiple medications, timing is everything. Halo gives you a precise daily schedule, tap-to-confirm logging and a full record of every dose, so nothing slips or gets forgotten.</p>
     </div>
     <div class="phone-wrap rvl" style="animation:phoneFloat 5.5s ease-in-out .3s infinite">
       <div class="iphone">
@@ -832,8 +837,7 @@
     <div class="feat-t rvl">
       <div class="feat-n">03</div>
       <h2>Health<br><em>Calendar</em></h2>
-      <p>All upcoming appointments in one place, blood tests, specialist visits, annual checks, each with the vet's direct contact attached.</p>
-      <p>Reminders in advance, so nothing is ever missed and nothing lives in your head alone.</p>
+      <p>Every appointment, every contact, every reminder. All in one place. Because forgetting a blood test isn't an option.</p>
     </div>
     <div class="phone-wrap rvr" style="animation:phoneFloat 5.3s ease-in-out .5s infinite">
       <div class="iphone">
@@ -924,93 +928,72 @@
     <div class="feat-t rvr">
       <div class="feat-n">04</div>
       <h2>Vital<br><em>Log</em></h2>
-      <p>Log breathing rate, weight, and other key metrics over time. Track trends with a simple chart, and have everything ready before every vet appointment.</p>
-      <p>Built-in 15-second breathing rate counter, the exact measurement cardiologists request.</p>
+      <p>Breathing rate, weight, key metrics, all logged and charted over time. With a built-in 15-second counter, the exact method specialists ask for, so you walk into every appointment with the data that matters.</p>
       <span class="feat-tag">Only app with this feature</span>
     </div>
-    <!-- Two phones side by side -->
-    <div class="phone-wrap rvl" style="gap:16px;align-items:flex-end">
-      <!-- Phone 1: Breathing Rate counter (matches actual app) -->
-      <div class="iphone sm" style="width:230px;border-radius:38px;animation:phoneFloat 5s ease-in-out infinite;flex-shrink:0">
+    <div class="phone-wrap rvl" style="animation:phoneFloat 5s ease-in-out infinite">
+      <div class="iphone">
         <div class="iphone-screen">
-          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-          <div class="vit-s">
-            <div class="vit-title-t">Vitals</div>
-            <div class="vit-sub-t">Angel · June 2026</div>
-            <!-- breathing card -->
-            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:12px 12px 10px;margin-bottom:8px">
-              <div style="font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:#b0988a;margin-bottom:6px">Resting Breathing Rate</div>
-              <div style="font-size:8px;color:#8a8078;text-align:center;margin-bottom:8px">Count while your pet is fully relaxed or asleep</div>
+          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">··· ▲▲▲</span><div class="sb-pill"></div></div></div>
+          <div style="padding:0 16px 16px">
+            <!-- Header -->
+            <div style="margin-bottom:14px">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#3a3230;line-height:1.1">Vitals</div>
+              <div style="font-size:9px;color:#b0988a;margin-top:2px">Angel · June 2026</div>
+            </div>
+            <!-- Breathing card -->
+            <div style="background:#fff;border-radius:12px;border:1px solid rgba(226,216,202,.55);padding:14px 14px 12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;color:#b0988a;margin-bottom:6px">Resting Breathing Rate</div>
+              <div style="font-size:9px;color:#8a8078;text-align:center;margin-bottom:12px">Count while your pet is fully relaxed or asleep</div>
               <!-- tap circle -->
-              <div style="width:64px;height:64px;border-radius:50%;border:6px solid #e8e0d4;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 8px">
-                <div style="font-size:14px;font-weight:300;color:#3a3230;font-family:'Cormorant Garamond',serif">0:15</div>
-                <div style="font-size:6.5px;color:#b0988a;letter-spacing:.3px">tap to start</div>
+              <div style="width:90px;height:90px;border-radius:50%;border:10px solid #ede5db;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 10px;box-shadow:0 0 0 14px rgba(237,229,219,.25)">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">0:15</div>
+                <div style="font-size:7px;color:#b0988a;letter-spacing:.3px;margin-top:2px">tap to start</div>
               </div>
-              <div style="font-size:7.5px;color:#8a8078;text-align:center;margin-bottom:8px">Tap the circle once for each breath you see</div>
+              <div style="font-size:8px;color:#8a8078;text-align:center;margin-bottom:10px">Tap the circle once for each breath you see</div>
               <!-- ref ranges -->
-              <div style="display:flex;border-top:1px solid rgba(226,216,202,.4);padding-top:6px">
-                <div style="flex:1;text-align:center"><div style="font-size:8px;font-weight:600;color:#7a9a6a">≤30</div><div style="font-size:6px;color:#b0988a">Normal</div></div>
+              <div style="display:flex;border-top:1px solid rgba(226,216,202,.4);padding-top:8px">
+                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#7a9a6a">≤30</div><div style="font-size:7px;color:#b0988a">Normal</div></div>
                 <div style="width:1px;background:rgba(226,216,202,.5)"></div>
-                <div style="flex:1;text-align:center"><div style="font-size:8px;font-weight:600;color:#c9897a">30–40</div><div style="font-size:6px;color:#b0988a">Monitor</div></div>
+                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#c9897a">30–40</div><div style="font-size:7px;color:#b0988a">Monitor</div></div>
                 <div style="width:1px;background:rgba(226,216,202,.5)"></div>
-                <div style="flex:1;text-align:center"><div style="font-size:8px;font-weight:600;color:#c0534a">40+</div><div style="font-size:6px;color:#b0988a">Call vet</div></div>
+                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#c0534a">40+</div><div style="font-size:7px;color:#b0988a">Call vet</div></div>
               </div>
             </div>
-            <!-- recent readings -->
-            <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;margin:6px 0 4px">Recent Readings</div>
-            <div style="background:#fff;border-radius:8px;border:1px solid rgba(226,216,202,.55);padding:6px 10px">
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(226,216,202,.3)">
-                <div style="display:flex;align-items:center;gap:4px"><div style="width:5px;height:5px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:8px;color:#5a5250">Today 8:04 AM</div></div>
-                <div style="display:flex;align-items:center;gap:4px"><div style="font-size:9px;font-weight:600;color:#3a3230">24 bpm</div><div style="font-size:6.5px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 5px">Normal</div></div>
+            <!-- Recent readings -->
+            <div style="font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;margin-bottom:6px">Recent Readings</div>
+            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,216,202,.3)">
+                <div style="display:flex;align-items:center;gap:6px"><div style="width:6px;height:6px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:9px;color:#5a5250">Today 8:04 AM</div></div>
+                <div style="display:flex;align-items:center;gap:5px"><div style="font-size:10px;font-weight:600;color:#3a3230">24 bpm</div><div style="font-size:7px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 6px">Normal</div></div>
               </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0">
-                <div style="display:flex;align-items:center;gap:4px"><div style="width:5px;height:5px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:8px;color:#5a5250">Yesterday 8 PM</div></div>
-                <div style="display:flex;align-items:center;gap:4px"><div style="font-size:9px;font-weight:600;color:#3a3230">26 bpm</div><div style="font-size:6.5px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 5px">Normal</div></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0">
+                <div style="display:flex;align-items:center;gap:6px"><div style="width:6px;height:6px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:9px;color:#5a5250">Yesterday 8 PM</div></div>
+                <div style="display:flex;align-items:center;gap:5px"><div style="font-size:10px;font-weight:600;color:#3a3230">26 bpm</div><div style="font-size:7px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 6px">Normal</div></div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Phone 2: Weight with log entries (matches actual app) -->
-      <div class="iphone sm" style="width:230px;border-radius:38px;animation:phoneFloat 5.8s ease-in-out .6s infinite;flex-shrink:0;margin-bottom:24px">
-        <div class="iphone-screen">
-          <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-          <div class="vit-s">
-            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:12px">
-              <!-- header -->
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
-                <div>
-                  <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a">Weight</div>
-                  <div style="font-size:20px;font-weight:300;color:#3a3230;line-height:1.1;font-family:'Cormorant Garamond',serif">4.2 <span style="font-size:10px;color:#b0988a">kg</span></div>
-                  <div style="font-size:7.5px;color:#7a9a6a">▲ 0.1 kg since last log · Stable</div>
-                </div>
-                <!-- kg/lbs toggle -->
-                <div style="display:flex;background:#f0ebe3;border-radius:6px;padding:2px">
-                  <div style="font-size:7px;font-weight:600;color:#3a3230;background:#fff;border-radius:4px;padding:2px 6px">kg</div>
-                  <div style="font-size:7px;color:#b0988a;padding:2px 6px">lbs</div>
-                </div>
-              </div>
-              <!-- line chart with data points -->
-              <svg viewBox="0 0 160 44" fill="none" style="width:100%;height:44px;margin-bottom:6px">
-                <defs><linearGradient id="vgw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c9897a" stop-opacity=".18"/><stop offset="100%" stop-color="#c9897a" stop-opacity="0"/></linearGradient></defs>
-                <path d="M0,32 C24,30 48,34 72,30 C96,26 120,22 136,18 C148,15 156,16 160,15 L160,44 L0,44 Z" fill="url(#vgw2)"/>
-                <path d="M0,32 C24,30 48,34 72,30 C96,26 120,22 136,18 C148,15 156,16 160,15" stroke="#c9897a" stroke-width="1.4" stroke-linecap="round"/>
-                <circle cx="0"   cy="32" r="2.5" fill="#c9897a" fill-opacity=".5"/>
-                <circle cx="72"  cy="30" r="2.5" fill="#c9897a" fill-opacity=".5"/>
-                <circle cx="120" cy="22" r="2.5" fill="#c9897a" fill-opacity=".5"/>
-                <circle cx="160" cy="15" r="3.5" fill="#c9897a"/>
-              </svg>
-              <!-- log entries -->
-              <div style="border-top:1px solid rgba(226,216,202,.4);padding-top:6px;display:flex;flex-direction:column;gap:0">
-                <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(226,216,202,.3)"><span style="font-size:8px;color:#8a8078">20 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.2 kg</span></div>
-                <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(226,216,202,.3)"><span style="font-size:8px;color:#8a8078">16 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.1 kg</span></div>
-                <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(226,216,202,.3)"><span style="font-size:8px;color:#8a8078">9 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.1 kg</span></div>
-                <div style="display:flex;justify-content:space-between;padding:3px 0"><span style="font-size:8px;color:#8a8078">2 Jun</span><span style="font-size:8px;font-weight:600;color:#3a3230">4.0 kg</span></div>
-              </div>
-              <!-- log button -->
-              <div style="background:#f5eee8;border-radius:7px;padding:7px;text-align:center;margin-top:8px;border:1px solid rgba(201,137,122,.25)">
-                <span style="font-size:7.5px;font-weight:600;color:#c9897a;letter-spacing:1.2px">+ LOG WEIGHT</span>
-              </div>
+          <!-- Tab bar -->
+          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
+              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg></div>
+              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Vitals</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
             </div>
           </div>
         </div>
@@ -1025,7 +1008,7 @@
     <div class="feat-t rvl">
       <div class="feat-n">05</div>
       <h2>Holiday<br><em>Carer's Pack</em></h2>
-      <p>One tap. A complete care guide, medications, vet contacts, emergency numbers, daily routine, sent via WhatsApp or email in seconds.</p>
+      <p>Going away shouldn't mean worrying the whole time. One tap sends your pet's complete care guide, medications, contacts, routine and emergency numbers to whoever is looking after them, so you can actually be present wherever you are.</p>
       <p>So you can travel knowing whoever is caring for your pet has everything they need to do it exactly as you would.</p>
       <span class="feat-tag">Our favourite</span>
     </div>
@@ -1117,61 +1100,199 @@
       <span class="label" style="display:block;margin-bottom:12px">Early feedback</span>
       <h2 class="rv">What pet owners are<br><em>waiting for.</em></h2>
     </div>
-    <div class="test-grid">
+    <div class="test-grid" style="grid-template-columns:repeat(3,1fr)">
       <div class="test-card rv">
-        <p class="test-q">Finally, everything about Mochi in one place. I've been using a notes app and three different reminders for years. This is exactly what I needed.</p>
+        <p class="test-q">My memory is terrible. I've shown up to vet appointments on the wrong day, forgotten to reorder medication, missed reminders I'd set myself. The idea of having everything in one place that actually keeps track for me isn't a nice-to-have. It's exactly what I need.</p>
         <div class="test-footer">
-          <span class="test-name">Sarah M.</span>
-          <span class="test-pet">Maine Coon, 4 years old</span>
+          <span class="test-name">Priya K.</span>
+          <span class="test-pet">Ragdoll, 3 years old</span>
         </div>
       </div>
       <div class="test-card rv" style="transition-delay:.1s">
-        <p class="test-q">The carer's pack is the feature I didn't know I needed until I saw it. I've cancelled trips before because I couldn't explain Bruno's routine to anyone in time.</p>
+        <p class="test-q">I've cancelled trips before because I couldn't explain Bruno's routine to anyone in time. The medications, the timings, the emergency contacts, it feels impossible to hand over. The anxiety of leaving him is real. Being able to share everything in one tap is going to change how I plan my life.</p>
         <div class="test-footer">
           <span class="test-name">Emma R.</span>
           <span class="test-pet">Labrador, 7 years old</span>
         </div>
       </div>
       <div class="test-card rv" style="transition-delay:.2s">
-        <p class="test-q">My vet asked me to log Biscuit's breathing rate weekly and I never remembered. Knowing there's an app that counts for me changes everything.</p>
+        <p class="test-q">My vet keeps asking me to log Biscuit's breathing rate at home. I never do, I forget, or I try to count and lose track. At least soon I won't have to show up embarrassed when they ask. Knowing the app does the counting for me is a relief already.</p>
         <div class="test-footer">
           <span class="test-name">James T.</span>
           <span class="test-pet">French Bulldog, 5 years old</span>
+        </div>
+      </div>
+      <div class="test-card rv" style="transition-delay:.3s">
+        <p class="test-q">I have three cats. Three different medications. Three different personalities who refuse to cooperate. I need Halo to keep me organised, and possibly sane.</p>
+        <div class="test-footer">
+          <span class="test-name">Sophie L.</span>
+          <span class="test-pet">Three very opinionated cats</span>
+        </div>
+      </div>
+      <div class="test-card rv" style="transition-delay:.4s">
+        <p class="test-q">Beau is 14 and his care list gets longer every year. The idea of having somewhere that holds all of it, his history, his routine, his contacts, so that whoever looks after him when I can't has everything they need, is the peace of mind I didn't know I was missing.</p>
+        <div class="test-footer">
+          <span class="test-name">Clare M.</span>
+          <span class="test-pet">Border Collie, 14 years old</span>
+        </div>
+      </div>
+      <div class="test-card rv" style="transition-delay:.5s">
+        <p class="test-q">My vet once described me as 'charmingly disorganised'. I'm hoping Halo is about to fix that.</p>
+        <div class="test-footer">
+          <span class="test-name">Mark T.</span>
+          <span class="test-pet">Dachshund, 4 years old</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ STORY BRIDGE ═══ -->
-  <section id="story-bridge" style="display:block;padding:80px 60px;max-width:1200px;margin:0 auto">
-    <div class="rv" style="text-align:center;margin-bottom:48px">
-      <span class="label" style="display:block;margin-bottom:10px">Behind Halo</span>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.15;color:var(--dark)">Born from love.<br><em style="font-style:italic;color:var(--rose)">Built from necessity.</em></h2>
-      <p style="font-size:14px;color:var(--mid);line-height:2;max-width:560px;margin:18px auto 0">Halo began with Angel, a cat with three simultaneous heart conditions and a prognosis that gave her two weeks, two months, or two years. She's still here.</p>
+  <section id="story-bridge" style="display:block;padding:80px 60px;max-width:1300px;margin:0 auto">
+    <style>
+      .angel-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+        height: 78vh;
+        min-height: 560px;
+        max-height: 780px;
+      }
+      .angel-grid .ap {
+        overflow: hidden;
+        border-radius: 14px;
+        transition: opacity .4s ease, transform .4s ease;
+      }
+      .angel-grid .ap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform .6s ease;
+      }
+      .angel-grid:hover .ap { opacity: 0.45; }
+      .angel-grid .ap:hover { opacity: 1 !important; transform: scale(1.02); }
+      .angel-grid .ap:hover img { transform: scale(1.06); }
+      .angel-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        grid-column: 2;
+        grid-row: 2;
+      }
+    </style>
+    <div class="angel-grid rv">
+      <!-- Row 1 -->
+      <div class="ap"><img src="images/home/IMG_5163.jpeg" alt="Angel" style="object-position:center 40%" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_2453.jpeg" alt="Angel" style="object-position:center center" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_4621.jpeg" alt="Angel" style="object-position:center 60%" loading="lazy" /></div>
+      <!-- Row 2: photo | text | photo -->
+      <div class="ap"><img src="images/home/IMG_3969.jpeg" alt="Angel" style="object-position:center 30%" loading="lazy" /></div>
+      <div class="angel-center">
+        <span class="label" style="margin-bottom:10px">Behind Halo</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.8vw,40px);font-weight:300;line-height:1.15;color:var(--dark);margin-bottom:14px"><em style="font-style:italic;color:var(--rose)">Angel</em> is the reason.</h2>
+        <p style="font-size:12px;color:var(--mid);line-height:1.9;margin-bottom:20px">Angel is the reason Halo exists. She was given two weeks, two months, or two years. That was seven years ago. Managing her care taught me that pets with complex needs deserve more than a notes app and a hope you remember. I built Halo for her, and for every pet owner carrying the weight of a complicated routine, because I know exactly how heavy that gets.</p>
+        <a href="about.html" class="story-cta-btn" style="margin-top:0">Read Angel's story →</a>
+      </div>
+      <div class="ap"><img src="images/home/IMG_5397.jpeg" alt="Angel" style="object-position:center center" loading="lazy" /></div>
+      <!-- Row 3 -->
+      <div class="ap"><img src="images/home/IMG_5631.jpeg" alt="Angel" style="object-position:center 35%" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_6129.jpeg" alt="Angel" style="object-position:center 50%" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_6278.jpeg" alt="Angel" style="object-position:center 38%" loading="lazy" /></div>
     </div>
-    <!-- Angel photo mosaic -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:10px;margin-bottom:36px" class="rv">
-      <div style="grid-column:1/3;grid-row:1/2;overflow:hidden;border-radius:14px;height:280px">
-        <img src="images/IMG_6286.PNG" alt="Jehane with Angel" style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section style="padding:100px 60px;max-width:860px;margin:0 auto;position:relative;z-index:1">
+    <style>
+      .faq-item { border-top:1px solid var(--border); }
+      .faq-item:last-child { border-bottom:1px solid var(--border); }
+      .faq-q {
+        display:flex; justify-content:space-between; align-items:center;
+        padding:22px 0; cursor:pointer; gap:20px;
+      }
+      .faq-q-text {
+        font-family:'Cormorant Garamond',serif;
+        font-size:20px; font-weight:300; color:var(--dark); line-height:1.25;
+        transition:color .25s;
+      }
+      .faq-q:hover .faq-q-text { color:var(--rose); }
+      .faq-icon {
+        width:24px; height:24px; flex-shrink:0;
+        border:1px solid var(--border); border-radius:50%;
+        display:flex; align-items:center; justify-content:center;
+        font-size:16px; color:var(--rose);
+        transition:background .2s, border-color .2s;
+      }
+      .faq-q:hover .faq-icon { background:var(--rose-ll); border-color:var(--rose-l); }
+      .faq-q.open .faq-icon { background:var(--rose); border-color:var(--rose); color:var(--bg); }
+      .faq-q.open .faq-q-text { color:var(--rose); }
+      .faq-a {
+        font-size:13px; color:var(--mid); line-height:2.05;
+        max-height:0; overflow:hidden;
+        transition:max-height .4s ease, padding .3s ease;
+      }
+      .faq-a.open { max-height:200px; padding-bottom:24px; }
+    </style>
+    <span class="label rv" style="display:block">Questions</span>
+    <h2 class="rv sec-title" style="margin-bottom:44px;transition-delay:.1s">Things people <em>ask.</em></h2>
+
+    <div class="faq-item rv" style="transition-delay:.1s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">When is Halo launching?</span>
+        <span class="faq-icon">+</span>
       </div>
-      <div style="grid-column:3/4;grid-row:1/2;overflow:hidden;border-radius:14px;height:280px">
-        <img src="images/IMG_4727.jpeg" alt="Angel resting" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="grid-column:4/5;grid-row:1/2;overflow:hidden;border-radius:14px;height:280px">
-        <img src="images/IMG_5631.jpeg" alt="Angel close up" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="grid-column:1/2;grid-row:2/3;overflow:hidden;border-radius:14px;height:220px">
-        <img src="images/IMG_7159.jpeg" alt="Angel looking up" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="grid-column:2/4;grid-row:2/3;overflow:hidden;border-radius:14px;height:220px">
-        <img src="images/IMG_6129.jpeg" alt="Angel relaxed" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="grid-column:4/5;grid-row:2/3;overflow:hidden;border-radius:14px;height:220px">
-        <img src="images/IMG_4576.jpeg" alt="Angel sunny" style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .8s" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
+      <div class="faq-a">We're in the final stages of development. Join the waitlist and you'll be the first to know, no newsletters, no noise. Just one message when Halo is ready.</div>
     </div>
-    <div style="text-align:center">
-      <a href="about.html" class="story-cta-btn">Read Angel's story →</a>
+
+    <div class="faq-item rv" style="transition-delay:.13s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">Is Halo iOS only, or is Android coming?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">iOS first. Android is on the roadmap and waitlist members will be the first to hear when a date is confirmed.</div>
+    </div>
+
+    <div class="faq-item rv" style="transition-delay:.16s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">How much will Halo cost?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Pricing will be announced at launch. Waitlist members will get early access and will hear about it first.</div>
+    </div>
+
+    <div class="faq-item rv" style="transition-delay:.19s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">Can I use Halo for more than one pet?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Yes. Each pet gets their own complete profile, medications, vitals, contacts, calendar, and carer's pack, all in one place.</div>
+    </div>
+
+    <div class="faq-item rv" style="transition-delay:.22s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">Can I share my pet's profile with a vet or carer?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Yes. The carer's pack lets you share your pet's complete care guide, medications, routine, emergency contacts, and everything a carer needs, in one tap.</div>
+    </div>
+
+    <div class="faq-item rv" style="transition-delay:.25s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">Is my pet's health data private?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Completely. Your data belongs to you. It is never shared, sold, or used for advertising, ever.</div>
+    </div>
+
+    <div class="faq-item rv" style="transition-delay:.28s">
+      <div class="faq-q" onclick="faqToggle(this)">
+        <span class="faq-q-text">My pet is healthy. Do I still need Halo?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Halo works just as well for healthy pets, vaccination records, vet contacts, routine reminders, and a carer's pack ready for whenever you travel. The peace of mind isn't only for complex cases.</div>
     </div>
   </section>
 
@@ -1190,7 +1311,6 @@
         <button type="submit">Join Waitlist</button>
       </form>
       <p class="form-success" id="b-ok"></p>
-      <p class="form-note" style="text-align:center">haloapp.co.uk</p>
     </div>
   </section>
 
@@ -1218,6 +1338,7 @@
     const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:0.12});
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
+    function faqToggle(el){const a=el.nextElementSibling,isOpen=a.classList.contains('open');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('open');q.querySelector('.faq-icon').textContent='+';});document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));if(!isOpen){a.classList.add('open');el.classList.add('open');el.querySelector('.faq-icon').textContent='−';}}
   </script>
 </body>
 </html>
