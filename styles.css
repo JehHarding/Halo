@@ -325,22 +325,24 @@ footer {
 
 /* Testimonials — horizontal swipe carousel on mobile */
 @media(max-width:640px){
-  #testimonials { padding:50px 0 50px 20px; }
-  .test-head { padding-right:20px; margin-bottom:32px; }
+  #testimonials { padding: 52px 0 52px 20px; }
+  .test-head { padding-right: 20px; margin-bottom: 32px; }
   .test-grid {
     display: flex; flex-direction: row;
-    overflow-x: auto; gap: 14px; padding-right: 20px;
+    overflow-x: auto; gap: 12px; padding-right: 20px;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    /* hide scrollbar */
     scrollbar-width: none;
   }
   .test-grid::-webkit-scrollbar { display: none; }
   .test-card {
-    min-width: 272px; max-width: 272px; flex-shrink: 0;
+    /* Show ~88% of screen + peek of next card */
+    min-width: calc(100vw - 60px);
+    max-width: calc(100vw - 60px);
+    flex-shrink: 0;
     scroll-snap-align: start;
-    padding: 28px 24px;
+    padding: 24px 20px;
   }
-  .test-q { font-size: 17px; line-height: 1.5; margin-bottom: 16px; }
-  .test-q::before { font-size: 32px; }
+  .test-q { font-size: 18px; line-height: 1.55; margin-bottom: 14px; }
+  .test-q::before { font-size: 28px; line-height: 1; }
 }
