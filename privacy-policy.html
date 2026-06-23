@@ -76,10 +76,10 @@
       color: var(--mid);
       line-height: 1.7;
     }
-    @media(max-width:600px) {
-      .legal-wrap { padding: 100px 24px 80px; }
-      .legal-table { font-size: 12px; }
-      .legal-table th, .legal-table td { padding: 8px 6px; }
+    @media(max-width:640px) {
+      .legal-wrap { padding: 86px 20px 60px; }
+      .legal-h1 { font-size: 32px; }
+      .legal-updated { margin-bottom: 36px; }
     }
   </style>
 </head>
@@ -156,7 +156,7 @@
 
       <h2>5. How long we keep your data</h2>
 
-      <table class="legal-table">
+      <div class="legal-table-scroll"><table class="legal-table">
         <thead>
           <tr>
             <th>Data type</th>
@@ -166,32 +166,32 @@
         </thead>
         <tbody>
           <tr>
-            <td>Waitlist email address</td>
-            <td>Until you unsubscribe or request deletion, or until the waitlist closes</td>
-            <td>Contractual / consent</td>
+            <td data-label="Data type">Waitlist email address</td>
+            <td data-label="Retention period">Until you unsubscribe or request deletion, or until the waitlist closes</td>
+            <td data-label="Reason">Contractual / consent</td>
           </tr>
           <tr>
-            <td>Marketing suppression record</td>
-            <td>Indefinitely after unsubscribe</td>
-            <td>To prevent re-adding you in error</td>
+            <td data-label="Data type">Marketing suppression record</td>
+            <td data-label="Retention period">Indefinitely after unsubscribe</td>
+            <td data-label="Reason">To prevent re-adding you in error</td>
           </tr>
           <tr>
-            <td>Support email correspondence</td>
-            <td>2 years from last reply</td>
-            <td>Legitimate interests</td>
+            <td data-label="Data type">Support email correspondence</td>
+            <td data-label="Retention period">2 years from last reply</td>
+            <td data-label="Reason">Legitimate interests</td>
           </tr>
           <tr>
-            <td>Financial / transaction records (if applicable)</td>
-            <td>7 years from transaction date</td>
-            <td>HMRC legal obligation</td>
+            <td data-label="Data type">Financial / transaction records (if applicable)</td>
+            <td data-label="Retention period">7 years from transaction date</td>
+            <td data-label="Reason">HMRC legal obligation</td>
           </tr>
           <tr>
-            <td>App data (pet health, medications, etc.)</td>
-            <td>Stored on your device until you delete the app</td>
-            <td>On-device only — we do not hold this data</td>
+            <td data-label="Data type">App data (pet health, medications, etc.)</td>
+            <td data-label="Retention period">Stored on your device until you delete the app</td>
+            <td data-label="Reason">On-device only — we do not hold this data</td>
           </tr>
         </tbody>
-      </table>
+      </table></div>
 
       <h2>6. Sharing your data</h2>
       <p>We do not sell your personal data. We do not share your data with third-party advertisers. We may share data with:</p>

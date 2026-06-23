@@ -67,10 +67,10 @@
       vertical-align: top; line-height: 1.6;
     }
     .cookie-table tr:last-child td { border-bottom: none; }
-    @media(max-width:600px) {
-      .legal-wrap { padding: 100px 24px 80px; }
-      .cookie-table { font-size: 12px; }
-      .cookie-table th, .cookie-table td { padding: 8px 6px; }
+    @media(max-width:640px) {
+      .legal-wrap { padding: 86px 20px 60px; }
+      .legal-h1 { font-size: 32px; }
+      .legal-updated { margin-bottom: 36px; }
     }
   </style>
 </head>
@@ -124,16 +124,16 @@
         </thead>
         <tbody>
           <tr>
-            <td>halo_cookie_consent</td>
-            <td>Essential (localStorage)</td>
-            <td>Remembers whether you have accepted or declined optional cookies so we do not ask again on every visit. No personal data; stored locally in your browser only.</td>
-            <td>Until you clear your browser storage</td>
+            <td data-label="Cookie">halo_cookie_consent</td>
+            <td data-label="Type">Essential (localStorage)</td>
+            <td data-label="Purpose">Remembers whether you have accepted or declined optional cookies so we do not ask again on every visit. No personal data; stored locally in your browser only.</td>
+            <td data-label="Duration">Until you clear your browser storage</td>
           </tr>
           <tr>
-            <td>Analytics cookies</td>
-            <td>Analytics (optional)</td>
-            <td>Help us understand how visitors use the site — which pages are visited most, where traffic comes from, and how people move through the site. No personal data is shared with third-party advertisers. Only set if you click Accept.</td>
-            <td>Up to 2 years</td>
+            <td data-label="Cookie">Analytics cookies</td>
+            <td data-label="Type">Analytics (optional)</td>
+            <td data-label="Purpose">Help us understand how visitors use the site — which pages are visited most, where traffic comes from, and how people move through the site. No personal data is shared with third-party advertisers. Only set if you click Accept.</td>
+            <td data-label="Duration">Up to 2 years</td>
           </tr>
         </tbody>
       </table>

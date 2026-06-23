@@ -106,6 +106,59 @@ footer {
 .foot-r a { color:var(--light); text-decoration:none; transition:color .2s; }
 .foot-r a:hover { color:var(--rose); }
 
+/* ─── LEGAL PAGES — MOBILE ────────────────────── */
+/* Responsive tables: stacked card style on mobile */
+@media(max-width:640px) {
+  /* Hide column headers — labels come from data-label on each td */
+  .legal-table thead,
+  .cookie-table thead { display: none; }
+
+  /* Each row becomes a card */
+  .legal-table tbody tr,
+  .cookie-table tbody tr {
+    display: block;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  /* Each cell stacks as a labelled block */
+  .legal-table td,
+  .cookie-table td {
+    display: block;
+    padding: 11px 14px;
+    font-size: 13px;
+    line-height: 1.65;
+    border-bottom: 1px solid var(--border);
+    color: var(--mid);
+  }
+  .legal-table td:last-child,
+  .cookie-table td:last-child { border-bottom: none; }
+
+  /* Column label above each value */
+  .legal-table td::before,
+  .cookie-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--dark);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  /* Legal page body */
+  .legal-body h2 { margin: 32px 0 10px; font-size: 20px; }
+  .legal-body p, .legal-body li { font-size: 13px; line-height: 1.8; }
+  .legal-body ul { margin: 0 0 14px 16px; }
+  .ico-block { font-size: 12px; padding: 14px 16px; line-height: 1.75; }
+  .disclaimer-box { padding: 16px 18px; }
+  .disclaimer-box p { font-size: 13px; line-height: 1.75; }
+}
+
 /* ─── FOOTER DISCLAIMER ──────────────────────── */
 .foot-disclaimer {
   background: var(--sand);
