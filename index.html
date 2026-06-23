@@ -1319,6 +1319,9 @@
     <span class="foot-logo">HALO</span>
     <div class="foot-links">
       <a href="about.html">Our Story</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="cookies.html">Cookies</a>
       <a href="mailto:hello@haloapp.co.uk">Contact</a>
     </div>
     <div class="foot-r">
@@ -1326,6 +1329,14 @@
       <div><a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a></div>
     </div>
   </footer>
+
+  <div id="cookie-banner">
+    <p>We use cookies to understand how people find Halo. No advertising, no third-party tracking. <a href="cookies.html">Cookie Policy</a></p>
+    <div class="cookie-btns">
+      <button class="cookie-btn cookie-btn-decline" onclick="cookieChoice('decline')">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="cookieChoice('accept')">Accept</button>
+    </div>
+  </div>
 
   <script>
     const glow=document.getElementById('glow');
@@ -1339,6 +1350,8 @@
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
     function faqToggle(el){const a=el.nextElementSibling,isOpen=a.classList.contains('open');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('open');q.querySelector('.faq-icon').textContent='+';});document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));if(!isOpen){a.classList.add('open');el.classList.add('open');el.querySelector('.faq-icon').textContent='−';}}
+    function cookieChoice(c){localStorage.setItem('halo_cookie_consent',c);document.getElementById('cookie-banner').classList.remove('visible');}
+    if(!localStorage.getItem('halo_cookie_consent')){setTimeout(()=>document.getElementById('cookie-banner').classList.add('visible'),1200);}
   </script>
 </body>
 </html>
