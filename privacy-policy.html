@@ -39,23 +39,47 @@
       font-size: 14px; color: var(--mid);
       line-height: 1.85; margin-bottom: 16px;
     }
-    .legal-body ul {
-      margin: 0 0 16px 20px;
-    }
+    .legal-body ul { margin: 0 0 16px 20px; }
     .legal-body li {
       font-size: 14px; color: var(--mid);
       line-height: 1.85; margin-bottom: 6px;
     }
-    .legal-body a {
-      color: var(--rose); text-decoration: none;
-    }
+    .legal-body a { color: var(--rose); text-decoration: none; }
     .legal-body a:hover { text-decoration: underline; }
     .legal-divider {
       border: none; border-top: 1px solid var(--border);
       margin: 60px 0 0;
     }
+    .legal-table {
+      width: 100%; border-collapse: collapse;
+      margin-bottom: 24px; font-size: 13px;
+    }
+    .legal-table th {
+      text-align: left; font-weight: 500;
+      color: var(--dark); font-size: 10px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-table td {
+      padding: 12px; color: var(--mid);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top; line-height: 1.6;
+    }
+    .legal-table tr:last-child td { border-bottom: none; }
+    .ico-block {
+      background: var(--bg2);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
     @media(max-width:600px) {
       .legal-wrap { padding: 100px 24px 80px; }
+      .legal-table { font-size: 12px; }
+      .legal-table th, .legal-table td { padding: 8px 6px; }
     }
   </style>
 </head>
@@ -75,7 +99,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="about.html">Our Story</a></li>
-      <li><a href="#cta-bottom" class="nav-cta">Join Waitlist</a></li>
+      <li><a href="index.html#cta-bottom" class="nav-cta">Join Waitlist</a></li>
     </ul>
   </nav>
 
@@ -88,76 +112,134 @@
 
       <p>Halo ("we", "us", "our") is committed to protecting your privacy. This policy explains what personal data we collect, why we collect it, and how we use and protect it. It applies to the Halo website (haloapp.co.uk) and the Halo iOS application.</p>
 
-      <p>Halo is operated by Marie Jehane Juganaikloo (trading as Jehane Harding), trading as Halo, based in the United Kingdom. We are the data controller for the purposes of UK GDPR and the Data Protection Act 2018.</p>
+      <p><strong>Data controller:</strong> Marie Jehane Juganaikloo (trading as Jehane Harding), United Kingdom.<br>
+      Correspondence address: [Correspondence address — to be added]<br>
+      Email: <a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a></p>
+
+      <p>We are the data controller for the purposes of UK GDPR, the Data Protection Act 2018, and the Data (Use and Access) Act 2025.</p>
 
       <h2>1. What data we collect</h2>
       <p><strong>On our website:</strong></p>
       <ul>
         <li>Email address, if you join our waitlist</li>
-        <li>Usage data collected via cookies (pages visited, time on site, browser type). See our <a href="cookies.html">Cookie Policy</a> for details.</li>
+        <li>Usage data collected via analytics cookies, if you consent. See our <a href="cookies.html">Cookie Policy</a> for full details.</li>
       </ul>
       <p><strong>In the Halo app:</strong></p>
       <ul>
         <li>Information you enter about your pet: name, medications, dosages, appointment details, weight and breathing rate readings, and notes</li>
         <li>Photos you choose to upload of your pet</li>
-        <li>Contact information you add to your Carer's Pack (such as vet details and emergency contacts)</li>
+        <li>Contact information you add to your Carer's Pack, such as vet details and emergency contacts</li>
       </ul>
-      <p>We do not collect any data about you personally within the app beyond what you voluntarily enter. We do not collect human health data.</p>
+      <p>All data entered in the app is stored locally on your device. We do not collect personal health data about you, and we do not transmit pet health data to our servers.</p>
 
       <h2>2. How we use your data</h2>
       <ul>
-        <li>To provide and operate the Halo app and website</li>
+        <li>To operate the Halo app and website</li>
         <li>To contact you about your waitlist position and the Halo launch</li>
-        <li>To improve and develop Halo based on how it is used</li>
+        <li>To send occasional product updates under legitimate interests (UK GDPR Article 6(1)(f)). You may opt out at any time via the unsubscribe link in any email or by contacting us directly.</li>
+        <li>To improve and develop Halo based on aggregated, anonymised usage patterns</li>
         <li>To comply with legal obligations</li>
       </ul>
 
       <h2>3. Legal basis for processing</h2>
-      <p>Under UK GDPR, we process your data on the following legal bases:</p>
+      <p>Under UK GDPR Article 6, we process your data on the following bases:</p>
       <ul>
-        <li><strong>Consent</strong> — when you join the waitlist or accept cookies</li>
-        <li><strong>Legitimate interests</strong> — to operate, maintain and improve our services, where your interests and rights do not override ours</li>
-        <li><strong>Legal obligation</strong> — where we are required to process data to comply with the law</li>
+        <li><strong>Consent (Article 6(1)(a))</strong> — when you join the waitlist or accept optional cookies</li>
+        <li><strong>Legitimate interests (Article 6(1)(f))</strong> — to operate, maintain, and improve our services, where your interests and rights do not override ours</li>
+        <li><strong>Legal obligation (Article 6(1)(c))</strong> — where required by law, including HMRC record-keeping requirements</li>
       </ul>
 
       <h2>4. Data storage and security</h2>
-      <p>Pet health data entered in the Halo app is stored locally on your device. We do not transmit or store this data on external servers at this time. Where data is stored remotely in future, we will update this policy and ensure appropriate safeguards are in place.</p>
+      <p>Pet health data entered in the Halo app is stored locally on your device using Apple's on-device storage. It is not transmitted to Halo's servers. If you delete the app, all locally stored data is removed.</p>
       <p>Waitlist email addresses are held securely and are not shared with third parties for marketing purposes.</p>
+      <p>We have a documented procedure for responding to data breaches. In the event of a reportable breach, we will notify the ICO within 72 hours and affected individuals without undue delay.</p>
 
       <h2>5. How long we keep your data</h2>
-      <ul>
-        <li>Waitlist email addresses are held until you unsubscribe or request deletion, or until Halo launches and the waitlist is no longer active</li>
-        <li>Data stored on your device within the app is retained until you delete the app or clear its data</li>
-      </ul>
+
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Data type</th>
+            <th>Retention period</th>
+            <th>Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Waitlist email address</td>
+            <td>Until you unsubscribe or request deletion, or until the waitlist closes</td>
+            <td>Contractual / consent</td>
+          </tr>
+          <tr>
+            <td>Marketing suppression record</td>
+            <td>Indefinitely after unsubscribe</td>
+            <td>To prevent re-adding you in error</td>
+          </tr>
+          <tr>
+            <td>Support email correspondence</td>
+            <td>2 years from last reply</td>
+            <td>Legitimate interests</td>
+          </tr>
+          <tr>
+            <td>Financial / transaction records (if applicable)</td>
+            <td>7 years from transaction date</td>
+            <td>HMRC legal obligation</td>
+          </tr>
+          <tr>
+            <td>App data (pet health, medications, etc.)</td>
+            <td>Stored on your device until you delete the app</td>
+            <td>On-device only — we do not hold this data</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>6. Sharing your data</h2>
-      <p>We do not sell your personal data. We may share data with trusted third-party service providers who help us operate our services (such as email delivery services), under strict data processing agreements. We may also disclose data if required to do so by law.</p>
+      <p>We do not sell your personal data. We do not share your data with third-party advertisers. We may share data with:</p>
+      <ul>
+        <li><strong>Apple Inc.</strong> — the Halo app runs on Apple's iOS platform. App data is stored using Apple's on-device frameworks. Apple's privacy policy applies to Apple's own services. Apple does not receive your pet health data from Halo.</li>
+        <li><strong>Email service providers</strong> — to send waitlist and product communications, under strict data processing agreements.</li>
+        <li><strong>Authorities</strong> — where required to do so by law.</li>
+      </ul>
 
-      <h2>7. Your rights</h2>
+      <h2>7. International data transfers</h2>
+      <p>Where personal data is transferred outside the UK, we ensure it is protected by appropriate safeguards, including the UK International Data Transfer Agreement (UK IDTA) or Standard Contractual Clauses. Apple Inc. is based in the United States; transfers to Apple are covered by the UK extension to the EU-US Data Privacy Framework.</p>
+
+      <h2>8. Your rights</h2>
       <p>Under UK GDPR, you have the right to:</p>
       <ul>
-        <li>Access the personal data we hold about you</li>
-        <li>Request correction of inaccurate data</li>
-        <li>Request deletion of your data ("right to be forgotten")</li>
-        <li>Object to or restrict how we process your data</li>
-        <li>Request a copy of your data in a portable format</li>
-        <li>Withdraw consent at any time where processing is based on consent</li>
+        <li><strong>Access</strong> — request a copy of the personal data we hold about you (Article 15)</li>
+        <li><strong>Rectification</strong> — request correction of inaccurate data (Article 16)</li>
+        <li><strong>Erasure</strong> — request deletion of your data, subject to legal retention requirements (Article 17)</li>
+        <li><strong>Restriction</strong> — request that we limit how we process your data (Article 18)</li>
+        <li><strong>Portability</strong> — request your data in a structured, machine-readable format (Article 20)</li>
+        <li><strong>Object</strong> — object to processing based on legitimate interests, including direct marketing (Article 21)</li>
+        <li><strong>Withdraw consent</strong> — at any time where processing is based on consent (Article 7(3))</li>
+        <li><strong>No automated decisions</strong> — not to be subject to solely automated decision-making that significantly affects you (Article 22)</li>
       </ul>
-      <p>To exercise any of these rights, contact us at <a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a>. We will respond within 30 days.</p>
-      <p>You also have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+      <p>To exercise any of these rights, contact us at <a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a>. We will respond within 30 days, free of charge.</p>
 
-      <h2>8. Cookies</h2>
-      <p>Our website uses cookies. For full details of the cookies we use and how to manage them, please see our <a href="cookies.html">Cookie Policy</a>.</p>
+      <h2>9. Complaints</h2>
+      <p>If you are unhappy with how we handle your data, you have the right to lodge a complaint with the UK Information Commissioner's Office:</p>
+      <div class="ico-block">
+        Information Commissioner's Office<br>
+        Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF<br>
+        Helpline: 0303 123 1113<br>
+        <a href="https://ico.org.uk/make-a-complaint" target="_blank" rel="noopener">ico.org.uk/make-a-complaint</a>
+      </div>
 
-      <h2>9. Children</h2>
-      <p>Halo is not directed at children under the age of 13. We do not knowingly collect personal data from children. If you believe a child has provided us with personal data, please contact us and we will delete it.</p>
+      <h2>10. Cookies</h2>
+      <p>Our website uses cookies. For full details see our <a href="cookies.html">Cookie Policy</a>.</p>
 
-      <h2>10. Changes to this policy</h2>
-      <p>We may update this Privacy Policy from time to time. We will notify waitlist members of any material changes by email. The date at the top of this page will always reflect the most recent version.</p>
+      <h2>11. Children</h2>
+      <p>Halo is not directed at children under 13. We do not knowingly collect personal data from under-13s (or under-16s within the scope of the ICO Children's Code). If you believe a child has provided us with personal data, contact us and we will delete it promptly.</p>
 
-      <h2>11. Contact us</h2>
-      <p>For any questions about this policy or how we handle your data:<br>
-      <a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a></p>
+      <h2>12. Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. For material changes that affect your rights, we will give at least 14 days' notice by email to waitlist members before the change takes effect. The date at the top of this page always reflects the most recent version. Changes will not apply retroactively.</p>
+
+      <h2>13. Contact us</h2>
+      <p>For any questions about this policy:<br>
+      <a href="mailto:hello@haloapp.co.uk">hello@haloapp.co.uk</a><br>
+      [Correspondence address — to be added]</p>
 
       <hr class="legal-divider">
     </div>
@@ -181,11 +263,11 @@
   <script>
     const nav=document.getElementById('nav');
     window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
-    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>document.getElementById('glow').classList.add('on-link'));el.addEventListener('mouseleave',()=>document.getElementById('glow').classList.remove('on-link'));});
     const glow=document.getElementById('glow');
     let gx=innerWidth/2,gy=innerHeight/2,cx=gx,cy=gy;
     document.addEventListener('mousemove',e=>{gx=e.clientX;gy=e.clientY;});
     (function animGlow(){cx+=(gx-cx)*.07;cy+=(gy-cy)*.07;glow.style.left=cx+'px';glow.style.top=cy+'px';requestAnimationFrame(animGlow);})();
+    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>glow.classList.add('on-link'));el.addEventListener('mouseleave',()=>glow.classList.remove('on-link'));});
   </script>
 </body>
 </html>
