@@ -316,9 +316,31 @@ footer {
   #glow { display:none; }
   nav { padding:16px 24px; }
   nav.scrolled { padding:12px 24px; }
-  .nav-links li:not(:last-child) { display:none; }
+  .nav-links { gap:18px; }
   footer { flex-direction:column; gap:18px; padding:32px 24px; text-align:center; }
   .foot-links { justify-content:center; flex-wrap:wrap; gap:16px; }
   .foot-r { text-align:center; }
   .page-hero { padding:110px 24px 60px; }
+}
+
+/* Testimonials — horizontal swipe carousel on mobile */
+@media(max-width:640px){
+  #testimonials { padding:50px 0 50px 20px; }
+  .test-head { padding-right:20px; margin-bottom:32px; }
+  .test-grid {
+    display: flex; flex-direction: row;
+    overflow-x: auto; gap: 14px; padding-right: 20px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    /* hide scrollbar */
+    scrollbar-width: none;
+  }
+  .test-grid::-webkit-scrollbar { display: none; }
+  .test-card {
+    min-width: 272px; max-width: 272px; flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 28px 24px;
+  }
+  .test-q { font-size: 17px; line-height: 1.5; margin-bottom: 16px; }
+  .test-q::before { font-size: 32px; }
 }

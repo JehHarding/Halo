@@ -518,13 +518,36 @@
       #cta-bottom { padding: 80px 24px; }
     }
     @media(max-width:640px){
-      /* Hide chaos items completely — hover/touch shows them over text on mobile */
-      .problem-chaos { display: none; }
+      /* Chaos items: always on at low opacity — no hover needed on mobile */
+      .problem-chaos { display: block; }
+      .chaos-item {
+        font-size: 8px !important;
+        padding: 4px 9px !important;
+        opacity: 0.55 !important;
+        animation: chaosFloat 12s ease-in-out infinite !important;
+        transition: none !important;
+      }
+      #problem:hover .chaos-item { opacity: 0.55; } /* stay same on touch */
+      .ci-9 { display: none; } /* remove one to reduce crowding */
 
       /* Hero: scale down phone mockup */
       .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 30px; }
 
-      /* Angel photo grid: single column on mobile */
+      /* Feature sections: much tighter on mobile */
+      .feat-section { padding: 36px 20px !important; gap: 16px !important; }
+      .feat-n { font-size: 40px; margin-bottom: -4px; }
+      .feat-t h2 { font-size: 28px !important; margin-bottom: 10px; }
+      .feat-t p { font-size: 13px !important; line-height: 1.75 !important; max-width: 100% !important; margin-bottom: 8px !important; }
+      .feat-tag { font-size: 7.5px; padding: 4px 10px; }
+
+      /* Phone mockup: scale down and pull up to remove dead space */
+      .phone-wrap {
+        transform: scale(0.76);
+        transform-origin: top center;
+        margin-bottom: -120px;
+      }
+
+      /* Angel photo grid: 2-col layout */
       .angel-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
@@ -535,19 +558,13 @@
         grid-row: 2;
         padding: 28px 16px;
       }
-      .angel-grid .ap { height: 140px; }
+      .angel-grid .ap { height: 130px; }
 
       /* Story bridge: full-width padding */
-      #story-bridge { padding: 48px 20px !important; }
+      #story-bridge { padding: 40px 20px !important; }
 
       /* FAQ section */
-      section[style*="padding:100px 60px"] { padding: 60px 20px !important; }
-
-      /* Feature sections: constrain phone mockup */
-      .phone-wrap { transform: scale(0.9); transform-origin: top center; }
-
-      /* Feat-n large number — reduce size so it doesn't overflow */
-      .feat-n { font-size: 56px; }
+      section[style*="padding:100px 60px"] { padding: 56px 20px !important; }
     }
   </style>
 </head>
@@ -1221,7 +1238,7 @@
           height: auto; min-height: 0; max-height: none;
         }
         .angel-center { grid-column: 1 / -1; grid-row: 2; padding: 28px 16px; }
-        .angel-grid .ap { height: 140px; }
+        .angel-grid .ap { height: 130px; }
       }
     </style>
     <div class="angel-grid rv">
