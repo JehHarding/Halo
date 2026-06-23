@@ -16,7 +16,7 @@
   --rose-ll: #f7ede8;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--bg);

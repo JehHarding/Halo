@@ -517,6 +517,38 @@
       #story-bridge { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
       #cta-bottom { padding: 80px 24px; }
     }
+    @media(max-width:640px){
+      /* Hide chaos items completely — hover/touch shows them over text on mobile */
+      .problem-chaos { display: none; }
+
+      /* Hero: scale down phone mockup */
+      .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 30px; }
+
+      /* Angel photo grid: single column on mobile */
+      .angel-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        height: auto; min-height: 0; max-height: none;
+      }
+      .angel-center {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        padding: 28px 16px;
+      }
+      .angel-grid .ap { height: 140px; }
+
+      /* Story bridge: full-width padding */
+      #story-bridge { padding: 48px 20px !important; }
+
+      /* FAQ section */
+      section[style*="padding:100px 60px"] { padding: 60px 20px !important; }
+
+      /* Feature sections: constrain phone mockup */
+      .phone-wrap { transform: scale(0.9); transform-origin: top center; }
+
+      /* Feat-n large number — reduce size so it doesn't overflow */
+      .feat-n { font-size: 56px; }
+    }
   </style>
 </head>
 <body>
@@ -1181,6 +1213,15 @@
         padding: 24px;
         grid-column: 2;
         grid-row: 2;
+      }
+      @media(max-width:640px){
+        .angel-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto auto;
+          height: auto; min-height: 0; max-height: none;
+        }
+        .angel-center { grid-column: 1 / -1; grid-row: 2; padding: 28px 16px; }
+        .angel-grid .ap { height: 140px; }
       }
     </style>
     <div class="angel-grid rv">
