@@ -524,7 +524,10 @@
 
     @media(max-width:640px){
       /* ── HERO ── */
-      .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 30px; }
+      #hero { padding: 90px 24px 60px !important; }
+      .hero-halo { display: none !important; }
+      .hero-tagline { font-size: 13.5px !important; line-height: 1.75 !important; margin-bottom: 28px !important; }
+      .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 10px; }
 
       /* ── CHAOS: pills flow in normal layout above headline (no floating overlay) ── */
       .problem-chaos {
@@ -566,8 +569,8 @@
       .feat-n { font-size: 36px; margin-bottom: 0; }
       .feat-t h2 { font-size: 27px !important; margin-bottom: 10px; }
       .feat-t p {
-        font-size: 13.5px !important;
-        line-height: 1.75 !important;
+        font-size: 15px !important;
+        line-height: 1.8 !important;
         max-width: 100% !important;
         margin-bottom: 8px !important;
       }
@@ -1285,8 +1288,11 @@
           border-radius: 14px !important;
         }
         .angel-center {
+          order: -1 !important;
           flex-shrink: 0 !important;
-          min-width: 250px !important;
+          width: 270px !important;
+          min-width: 270px !important;
+          max-width: 270px !important;
           height: auto !important;
           min-height: 270px !important;
           border-radius: 14px !important;
