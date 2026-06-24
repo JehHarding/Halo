@@ -236,6 +236,7 @@ footer {
   transform: translate(-50%,-50%);
 }
 @keyframes haloFloat { 0%,100%{transform:translateY(0) scaleX(1)} 50%{transform:translateY(-10px) scaleX(1.05)} }
+@keyframes haloFloatMobile { 0%,100%{transform:translateY(0) scaleX(1)} 50%{transform:translateY(-3px) scaleX(1.02)} }
 
 /* ─── FORM ────────────────────────────────────── */
 .form-row { display:flex; }
@@ -322,6 +323,9 @@ footer {
   .foot-r { text-align:center; }
   .page-hero { padding:110px 24px 60px; }
 }
+
+/* Mobile halo: reduce float amplitude so rings stay aligned with HALO text */
+@media(max-width:640px){ .halo-anim { animation-name: haloFloatMobile; } }
 
 /* Testimonials — horizontal swipe carousel on mobile */
 @media(max-width:640px){

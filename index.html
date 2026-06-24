@@ -402,10 +402,11 @@
     .test-head h2 em { font-style: italic; color: var(--rose); }
     .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
     .test-card {
-      background: rgba(244,239,230,.6);
+      background: rgba(244,239,230,.85);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border: 1px solid var(--border);
-      border-radius: 4px; padding: 40px 36px;
+      border-radius: 14px; padding: 40px 36px;
       transition: transform .3s ease, box-shadow .3s ease;
       display: flex; flex-direction: column;
     }
@@ -593,6 +594,7 @@
       border-top: 1px solid var(--border);
       background: var(--linen); min-height: 14px;
     }
+    .comp-swipe-hint { display: none; }
     @media(max-width:640px) {
       #comparison { padding: 60px 0 60px 20px; }
       #comparison .comp-inner { padding-right: 0; }
@@ -606,6 +608,7 @@
         overscroll-behavior-x: contain;
         border-radius: 14px;
         margin-right: 20px;
+        transform: translateZ(0);
       }
       .comp-thead,
       .comp-row {
@@ -619,6 +622,12 @@
       .comp-cell { padding: 12px 6px; font-size: 10px; }
       .comp-th-comp { padding: 14px 6px; font-size: 7px; letter-spacing: 1px; }
       .comp-th-sub { display: none; }
+      .comp-swipe-hint {
+        display: block;
+        text-align: center;
+        font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+        color: var(--rose); margin-top: 14px; padding-right: 20px;
+      }
     }
 
     /* ═══════════════════════════════════════
@@ -1433,6 +1442,7 @@
 
         <div class="comp-card-foot"></div>
       </div>
+      <p class="comp-swipe-hint">← Swipe to compare all →</p>
     </div>
   </section>
 
@@ -1538,7 +1548,6 @@
           -webkit-overflow-scrolling: touch !important;
           scroll-snap-type: x mandatory !important;
           overscroll-behavior-x: contain !important;
-          touch-action: pan-x !important;
           scrollbar-width: none !important;
           height: auto !important;
           min-height: 0 !important;
