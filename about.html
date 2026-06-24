@@ -49,19 +49,27 @@
       padding: 80px 72px;
       background: var(--linen);
     }
-    .story-txt > div { max-width: 460px; }
-    .story-txt h2 {
+    .story-txt > div { max-width: 480px; }
+    /* Section heading — overrides global .label style to act as a proper h2 */
+    .story-txt .label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(30px, 3.2vw, 46px);
-      font-weight: 300; line-height: 1.2;
-      color: var(--dark); margin-bottom: 22px;
+      font-size: clamp(24px, 2.6vw, 34px);
+      font-style: italic; font-weight: 300;
+      letter-spacing: 0; text-transform: none;
+      color: var(--rose); margin-bottom: 24px;
+      display: block;
     }
-    .story-txt h2 em { font-style: italic; color: var(--rose); }
     .story-txt p {
       font-size: 15.5px; color: var(--mid);
       line-height: 2.05; margin-bottom: 16px;
     }
     .story-txt p:last-child { margin-bottom: 0; }
+    /* List items match paragraph size */
+    .story-txt li {
+      font-size: 15px !important;
+      color: var(--mid); line-height: 1.75 !important;
+      padding-left: 14px; border-left: 2px solid var(--rose-l);
+    }
 
     /* thin divider between blocks */
     .story-block + .story-block { border-top: 1px solid var(--border); }
@@ -140,17 +148,17 @@
         <span class="label">Why we built Halo</span>
         <p style="margin-bottom:12px">Seven years in, I can recite Angel's routine in my sleep.</p>
         <ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:5px">
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Two medications every morning</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Three medications every evening</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Weekly breathing checks, timed at home</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Quarterly blood tests</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Six-monthly vet visits to adjust her doses</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Annual cardiology scan</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Annual vaccinations</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Monthly flea treatment and quarterly worming, managed around her conditions</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">A yearly hormonal implant, because sedation has never been an option</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Weight logged constantly, within a 500g window</li>
-          <li style="font-size:12.5px;color:var(--mid);line-height:1.5;padding-left:14px;border-left:2px solid var(--rose-l)">Two vets, a cardiologist, an emergency vet, a cat sitter, a cattery</li>
+          <li>Two medications every morning</li>
+          <li>Three medications every evening</li>
+          <li>Weekly breathing checks, timed at home</li>
+          <li>Quarterly blood tests</li>
+          <li>Six-monthly vet visits to adjust her doses</li>
+          <li>Annual cardiology scan</li>
+          <li>Annual vaccinations</li>
+          <li>Monthly flea treatment and quarterly worming, managed around her conditions</li>
+          <li>A yearly hormonal implant, because sedation has never been an option</li>
+          <li>Weight logged constantly, within a 500g window</li>
+          <li>Two vets, a cardiologist, an emergency vet, a cat sitter, a cattery</li>
         </ul>
         <p>For years this lived across notes apps, reminders, a group chat, and whatever I could hold in my head. Nothing existed that could bring it together. So I built Halo, not just for Angel, but for every pet parent managing something this complex.</p>
       </div>
