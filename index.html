@@ -474,6 +474,118 @@
     .story-bridge-txt p { font-size: 13.5px; color: var(--mid); line-height: 2.05; margin-bottom: 18px; }
 
     /* ═══════════════════════════════════════
+       COMPARISON
+    ═══════════════════════════════════════ */
+    #comparison {
+      padding: 100px 60px;
+      position: relative; z-index: 1;
+    }
+    #comparison .comp-inner { max-width: 1080px; margin: 0 auto; }
+    #comparison .comp-eyebrow {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 14px;
+    }
+    #comparison .comp-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.8vw, 48px);
+      font-weight: 300; color: var(--dark);
+      line-height: 1.15; margin-bottom: 12px;
+    }
+    #comparison .comp-title em { font-style: italic; color: var(--rose); }
+    #comparison .comp-sub {
+      font-size: 14px; color: var(--mid);
+      line-height: 1.9; max-width: 540px; margin-bottom: 52px;
+    }
+    .comp-card {
+      border-radius: 18px; border: 1px solid var(--border);
+      overflow: hidden; background: var(--bg);
+    }
+    .comp-thead {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .comp-th-feat {
+      padding: 20px 18px; font-size: 8px;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--mid);
+    }
+    .comp-th-halo {
+      background: var(--linen);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      padding: 0 12px 16px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .comp-th-halo .halo-anim {
+      width: 34px; height: 6px; margin-top: 14px; margin-bottom: 8px;
+    }
+    .comp-th-halo .halo-outer { width: 34px; height: 6px; }
+    .comp-th-halo .halo-inner { width: 22px; height: 4px; }
+    .comp-th-halo-word {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px; letter-spacing: 5px; font-weight: 400; color: var(--dark);
+    }
+    .comp-th-comp {
+      text-align: center;
+      border-right: 1px solid var(--border);
+      padding: 20px 10px;
+      font-size: 8px; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--mid);
+    }
+    .comp-th-comp:last-child { border-right: none; }
+    .comp-th-sub {
+      font-size: 9px; color: var(--light);
+      display: block; letter-spacing: 0;
+      text-transform: none; margin-top: 3px; font-weight: 300;
+    }
+    .comp-row {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .comp-row:last-child { border-bottom: none; }
+    .comp-cell-feat { padding: 16px 18px; }
+    .comp-feat-name {
+      font-size: 12.5px; font-weight: 500;
+      color: var(--dark); margin-bottom: 3px;
+    }
+    .comp-feat-desc { font-size: 11px; color: var(--mid); line-height: 1.55; }
+    .comp-cell {
+      padding: 16px 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--mid);
+      text-align: center; line-height: 1.45;
+      border-right: 1px solid var(--border);
+    }
+    .comp-cell:last-child { border-right: none; }
+    .comp-cell.halo-col {
+      background: var(--linen);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .comp-yes { color: var(--rose); font-size: 17px; }
+    .comp-yes-dim { color: var(--light); font-size: 15px; }
+    .comp-no { color: var(--border); font-size: 14px; }
+    .comp-card-foot {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--linen); min-height: 14px;
+    }
+    @media(max-width:640px) {
+      #comparison { padding: 60px 20px; }
+      #comparison .comp-sub { margin-bottom: 32px; }
+      .comp-thead,
+      .comp-row { grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr; }
+      .comp-th-feat,
+      .comp-cell-feat { padding: 12px; }
+      .comp-feat-name { font-size: 11px; }
+      .comp-feat-desc { display: none; }
+      .comp-cell { padding: 12px 6px; font-size: 10px; }
+      .comp-th-comp { padding: 14px 6px; font-size: 7px; }
+      .comp-th-sub { display: none; }
+    }
+
+    /* ═══════════════════════════════════════
        BOTTOM CTA
     ═══════════════════════════════════════ */
     #cta-bottom {
@@ -1164,6 +1276,99 @@
       </div>
     </div>
   </div>
+
+  <!-- ═══ COMPARISON ═══ -->
+  <section id="comparison">
+    <div class="comp-inner">
+      <p class="comp-eyebrow rv">How Halo compares</p>
+      <h2 class="comp-title rv" style="transition-delay:.08s">Simple when you need it.<br><em>Complete when it counts.</em></h2>
+      <p class="comp-sub rv" style="transition-delay:.14s">From a single annual vaccine reminder to a full daily care routine — Halo handles every level. And when care gets complicated, no other app comes close.</p>
+
+      <div class="comp-card rv" style="transition-delay:.2s">
+        <div class="comp-thead">
+          <div class="comp-th-feat">Feature</div>
+          <div class="comp-th-halo">
+            <span class="halo-anim" style="display:inline-block;position:relative">
+              <span class="halo-outer"></span>
+              <span class="halo-inner"></span>
+            </span>
+            <span class="comp-th-halo-word">HALO</span>
+          </div>
+          <div class="comp-th-comp">11Pets<span class="comp-th-sub">General care</span></div>
+          <div class="comp-th-comp">PetNoter<span class="comp-th-sub">Records focused</span></div>
+          <div class="comp-th-comp">PetDesk<span class="comp-th-sub">Vet platform</span></div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-cell-feat">
+            <div class="comp-feat-name">Complex medication scheduling</div>
+            <div class="comp-feat-desc">Multiple meds, different timings, full dose history</div>
+          </div>
+          <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
+          <div class="comp-cell">Reminders<br>only</div>
+          <div class="comp-cell">Reminders<br>only</div>
+          <div class="comp-cell">Reminders<br>only</div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-cell-feat">
+            <div class="comp-feat-name">At-home breathing rate monitoring</div>
+            <div class="comp-feat-desc">15-second tap counter — the exact method cardiologists request</div>
+          </div>
+          <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-cell-feat">
+            <div class="comp-feat-name">Weight tracking with target range</div>
+            <div class="comp-feat-desc">Logs against a custom window and flags when your pet goes outside it</div>
+          </div>
+          <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
+          <div class="comp-cell">Log<br>only</div>
+          <div class="comp-cell">Log<br>only</div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-cell-feat">
+            <div class="comp-feat-name">Health calendar with linked contacts</div>
+            <div class="comp-feat-desc">Every appointment has the vet's name and direct number attached</div>
+          </div>
+          <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell"><span class="comp-yes-dim">✓</span></div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-cell-feat">
+            <div class="comp-feat-name">Carer's Pack</div>
+            <div class="comp-feat-desc">Complete care handover — meds, contacts, schedule, emergency info</div>
+          </div>
+          <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-cell-feat">
+            <div class="comp-feat-name">Share via WhatsApp, PDF or QR code</div>
+            <div class="comp-feat-desc">Sent in seconds — no app required for the recipient</div>
+          </div>
+          <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell">Export<br>only</div>
+          <div class="comp-cell"><span class="comp-no">✕</span></div>
+        </div>
+
+        <div class="comp-card-foot"></div>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══ TESTIMONIALS ═══ -->
   <section id="testimonials">
