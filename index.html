@@ -616,7 +616,12 @@
         min-width: 480px;
       }
       .comp-th-feat,
-      .comp-cell-feat { padding: 12px 10px; }
+      .comp-cell-feat {
+        padding: 12px 10px;
+        position: sticky; left: 0; z-index: 2;
+        background: var(--bg);
+      }
+      .comp-thead .comp-th-feat { background: var(--bg); border-bottom: 1px solid var(--border); }
       .comp-feat-name { font-size: 11px; }
       .comp-feat-desc { display: none; }
       .comp-cell { padding: 12px 6px; font-size: 10px; }
