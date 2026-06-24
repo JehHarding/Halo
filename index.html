@@ -426,6 +426,28 @@
     .test-name { font-size: 11px; font-weight: 400; color: var(--dark); letter-spacing: .5px; }
     .test-pet { font-size: 10px; color: var(--light); }
 
+    /* Testimonials carousel nav */
+    .test-nav {
+      display: none;
+      align-items: center; justify-content: center; gap: 14px;
+      margin-top: 4px;
+    }
+    .test-arrow-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--border); background: var(--bg);
+      color: var(--dark); font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: border-color .2s, background .2s;
+    }
+    .test-arrow-btn:hover { border-color: var(--rose-l); background: var(--rose-ll); }
+    .test-dots { display: flex; gap: 6px; align-items: center; }
+    .test-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--border); cursor: pointer;
+      transition: background .25s, transform .25s;
+    }
+    .test-dot.active { background: var(--rose); transform: scale(1.5); }
+
     /* ═══════════════════════════════════════
        STORY TEASE — compact bridge section
     ═══════════════════════════════════════ */
@@ -572,16 +594,30 @@
       background: var(--linen); min-height: 14px;
     }
     @media(max-width:640px) {
-      #comparison { padding: 60px 20px; }
-      #comparison .comp-sub { margin-bottom: 32px; }
+      #comparison { padding: 60px 0 60px 20px; }
+      #comparison .comp-inner { padding-right: 0; }
+      #comparison .comp-eyebrow,
+      #comparison .comp-title,
+      #comparison .comp-sub { padding-right: 20px; }
+      #comparison .comp-sub { margin-bottom: 28px; }
+      .comp-card {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        border-radius: 14px;
+        margin-right: 20px;
+      }
       .comp-thead,
-      .comp-row { grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 0.7fr; }
+      .comp-row {
+        grid-template-columns: 140px 85px 85px 85px 85px !important;
+        min-width: 480px;
+      }
       .comp-th-feat,
-      .comp-cell-feat { padding: 12px; }
+      .comp-cell-feat { padding: 12px 10px; }
       .comp-feat-name { font-size: 11px; }
       .comp-feat-desc { display: none; }
       .comp-cell { padding: 12px 6px; font-size: 10px; }
-      .comp-th-comp { padding: 14px 6px; font-size: 7px; }
+      .comp-th-comp { padding: 14px 6px; font-size: 7px; letter-spacing: 1px; }
       .comp-th-sub { display: none; }
     }
 
@@ -638,24 +674,28 @@
     @media(max-width:640px){
       /* ── HERO ── */
       #hero { padding: 90px 24px 60px !important; }
-      .hero-halo { display: none !important; }
+      .hero-halo { width:60px !important; height:10px !important; margin-bottom:10px !important; }
+      .hero-halo .halo-outer { width:60px !important; height:10px !important; }
+      .hero-halo .halo-inner { width:39px !important; height:6px !important; }
       .hero-tagline { font-size: 13.5px !important; line-height: 1.75 !important; margin-bottom: 28px !important; }
       .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 10px; }
 
-      /* ── CHAOS: pills flow in normal layout above headline (no floating overlay) ── */
+      /* ── PROBLEM: text first, pills as illustration below ── */
+      #problem { display:flex !important; flex-direction:column !important; }
+      .problem-inner { order:1 !important; }
       .problem-chaos {
+        order:2 !important;
         position: static !important;
         display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
         gap: 8px !important;
-        padding: 0 12px 28px !important;
+        padding: 28px 12px 0 !important;
       }
       .chaos-item {
         position: static !important;
         font-size: 11px !important;
         padding: 5px 12px !important;
-        /* 'both' applies the from-keyframe (opacity:0) during delay, then animates to opacity:1 */
         animation: chipIn 0.4s ease both !important;
         backdrop-filter: none !important;
         white-space: nowrap !important;
@@ -669,10 +709,9 @@
       .ci-6 { animation-delay: 0.35s !important; }
       .ci-7 { animation-delay: 0.42s !important; }
       .ci-8 { animation-delay: 0.42s !important; }
-      /* Hide the very wide items that break the wrap layout on mobile */
       .ci-5, .ci-7, .ci-9 { display: none !important; }
 
-      /* ── FEATURES: single-column block, phone at natural size cropped ── */
+      /* ── FEATURES: single-column, full phone visible (scaled, not cropped) ── */
       .feat-section {
         display: block !important;
         padding: 48px 24px 0 !important;
@@ -689,19 +728,46 @@
       }
       .feat-tag { font-size: 8px; padding: 4px 10px; }
 
-      /* Phone: no transform, extend full width, crop bottom to 420px */
+      /* Phone: full phone visible at 82% scale */
       .feat-section .phone-wrap {
-        transform: none !important;
-        animation: none !important;
-        margin: 0 -24px !important;
         display: flex !important;
         justify-content: center !important;
-        overflow: hidden !important;
-        height: 420px !important;
+        overflow: visible !important;
+        height: 490px !important;
+        margin: 0 0 20px !important;
+        animation: none !important;
+      }
+      .feat-section .iphone {
+        transform: scale(0.82) !important;
+        transform-origin: top center !important;
+        align-self: flex-start;
       }
 
       /* Dividers cross over the phones — hide them */
       .feat-divider-line { display: none !important; }
+
+      /* ── TESTIMONIALS: horizontal swipe carousel ── */
+      #testimonials { padding: 60px 0 60px 24px !important; }
+      .test-head { padding-right: 24px; margin-bottom: 32px !important; }
+      .test-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 16px;
+        padding-bottom: 20px;
+        overscroll-behavior-x: contain;
+      }
+      .test-grid::-webkit-scrollbar { display: none; }
+      .test-card {
+        min-width: calc(100vw - 68px) !important;
+        max-width: calc(100vw - 68px) !important;
+        flex-shrink: 0 !important;
+        scroll-snap-align: start;
+        padding: 28px 22px !important;
+      }
+      .test-nav { display: flex !important; padding-right: 24px; margin-top: 20px !important; }
 
       /* ── STORY BRIDGE: remove horiz padding so scroll strip bleeds ── */
       #story-bridge { padding: 48px 0 48px 24px !important; }
@@ -1420,6 +1486,11 @@
         </div>
       </div>
     </div>
+    <div class="test-nav" id="testNav">
+      <button class="test-arrow-btn" id="testPrev" aria-label="Previous">←</button>
+      <div class="test-dots" id="testDots"></div>
+      <button class="test-arrow-btn" id="testNext" aria-label="Next">→</button>
+    </div>
   </section>
 
   <!-- ═══ STORY BRIDGE ═══ -->
@@ -1466,6 +1537,8 @@
           overflow-x: auto !important;
           -webkit-overflow-scrolling: touch !important;
           scroll-snap-type: x mandatory !important;
+          overscroll-behavior-x: contain !important;
+          touch-action: pan-x !important;
           scrollbar-width: none !important;
           height: auto !important;
           min-height: 0 !important;
@@ -1674,6 +1747,35 @@
     function faqToggle(el){const a=el.nextElementSibling,isOpen=a.classList.contains('open');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('open');q.querySelector('.faq-icon').textContent='+';});document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));if(!isOpen){a.classList.add('open');el.classList.add('open');el.querySelector('.faq-icon').textContent='−';}}
     function cookieChoice(c){localStorage.setItem('halo_cookie_consent',c);document.getElementById('cookie-banner').classList.remove('visible');}
     if(!localStorage.getItem('halo_cookie_consent')){setTimeout(()=>document.getElementById('cookie-banner').classList.add('visible'),1200);}
+    // Testimonials swipe carousel (mobile)
+    (function(){
+      function initTest(){
+        var nav=document.getElementById('testNav');
+        var grid=document.querySelector('.test-grid');
+        var dotsEl=document.getElementById('testDots');
+        if(!nav||!grid) return;
+        var cards=Array.from(grid.querySelectorAll('.test-card'));
+        if(window.innerWidth>640){nav.style.display='none';return;}
+        nav.style.display='flex';
+        dotsEl.innerHTML='';
+        cards.forEach(function(_,i){
+          var d=document.createElement('div');
+          d.className='test-dot'+(i===0?' active':'');
+          d.addEventListener('click',function(){scrollCard(i);});
+          dotsEl.appendChild(d);
+        });
+        function scrollCard(i){grid.scrollTo({left:Math.max(0,cards[i].offsetLeft),behavior:'smooth'});}
+        function getIdx(){var cw=cards.length?(cards[0].offsetWidth+16):1;return Math.min(Math.round(grid.scrollLeft/cw),cards.length-1);}
+        document.getElementById('testPrev').onclick=function(){var i=getIdx();if(i>0)scrollCard(i-1);};
+        document.getElementById('testNext').onclick=function(){var i=getIdx();if(i<cards.length-1)scrollCard(i+1);};
+        grid.addEventListener('scroll',function(){
+          var i=getIdx();
+          dotsEl.querySelectorAll('.test-dot').forEach(function(d,j){d.classList.toggle('active',j===i);});
+        },{passive:true});
+      }
+      initTest();
+      window.addEventListener('resize',initTest);
+    })();
   </script>
 </body>
 </html>
