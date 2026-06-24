@@ -98,7 +98,7 @@ footer {
   display: flex; justify-content: space-between; align-items: center;
   position: relative; z-index: 1;
 }
-.foot-logo { font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:6px; color:var(--light); }
+.foot-logo { font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:2px; color:var(--light); }
 .foot-links { display:flex; gap:28px; }
 .foot-links a { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--light); text-decoration:none; transition:color .2s; }
 .foot-links a:hover { color:var(--rose); }
