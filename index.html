@@ -757,12 +757,14 @@
       .test-grid {
         display: flex !important;
         overflow-x: auto;
+        overflow-y: hidden;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         gap: 16px;
         padding-bottom: 20px;
         overscroll-behavior-x: contain;
+        touch-action: pan-x;
       }
       .test-grid::-webkit-scrollbar { display: none; }
       .test-card {
@@ -1586,11 +1588,11 @@
         }
       }
     </style>
-    <div class="angel-grid rv">
+    <div class="angel-grid">
       <!-- Row 1 -->
-      <div class="ap"><img src="images/home/IMG_6278.jpeg" alt="Angel" style="object-position:center 38%" loading="lazy" /></div>
-      <div class="ap"><img src="images/home/IMG_5163.jpeg" alt="Angel" style="object-position:center 40%" loading="lazy" /></div>
-      <div class="ap"><img src="images/home/IMG_2453.jpeg" alt="Angel" style="object-position:center center" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_6278.jpeg" alt="Angel" style="object-position:center 38%" /></div>
+      <div class="ap"><img src="images/home/IMG_5163.jpeg" alt="Angel" style="object-position:center 40%" /></div>
+      <div class="ap"><img src="images/home/IMG_2453.jpeg" alt="Angel" style="object-position:center center" /></div>
       <!-- Row 2: photo | text | photo -->
       <div class="ap"><img src="images/home/IMG_4621.jpeg" alt="Angel" style="object-position:center 60%" loading="lazy" /></div>
       <div class="angel-center">
