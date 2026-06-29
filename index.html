@@ -783,6 +783,36 @@
       section[style*="padding:100px 60px"] { padding: 56px 20px !important; }
     }
 
+    /* ─── PROBLEM PILLS — MOBILE ─────────────── */
+    @media (max-width: 640px) {
+      /* Show all chaos pills as a visible tag cloud instead of one cycling chip */
+      .problem-chaos {
+        display: flex !important;
+        position: static !important;
+        inset: auto !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 28px 16px 4px;
+      }
+      .chaos-item {
+        position: static !important;
+        opacity: 0.6 !important;
+        animation: none !important;
+        transform: none !important;
+        font-size: 11px !important;
+      }
+      #problem-pill-cycle { display: none !important; }
+    }
+
+    /* ─── COMPARISON TABLE — SCROLL PERFORMANCE ─ */
+    @media (max-width: 640px) {
+      .comp-card {
+        overscroll-behavior-x: auto;
+        touch-action: pan-x pan-y;
+      }
+    }
+
     /* ─── INDEX DARK MODE ─────────────────────── */
     @media (prefers-color-scheme: dark) {
 

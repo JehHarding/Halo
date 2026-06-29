@@ -348,6 +348,25 @@ footer {
     background: rgba(28, 25, 22, .94);
   }
 
+  /* iPhone mockup — lock CSS variables to light-mode so the app UI always renders correctly */
+  .iphone {
+    --bg:      #fdfaf6;
+    --linen:   #f4efe6;
+    --sand:    #ede5d8;
+    --border:  #e2d8ca;
+    --light:   #cbbaa6;
+    --mid:     #a89278;
+    --dark:    #3a3230;
+    --ink:     #1a1618;
+    --rose:    #c9897a;
+    --rose-l:  #e8c4bb;
+    --rose-ll: #f7ede8;
+  }
+  /* On mobile the phone fills most of the screen — dim slightly so it feels integrated */
+  @media (max-width: 640px) {
+    .iphone { filter: brightness(0.88); }
+  }
+
   /* Cursor glow — screen blend works on dark backgrounds */
   #glow {
     background: radial-gradient(circle, rgba(201,137,122,.28) 0%, rgba(201,137,122,.10) 40%, transparent 70%);
