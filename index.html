@@ -785,31 +785,27 @@
 
     /* ─── PROBLEM PILLS — MOBILE ─────────────── */
     @media (max-width: 640px) {
-      /* Show all chaos pills as a visible tag cloud instead of one cycling chip */
-      .problem-chaos {
-        display: flex !important;
-        position: static !important;
-        inset: auto !important;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        padding: 28px 16px 4px;
+      /* Keep cycling chip but make it fully readable */
+      #problem-pill-cycle .cycle-chip {
+        font-size: 12px;
+        padding: 8px 18px;
+        color: var(--dark);
       }
-      .chaos-item {
-        position: static !important;
-        opacity: 0.6 !important;
-        animation: none !important;
-        transform: none !important;
-        font-size: 11px !important;
-      }
-      #problem-pill-cycle { display: none !important; }
+      #problem-pill-cycle .cycle-chip.pill-on { opacity: 1; }
     }
 
-    /* ─── COMPARISON TABLE — SCROLL PERFORMANCE ─ */
+    /* ─── COMPARISON TABLE — FIX SCROLL ──────── */
     @media (max-width: 640px) {
+      /* overflow-x:scroll is more reliable than auto on iOS Safari */
       .comp-card {
-        overscroll-behavior-x: auto;
-        touch-action: pan-x pan-y;
+        overflow-x: scroll !important;
+        touch-action: pan-x;
+        -webkit-overflow-scrolling: touch;
+      }
+      /* Sticky first column causes GPU compositing conflict on iOS → remove it */
+      .comp-th-feat,
+      .comp-cell-feat {
+        position: static !important;
       }
     }
 
