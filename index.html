@@ -805,7 +805,12 @@
     /* ─── INDEX DARK MODE ─────────────────────── */
     @media (prefers-color-scheme: dark) {
 
-      /* Cycling pill — warm brown, no stark white box */
+      /* Desktop chaos pills + mobile cycling pill — warm brown */
+      .chaos-item {
+        background: rgba(72,48,32,.82) !important;
+        color: var(--dark) !important;
+        border-color: rgba(200,140,90,.15) !important;
+      }
       #problem-pill-cycle .cycle-chip {
         background: rgba(72,48,32,.82) !important;
         border-color: rgba(200,140,90,.15) !important;
