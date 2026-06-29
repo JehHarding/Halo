@@ -33,14 +33,7 @@
       position: relative; z-index: 1;
       overflow: hidden;
     }
-    .hero-halo { margin-bottom: 28px; width: 84px; height: 15px; display:inline-block; }
-    .hero-halo .halo-outer { width: 84px; height: 15px; }
-    .hero-halo .halo-inner { width: 55px; height: 9px; }
 
-    .hero-cs {
-      font-size: 9px; letter-spacing: 3.5px; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 18px;
-    }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(32px, 4vw, 58px);
@@ -546,13 +539,11 @@
       border-left: 1px solid var(--rose-l);
       border-right: 1px solid var(--rose-l);
       padding: 16px 12px 18px;
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
-    .comp-th-halo .halo-outer { width: 34px; height: 6px; }
-    .comp-th-halo .halo-inner { width: 22px; height: 4px; }
     .comp-th-halo-word {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 12px; letter-spacing: 2px; font-weight: 400; color: var(--dark);
+      font-size: 12px; letter-spacing: 2px; font-weight: 400; color: var(--rose);
     }
     .comp-th-comp {
       text-align: center;
@@ -647,10 +638,7 @@
       padding: 130px 60px; text-align: center;
       position: relative; z-index: 1;
     }
-    .cta-halo { display: flex; justify-content: center; margin-bottom: 40px; }
-    .cta-halo .halo-anim { width: 80px; height: 14px; }
-    .cta-halo .halo-outer { width: 80px; height: 14px; }
-    .cta-halo .halo-inner { width: 52px; height: 9px; }
+
     #cta-bottom h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(38px, 5vw, 68px);
@@ -693,9 +681,7 @@
     @media(max-width:640px){
       /* ── HERO ── */
       #hero { padding: 90px 24px 60px !important; }
-      .hero-halo { width:54px !important; height:10px !important; margin-bottom:10px !important; }
-      .hero-halo .halo-outer { width:54px !important; height:10px !important; }
-      .hero-halo .halo-inner { width:35px !important; height:6px !important; }
+
       .hero-tagline { font-size: 13.5px !important; line-height: 1.75 !important; margin-bottom: 28px !important; }
       .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 10px; }
 
