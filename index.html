@@ -782,6 +782,40 @@
       /* ── FAQ ── */
       section[style*="padding:100px 60px"] { padding: 56px 20px !important; }
     }
+
+    /* ─── INDEX DARK MODE ─────────────────────── */
+    @media (prefers-color-scheme: dark) {
+
+      /* Testimonial cards — dark raised surface, text stays readable */
+      .test-card {
+        background: rgba(44,40,34,.92);
+        border-color: var(--border);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .test-card:hover {
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      }
+      .test-q { color: var(--dark); }
+      .test-q strong { color: var(--ink); }
+      .test-name { color: var(--dark); }
+
+      /* Comparison table */
+      .comp-card {
+        box-shadow: 0 2px 20px rgba(0,0,0,.2), 0 8px 48px rgba(0,0,0,.3);
+      }
+      .comp-row:nth-child(odd) .comp-cell-feat,
+      .comp-row:nth-child(odd) .comp-cell:not(.halo-col) {
+        background: rgba(255,255,255,.03);
+      }
+      /* × marks — make visible on dark */
+      .comp-no { color: rgba(255,255,255,.22); }
+
+      /* Sticky first column on mobile scrollable table */
+      .comp-th-feat,
+      .comp-cell-feat { background: var(--bg) !important; }
+      .comp-row:nth-child(odd) .comp-cell-feat { background: rgba(255,255,255,.03) !important; }
+    }
   </style>
 </head>
 <body>
