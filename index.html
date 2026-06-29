@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halo, Pet health kept</title>
-  <meta name="description" content="Halo keeps your pet's medications, vitals, appointments and carer's pack in one place. Coming soon." />
-  <meta property="og:title" content="Halo, Pet health kept" />
-  <meta property="og:description" content="Because they can't remind you. Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
+  <title>Halo. Because they can't remind you.</title>
+  <meta name="description" content="Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
+  <meta property="og:title" content="Halo. Because they can't remind you." />
+  <meta property="og:description" content="Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Halo" />
+  <meta property="og:url" content="https://jehharding.github.io/Halo/" />
   <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Halo. Because they can't remind you." />
+  <meta name="twitter:description" content="Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><ellipse cx='16' cy='16' rx='14' ry='5' fill='none' stroke='%23c9897a' stroke-width='2'/><ellipse cx='16' cy='16' rx='9' ry='3' fill='none' stroke='%23e8c4bb' stroke-width='1.2'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1806,13 +1810,6 @@
     </div>
   </footer>
 
-  <div id="cookie-banner">
-    <p>We use cookies to understand how people find Halo. No advertising, no third-party tracking. <a href="cookies.html">Cookie Policy</a></p>
-    <div class="cookie-btns">
-      <button class="cookie-btn cookie-btn-decline" onclick="cookieChoice('decline')">Decline</button>
-      <button class="cookie-btn cookie-btn-accept" onclick="cookieChoice('accept')">Accept</button>
-    </div>
-  </div>
 
   <script>
     const glow=document.getElementById('glow');
@@ -1826,8 +1823,6 @@
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
     function faqToggle(el){const a=el.nextElementSibling,isOpen=a.classList.contains('open');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('open');q.querySelector('.faq-icon').textContent='+';});document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));if(!isOpen){a.classList.add('open');el.classList.add('open');el.querySelector('.faq-icon').textContent='−';}}
-    function cookieChoice(c){localStorage.setItem('halo_cookie_consent',c);document.getElementById('cookie-banner').classList.remove('visible');}
-    if(!localStorage.getItem('halo_cookie_consent')){setTimeout(()=>document.getElementById('cookie-banner').classList.add('visible'),1200);}
     // Testimonials swipe carousel (mobile)
     (function(){
       function initTest(){

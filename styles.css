@@ -170,44 +170,6 @@ footer {
 }
 @media(max-width:600px) { .foot-disclaimer { padding: 12px 24px; } }
 
-/* ─── COOKIE BANNER ───────────────────────────── */
-#cookie-banner {
-  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-  z-index: 9000;
-  background: var(--dark);
-  color: var(--bg);
-  border-radius: 12px;
-  padding: 18px 24px;
-  display: flex; align-items: center; gap: 24px;
-  max-width: 680px; width: calc(100% - 48px);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.22);
-  font-size: 12px; line-height: 1.6;
-  opacity: 0; pointer-events: none;
-  transition: opacity .35s ease, transform .35s ease;
-  transform: translateX(-50%) translateY(12px);
-}
-#cookie-banner.visible {
-  opacity: 1; pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
-}
-#cookie-banner p { flex: 1; color: var(--sand); margin: 0; }
-#cookie-banner a { color: var(--rose-l); text-decoration: underline; }
-.cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
-.cookie-btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 9px 18px; border-radius: 4px; border: none;
-  cursor: pointer; white-space: nowrap; transition: background .2s, color .2s;
-}
-.cookie-btn-accept { background: var(--rose); color: #fff; }
-.cookie-btn-accept:hover { background: var(--rose-l); color: var(--dark); }
-.cookie-btn-decline { background: transparent; color: var(--light); border: 1px solid rgba(255,255,255,.15); }
-.cookie-btn-decline:hover { background: rgba(255,255,255,.08); color: var(--sand); }
-@media(max-width:600px) {
-  #cookie-banner { flex-direction: column; gap: 14px; bottom: 16px; }
-  .cookie-btns { width: 100%; }
-  .cookie-btn { flex: 1; text-align: center; }
-}
 
 /* ─── SHARED TYPOGRAPHY ───────────────────────── */
 .label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--rose); display:block; margin-bottom:14px; }
@@ -409,22 +371,6 @@ footer {
     color: var(--dark);
   }
 
-  /* Cookie banner — keep as a raised surface, not light */
-  #cookie-banner {
-    background: var(--sand);
-    color: var(--dark);
-    box-shadow: 0 8px 48px rgba(0,0,0,.55);
-  }
-  #cookie-banner p { color: var(--mid); }
-  #cookie-banner a { color: var(--rose); }
-  .cookie-btn-decline {
-    color: var(--light);
-    border-color: var(--border);
-  }
-  .cookie-btn-decline:hover {
-    background: rgba(255,255,255,.07);
-    color: var(--dark);
-  }
 }
 
 /* Testimonials — horizontal swipe carousel on mobile */
