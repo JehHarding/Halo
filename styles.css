@@ -76,6 +76,7 @@ nav.scrolled {
   text-decoration: none;
 }
 .site-logo { display: block; }
+@media (prefers-color-scheme: dark) { .site-logo { mix-blend-mode: screen; } }
 .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
 .nav-links a {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
