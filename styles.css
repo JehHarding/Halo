@@ -402,11 +402,11 @@ footer {
     border-color: rgba(255,255,255,.1);
   }
 
-  /* Mobile single cycling chip */
+  /* Mobile single cycling chip — warm brown to blend with the section */
   #problem-pill-cycle .cycle-chip {
-    background: rgba(255,255,255,.07);
-    border-color: rgba(255,255,255,.12);
-    color: var(--mid);
+    background: rgba(72,48,32,.82);
+    border-color: rgba(200,140,90,.15);
+    color: var(--dark);
   }
 
   /* Cookie banner — keep as a raised surface, not light */
