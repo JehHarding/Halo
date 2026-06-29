@@ -800,24 +800,30 @@
 
     /* ─── COMPARISON TABLE — FIX SCROLL ──────── */
     @media (max-width: 640px) {
-      /* overflow-x:scroll is more reliable than auto on iOS Safari */
       .comp-card {
         overflow-x: scroll !important;
         touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
+        /* translateZ(0) breaks position:sticky on iOS — must remove it */
+        transform: none !important;
       }
-      /* Restore sticky first column with explicit stacking context */
       .comp-th-feat,
       .comp-cell-feat {
         position: sticky !important;
         left: 0 !important;
-        z-index: 2 !important;
-        will-change: transform;
+        z-index: 3 !important;
       }
     }
 
     /* ─── INDEX DARK MODE ─────────────────────── */
     @media (prefers-color-scheme: dark) {
+
+      /* Cycling pill — warm brown, no stark white box */
+      #problem-pill-cycle .cycle-chip {
+        background: rgba(72,48,32,.82) !important;
+        border-color: rgba(200,140,90,.15) !important;
+        color: var(--dark) !important;
+      }
 
       /* Testimonial cards — dark raised surface, text stays readable */
       .test-card {
