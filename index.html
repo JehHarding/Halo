@@ -33,22 +33,6 @@
       position: relative; z-index: 1;
       overflow: hidden;
     }
-    /* App-style logo watermark — the paw+halo mark with no background box,
-       sitting behind the hero text exactly like the app's welcome screen.
-       z-index:-1 keeps it behind the wordmark within the hero stacking context. */
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: clamp(72px, 13vh, 165px);
-      left: 50%; transform: translateX(-50%);
-      width: clamp(170px, 22vw, 280px);
-      height: clamp(187px, 24vw, 308px);
-      background: url(images/logo-light-2.png) center/contain no-repeat;
-      opacity: .14;
-      z-index: -1;
-      pointer-events: none;
-    }
-
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(32px, 4vw, 58px);
@@ -827,12 +811,6 @@
     /* ─── INDEX DARK MODE ─────────────────────── */
     @media (prefers-color-scheme: dark) {
 
-      /* Hero logo watermark — swap to the light-on-transparent dark mark */
-      #hero::before {
-        background-image: url(images/logo-mark-dark.png);
-        opacity: .18;
-      }
-
       /* Desktop chaos pills + mobile cycling pill — warm brown */
       .chaos-item {
         background: rgba(72,48,32,.82) !important;
@@ -887,10 +865,7 @@
   <!-- NAV -->
   <nav id="nav">
     <a class="nav-logo" href="index.html">
-      <picture>
-        <source srcset="images/logo-mark-dark.png" media="(prefers-color-scheme: dark)">
-        <img src="images/logo-light-2.png" alt="Halo" height="36" style="display:block">
-      </picture>
+      <span class="site-logo" role="img" aria-label="Halo"></span>
     </a>
     <ul class="nav-links">
       <li><a href="about.html" class="nav-cta">Our Story</a></li>

@@ -80,7 +80,16 @@ nav.scrolled {
   display: flex; flex-direction: row; align-items: center; gap: 10px;
   text-decoration: none;
 }
-.site-logo { display: block; }
+/* Nav logo — the paw+halo mark tinted soft dusty rose, like the app's
+   welcome screen. A CSS mask fills the mark shape with the rose colour,
+   so it stays the same soft pink in both light and dark mode. */
+.site-logo {
+  display: block;
+  width: 40px; height: 40px;
+  background-color: var(--rose);
+  -webkit-mask: url(images/logo-light-2.png) center / contain no-repeat;
+          mask: url(images/logo-light-2.png) center / contain no-repeat;
+}
 .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
 .nav-links a {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
