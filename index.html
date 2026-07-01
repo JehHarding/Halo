@@ -236,6 +236,13 @@
         0 14px 36px rgba(0,0,0,.14);
       overflow: hidden; position: relative;
     }
+    /* Feature-showcase phones: pin the tab bar to the bottom of the frame.
+       The screen becomes a fixed-height flex column and the last child
+       (the tab bar) is pushed down, so it always sits flush at the base
+       of the phone rather than floating up under short content. */
+    .feat-section .iphone { height: 610px; display: flex; flex-direction: column; }
+    .feat-section .iphone-screen { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+    .feat-section .iphone-screen > div:last-child { margin-top: auto !important; }
     /* Side buttons */
     .iphone-wrap { position: relative; display: inline-block; }
     .iphone-wrap::before {
