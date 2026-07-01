@@ -14,6 +14,11 @@
   --rose:    #c9897a;
   --rose-l:  #e8c4bb;
   --rose-ll: #f7ede8;
+  /* App-mockup card surfaces (white cards on cream in light mode) */
+  --card:        #ffffff;
+  --card-border: rgba(226,216,202,.55);
+  --ok-bg:       #e8f0e0;
+  --ok-fg:       #5a7a4a;
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -304,6 +309,11 @@ footer {
     --rose:    #c9897a;
     --rose-l:  #c07e6e;
     --rose-ll: #2e1e16;
+    /* App-mockup card surfaces render the app's DARK palette in dark mode */
+    --card:        #2c2822;
+    --card-border: #3c342c;
+    --ok-bg:       rgba(124,154,106,.16);
+    --ok-fg:       #8fae7d;
   }
 
   /* Nav */
@@ -311,24 +321,10 @@ footer {
     background: rgba(28, 25, 22, .94);
   }
 
-  /* iPhone mockup — lock CSS variables to light-mode so the app UI always renders correctly */
-  .iphone {
-    --bg:      #fdfaf6;
-    --linen:   #f4efe6;
-    --sand:    #ede5d8;
-    --border:  #e2d8ca;
-    --light:   #cbbaa6;
-    --mid:     #a89278;
-    --dark:    #3a3230;
-    --ink:     #1a1618;
-    --rose:    #c9897a;
-    --rose-l:  #e8c4bb;
-    --rose-ll: #f7ede8;
-  }
-  /* On mobile the phone fills most of the screen — dim slightly so it feels integrated */
-  @media (max-width: 640px) {
-    .iphone { filter: brightness(0.88); }
-  }
+  /* iPhone mockup — the phone now inherits the dark root variables so the
+     website's dark mode shows the app's real dark mode. Card backgrounds and
+     borders come from --card / --card-border above; the physical bezel stays
+     dark in both modes. No variable lock, no brightness dim. */
 
   /* Cursor glow — screen blend works on dark backgrounds */
   #glow {

@@ -49,7 +49,7 @@
     .iphone {
       width: 300px;
       height: 640px;
-      background: #fdfaf6;
+      background: var(--bg);
       border-radius: 48px;
       box-shadow:
         0 0 0 1px rgba(0,0,0,.06),
@@ -69,7 +69,7 @@
     }
     .iphone-screen { padding: 36px 0 0; display: flex; flex-direction: column; height: 100%; }
     .screen-body { flex: 1; overflow: hidden; min-height: 0; }
-    .tab-bar { display: flex; border-top: 1px solid rgba(226,216,202,.6); background: #fdfaf6; padding: 9px 0 15px; flex-shrink: 0; }
+    .tab-bar { display: flex; border-top: 1px solid var(--card-border); background: var(--bg); padding: 9px 0 15px; flex-shrink: 0; }
     .tab-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .ti-icon { color: var(--light); line-height: 1; }
     .ti-lbl { font-size: 7.5px; letter-spacing: .2px; color: var(--light); }
@@ -94,7 +94,7 @@
     .prof-chips { display: flex;flex-wrap: wrap;gap: 6px;justify-content: center;margin-bottom: 16px; }
     .prof-chip { font-size: 10px;background: var(--rose-ll);color: var(--rose);border-radius: 20px;padding: 4px 12px;border: 1px solid var(--rose-l); }
     .prof-rows { display: flex;flex-direction: column;gap: 8px; }
-    .prof-row { background: #fff;border-radius: 10px;padding: 11px 14px;border: 1px solid rgba(226,216,202,.55);display: flex;justify-content: space-between;align-items: center; }
+    .prof-row { background: var(--card);border-radius: 10px;padding: 11px 14px;border: 1px solid var(--card-border);display: flex;justify-content: space-between;align-items: center; }
     .pr-lbl { font-size: 10px;color: var(--mid); }
     .pr-val { font-size: 11px;font-weight: 400;color: var(--dark); }
 
@@ -103,7 +103,7 @@
     .med-date { font-size: 10px;letter-spacing: 1.5px;text-transform: uppercase;color: var(--rose);padding-top: 6px; }
     .med-title-t { font-family: 'Cormorant Garamond',serif;font-size: 24px;font-weight: 400;color: var(--dark);margin-bottom: 16px; }
     .med-list { display: flex;flex-direction: column;gap: 9px;margin-bottom: 16px; }
-    .med-row { display: flex;align-items: center;gap: 12px;background: #fff;border-radius: 10px;padding: 12px 14px;border: 1px solid rgba(226,216,202,.55); }
+    .med-row { display: flex;align-items: center;gap: 12px;background: var(--card);border-radius: 10px;padding: 12px 14px;border: 1px solid var(--card-border); }
     .chk { width: 22px;height: 22px;border-radius: 50%;display: flex;align-items: center;justify-content: center;font-size: 12px;flex-shrink: 0; }
     .chk.done { background: var(--rose);color: white; }
     .chk.todo { border: 1.5px solid var(--border); }
@@ -120,9 +120,9 @@
     .cal-sub { font-size: 10px;color: var(--mid);margin-bottom: 16px;letter-spacing: .3px; }
     .appt-list { display: flex;flex-direction: column;gap: 10px; }
     .appt-item {
-      background: #fff;border-radius: 10px;
+      background: var(--card);border-radius: 10px;
       padding: 12px 14px;
-      border: 1px solid rgba(226,216,202,.55);
+      border: 1px solid var(--card-border);
       border-left: 3px solid var(--rose);
     }
     .appt-item.upcoming { border-left-color: var(--rose-l); }
@@ -134,7 +134,7 @@
     .vit-s { padding: 0 16px 18px; }
     .vit-title-t { font-family: 'Cormorant Garamond',serif;font-size: 24px;font-weight: 400;color: var(--dark);padding-top: 6px;margin-bottom: 3px; }
     .vit-sub-t { font-size: 10px;color: var(--mid);margin-bottom: 14px;letter-spacing: .3px; }
-    .vit-chart-box { background: #fff;border-radius: 10px;border: 1px solid rgba(226,216,202,.55);padding: 14px 14px 9px;margin-bottom: 14px; }
+    .vit-chart-box { background: var(--card);border-radius: 10px;border: 1px solid var(--card-border);padding: 14px 14px 9px;margin-bottom: 14px; }
     .vit-svg { width: 100%;height: 72px; }
     .vit-days-row { display: flex;justify-content: space-between;margin-top: 6px; }
     .vit-d { font-size: 8.5px;color: var(--light); }
@@ -143,7 +143,7 @@
     .vit-u { font-size: 13px;color: var(--mid); }
     .vit-ok { font-size: 10.5px;color: var(--rose);display: flex;align-items: center;gap: 6px;margin-bottom: 10px; }
     .vit-ok-dot { width: 6px;height: 6px;border-radius: 50%;background: var(--rose); }
-    .vit-log-row { background: #fff;border-radius: 10px;padding: 11px 14px;border: 1px solid rgba(226,216,202,.55);display: flex;justify-content: space-between;align-items: center; }
+    .vit-log-row { background: var(--card);border-radius: 10px;padding: 11px 14px;border: 1px solid var(--card-border);display: flex;justify-content: space-between;align-items: center; }
     .vit-log-lbl { font-size: 10px;color: var(--mid); }
     .vit-log-val { font-size: 11px;font-weight: 400;color: var(--dark); }
 
@@ -151,7 +151,7 @@
     .pack-s { padding: 0 16px 18px; }
     .pack-title-t { font-family: 'Cormorant Garamond',serif;font-size: 24px;font-weight: 400;color: var(--dark);padding-top: 6px; }
     .pack-sub-t { font-size: 10px;color: var(--mid);margin-bottom: 14px; }
-    .pack-doc { background: #fff;border-radius: 10px;border: 1px solid rgba(226,216,202,.55);padding: 16px;margin-bottom: 12px; }
+    .pack-doc { background: var(--card);border-radius: 10px;border: 1px solid var(--card-border);padding: 16px;margin-bottom: 12px; }
     .pack-doc-logo { font-family: 'Cormorant Garamond',serif;font-size: 14px;letter-spacing: 6px;color: var(--dark);opacity: .3;margin-bottom: 4px; }
     .pack-doc-name { font-family: 'Cormorant Garamond',serif;font-size: 18px;color: var(--dark);margin-bottom: 12px; }
     .pack-row { font-size: 10.5px;color: var(--mid);padding: 6px 0;border-bottom: 1px solid var(--border);display: flex;align-items: center;gap: 8px; }
@@ -189,8 +189,8 @@
   <nav id="nav">
     <a class="nav-logo" href="index.html">
       <picture>
-        <source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
-        <img src="images/logo-light.png" alt="Halo" height="36" style="display:block">
+        <source srcset="images/logo-mark-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="images/logo-light-2.png" alt="Halo" height="36" style="display:block">
       </picture>
     </a>
     <ul class="nav-links">
@@ -403,11 +403,11 @@
               <div class="vit-sub-t">Resting bpm · This week</div>
               <div class="vit-chart-box">
                 <svg class="vit-svg" viewBox="0 0 268 72" fill="none">
-                  <defs><linearGradient id="vg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c9897a" stop-opacity=".22"/><stop offset="100%" stop-color="#c9897a" stop-opacity="0"/></linearGradient></defs>
+                  <defs><linearGradient id="vg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" style="stop-color:var(--rose)" stop-opacity=".22"/><stop offset="100%" style="stop-color:var(--rose)" stop-opacity="0"/></linearGradient></defs>
                   <path d="M0,52 C18,50 34,40 52,43 C70,46 80,32 104,35 C128,38 140,48 164,43 C188,38 214,46 268,40 L268,72 L0,72 Z" fill="url(#vg)"/>
-                  <path d="M0,52 C18,50 34,40 52,43 C70,46 80,32 104,35 C128,38 140,48 164,43 C188,38 214,46 268,40" stroke="#c9897a" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="104" cy="35" r="4" fill="#c9897a"/>
-                  <circle cx="104" cy="35" r="8" fill="#c9897a" fill-opacity=".18"/>
+                  <path d="M0,52 C18,50 34,40 52,43 C70,46 80,32 104,35 C128,38 140,48 164,43 C188,38 214,46 268,40" style="stroke:var(--rose)" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="104" cy="35" r="4" style="fill:var(--rose)"/>
+                  <circle cx="104" cy="35" r="8" style="fill:var(--rose)" fill-opacity=".18"/>
                 </svg>
                 <div class="vit-days-row">
                   <span class="vit-d">Mon</span><span class="vit-d">Tue</span><span class="vit-d">Wed</span><span class="vit-d">Thu</span><span class="vit-d">Fri</span><span class="vit-d">Sat</span><span class="vit-d">Sun</span>
@@ -468,15 +468,15 @@
               <div class="pack-title-t">Share Pack</div>
               <div class="pack-sub-t">Angel's Care Guide · Choose how to share</div>
               <!-- QR code -->
-              <div style="background:#fff;border-radius:12px;border:1px solid rgba(226,216,202,.55);padding:16px;margin-bottom:12px;text-align:center">
+              <div style="background:var(--card);border-radius:12px;border:1px solid var(--card-border);padding:16px;margin-bottom:12px;text-align:center">
                 <svg width="110" height="110" viewBox="0 0 100 100" style="margin:0 auto 10px;display:block">
-                  <rect width="100" height="100" fill="#fdfaf6" rx="4"/>
-                  <g fill="#3a3230">
-                    <rect x="8" y="8" width="28" height="28" rx="3" fill="none" stroke="#3a3230" stroke-width="3"/>
+                  <rect width="100" height="100" style="fill:var(--bg)" rx="4"/>
+                  <g style="fill:var(--dark)">
+                    <rect x="8" y="8" width="28" height="28" rx="3" fill="none" style="stroke:var(--dark)" stroke-width="3"/>
                     <rect x="15" y="15" width="14" height="14" rx="1"/>
-                    <rect x="64" y="8" width="28" height="28" rx="3" fill="none" stroke="#3a3230" stroke-width="3"/>
+                    <rect x="64" y="8" width="28" height="28" rx="3" fill="none" style="stroke:var(--dark)" stroke-width="3"/>
                     <rect x="71" y="15" width="14" height="14" rx="1"/>
-                    <rect x="8" y="64" width="28" height="28" rx="3" fill="none" stroke="#3a3230" stroke-width="3"/>
+                    <rect x="8" y="64" width="28" height="28" rx="3" fill="none" style="stroke:var(--dark)" stroke-width="3"/>
                     <rect x="15" y="71" width="14" height="14" rx="1"/>
                     <rect x="44" y="8" width="4" height="4"/><rect x="50" y="8" width="4" height="4"/>
                     <rect x="44" y="14" width="4" height="4"/><rect x="56" y="14" width="4" height="4"/>
@@ -501,12 +501,12 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.546 4.085 1.502 5.81L.057 23.386a.5.5 0 0 0 .614.614l5.576-1.445A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.656-.523-5.164-1.43l-.369-.22-3.821.99.997-3.76-.24-.388A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
                   <span style="font-size:12px;font-weight:400;color:white;letter-spacing:.3px">Send via WhatsApp</span>
                 </div>
-                <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:14px 16px;border:1px solid rgba(226,216,202,.55)">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><polyline points="3,4 12,13 21,4"/></svg>
+                <div style="display:flex;align-items:center;gap:12px;background:var(--card);border-radius:10px;padding:14px 16px;border:1px solid var(--card-border)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--mid)" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><polyline points="3,4 12,13 21,4"/></svg>
                   <span style="font-size:12px;color:var(--mid)">Send as Email PDF</span>
                 </div>
-                <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:10px;padding:14px 16px;border:1px solid rgba(226,216,202,.55)">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--mid)" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <div style="display:flex;align-items:center;gap:12px;background:var(--card);border-radius:10px;padding:14px 16px;border:1px solid var(--card-border)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--mid)" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                   <span style="font-size:12px;color:var(--mid)">Copy shareable link</span>
                 </div>
               </div>
@@ -547,8 +547,8 @@
 
   <footer>
     <picture>
-      <source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
-      <img src="images/logo-light.png" alt="Halo" height="28" style="display:block">
+      <source srcset="images/logo-mark-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="images/logo-light-2.png" alt="Halo" height="28" style="display:block">
     </picture>
     <div class="foot-links">
       <a href="about.html">Our Story</a>

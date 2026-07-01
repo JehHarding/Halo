@@ -33,6 +33,21 @@
       position: relative; z-index: 1;
       overflow: hidden;
     }
+    /* App-style logo watermark — the paw+halo mark with no background box,
+       sitting behind the hero text exactly like the app's welcome screen.
+       z-index:-1 keeps it behind the wordmark within the hero stacking context. */
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: clamp(72px, 13vh, 165px);
+      left: 50%; transform: translateX(-50%);
+      width: clamp(170px, 22vw, 280px);
+      height: clamp(187px, 24vw, 308px);
+      background: url(images/logo-light-2.png) center/contain no-repeat;
+      opacity: .14;
+      z-index: -1;
+      pointer-events: none;
+    }
 
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
@@ -225,7 +240,7 @@
     .iphone {
       width: 280px;
       min-height: 590px;
-      background: #fdfaf6;
+      background: var(--bg);
       border-radius: 46px;
       border: 11px solid #1c1c1e;
       box-shadow:
@@ -296,7 +311,7 @@
     .prof-chip { font-size: 9.5px; background: var(--rose-ll); color: var(--rose); border-radius: 20px; padding: 3px 10px; border: 1px solid var(--rose-l); }
     .iphone.sm .prof-chip { font-size: 8px; padding: 2px 8px; }
     .prof-rows { display: flex; flex-direction: column; gap: 7px; }
-    .prof-row { background: #fff; border-radius: 9px; padding: 10px 12px; border: 1px solid rgba(226,216,202,.55); display: flex; justify-content: space-between; align-items: center; }
+    .prof-row { background: var(--card); border-radius: 9px; padding: 10px 12px; border: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
     .iphone.sm .prof-row { padding: 7px 10px; border-radius: 7px; }
     .pr-lbl { font-size: 9.5px; color: var(--mid); }
     .pr-val { font-size: 10.5px; font-weight: 400; color: var(--dark); }
@@ -309,7 +324,7 @@
     .med-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); margin-bottom: 14px; }
     .iphone.sm .med-title-t { font-size: 16px; margin-bottom: 10px; }
     .med-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
-    .med-row { display: flex; align-items: center; gap: 10px; background: #fff; border-radius: 9px; padding: 11px 12px; border: 1px solid rgba(226,216,202,.55); }
+    .med-row { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 9px; padding: 11px 12px; border: 1px solid var(--card-border); }
     .iphone.sm .med-row { gap: 7px; padding: 8px 9px; border-radius: 7px; }
     .chk { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
     .iphone.sm .chk { width: 15px; height: 15px; font-size: 8px; }
@@ -329,7 +344,7 @@
     .cal-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); padding-top: 4px; margin-bottom: 4px; }
     .cal-sub { font-size: 9px; color: var(--mid); margin-bottom: 14px; letter-spacing: .3px; }
     .appt-list { display: flex; flex-direction: column; gap: 9px; }
-    .appt-item { background: #fff; border-radius: 9px; padding: 11px 12px; border: 1px solid rgba(226,216,202,.55); border-left: 3px solid var(--rose); }
+    .appt-item { background: var(--card); border-radius: 9px; padding: 11px 12px; border: 1px solid var(--card-border); border-left: 3px solid var(--rose); }
     .appt-item.upcoming { border-left-color: var(--rose-l); }
     .appt-name { font-size: 11.5px; font-weight: 400; color: var(--dark); }
     .appt-detail { font-size: 9.5px; color: var(--mid); margin-top: 2px; line-height: 1.5; }
@@ -339,7 +354,7 @@
     .vit-s { padding: 0 15px 16px; }
     .vit-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); padding-top: 4px; margin-bottom: 2px; }
     .vit-sub-t { font-size: 9px; color: var(--mid); margin-bottom: 12px; }
-    .vit-chart-box { background: #fff; border-radius: 9px; border: 1px solid rgba(226,216,202,.55); padding: 12px 12px 8px; margin-bottom: 12px; }
+    .vit-chart-box { background: var(--card); border-radius: 9px; border: 1px solid var(--card-border); padding: 12px 12px 8px; margin-bottom: 12px; }
     .vit-svg { width: 100%; height: 66px; }
     .vit-days-row { display: flex; justify-content: space-between; margin-top: 5px; }
     .vit-d { font-size: 7.5px; color: var(--light); }
@@ -348,7 +363,7 @@
     .vit-u { font-size: 12px; color: var(--mid); }
     .vit-ok { font-size: 9.5px; color: var(--rose); display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
     .vit-ok-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
-    .vit-log-row { background: #fff; border-radius: 9px; padding: 10px 12px; border: 1px solid rgba(226,216,202,.55); display: flex; justify-content: space-between; align-items: center; }
+    .vit-log-row { background: var(--card); border-radius: 9px; padding: 10px 12px; border: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
     .vit-log-lbl { font-size: 9px; color: var(--mid); }
     .vit-log-val { font-size: 10px; font-weight: 400; color: var(--dark); }
 
@@ -356,7 +371,7 @@
     .pack-s { padding: 0 15px 16px; }
     .pack-title-t { font-family:'Cormorant Garamond',serif; font-size: 22px; color: var(--dark); padding-top: 4px; }
     .pack-sub-t { font-size: 9px; color: var(--mid); margin-bottom: 12px; }
-    .pack-doc { background: #fff; border-radius: 9px; border: 1px solid rgba(226,216,202,.55); padding: 14px; margin-bottom: 10px; }
+    .pack-doc { background: var(--card); border-radius: 9px; border: 1px solid var(--card-border); padding: 14px; margin-bottom: 10px; }
     .pack-doc-logo { font-family:'Cormorant Garamond',serif; font-size: 12px; letter-spacing: 5px; color: var(--dark); opacity: .3; margin-bottom: 3px; }
     .pack-doc-name { font-family:'Cormorant Garamond',serif; font-size: 16px; color: var(--dark); margin-bottom: 10px; }
     .pack-row { font-size: 9.5px; color: var(--mid); padding: 5px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 7px; }
@@ -812,6 +827,12 @@
     /* ─── INDEX DARK MODE ─────────────────────── */
     @media (prefers-color-scheme: dark) {
 
+      /* Hero logo watermark — swap to the light-on-transparent dark mark */
+      #hero::before {
+        background-image: url(images/logo-mark-dark.png);
+        opacity: .18;
+      }
+
       /* Desktop chaos pills + mobile cycling pill — warm brown */
       .chaos-item {
         background: rgba(72,48,32,.82) !important;
@@ -867,8 +888,8 @@
   <nav id="nav">
     <a class="nav-logo" href="index.html">
       <picture>
-        <source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
-        <img src="images/logo-light.png" alt="Halo" height="36" style="display:block">
+        <source srcset="images/logo-mark-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="images/logo-light-2.png" alt="Halo" height="36" style="display:block">
       </picture>
     </a>
     <ul class="nav-links">
@@ -996,60 +1017,60 @@
             <!-- Avatar row -->
             <div style="display:flex;justify-content:flex-end;align-items:center;gap:7px;margin-bottom:10px">
               <div style="position:relative">
-                <img src="images/home/IMG_Angel_avatar.jpeg" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid #e8c4bb;display:block"/>
-                <div style="position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:#4caf50;border:1.5px solid #fdfaf6"></div>
+                <img src="images/home/IMG_Angel_avatar.jpeg" style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:1.5px solid var(--rose-l);display:block"/>
+                <div style="position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:#4caf50;border:1.5px solid var(--bg)"></div>
               </div>
-              <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid #e2d8ca;display:flex;align-items:center;justify-content:center;color:#b0988a;font-size:16px;line-height:1">+</div>
+              <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--mid);font-size:16px;line-height:1">+</div>
             </div>
             <!-- Greeting -->
-            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#b0988a;margin-bottom:3px">Good Morning</div>
-            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:#3a3230;line-height:1.2;margin-bottom:3px">Angel is doing <em style="font-style:italic;color:#c9897a">well today</em></div>
-            <div style="font-size:8.5px;color:#b0988a;margin-bottom:14px">Morning meds given · 2 more due at 8pm</div>
+            <div style="font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:3px">Good Morning</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:3px">Angel is doing <em style="font-style:italic;color:var(--rose)">well today</em></div>
+            <div style="font-size:8.5px;color:var(--mid);margin-bottom:14px">Morning meds given · 2 more due at 8pm</div>
             <!-- Cards -->
             <div style="display:flex;flex-direction:column;gap:7px">
-              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
-                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span style="font-size:10.5px;color:#3a3230">How is Angel today?</span></div>
-                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">No log yet</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              <div style="background:var(--card);border-radius:12px;padding:11px 13px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="stroke:var(--mid)" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><span style="font-size:10.5px;color:var(--dark)">How is Angel today?</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:var(--mid)">No log yet</span><span style="font-size:9px;color:var(--light)">⌄</span></div>
               </div>
-              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
-                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg><span style="font-size:10.5px;color:#3a3230">Next Dose</span></div>
-                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">In 4h · 8:00pm</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              <div style="background:var(--card);border-radius:12px;padding:11px 13px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="stroke:var(--mid)" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg><span style="font-size:10.5px;color:var(--dark)">Next Dose</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:var(--mid)">In 4h · 8:00pm</span><span style="font-size:9px;color:var(--light)">⌄</span></div>
               </div>
-              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
-                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="10" width="12" height="10" rx="2"/><path d="M12 10V5"/><path d="M9 5h6"/></svg><span style="font-size:10.5px;color:#3a3230">Weight</span></div>
-                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">4.2 kg · Stable</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              <div style="background:var(--card);border-radius:12px;padding:11px 13px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="stroke:var(--mid)" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="10" width="12" height="10" rx="2"/><path d="M12 10V5"/><path d="M9 5h6"/></svg><span style="font-size:10.5px;color:var(--dark)">Weight</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:var(--mid)">4.2 kg · Stable</span><span style="font-size:9px;color:var(--light)">⌄</span></div>
               </div>
-              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
-                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 22 13" fill="none" stroke="#c9897a" stroke-width="1.7" stroke-linecap="round"><line x1="1" y1="6.5" x2="1" y2="7.5"/><line x1="4" y1="5" x2="4" y2="9"/><line x1="7" y1="3" x2="7" y2="11"/><line x1="10" y1="1" x2="10" y2="12"/><line x1="13" y1="3" x2="13" y2="11"/><line x1="16" y1="5" x2="16" y2="9"/><line x1="19" y1="6" x2="19" y2="8"/><line x1="22" y1="6.5" x2="22" y2="7.5"/></svg><span style="font-size:10.5px;color:#3a3230">Breathing</span></div>
-                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">24 bpm · Normal</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              <div style="background:var(--card);border-radius:12px;padding:11px 13px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 22 13" fill="none" style="stroke:var(--rose)" stroke-width="1.7" stroke-linecap="round"><line x1="1" y1="6.5" x2="1" y2="7.5"/><line x1="4" y1="5" x2="4" y2="9"/><line x1="7" y1="3" x2="7" y2="11"/><line x1="10" y1="1" x2="10" y2="12"/><line x1="13" y1="3" x2="13" y2="11"/><line x1="16" y1="5" x2="16" y2="9"/><line x1="19" y1="6" x2="19" y2="8"/><line x1="22" y1="6.5" x2="22" y2="7.5"/></svg><span style="font-size:10.5px;color:var(--dark)">Breathing</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:var(--mid)">24 bpm · Normal</span><span style="font-size:9px;color:var(--light)">⌄</span></div>
               </div>
-              <div style="background:#fff;border-radius:12px;padding:11px 13px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:center;justify-content:space-between">
-                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b0988a" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span style="font-size:10.5px;color:#3a3230">Upcoming Events</span></div>
-                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:#b0988a">Cardiology · Jun 22</span><span style="font-size:9px;color:#cbbaa6">⌄</span></div>
+              <div style="background:var(--card);border-radius:12px;padding:11px 13px;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:space-between">
+                <div style="display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="stroke:var(--mid)" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span style="font-size:10.5px;color:var(--dark)">Upcoming Events</span></div>
+                <div style="display:flex;align-items:center;gap:5px"><span style="font-size:8.5px;color:var(--mid)">Cardiology · Jun 22</span><span style="font-size:9px;color:var(--light)">⌄</span></div>
               </div>
             </div>
           </div>
           <!-- Tab bar -->
-          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+          <div style="background:var(--bg);border-top:1px solid var(--card-border);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
-              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="#3a3230"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
-              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Home</span>
+              <div style="background:var(--rose-ll);border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" style="fill:var(--dark)"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+              <span style="font-size:6.5px;color:var(--rose);font-weight:600">Home</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Meds</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Calendar</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Vitals</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Pack</span>
             </div>
           </div>
         </div>
@@ -1071,82 +1092,82 @@
         <div class="iphone-screen">
           <div class="sb"><span>14:08</span><div class="sb-right"><span class="sb-icons">··· ▲▲▲</span><div class="sb-pill"></div></div></div>
           <div style="padding:0 15px 0">
-            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#3a3230;margin-bottom:2px">Medications</div>
-            <div style="font-size:8.5px;color:#b0988a;margin-bottom:14px">Angel · Sunday 21 June</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--dark);margin-bottom:2px">Medications</div>
+            <div style="font-size:8.5px;color:var(--mid);margin-bottom:14px">Angel · Sunday 21 June</div>
             <!-- Morning done -->
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-              <div style="width:6px;height:6px;border-radius:50%;background:#c9897a"></div>
-              <div style="font-size:8.5px;font-weight:600;color:#c9897a;letter-spacing:.3px">Morning · 8:00am · Done</div>
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--rose)"></div>
+              <div style="font-size:8.5px;font-weight:600;color:var(--rose);letter-spacing:.3px">Morning · 8:00am · Done</div>
             </div>
-            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);overflow:hidden;margin-bottom:10px">
-              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
-                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #c9897a;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#c9897a">✓</span></div>
-                <div style="flex:1"><div style="font-size:10.5px;color:#b0988a;text-decoration:line-through">Pimobendan</div><div style="font-size:8px;color:#cbbaa6">1.25mg · given 8:04am</div></div>
-                <span style="font-size:8.5px;color:#b0988a">Done</span>
-                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+            <div style="background:var(--card);border-radius:10px;border:1px solid var(--card-border);overflow:hidden;margin-bottom:10px">
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--card-border)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--rose);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:var(--rose)">✓</span></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:var(--mid);text-decoration:line-through">Pimobendan</div><div style="font-size:8px;color:var(--light)">1.25mg · given 8:04am</div></div>
+                <span style="font-size:8.5px;color:var(--mid)">Done</span>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--light)">ⓘ</div>
               </div>
-              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
-                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #c9897a;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#c9897a">✓</span></div>
-                <div style="flex:1"><div style="font-size:10.5px;color:#b0988a;text-decoration:line-through">Furosemide</div><div style="font-size:8px;color:#cbbaa6">10mg · given 8:04am</div></div>
-                <span style="font-size:8.5px;color:#b0988a">Done</span>
-                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--card-border)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--rose);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:var(--rose)">✓</span></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:var(--mid);text-decoration:line-through">Furosemide</div><div style="font-size:8px;color:var(--light)">10mg · given 8:04am</div></div>
+                <span style="font-size:8.5px;color:var(--mid)">Done</span>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--light)">ⓘ</div>
               </div>
               <div style="display:flex;align-items:center;gap:9px;padding:9px 11px">
-                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #c9897a;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:#c9897a">✓</span></div>
-                <div style="flex:1"><div style="font-size:10.5px;color:#b0988a;text-decoration:line-through">Taurine</div><div style="font-size:8px;color:#cbbaa6">250mg · given 8:04am</div></div>
-                <span style="font-size:8.5px;color:#b0988a">Done</span>
-                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--rose);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:9px;color:var(--rose)">✓</span></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:var(--mid);text-decoration:line-through">Taurine</div><div style="font-size:8px;color:var(--light)">250mg · given 8:04am</div></div>
+                <span style="font-size:8.5px;color:var(--mid)">Done</span>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--light)">ⓘ</div>
               </div>
             </div>
             <!-- divider -->
-            <div style="border-top:1px solid rgba(226,216,202,.4);margin-bottom:10px"></div>
+            <div style="border-top:1px solid var(--card-border);margin-bottom:10px"></div>
             <!-- Evening pending -->
             <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">
-              <div style="width:6px;height:6px;border-radius:50%;background:#e2d8ca"></div>
-              <div style="font-size:8.5px;font-weight:600;color:#b0988a;letter-spacing:.3px">Evening · 8:00pm</div>
+              <div style="width:6px;height:6px;border-radius:50%;background:var(--border)"></div>
+              <div style="font-size:8.5px;font-weight:600;color:var(--mid);letter-spacing:.3px">Evening · 8:00pm</div>
             </div>
-            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);overflow:hidden">
-              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
-                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #e2d8ca;flex-shrink:0"></div>
-                <div style="flex:1"><div style="font-size:10.5px;color:#3a3230">Furosemide</div><div style="font-size:8px;color:#b0988a">10mg · evening dose</div></div>
-                <div style="background:#f7ede8;border-radius:6px;padding:2px 7px;font-size:7.5px;color:#c9897a">8pm</div>
-                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+            <div style="background:var(--card);border-radius:10px;border:1px solid var(--card-border);overflow:hidden">
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--card-border)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0"></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:var(--dark)">Furosemide</div><div style="font-size:8px;color:var(--mid)">10mg · evening dose</div></div>
+                <div style="background:var(--rose-ll);border-radius:6px;padding:2px 7px;font-size:7.5px;color:var(--rose)">8pm</div>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--light)">ⓘ</div>
               </div>
-              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid rgba(226,216,202,.3)">
-                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #e2d8ca;flex-shrink:0"></div>
-                <div style="flex:1"><div style="font-size:10.5px;color:#3a3230">Atenolol</div><div style="font-size:8px;color:#b0988a">6.25mg · evening dose</div></div>
-                <div style="background:#f7ede8;border-radius:6px;padding:2px 7px;font-size:7.5px;color:#c9897a">8pm</div>
-                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+              <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--card-border)">
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0"></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:var(--dark)">Atenolol</div><div style="font-size:8px;color:var(--mid)">6.25mg · evening dose</div></div>
+                <div style="background:var(--rose-ll);border-radius:6px;padding:2px 7px;font-size:7.5px;color:var(--rose)">8pm</div>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--light)">ⓘ</div>
               </div>
               <div style="display:flex;align-items:center;gap:9px;padding:9px 11px">
-                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid #e2d8ca;flex-shrink:0"></div>
-                <div style="flex:1"><div style="font-size:10.5px;color:#3a3230">Taurine</div><div style="font-size:8px;color:#b0988a">250mg · evening dose</div></div>
-                <div style="background:#f7ede8;border-radius:6px;padding:2px 7px;font-size:7.5px;color:#c9897a">8pm</div>
-                <div style="width:15px;height:15px;border-radius:50%;border:1px solid #e2d8ca;display:flex;align-items:center;justify-content:center;font-size:7px;color:#cbbaa6">ⓘ</div>
+                <div style="width:19px;height:19px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0"></div>
+                <div style="flex:1"><div style="font-size:10.5px;color:var(--dark)">Taurine</div><div style="font-size:8px;color:var(--mid)">250mg · evening dose</div></div>
+                <div style="background:var(--rose-ll);border-radius:6px;padding:2px 7px;font-size:7.5px;color:var(--rose)">8pm</div>
+                <div style="width:15px;height:15px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--light)">ⓘ</div>
               </div>
             </div>
           </div>
           <!-- Tab bar -->
-          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+          <div style="background:var(--bg);border-top:1px solid var(--card-border);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Home</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
-              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg></div>
-              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Meds</span>
+              <div style="background:var(--rose-ll);border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="stroke:var(--dark)" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg></div>
+              <span style="font-size:6.5px;color:var(--rose);font-weight:600">Meds</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Calendar</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Vitals</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Pack</span>
             </div>
           </div>
         </div>
@@ -1171,73 +1192,73 @@
             <!-- Calendar header -->
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px">
               <div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1.1">Calendar</div>
-                <div style="font-size:8.5px;color:#b0988a;margin-top:2px">Angel's appointments</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--dark);line-height:1.1">Calendar</div>
+                <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Angel's appointments</div>
               </div>
-              <div style="width:28px;height:28px;border-radius:7px;background:#3a3230;display:flex;align-items:center;justify-content:center">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fdfaf6" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <div style="width:28px;height:28px;border-radius:7px;background:var(--dark);display:flex;align-items:center;justify-content:center">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" style="stroke:var(--bg)" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
               </div>
             </div>
             <!-- Calendar rows -->
             <div style="display:flex;flex-direction:column;gap:8px">
               <!-- Row 1 -->
-              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="background:var(--card);border-radius:10px;padding:10px 12px;border:1px solid var(--card-border);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
                 <div style="min-width:30px;text-align:center">
-                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">22</div>
-                  <div style="font-size:7px;font-weight:600;color:#b0988a;letter-spacing:1px">JUN</div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--dark);line-height:1">22</div>
+                  <div style="font-size:7px;font-weight:600;color:var(--mid);letter-spacing:1px">JUN</div>
                 </div>
                 <div style="flex:1">
-                  <div style="font-size:10.5px;font-weight:500;color:#3a3230">Cardiology scan</div>
-                  <div style="font-size:8.5px;color:#b0988a;margin-top:2px">Dr. Patel · Cardiology dept</div>
-                  <div style="display:inline-block;font-size:7.5px;color:#c9897a;background:#f7ede8;border-radius:8px;padding:1px 7px;margin-top:5px">in 6 days</div>
+                  <div style="font-size:10.5px;font-weight:500;color:var(--dark)">Cardiology scan</div>
+                  <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Dr. Patel · Cardiology dept</div>
+                  <div style="display:inline-block;font-size:7.5px;color:var(--rose);background:var(--rose-ll);border-radius:8px;padding:1px 7px;margin-top:5px">in 6 days</div>
                 </div>
               </div>
               <!-- Row 2 -->
-              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="background:var(--card);border-radius:10px;padding:10px 12px;border:1px solid var(--card-border);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
                 <div style="min-width:30px;text-align:center">
-                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">14</div>
-                  <div style="font-size:7px;font-weight:600;color:#b0988a;letter-spacing:1px">JUL</div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--dark);line-height:1">14</div>
+                  <div style="font-size:7px;font-weight:600;color:var(--mid);letter-spacing:1px">JUL</div>
                 </div>
                 <div style="flex:1">
-                  <div style="font-size:10.5px;font-weight:500;color:#3a3230">Weight check</div>
-                  <div style="font-size:8.5px;color:#b0988a;margin-top:2px">City Vets</div>
-                  <div style="display:inline-block;font-size:7.5px;color:#c9897a;background:#f7ede8;border-radius:8px;padding:1px 7px;margin-top:5px">in 4 weeks</div>
+                  <div style="font-size:10.5px;font-weight:500;color:var(--dark)">Weight check</div>
+                  <div style="font-size:8.5px;color:var(--mid);margin-top:2px">City Vets</div>
+                  <div style="display:inline-block;font-size:7.5px;color:var(--rose);background:var(--rose-ll);border-radius:8px;padding:1px 7px;margin-top:5px">in 4 weeks</div>
                 </div>
               </div>
               <!-- Row 3 -->
-              <div style="background:#fff;border-radius:10px;padding:10px 12px;border:1px solid rgba(226,216,202,.55);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="background:var(--card);border-radius:10px;padding:10px 12px;border:1px solid var(--card-border);display:flex;align-items:flex-start;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
                 <div style="min-width:30px;text-align:center">
-                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">20</div>
-                  <div style="font-size:7px;font-weight:600;color:#b0988a;letter-spacing:1px">OCT</div>
+                  <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--dark);line-height:1">20</div>
+                  <div style="font-size:7px;font-weight:600;color:var(--mid);letter-spacing:1px">OCT</div>
                 </div>
                 <div style="flex:1">
-                  <div style="font-size:10.5px;font-weight:500;color:#3a3230">Angel's 7th birthday</div>
-                  <div style="font-size:8.5px;color:#b0988a;margin-top:2px">Born 20 October 2019</div>
-                  <div style="display:inline-block;font-size:7.5px;color:#c9897a;background:#f7ede8;border-radius:8px;padding:1px 7px;margin-top:5px">7 years old</div>
+                  <div style="font-size:10.5px;font-weight:500;color:var(--dark)">Angel's 7th birthday</div>
+                  <div style="font-size:8.5px;color:var(--mid);margin-top:2px">Born 20 October 2019</div>
+                  <div style="display:inline-block;font-size:7.5px;color:var(--rose);background:var(--rose-ll);border-radius:8px;padding:1px 7px;margin-top:5px">7 years old</div>
                 </div>
               </div>
             </div>
           </div>          <!-- Tab bar -->
-          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+          <div style="background:var(--bg);border-top:1px solid var(--card-border);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Home</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Meds</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
-              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Calendar</span>
+              <div style="background:var(--rose-ll);border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="stroke:var(--dark)" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <span style="font-size:6.5px;color:var(--rose);font-weight:600">Calendar</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Vitals</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Pack</span>
             </div>
           </div>
         </div>
@@ -1261,62 +1282,62 @@
           <div style="padding:0 16px 16px">
             <!-- Header -->
             <div style="margin-bottom:14px">
-              <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#3a3230;line-height:1.1">Vitals</div>
-              <div style="font-size:9px;color:#b0988a;margin-top:2px">Angel · June 2026</div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--dark);line-height:1.1">Vitals</div>
+              <div style="font-size:9px;color:var(--mid);margin-top:2px">Angel · June 2026</div>
             </div>
             <!-- Breathing card -->
-            <div style="background:#fff;border-radius:12px;border:1px solid rgba(226,216,202,.55);padding:14px 14px 12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
-              <div style="font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;color:#b0988a;margin-bottom:6px">Resting Breathing Rate</div>
-              <div style="font-size:9px;color:#8a8078;text-align:center;margin-bottom:12px">Count while your pet is fully relaxed or asleep</div>
+            <div style="background:var(--card);border-radius:12px;border:1px solid var(--card-border);padding:14px 14px 12px;margin-bottom:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--mid);margin-bottom:6px">Resting Breathing Rate</div>
+              <div style="font-size:9px;color:var(--mid);text-align:center;margin-bottom:12px">Count while your pet is fully relaxed or asleep</div>
               <!-- tap circle -->
-              <div style="width:90px;height:90px;border-radius:50%;border:10px solid #ede5db;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 10px;box-shadow:0 0 0 14px rgba(237,229,219,.25)">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230;line-height:1">0:15</div>
-                <div style="font-size:7px;color:#b0988a;letter-spacing:.3px;margin-top:2px">tap to start</div>
+              <div style="width:90px;height:90px;border-radius:50%;border:10px solid var(--sand);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 10px;box-shadow:0 0 0 14px rgba(237,229,219,.25)">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--dark);line-height:1">0:15</div>
+                <div style="font-size:7px;color:var(--mid);letter-spacing:.3px;margin-top:2px">tap to start</div>
               </div>
-              <div style="font-size:8px;color:#8a8078;text-align:center;margin-bottom:10px">Tap the circle once for each breath you see</div>
+              <div style="font-size:8px;color:var(--mid);text-align:center;margin-bottom:10px">Tap the circle once for each breath you see</div>
               <!-- ref ranges -->
-              <div style="display:flex;border-top:1px solid rgba(226,216,202,.4);padding-top:8px">
-                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#7a9a6a">≤30</div><div style="font-size:7px;color:#b0988a">Normal</div></div>
-                <div style="width:1px;background:rgba(226,216,202,.5)"></div>
-                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#c9897a">30–40</div><div style="font-size:7px;color:#b0988a">Watch</div></div>
-                <div style="width:1px;background:rgba(226,216,202,.5)"></div>
-                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#c0534a">40+</div><div style="font-size:7px;color:#b0988a">Call vet</div></div>
+              <div style="display:flex;border-top:1px solid var(--card-border);padding-top:8px">
+                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:var(--ok-fg)">≤30</div><div style="font-size:7px;color:var(--mid)">Normal</div></div>
+                <div style="width:1px;background:var(--card-border)"></div>
+                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:var(--rose)">30–40</div><div style="font-size:7px;color:var(--mid)">Watch</div></div>
+                <div style="width:1px;background:var(--card-border)"></div>
+                <div style="flex:1;text-align:center"><div style="font-size:9px;font-weight:600;color:#c0534a">40+</div><div style="font-size:7px;color:var(--mid)">Call vet</div></div>
               </div>
             </div>
             <!-- Recent readings -->
-            <div style="font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;margin-bottom:6px">Recent Readings</div>
-            <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
-              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(226,216,202,.3)">
-                <div style="display:flex;align-items:center;gap:6px"><div style="width:6px;height:6px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:9px;color:#5a5250">Today 8:04 AM</div></div>
-                <div style="display:flex;align-items:center;gap:5px"><div style="font-size:10px;font-weight:600;color:#3a3230">24 bpm</div><div style="font-size:7px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 6px">Normal</div></div>
+            <div style="font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);margin-bottom:6px">Recent Readings</div>
+            <div style="background:var(--card);border-radius:10px;border:1px solid var(--card-border);padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--card-border)">
+                <div style="display:flex;align-items:center;gap:6px"><div style="width:6px;height:6px;border-radius:50%;background:var(--ok-fg)"></div><div style="font-size:9px;color:var(--dark)">Today 8:04 AM</div></div>
+                <div style="display:flex;align-items:center;gap:5px"><div style="font-size:10px;font-weight:600;color:var(--dark)">24 bpm</div><div style="font-size:7px;background:var(--ok-bg);color:var(--ok-fg);border-radius:8px;padding:1px 6px">Normal</div></div>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0">
-                <div style="display:flex;align-items:center;gap:6px"><div style="width:6px;height:6px;border-radius:50%;background:#7a9a6a"></div><div style="font-size:9px;color:#5a5250">Yesterday 8 PM</div></div>
-                <div style="display:flex;align-items:center;gap:5px"><div style="font-size:10px;font-weight:600;color:#3a3230">26 bpm</div><div style="font-size:7px;background:#e8f0e0;color:#5a7a4a;border-radius:8px;padding:1px 6px">Normal</div></div>
+                <div style="display:flex;align-items:center;gap:6px"><div style="width:6px;height:6px;border-radius:50%;background:var(--ok-fg)"></div><div style="font-size:9px;color:var(--dark)">Yesterday 8 PM</div></div>
+                <div style="display:flex;align-items:center;gap:5px"><div style="font-size:10px;font-weight:600;color:var(--dark)">26 bpm</div><div style="font-size:7px;background:var(--ok-bg);color:var(--ok-fg);border-radius:8px;padding:1px 6px">Normal</div></div>
               </div>
             </div>
           </div>
           <!-- Tab bar -->
-          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
+          <div style="background:var(--bg);border-top:1px solid var(--card-border);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:12px">
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Home</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Meds</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Calendar</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
-              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg></div>
-              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Vitals</span>
+              <div style="background:var(--rose-ll);border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="stroke:var(--dark)" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg></div>
+              <span style="font-size:6.5px;color:var(--rose);font-weight:600">Vitals</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Pack</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Pack</span>
             </div>
           </div>
         </div>
@@ -1342,73 +1363,73 @@
             <!-- Pack header -->
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
               <div>
-                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#3a3230">Carer's Pack</div>
-                <div style="font-size:8.5px;color:#b0988a">Angel · share with your carer</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--dark)">Carer's Pack</div>
+                <div style="font-size:8.5px;color:var(--mid)">Angel · share with your carer</div>
               </div>
-              <span style="font-size:9px;color:#a89278;border:1px solid #e2d8ca;border-radius:6px;padding:3px 9px">Edit</span>
+              <span style="font-size:9px;color:var(--mid);border:1px solid var(--border);border-radius:6px;padding:3px 9px">Edit</span>
             </div>
             <!-- Tab pills -->
             <div style="display:flex;gap:6px;margin-bottom:10px">
-              <div style="font-size:8.5px;font-weight:600;color:#fdfaf6;background:#3a3230;border-radius:16px;padding:4px 12px">Medications</div>
-              <div style="font-size:8.5px;color:#b0988a;border:1px solid #e2d8ca;border-radius:16px;padding:4px 12px">Contacts</div>
-              <div style="font-size:8.5px;color:#b0988a;border:1px solid #e2d8ca;border-radius:16px;padding:4px 12px">Feeding</div>
+              <div style="font-size:8.5px;font-weight:600;color:var(--bg);background:var(--dark);border-radius:16px;padding:4px 12px">Medications</div>
+              <div style="font-size:8.5px;color:var(--mid);border:1px solid var(--border);border-radius:16px;padding:4px 12px">Contacts</div>
+              <div style="font-size:8.5px;color:var(--mid);border:1px solid var(--border);border-radius:16px;padding:4px 12px">Feeding</div>
             </div>
             <!-- Section label -->
-            <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:#b0988a;margin-bottom:7px">MORNING · 8:00 AM</div>
+            <div style="font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);margin-bottom:7px">MORNING · 8:00 AM</div>
             <!-- Med cards -->
             <div style="display:flex;flex-direction:column;gap:7px">
-              <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="background:var(--card);border-radius:10px;border:1px solid var(--card-border);padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-                  <div style="width:28px;height:28px;border-radius:8px;background:#f7ede8;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9897a" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/></svg>
+                  <div style="width:28px;height:28px;border-radius:8px;background:var(--rose-ll);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="stroke:var(--rose)" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/></svg>
                   </div>
                   <div style="flex:1">
-                    <div style="font-size:10.5px;font-weight:500;color:#3a3230">Pimobendan</div>
-                    <div style="font-size:8px;color:#b0988a">1.25mg · empty stomach</div>
+                    <div style="font-size:10.5px;font-weight:500;color:var(--dark)">Pimobendan</div>
+                    <div style="font-size:8px;color:var(--mid)">1.25mg · empty stomach</div>
                   </div>
-                  <div style="font-size:8.5px;color:#c9897a;font-weight:600">1.25 mg</div>
+                  <div style="font-size:8.5px;color:var(--rose);font-weight:600">1.25 mg</div>
                 </div>
-                <div style="font-size:8px;color:#a89278;background:#faf6f1;border-radius:6px;padding:5px 8px">Give 30, 60 min before food</div>
+                <div style="font-size:8px;color:var(--mid);background:var(--bg);border-radius:6px;padding:5px 8px">Give 30, 60 min before food</div>
               </div>
-              <div style="background:#fff;border-radius:10px;border:1px solid rgba(226,216,202,.55);padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
+              <div style="background:var(--card);border-radius:10px;border:1px solid var(--card-border);padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.04)">
                 <div style="display:flex;align-items:center;gap:8px">
-                  <div style="width:28px;height:28px;border-radius:8px;background:#f7ede8;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c9897a" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/></svg>
+                  <div style="width:28px;height:28px;border-radius:8px;background:var(--rose-ll);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="stroke:var(--rose)" stroke-width="1.8" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/></svg>
                   </div>
                   <div style="flex:1">
-                    <div style="font-size:10.5px;font-weight:500;color:#3a3230">Furosemide</div>
-                    <div style="font-size:8px;color:#b0988a">10mg · with food</div>
+                    <div style="font-size:10.5px;font-weight:500;color:var(--dark)">Furosemide</div>
+                    <div style="font-size:8px;color:var(--mid)">10mg · with food</div>
                   </div>
-                  <div style="font-size:8.5px;color:#c9897a;font-weight:600">10 mg</div>
+                  <div style="font-size:8.5px;color:var(--rose);font-weight:600">10 mg</div>
                 </div>
               </div>
               <!-- Share button -->
               <div style="display:flex;gap:7px;margin-top:4px">
-                <div style="flex:1;background:#3a3230;border-radius:8px;padding:9px 0;text-align:center;font-size:8.5px;letter-spacing:1px;color:#fdfaf6">SHARE</div>
-                <div style="flex:1;background:transparent;border:1px solid #e2d8ca;border-radius:8px;padding:9px 0;text-align:center;font-size:8.5px;color:#a89278">SAVE PDF</div>
+                <div style="flex:1;background:var(--dark);border-radius:8px;padding:9px 0;text-align:center;font-size:8.5px;letter-spacing:1px;color:var(--bg)">SHARE</div>
+                <div style="flex:1;background:transparent;border:1px solid var(--border);border-radius:8px;padding:9px 0;text-align:center;font-size:8.5px;color:var(--mid)">SAVE PDF</div>
               </div>
             </div>
           </div>          <!-- Tab bar -->
-          <div style="background:#fdfaf6;border-top:1px solid rgba(226,216,202,.4);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:10px">
+          <div style="background:var(--bg);border-top:1px solid var(--card-border);display:flex;justify-content:space-around;padding:8px 0 14px;margin-top:10px">
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Home</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Home</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Meds</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5C2.84 6.16 2.84 8.84 4.5 10.5L13.5 19.5C15.16 21.16 17.84 21.16 19.5 19.5C21.16 17.84 21.16 15.16 19.5 13.5L10.5 4.5C8.84 2.84 6.16 2.84 4.5 4.5Z"/><line x1="7.5" y1="7.5" x2="16.5" y2="16.5" stroke-width="1.1"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Meds</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Calendar</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Calendar</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#cbbaa6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
-              <span style="font-size:6.5px;color:#cbbaa6">Vitals</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="stroke:var(--light)" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5s-4.5-3-4.5-6a2.25 2.25 0 014.5-1.33A2.25 2.25 0 0116.5 10.5c0 3-4.5 6-4.5 6z"/></svg>
+              <span style="font-size:6.5px;color:var(--light)">Vitals</span>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
-              <div style="background:#f7ede8;border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3a3230" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-              <span style="font-size:6.5px;color:#c9897a;font-weight:600">Pack</span>
+              <div style="background:var(--rose-ll);border-radius:14px;padding:3px 10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="stroke:var(--dark)" stroke-width="1.8" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+              <span style="font-size:6.5px;color:var(--rose);font-weight:600">Pack</span>
             </div>
           </div>
         </div>
@@ -1787,8 +1808,8 @@
 
   <footer>
     <picture>
-      <source srcset="images/logo-dark.png" media="(prefers-color-scheme: dark)">
-      <img src="images/logo-light.png" alt="Halo" height="28" style="display:block">
+      <source srcset="images/logo-mark-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="images/logo-light-2.png" alt="Halo" height="28" style="display:block">
     </picture>
     <div class="foot-links">
       <a href="about.html">Our Story</a>
