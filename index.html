@@ -806,6 +806,18 @@
         left: 0 !important;
         z-index: 3 !important;
       }
+      /* Halo's column (140px right of the sticky feature column, matching
+         the 140px feature-column width in the grid-template-columns above)
+         must also stick, otherwise it scrolls underneath the sticky feature
+         column and gets clipped mid-swipe — the whole point of this table
+         is comparing Halo against competitors while swiping, so Halo needs
+         to stay visible the entire time, not just the feature names. */
+      .comp-th-halo,
+      .comp-cell.halo-col {
+        position: sticky !important;
+        left: 140px !important;
+        z-index: 2 !important;
+      }
     }
 
     /* ─── INDEX DARK MODE ─────────────────────── */
@@ -1623,6 +1635,13 @@
           flex-grow: 0 !important;
           scroll-snap-align: start !important;
           border-radius: 0 !important;
+        }
+        /* The desktop hover-dim effect (.angel-grid:hover .ap { opacity:.45 })
+           has no mouseleave equivalent on touch, so a tap/swipe leaves every
+           slide but the first stuck dimmed. Force full opacity on mobile. */
+        .angel-grid .ap,
+        .angel-grid:hover .ap {
+          opacity: 1 !important;
         }
         .angel-center { display: none !important; }
         #angel-dots {
