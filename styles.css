@@ -104,6 +104,20 @@ nav.scrolled {
   transition: background .2s !important;
 }
 .nav-cta:hover { background: var(--dark) !important; color: var(--bg) !important; }
+/* Secondary nav pill — softer blush box, same shape as .nav-cta but lighter weight */
+.nav-cta-soft {
+  padding: 9px 20px;
+  background: var(--rose-ll);
+  color: var(--rose) !important;
+  border: 1px solid var(--rose-l);
+  border-radius: 2px;
+  transition: background .2s, border-color .2s !important;
+}
+.nav-cta-soft:hover {
+  background: var(--rose-l);
+  border-color: var(--rose);
+  color: var(--rose) !important;
+}
 
 /* ─── FOOTER ──────────────────────────────────── */
 footer {
