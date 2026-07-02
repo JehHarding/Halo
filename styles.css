@@ -312,6 +312,17 @@ footer {
   nav { padding:16px 24px; }
   nav.scrolled { padding:12px 24px; }
   .nav-links { gap:18px; }
+  /* Nav pills (.nav-cta / .nav-cta-soft) never shrank on mobile — same
+     9px/20px padding as desktop, disproportionately large next to the
+     40px logo on a narrow screen. Scale both down together.
+     !important needed: ".nav-links a" (class+element) outranks the
+     single-class ".nav-cta" selector for font-size/letter-spacing, so
+     without it the 10px/2.5px from .nav-links a silently wins. */
+  .nav-cta, .nav-cta-soft {
+    padding: 7px 12px;
+    font-size: 9px !important;
+    letter-spacing: 1.8px !important;
+  }
   footer { flex-direction:column; gap:18px; padding:32px 24px; text-align:center; }
   .foot-links { justify-content:center; flex-wrap:wrap; gap:16px; }
   .foot-r { text-align:center; }
