@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ, Halo</title>
+  <link rel="icon" type="image/png" href="images/logo-light-2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <style>
+    .faq-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 40px 90px;
+      position: relative; z-index: 1;
+    }
+    .faq-eyebrow {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--rose); text-align: center; display: block; margin-bottom: 14px;
+    }
+    .faq-h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 56px); font-weight: 300;
+      text-align: center; margin-bottom: 14px; line-height: 1.1;
+    }
+    .faq-h1 em { font-style: italic; color: var(--rose); }
+    .faq-sub {
+      font-size: 14px; color: var(--mid); text-align: center;
+      max-width: 480px; margin: 0 auto 56px; line-height: 1.8;
+    }
+    .faq-category {
+      font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--rose); margin: 40px 0 14px;
+    }
+    .faq-category:first-of-type { margin-top: 0; }
+    .faq-list {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--card, #fff);
+    }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:first-child { border-top: none; }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      font-size: 14px; color: var(--dark);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 16px; color: var(--rose); flex-shrink: 0;
+      transition: transform .2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p {
+      font-size: 13px; color: var(--mid); line-height: 1.8;
+      padding: 0 20px 18px; margin: 0;
+    }
+    .faq-footnote {
+      text-align: center; font-size: 12px; color: var(--light);
+      max-width: 480px; margin: 40px auto 0; line-height: 1.8;
+    }
+    .faq-footnote a { color: var(--rose); text-decoration: none; }
+    .faq-footnote a:hover { color: var(--dark); }
+    @media(max-width:640px) {
+      .faq-wrap { padding: 86px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div id="glow"></div>
+
+  <nav id="nav">
+    <a class="nav-logo" href="index.html">
+      <span class="site-logo" role="img" aria-label="Halo"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="nav-cta">Our Story</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" class="nav-cta-soft">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="faq-wrap">
+    <span class="faq-eyebrow">FAQ</span>
+    <h1 class="faq-h1">Questions, <em>answered</em>.</h1>
+    <p class="faq-sub">Everything you need to know about using Halo. Can't find what you're looking for? Get in touch and we'll help.</p>
+
+    <div class="faq-category">Getting started</div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What is Halo?</summary>
+        <p>Halo is an app that helps you keep track of your pet's medications, vitals, and vet appointments, and share a clear care guide with anyone looking after them. It's built for pet owners managing an ongoing condition, a senior pet, or anyone who wants real peace of mind.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is Halo free to use?</summary>
+        <p>Yes. The free tier covers one pet, up to two medications with reminders, up to two upcoming calendar events, and unlimited vitals logging. Halo Plus removes those limits for £5.99/month.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Halo replace my vet?</summary>
+        <p>No. Halo is an information management tool, not a veterinary service. It does not provide veterinary advice, diagnosis, or treatment. Always consult a qualified vet for your pet's health, and in an emergency, contact your vet or an emergency clinic directly rather than relying on the app.</p>
+      </details>
+    </div>
+
+    <div class="faq-category">Medications &amp; reminders</div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How do medication reminders work?</summary>
+        <p>Each medication gets its own schedule: daily, weekly on a specific day, monthly, a custom interval (like every 3 days), or as-needed with no reminder at all. You can add as many reminder times as a medication needs, for example twice daily at different times.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many medications can I track for free?</summary>
+        <p>Up to two active medications with reminders on the free tier. Halo Plus removes that limit. If you're already over the limit, nothing you've entered is hidden or deleted, you just won't be able to add a new one until you upgrade.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if I miss a dose?</summary>
+        <p>You can mark a dose as given at any time from the Medications tab. Halo doesn't penalise or flag missed doses, it's there to help you remember, not to judge.</p>
+      </details>
+    </div>
+
+    <div class="faq-category">Halo Plus &amp; billing</div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What does Halo Plus include?</summary>
+        <p>Unlimited medications, unlimited calendar events, full vitals history and trend charts, and PDF export of your Carer's Pack, for £5.99/month.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I subscribe or cancel?</summary>
+        <p>Halo Plus is managed through the App Store, the same place as any other subscription on your device. You can cancel anytime and you'll keep access until the end of your current billing period.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will I lose data if I cancel Halo Plus?</summary>
+        <p>No. Your existing medications, vitals, and calendar entries stay exactly as they are. You'll simply be limited to the free tier's caps for adding new entries going forward.</p>
+      </details>
+    </div>
+
+    <div class="faq-category">Privacy &amp; data</div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Where is my pet's data stored?</summary>
+        <p>On your device only. Halo does not share, transmit, or sell your pet's information to anyone.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Who can see my Carer's Pack?</summary>
+        <p>Only whoever you choose to share it with. You control exactly what's included and when it's sent, whether that's a sitter, a family member, or your vet.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is Halo registered with the ICO?</summary>
+        <p>Yes, Halo is registered with the Information Commissioner's Office. See our <a href="privacy-policy.html" style="color:var(--rose);">Privacy Policy</a> for full details on what data we collect and how it's protected.</p>
+      </details>
+    </div>
+
+    <p class="faq-footnote">Still have a question? <a href="contact.html">Get in touch</a> and we'll get back to you as soon as we can.</p>
+  </div>
+
+  <footer>
+    <span class="site-logo foot-logo-mark" role="img" aria-label="Halo"></span>
+    <div class="foot-links">
+      <a href="about.html">Our Story</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="features.html">Features</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-r">
+      <div>© 2026 Halo. All rights reserved.</div>
+      <div><a href="mailto:hello@myhaloapp.co.uk">hello@myhaloapp.co.uk</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+    const glow=document.getElementById('glow');
+    let gx=innerWidth/2,gy=innerHeight/2,cx=gx,cy=gy;
+    document.addEventListener('mousemove',e=>{gx=e.clientX;gy=e.clientY;});
+    (function animGlow(){cx+=(gx-cx)*.07;cy+=(gy-cy)*.07;glow.style.left=cx+'px';glow.style.top=cy+'px';requestAnimationFrame(animGlow);})();
+    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>glow.classList.add('on-link'));el.addEventListener('mouseleave',()=>glow.classList.remove('on-link'));});
+  </script>
+</body>
+</html>
