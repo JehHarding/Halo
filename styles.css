@@ -329,6 +329,22 @@ footer {
   .page-hero { padding:110px 24px 60px; }
 }
 
+/* Four nav items (Our Story, Features, Pricing, Contact) is one more than
+   the 960px breakpoint above was tuned for — on phone widths the two pill
+   buttons wrap their own text instead of the row wrapping. Force nowrap on
+   every nav item and tighten spacing further so all four sit on one line. */
+@media(max-width:480px){
+  nav { padding:14px 16px; }
+  nav.scrolled { padding:10px 16px; }
+  .nav-links { gap:10px; }
+  .nav-links a { white-space: nowrap; }
+  .nav-cta, .nav-cta-soft {
+    padding: 6px 9px;
+    font-size: 8px !important;
+    letter-spacing: 1.2px !important;
+  }
+}
+
 /* Mobile halo: reduce float amplitude so rings stay aligned with HALO text */
 @media(max-width:640px){ .halo-anim { animation-name: haloFloatMobile; } }
 

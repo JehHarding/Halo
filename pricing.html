@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <style>
     .pricing-wrap {
       max-width: 900px;
@@ -30,70 +30,64 @@
       font-size: 14px; color: var(--mid); text-align: center;
       max-width: 480px; margin: 0 auto 56px; line-height: 1.8;
     }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-    .plan-card {
-      border: 1px solid var(--card-border, var(--border));
-      background: var(--card, rgba(255,255,255,.7)); backdrop-filter: blur(8px);
+    .pricing-table-wrap {
+      border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 32px 28px;
-      display: flex; flex-direction: column;
+      background: var(--card, #fff);
+      overflow: hidden;
     }
-    .plan-card.plus {
-      border-color: var(--rose-l);
-      box-shadow: 0 8px 32px rgba(0,0,0,.06);
+    table.pricing-table {
+      width: 100%; border-collapse: collapse;
     }
+    .pricing-table th, .pricing-table td {
+      padding: 14px 18px; text-align: left; vertical-align: middle;
+    }
+    .pricing-table thead th {
+      border-bottom: 1px solid var(--border);
+      padding-top: 26px; padding-bottom: 22px;
+    }
+    .pricing-table .col-feature { width: 40%; }
+    .pricing-table .col-free, .pricing-table .col-plus { width: 30%; text-align: center; }
+    .pricing-table .col-plus { background: var(--rose-ll); }
     .plan-name {
       font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
       color: var(--rose); margin-bottom: 10px;
     }
     .plan-price {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 40px; font-weight: 300; color: var(--dark);
+      font-size: 32px; font-weight: 300; color: var(--dark);
       margin-bottom: 4px;
+      white-space: nowrap;
     }
-    .plan-price span { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--mid); }
-    .plan-note { font-size: 12px; color: var(--light); margin-bottom: 24px; }
-    .plan-features {
-      list-style: none; padding: 0; margin: 0 0 28px; flex: 1;
-      display: flex; flex-direction: column; gap: 14px;
-    }
-    .plan-features li {
-      font-size: 13px; color: var(--mid); line-height: 1.6;
-      padding-left: 22px; position: relative;
-    }
-    .plan-features li::before {
-      content: '✓'; position: absolute; left: 0; color: var(--rose);
-      font-size: 12px; top: 1px;
-    }
-    .plan-features li.locked::before { content: '—'; color: var(--light); }
-    .plan-features li.locked { color: var(--light); }
-    .plan-features li strong { color: var(--dark); font-weight: 500; }
+    .plan-price span { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--mid); }
+    .plan-note { font-size: 11px; color: var(--light); margin-bottom: 14px; }
     .plan-cta {
-      display: block; text-align: center;
-      padding: 13px 0; border-radius: 6px;
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      display: inline-block; text-align: center;
+      padding: 10px 16px; border-radius: 6px;
+      font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
       text-decoration: none; transition: background .2s, color .2s;
     }
     .plan-cta.free {
       border: 1px solid var(--border); color: var(--mid);
     }
-    .plan-cta.free:hover { border-color: var(--rose-l); color: var(--dark); }
     .plan-cta.plus {
       background: var(--rose); color: var(--bg);
     }
-    .plan-cta.plus:hover { background: var(--dark); }
+    .pricing-table tbody td {
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--mid);
+    }
+    .pricing-table tbody .col-feature { color: var(--dark); }
+    .pricing-table tbody .col-plus { color: #8a6a5c; }
     .pricing-footnote {
       text-align: center; font-size: 12px; color: var(--light);
       max-width: 480px; margin: 40px auto 0; line-height: 1.8;
     }
     @media(max-width:640px) {
       .pricing-wrap { padding: 86px 20px 60px; }
-      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-table th, .pricing-table td { padding: 10px 8px; font-size: 12px; }
+      .pricing-table .col-feature { width: 34%; }
+      .plan-price { font-size: 24px; }
     }
   </style>
 </head>
@@ -123,39 +117,58 @@
     <h1 class="pricing-h1">Free to start, <em>Plus</em> when you need it.</h1>
     <p class="pricing-sub">Halo is free to use for the essentials. Upgrade to Halo Plus for unlimited tracking as your pet's care needs grow.</p>
 
-    <div class="pricing-grid">
-      <div class="plan-card">
-        <div class="plan-name">Free</div>
-        <div class="plan-price">£0</div>
-        <div class="plan-note">No card required</div>
-        <ul class="plan-features">
-          <li>1 pet</li>
-          <li>Up to <strong>2 medications</strong> with reminders</li>
-          <li>Up to <strong>2 upcoming</strong> calendar events</li>
-          <li>Unlimited breathing rate logging</li>
-          <li>Weight logging, last 3 entries visible</li>
-          <li>Carer's Pack, view &amp; share in-app</li>
-          <li class="locked">Full weight history &amp; trends</li>
-          <li class="locked">PDF Carer's Pack export</li>
-        </ul>
-        <span class="plan-cta free">Included with the app</span>
-      </div>
-
-      <div class="plan-card plus">
-        <div class="plan-name">Halo Plus</div>
-        <div class="plan-price">£5.99 <span>/ month</span></div>
-        <div class="plan-note">Cancel anytime</div>
-        <ul class="plan-features">
-          <li>Everything in Free, plus:</li>
-          <li><strong>Unlimited medications</strong>, each with its own schedule</li>
-          <li><strong>Unlimited calendar</strong> events</li>
-          <li>Unlimited breathing rate logging</li>
-          <li><strong>Full weight history</strong> &amp; trend charts</li>
-          <li><strong>PDF Carer's Pack</strong> export, for sitters, family &amp; your vet</li>
-          <li>Unlimited pets <span style="color:var(--light)">(coming soon)</span></li>
-        </ul>
-        <span class="plan-cta plus">Available in the app</span>
-      </div>
+    <div class="pricing-table-wrap">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th class="col-feature"></th>
+            <th class="col-free">
+              <div class="plan-name">Free</div>
+              <div class="plan-price">£0</div>
+              <div class="plan-note">No card required</div>
+              <span class="plan-cta free">Included with the app</span>
+            </th>
+            <th class="col-plus">
+              <div class="plan-name">Halo Plus</div>
+              <div class="plan-price">£5.99 <span>/ month</span></div>
+              <div class="plan-note">Cancel anytime</div>
+              <span class="plan-cta plus">Available in the app</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-feature">Pets</td>
+            <td class="col-free">1</td>
+            <td class="col-plus">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Medications with reminders</td>
+            <td class="col-free">Up to 2</td>
+            <td class="col-plus">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Calendar events</td>
+            <td class="col-free">Up to 2 upcoming</td>
+            <td class="col-plus">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Breathing rate logging</td>
+            <td class="col-free">Unlimited</td>
+            <td class="col-plus">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Weight history</td>
+            <td class="col-free">Last 3 entries</td>
+            <td class="col-plus">Full history &amp; trend charts</td>
+          </tr>
+          <tr>
+            <td class="col-feature">Carer's Pack</td>
+            <td class="col-free">View &amp; share in-app</td>
+            <td class="col-plus">+ PDF export</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <p class="pricing-footnote">Halo Plus is managed through the App Store once the app is live. This page reflects our current pricing and will be updated with an App Store link at launch.</p>
