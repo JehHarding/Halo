@@ -19,6 +19,9 @@
   --card-border: rgba(226,216,202,.55);
   --ok-bg:       #e8f0e0;
   --ok-fg:       #5a7a4a;
+  /* Text sitting on the rose-tinted "Plus" pricing column — a bit darker
+     than --rose so it reads clearly on the pale rose-ll fill. */
+  --plus-text:   #8a6a5c;
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -372,6 +375,8 @@ footer {
     --card-border: #3c342c;
     --ok-bg:       rgba(124,154,106,.16);
     --ok-fg:       #8fae7d;
+    /* Light warm tone so it reads on the near-black --rose-ll fill in dark mode */
+    --plus-text:   #e0c9be;
   }
 
   /* Nav */
