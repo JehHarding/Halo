@@ -93,27 +93,30 @@ nav.scrolled {
   -webkit-mask: url(images/logo-light-2.png) center / contain no-repeat;
           mask: url(images/logo-light-2.png) center / contain no-repeat;
 }
-.nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+.nav-links { display:flex; gap:20px; list-style:none; align-items:center; }
 .nav-links a {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--mid); text-decoration: none; transition: color .2s;
 }
+.nav-icon { width: 13px; height: 13px; flex-shrink: 0; }
 .nav-links a:hover { color: var(--dark); }
 .nav-links a.active { color: var(--dark); }
 .nav-cta {
-  padding: 9px 20px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px;
   background: var(--rose); color: var(--bg) !important;
-  border-radius: 2px;
+  border-radius: 999px;
   transition: background .2s !important;
 }
 .nav-cta:hover { background: var(--dark) !important; color: var(--bg) !important; }
 /* Secondary nav pill — softer blush box, same shape as .nav-cta but lighter weight */
 .nav-cta-soft {
-  padding: 9px 20px;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px;
   background: var(--rose-ll);
   color: var(--rose) !important;
   border: 1px solid var(--rose-l);
-  border-radius: 2px;
+  border-radius: 999px;
   transition: background .2s, border-color .2s !important;
 }
 .nav-cta-soft:hover {
@@ -348,9 +351,11 @@ footer {
   }
   .nav-cta, .nav-cta-soft {
     padding: 6px 8px;
+    gap: 4px;
     font-size: 8px !important;
     letter-spacing: 1px !important;
   }
+  .nav-icon { width: 10px; height: 10px; }
 }
 
 /* Mobile halo: reduce float amplitude so rings stay aligned with HALO text */
