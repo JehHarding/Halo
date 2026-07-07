@@ -13,65 +13,51 @@
     .pricing-wrap {
       max-width: 900px;
       margin: 0 auto;
-      padding: 120px 40px 90px;
+      padding: 90px 40px 50px;
       position: relative; z-index: 1;
     }
     .pricing-eyebrow {
       font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--rose); text-align: center; display: block; margin-bottom: 14px;
+      color: var(--rose); text-align: center; display: block; margin-bottom: 12px;
     }
     .pricing-h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(38px, 5vw, 56px); font-weight: 300;
-      text-align: center; margin-bottom: 14px; line-height: 1.1;
+      text-align: center; margin-bottom: 12px; line-height: 1.1;
     }
     .pricing-h1 em { font-style: italic; color: var(--rose); }
     .pricing-sub {
       font-size: 14px; color: var(--mid); text-align: center;
-      max-width: 480px; margin: 0 auto 56px; line-height: 1.8;
+      max-width: 480px; margin: 0 auto 28px; line-height: 1.7;
     }
-    .pricing-card {
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: var(--bg);
-      padding: 12px;
+    .price-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
     }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: minmax(180px,260px) 1fr 1fr;
+    .price-card {
+      border: 1px solid var(--border); border-radius: 20px;
+      background: var(--bg); padding: 26px 24px;
     }
-    .pricing-grid > div { padding: 15px 22px; display: flex; align-items: center; }
-    .pg-head { flex-direction: column; align-items: center; text-align: center; padding: 30px 20px 24px; }
-    .pg-label, .pg-label-cell { border-right: 1px solid var(--border); }
-    .pg-row.pg-label { color: var(--dark); font-size: 13px; }
-    .pg-row.pg-free, .pg-row.pg-plus { justify-content: center; text-align: center; font-size: 13px; color: var(--mid); }
-    .pg-row.pg-plus { color: var(--plus-text); font-weight: 500; }
-    .pricing-grid > div:nth-child(n+7).pg-label,
-    .pricing-grid > div:nth-child(n+7).pg-free {
-      border-top: 1px solid rgba(58,50,48,.07);
+    .price-card.plus {
+      background: var(--rose-ll); border-color: var(--rose-l);
     }
-    .pg-plus, .pg-head.pg-plus-cell {
-      background: var(--rose-ll);
-    }
-    .pg-head.pg-plus-cell { border-radius: 16px 16px 0 0; }
-    .pricing-grid > div.pg-plus:last-child { border-radius: 0 0 16px 16px; }
     .plan-name {
       font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 10px;
+      color: var(--rose); margin-bottom: 8px;
     }
     .plan-price {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 32px; font-weight: 300; color: var(--dark);
-      margin-bottom: 4px;
+      font-size: 30px; font-weight: 300; color: var(--dark);
+      margin-bottom: 2px;
       white-space: nowrap;
     }
     .plan-price span { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--mid); }
-    .plan-note { font-size: 11px; color: var(--light); margin-bottom: 14px; }
+    .plan-note { font-size: 11px; color: var(--light); margin-bottom: 16px; }
     .plan-cta {
       display: inline-block; text-align: center;
       padding: 10px 16px; border-radius: 6px;
       font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
       text-decoration: none; transition: background .2s, color .2s;
+      margin-bottom: 18px;
     }
     .plan-cta.free {
       border: 1px solid var(--border); color: var(--mid);
@@ -79,13 +65,22 @@
     .plan-cta.plus {
       background: var(--rose); color: var(--bg);
     }
+    .price-feature-list { border-top: 1px solid rgba(58,50,48,.08); padding-top: 14px; }
+    .price-card.plus .price-feature-list { border-top-color: rgba(201,137,122,.25); }
+    .price-feature {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 13px; color: var(--mid); line-height: 1.5;
+      padding: 6px 0;
+    }
+    .price-card.plus .price-feature { color: var(--plus-text); font-weight: 500; }
+    .price-feature svg { flex-shrink: 0; margin-top: 3px; width: 13px; height: 13px; color: var(--rose); }
     .pricing-footnote {
       text-align: center; font-size: 12px; color: var(--light);
-      max-width: 480px; margin: 40px auto 0; line-height: 1.8;
+      max-width: 480px; margin: 24px auto 0; line-height: 1.7;
     }
     .lifetime-callout {
       display: flex; align-items: center; justify-content: space-between; gap: 20px;
-      margin-top: 24px; padding: 22px 26px;
+      margin-top: 18px; padding: 20px 26px;
       border: 1px solid var(--border); border-radius: 18px;
       background: var(--linen);
     }
@@ -100,11 +95,9 @@
     }
     .lifetime-price span { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--mid); display: block; text-align: right; }
     @media(max-width:640px) {
-      .pricing-wrap { padding: 86px 20px 60px; }
-      .pricing-grid { grid-template-columns: minmax(100px,140px) 1fr 1fr; }
-      .pricing-grid > div { padding: 12px 10px; font-size: 12px; }
-      .pg-head { padding: 22px 10px 18px; }
-      .plan-price { font-size: 24px; }
+      .pricing-wrap { padding: 70px 20px 40px; }
+      .price-cards { grid-template-columns: 1fr; }
+      .plan-price { font-size: 26px; }
       .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
       .lifetime-price span { text-align: left; }
     }
@@ -136,45 +129,34 @@
     <h1 class="pricing-h1">Free to start, <em>Plus</em> when you need it.</h1>
     <p class="pricing-sub">Halo is free to use for the essentials. Upgrade to Halo Plus for unlimited tracking as your pet's care needs grow.</p>
 
-    <div class="pricing-card">
-      <div class="pricing-grid">
-        <div class="pg-head pg-label-cell"></div>
-        <div class="pg-head pg-free-cell">
-          <div class="plan-name">Free</div>
-          <div class="plan-price">£0</div>
-          <div class="plan-note">No card required</div>
-          <span class="plan-cta free">Included with the app</span>
+    <div class="price-cards">
+      <div class="price-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">£0</div>
+        <div class="plan-note">No card required</div>
+        <span class="plan-cta free">Included with the app</span>
+        <div class="price-feature-list">
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1 pet</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 2 medication reminders</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Up to 2 upcoming calendar events</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited breathing rate logging</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Weight history, last 3 entries</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Carer's Pack, view in-app</div>
         </div>
-        <div class="pg-head pg-plus-cell">
-          <div class="plan-name">Halo Plus</div>
-          <div class="plan-price">£5.99 <span>/ month</span></div>
-          <div class="plan-note">Cancel anytime</div>
-          <span class="plan-cta plus">Available in the app</span>
+      </div>
+      <div class="price-card plus">
+        <div class="plan-name">Halo Plus</div>
+        <div class="plan-price">£5.99 <span>/ month</span></div>
+        <div class="plan-note">Cancel anytime</div>
+        <span class="plan-cta plus">Available in the app</span>
+        <div class="price-feature-list">
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited pets</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited medication reminders</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited calendar events</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited breathing rate logging</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Full weight history &amp; trend charts</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Carer's Pack, share as PDF</div>
         </div>
-
-        <div class="pg-row pg-label">Pets</div>
-        <div class="pg-row pg-free">1</div>
-        <div class="pg-row pg-plus">Unlimited</div>
-
-        <div class="pg-row pg-label">Medications with reminders</div>
-        <div class="pg-row pg-free">Up to 2</div>
-        <div class="pg-row pg-plus">Unlimited</div>
-
-        <div class="pg-row pg-label">Calendar events</div>
-        <div class="pg-row pg-free">Up to 2 upcoming</div>
-        <div class="pg-row pg-plus">Unlimited</div>
-
-        <div class="pg-row pg-label">Breathing rate logging</div>
-        <div class="pg-row pg-free">Unlimited</div>
-        <div class="pg-row pg-plus">Unlimited</div>
-
-        <div class="pg-row pg-label">Weight history</div>
-        <div class="pg-row pg-free">Last 3 entries</div>
-        <div class="pg-row pg-plus">Full history &amp; trend charts</div>
-
-        <div class="pg-row pg-label">Carer's Pack</div>
-        <div class="pg-row pg-free">View in-app</div>
-        <div class="pg-row pg-plus">Share as PDF</div>
       </div>
     </div>
 
