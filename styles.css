@@ -22,6 +22,10 @@
   /* Text sitting on the rose-tinted "Plus" pricing column — a bit darker
      than --rose so it reads clearly on the pale rose-ll fill. */
   --plus-text:   #8a6a5c;
+  /* Halo Plus pricing card — a faint rose wash + rose-tinted border, distinct
+     from both the neutral Free card and the fully-filled Pay Once callout. */
+  --plus-card-bg:     rgba(201,137,122,.06);
+  --plus-card-border: rgba(201,137,122,.4);
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -381,6 +385,10 @@ footer {
     --ok-fg:       #8fae7d;
     /* Light warm tone so it reads on the near-black --rose-ll fill in dark mode */
     --plus-text:   #e0c9be;
+    /* Needs more saturation than the light-mode wash to read against the
+       near-black page background — otherwise it disappears next to --bg. */
+    --plus-card-bg:     rgba(201,137,122,.10);
+    --plus-card-border: rgba(201,137,122,.45);
   }
 
   /* Nav */
