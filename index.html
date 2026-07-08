@@ -26,38 +26,42 @@
     ═══════════════════════════════════════ */
     #hero {
       min-height: 100vh;
-      display: flex; flex-direction: column;
+      display: flex;
       align-items: center; justify-content: center;
-      text-align: center;
-      padding: 140px 60px 100px;
+      padding: 130px 60px 40px;
       position: relative; z-index: 1;
       overflow: hidden;
     }
+    .hero-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 5vw; max-width: 1220px; width: 100%;
+    }
+    .hero-copy { flex: 1 1 480px; max-width: 480px; text-align: left; }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 4vw, 58px);
+      font-size: clamp(32px, 3.4vw, 54px);
       font-weight: 300; line-height: 1.1;
       color: var(--dark); margin-bottom: 20px; letter-spacing: -.5px;
     }
     .hero-h1 em { font-style: italic; color: var(--rose); }
     .hero-tagline {
       font-size: 15px; color: var(--mid);
-      line-height: 1.85; max-width: 480px; margin: 0 auto 44px;
+      line-height: 1.85; max-width: 440px; margin: 0 0 32px;
     }
-    .hero-form { max-width: 400px; margin: 0 auto; }
+    .hero-form { max-width: 400px; }
     .hero-note { font-size: 10px; color: var(--light); margin-top: 12px; }
 
     /* Phone + ghost row */
     .hero-phones {
       position: relative;
+      flex: 0 0 auto;
       display: flex; align-items: flex-end; justify-content: center;
-      margin-top: 70px; gap: 0;
       perspective: 1000px;
     }
     /* ghost phone — blurred, behind */
     .hero-phone-ghost {
       position: absolute;
-      left: 50%; transform: translateX(-50%) translateX(-100px) rotate(-6deg) scale(.88);
+      left: 50%; transform: translateX(-50%) translateX(-90px) rotate(-6deg) scale(.88);
       transform-origin: bottom center;
       opacity: .18; filter: blur(3px);
       z-index: 0;
@@ -84,6 +88,9 @@
       0%,100% { opacity: .5; transform: translateX(-50%) scaleX(1); }
       50%      { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
     }
+    /* real-screenshot phone screens — no fake status-bar padding, just the image */
+    .iphone-screen.shot { padding: 0; }
+    .iphone-screen.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-scroll-hint {
       position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
       display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -549,7 +556,7 @@
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
     .comp-th-halo-word {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: Georgia, serif;
       font-size: 12px; letter-spacing: 2px; font-weight: 400; font-style: italic; color: var(--rose);
     }
     .comp-th-comp {
@@ -645,8 +652,10 @@
       .feat-section { gap: 50px; padding: 90px 40px; }
     }
     @media(max-width:960px){
-      #hero { padding: 120px 24px 80px; }
-      .hero-phones { margin-top: 50px; }
+      #hero { padding: 120px 24px 80px; min-height: auto; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 50px; }
+      .hero-copy { text-align: center; max-width: 520px; }
+      .hero-tagline { margin-left: auto; margin-right: auto; }
       .hero-phone-ghost { display: none; }
       .feat-section { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
       .feat-section.flip { direction: ltr; }
@@ -869,57 +878,37 @@
 
   <!-- ═══ HERO ═══ -->
   <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="rv" style="transition-delay:.06s;font-family:Georgia,serif;font-style:italic;font-size:clamp(40px,4.6vw,64px);letter-spacing:4px;font-weight:400;color:var(--rose);margin-bottom:20px">Halo</div>
 
-    <div class="rv" style="transition-delay:.06s;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(52px,7vw,96px);letter-spacing:6px;font-weight:300;color:var(--rose);margin-bottom:20px">Halo</div>
-
-    <h1 class="hero-h1 rv" style="transition-delay:.18s">
-      For the ones<br>who <em>can't</em><br>tell you.
-    </h1>
-    <p class="hero-tagline rv" style="transition-delay:.28s">
-      Because they can't remind you. Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed.
-    </p>
-    <!-- Phone mockup centred, with ghost behind -->
-    <div class="hero-phones rv" style="transition-delay:.5s">
-      <!-- ghost phone (faded, tilted) -->
-      <div class="hero-phone-ghost">
-        <div class="iphone">
-          <div class="iphone-screen">
-            <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-            <div class="med-s">
-              <div class="med-date">Thursday, 19 June</div>
-              <div class="med-title-t">Medications</div>
-              <div class="med-list">
-                <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Atenolol</div><div class="md">6.25mg · 8:00am</div></div></div>
-                <div class="med-row"><div class="chk done">✓</div><div><div class="mn">Clopidogrel</div><div class="md">18.75mg · 8:00am</div></div></div>
-                <div class="med-row"><div class="chk todo"></div><div><div class="mn">Furosemide</div><div class="md">1mg · 6:00pm</div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1 class="hero-h1 rv" style="transition-delay:.18s">
+          For the ones<br>who <em>can't</em><br>tell you.
+        </h1>
+        <p class="hero-tagline rv" style="transition-delay:.28s">
+          Because they can't remind you. Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed.
+        </p>
       </div>
-      <!-- main phone -->
-      <div class="hero-phone-float">
-        <div class="iphone">
-          <div class="iphone-screen">
-            <div class="sb"><span>9:41</span><div class="sb-right"><span class="sb-icons">▲▲▲</span><div class="sb-pill"></div></div></div>
-            <div class="profile-s">
-              <div class="prof-avatar"><img src="images/home/IMG_Angel_avatar.jpeg" alt="" /></div>
-              <div class="prof-name">Angel</div>
-              <div class="prof-breed">Domestic Shorthair · Oct 2019</div>
-              <div class="prof-chips">
-                <span class="prof-chip">Heart Condition</span>
-                <span class="prof-chip">Atenolol</span>
-                <span class="prof-chip">Clopidogrel</span>
-              </div>
-              <div class="prof-rows">
-                <div class="prof-row"><span class="pr-lbl">Cardiologist</span><span class="pr-val">Dr. Sharma</span></div>
-                <div class="prof-row"><span class="pr-lbl">Next scan</span><span class="pr-val">October 2026</span></div>
-                <div class="prof-row"><span class="pr-lbl">Blood tests</span><span class="pr-val">3-monthly</span></div>
-              </div>
+
+      <!-- Phone mockup, real app screenshots, with ghost behind -->
+      <div class="hero-phones rv" style="transition-delay:.5s">
+        <!-- ghost phone (faded, tilted) — dark mode welcome screen -->
+        <div class="hero-phone-ghost">
+          <div class="iphone">
+            <div class="iphone-screen shot">
+              <img src="images/home/hero-welcome-dark.png" alt="" />
             </div>
           </div>
         </div>
-        <div class="hero-glow"></div>
+        <!-- main phone — light mode welcome screen -->
+        <div class="hero-phone-float">
+          <div class="iphone">
+            <div class="iphone-screen shot">
+              <img src="images/home/hero-welcome-light.png" alt="Halo welcome screen" />
+            </div>
+          </div>
+          <div class="hero-glow"></div>
+        </div>
       </div>
     </div>
 
