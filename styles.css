@@ -70,22 +70,23 @@ body {
 @keyframes drift5 { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(30px,60px) scale(.95)} }
 
 /* ─── NAV ─────────────────────────────────────── */
+/* Full-width bar, logo centred, link groups flanking it on either side —
+   solid background from page load (not scroll-triggered) per Mirabelle
+   reference. Padding still tightens slightly on scroll for a compact feel. */
 nav {
   position: fixed; top:0; left:0; right:0; z-index:100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 24px 60px;
-  transition: background .4s, padding .4s, border-color .4s;
-  border-bottom: 1px solid transparent;
-}
-nav.scrolled {
-  background: rgba(253,250,246,.92);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  padding: 22px 60px;
+  background: rgba(253,250,246,.96);
   backdrop-filter: blur(18px);
-  padding: 14px 60px;
-  border-bottom-color: var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: padding .3s;
 }
+nav.scrolled { padding: 14px 60px; }
 .nav-logo {
   display: flex; flex-direction: row; align-items: center; gap: 10px;
   text-decoration: none;
+  justify-self: center;
 }
 /* Nav logo — the paw+halo mark, already rose-coloured in the source PNG.
    Plain <img>, not a CSS mask — masks were an unreliable extra rendering
@@ -96,45 +97,22 @@ nav.scrolled {
   width: 40px; height: 40px;
   object-fit: contain;
 }
-/* Single soft pill container holding all nav links — the active page's
-   link (.nav-cta) stands out in solid colour, everything else (.nav-cta-soft)
-   sits flush inside the container as plain text until hovered. */
 .nav-links {
-  display:flex; gap:2px; list-style:none; align-items:center;
-  background: var(--rose-ll);
-  border: 1px solid var(--rose-l);
-  border-radius: 999px;
-  padding: 5px;
+  display:flex; gap:32px; list-style:none; align-items:center;
 }
-.nav-links a {
+.nav-links-left { justify-self: start; }
+.nav-links-right { justify-self: end; }
+.nav-link {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--mid); text-decoration: none; transition: color .2s;
+  position: relative; padding-bottom: 3px;
 }
-.nav-icon { width: 13px; height: 13px; flex-shrink: 0; }
-.nav-links a:hover { color: var(--dark); }
-.nav-links a.active { color: var(--dark); }
-.nav-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 18px;
-  background: var(--rose); color: var(--bg) !important;
-  border-radius: 999px;
-  transition: background .2s !important;
-}
-.nav-cta:hover { background: var(--dark) !important; color: var(--bg) !important; }
-/* Inactive nav pills — plain text, blends into the shared pill container
-   until hovered, rather than each rendering as its own separate box. */
-.nav-cta-soft {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 16px;
-  background: transparent;
-  color: var(--mid) !important;
-  border: none;
-  border-radius: 999px;
-  transition: background .2s, color .2s !important;
-}
-.nav-cta-soft:hover {
-  background: rgba(255,255,255,.7);
-  color: var(--dark) !important;
+.nav-link:hover { color: var(--dark); }
+/* Active page — colour shift + thin underline, no box/pill */
+.nav-link.active { color: var(--rose); }
+.nav-link.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -3px;
+  height: 1px; background: var(--rose);
 }
 
 /* ─── FOOTER ──────────────────────────────────── */
@@ -327,47 +305,28 @@ footer {
 /* ─── RESPONSIVE ──────────────────────────────── */
 @media(max-width:960px){
   #glow { display:none; }
-  nav { padding:16px 24px; }
-  nav.scrolled { padding:12px 24px; }
-  .nav-links { gap:18px; }
-  /* Nav pills (.nav-cta / .nav-cta-soft) never shrank on mobile — same
-     9px/20px padding as desktop, disproportionately large next to the
-     40px logo on a narrow screen. Scale both down together.
-     !important needed: ".nav-links a" (class+element) outranks the
-     single-class ".nav-cta" selector for font-size/letter-spacing, so
-     without it the 10px/2.5px from .nav-links a silently wins. */
-  .nav-cta, .nav-cta-soft {
-    padding: 7px 12px;
-    font-size: 9px !important;
-    letter-spacing: 1.8px !important;
-  }
+  nav { padding:16px 20px; }
+  nav.scrolled { padding:12px 20px; }
+  .nav-links { gap:14px; }
+  .nav-link { font-size: 9px !important; letter-spacing: 1.8px !important; }
   footer { flex-direction:column; gap:18px; padding:32px 24px; text-align:center; }
   .foot-links { justify-content:center; flex-wrap:wrap; gap:16px; }
   .foot-r { text-align:center; }
   .page-hero { padding:110px 24px 60px; }
 }
 
-/* Five nav items (Our Story, Features, Pricing, FAQ, Contact) is more than
-   the 960px breakpoint above was tuned for — on phone widths the two pill
-   buttons wrap their own text and/or the row overflows the viewport. Force
-   nowrap on every nav item and tighten spacing/sizing so all five fit. */
+/* Two link groups (2 left, 2 right) flanking the centred logo — tighten
+   further so the full 3-column row fits on phone widths. */
 @media(max-width:480px){
   nav { padding:14px 10px; }
   nav.scrolled { padding:10px 10px; }
   .nav-logo .site-logo { width: 30px; height: 30px; }
-  .nav-links { gap:6px; }
-  .nav-links a {
+  .nav-links { gap:8px; }
+  .nav-link {
     white-space: nowrap;
     font-size: 8px !important;
     letter-spacing: 1px !important;
   }
-  .nav-cta, .nav-cta-soft {
-    padding: 6px 8px;
-    gap: 4px;
-    font-size: 8px !important;
-    letter-spacing: 1px !important;
-  }
-  .nav-icon { width: 10px; height: 10px; }
 }
 
 /* Mobile halo: reduce float amplitude so rings stay aligned with HALO text */
@@ -454,25 +413,11 @@ footer {
 
 }
 
-/* Testimonials — horizontal swipe carousel on mobile */
+/* Testimonials — same one-at-a-time carousel as desktop, just tightened */
 @media(max-width:640px){
-  #testimonials { padding: 52px 0 52px 20px; }
-  .test-head { padding-right: 20px; margin-bottom: 32px; }
-  .test-grid {
-    display: flex !important; flex-direction: row !important;
-    overflow-x: auto; gap: 12px; padding-right: 20px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-  .test-grid::-webkit-scrollbar { display: none; }
-  .test-card {
-    min-width: calc(100vw - 56px);
-    max-width: calc(100vw - 56px);
-    flex-shrink: 0; flex-grow: 0;
-    scroll-snap-align: start;
-    padding: 24px 20px;
-  }
+  #testimonials { padding: 52px 20px 56px; }
+  .test-carousel { gap: 12px; }
+  .test-arrow-btn { width: 32px; height: 32px; font-size: 13px; }
   .test-q { font-size: 16px; line-height: 1.6; margin-bottom: 14px; }
-  .test-q::before { font-size: 26px; line-height: 1; }
+  .test-q::before, .test-q::after { font-size: 26px; line-height: 1; }
 }

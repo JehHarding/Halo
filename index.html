@@ -398,62 +398,66 @@
     }
 
     /* ═══════════════════════════════════════
-       TESTIMONIALS
+       TESTIMONIALS — single quote at a time, arrows either side, like a
+       carousel rather than a full grid, so the section stays compact.
     ═══════════════════════════════════════ */
     #testimonials {
-      padding: 120px 60px;
+      padding: 70px 60px 76px;
       position: relative; z-index: 1;
+      overflow: hidden;
     }
-    .test-head { text-align: center; margin-bottom: 64px; }
+    /* Soft ambient wash behind the quote — reuses the same blob colours as
+       the page-wide .ambient layer, just scoped to this section so it reads
+       as a distinct backdrop without pulling in a new image asset. */
+    .test-bg-blob {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 520px 340px at 18% 25%, rgba(201,137,122,.09) 0%, transparent 70%),
+        radial-gradient(ellipse 460px 400px at 84% 78%, rgba(232,196,187,.11) 0%, transparent 70%);
+      filter: blur(6px);
+    }
+    .test-head { text-align: center; margin-bottom: 34px; position: relative; z-index: 1; }
     .test-head h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(30px, 3.5vw, 48px);
-      font-weight: 300; line-height: 1.18;
+      font-size: clamp(22px, 2.2vw, 30px);
+      font-weight: 300; line-height: 1.2;
     }
     .test-head h2 em { font-style: italic; color: var(--rose); }
-    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+    .test-carousel {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; max-width: 880px; margin: 0 auto;
+    }
+    .test-grid { position: relative; flex: 1 1 620px; max-width: 620px; min-height: 200px; }
     .test-card {
-      background: rgba(244,239,230,.85);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border);
-      border-radius: 14px; padding: 40px 36px;
-      transition: transform .3s ease, box-shadow .3s ease;
-      display: flex; flex-direction: column;
+      display: none;
+      text-align: center;
+      animation: testFade .45s ease;
     }
-    .test-q { flex: 1; }
-    .test-footer { margin-top: auto; padding-top: 24px; }
-    .test-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.07);
-    }
+    .test-card.is-active { display: flex; flex-direction: column; align-items: center; width: 100%; }
+    @keyframes testFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     .test-q {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px; font-weight: 300; font-style: italic;
-      color: var(--dark); line-height: 1.55; margin-bottom: 28px;
+      font-size: clamp(17px, 1.6vw, 21px); font-weight: 300; font-style: italic;
+      color: var(--dark); line-height: 1.55; margin-bottom: 20px;
     }
-    .test-q::before { content: '\201C'; color: var(--rose-l); font-size: 44px; line-height: .3; vertical-align: -18px; margin-right: 4px; }
-    .test-q::after { content: '\201D'; color: var(--rose-l); font-size: 44px; line-height: .3; vertical-align: -18px; margin-left: 4px; }
+    .test-q::before { content: '\201C'; color: var(--rose-l); font-size: 38px; line-height: .3; vertical-align: -15px; margin-right: 4px; }
+    .test-q::after { content: '\201D'; color: var(--rose-l); font-size: 38px; line-height: .3; vertical-align: -15px; margin-left: 4px; }
     .test-q strong { font-weight: 600; font-style: italic; color: var(--dark); }
-    .test-footer { display: flex; flex-direction: column; gap: 3px; }
+    .test-footer { display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .test-name { font-size: 11px; font-weight: 400; color: var(--dark); letter-spacing: .5px; }
     .test-pet { font-size: 10px; color: var(--light); }
 
-    /* Testimonials carousel nav */
-    .test-nav {
-      display: none;
-      align-items: center; justify-content: center; gap: 14px;
-      margin-top: 4px;
-    }
     .test-arrow-btn {
-      width: 34px; height: 34px; border-radius: 50%;
+      width: 38px; height: 38px; border-radius: 50%;
       border: 1px solid var(--border); background: var(--bg);
-      color: var(--dark); font-size: 16px; cursor: pointer;
+      color: var(--dark); font-size: 15px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; transition: border-color .2s, background .2s;
     }
     .test-arrow-btn:hover { border-color: var(--rose-l); background: var(--rose-ll); }
-    .test-dots { display: flex; gap: 6px; align-items: center; }
+    .test-dots { display: flex; gap: 6px; align-items: center; justify-content: center; margin-top: 26px; position: relative; z-index: 1; }
     .test-dot {
       width: 5px; height: 5px; border-radius: 50%;
       background: var(--border); cursor: pointer;
@@ -664,8 +668,8 @@
       #stats { grid-template-columns: 1fr; gap: 0; }
       .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); padding: 44px 24px; }
       .stat-item:last-child { border-bottom: none; }
-      .test-grid { grid-template-columns: 1fr; }
       #testimonials { padding: 70px 24px; }
+      .test-carousel { gap: 16px; }
       #story-bridge { grid-template-columns: 1fr; gap: 40px; padding: 70px 24px; }
     }
     @keyframes chipIn {
@@ -737,30 +741,11 @@
       /* Dividers cross over the phones — hide them */
       .feat-divider-line { display: none !important; }
 
-      /* ── TESTIMONIALS: horizontal swipe carousel ── */
-      #testimonials { padding: 60px 0 60px 24px !important; }
-      .test-head { padding-right: 24px; margin-bottom: 32px !important; }
-      .test-grid {
-        display: flex !important;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 16px;
-        padding-bottom: 20px;
-        overscroll-behavior-x: contain;
-        touch-action: pan-x;
-      }
-      .test-grid::-webkit-scrollbar { display: none; }
-      .test-card {
-        min-width: calc(100vw - 68px) !important;
-        max-width: calc(100vw - 68px) !important;
-        flex-shrink: 0 !important;
-        scroll-snap-align: start;
-        padding: 28px 22px !important;
-      }
-      .test-nav { display: flex !important; padding-right: 24px; margin-top: 20px !important; }
+      /* ── TESTIMONIALS: same one-at-a-time carousel as desktop ── */
+      #testimonials { padding: 60px 24px !important; }
+      .test-head { margin-bottom: 28px !important; }
+      .test-carousel { gap: 10px; }
+      .test-arrow-btn { width: 30px !important; height: 30px !important; font-size: 12px !important; }
 
       /* ── STORY BRIDGE: remove horiz padding so scroll strip bleeds ── */
       #story-bridge { padding: 48px 0 48px 24px !important; }
@@ -824,16 +809,7 @@
         color: var(--dark) !important;
       }
 
-      /* Testimonial cards — dark raised surface, text stays readable */
-      .test-card {
-        background: rgba(44,40,34,.92);
-        border-color: var(--border);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-      .test-card:hover {
-        box-shadow: 0 20px 60px rgba(0,0,0,.35);
-      }
+      /* Testimonial quote — no card surface anymore, just keep text readable */
       .test-q { color: var(--dark); }
       .test-q strong { color: var(--ink); }
       .test-name { color: var(--dark); }
@@ -865,14 +841,16 @@
 
   <!-- NAV -->
   <nav id="nav">
+    <ul class="nav-links nav-links-left">
+      <li><a href="about.html" class="nav-link">Our Story</a></li>
+      <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+    </ul>
     <a class="nav-logo" href="index.html">
       <img class="site-logo" src="images/logo-light-2.png" alt="Halo" />
     </a>
-    <ul class="nav-links">
-      <li><a href="about.html" class="nav-cta-soft"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5c2-1.2 5-1.2 7 0v14c-2-1.2-5-1.2-7 0V5Z"/><path d="M20 5c-2-1.2-5-1.2-7 0v14c2-1.2 5-1.2 7 0V5Z"/></svg>Our Story</a></li>
-      <li><a href="pricing.html" class="nav-cta-soft"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 3H5a1 1 0 0 0-1 1v7.5a1 1 0 0 0 .29.71l9.5 9.5a1 1 0 0 0 1.42 0l7.5-7.5a1 1 0 0 0 0-1.42l-9.5-9.5A1 1 0 0 0 12.5 3Z"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/></svg>Pricing</a></li>
-      <li><a href="faq.html" class="nav-cta-soft"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.3 9.5a2.7 2.7 0 0 1 5.1-1.2c.4.9.1 1.7-.7 2.3l-.6.5a1.8 1.8 0 0 0-.7 1.4"/><circle cx="12" cy="16.8" r="0.9" fill="currentColor" stroke="none"/></svg>FAQ</a></li>
-      <li><a href="contact.html" class="nav-cta-soft"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="m4 7.5 8 6 8-6"/></svg>Contact</a></li>
+    <ul class="nav-links nav-links-right">
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
   </nav>
 
@@ -1487,59 +1465,60 @@
 
   <!-- ═══ TESTIMONIALS ═══ -->
   <section id="testimonials">
+    <div class="test-bg-blob" aria-hidden="true"></div>
     <div class="test-head">
-      <span class="label" style="display:block;margin-bottom:12px">What owners say</span>
-      <h2 class="rv">What pet owners<br><em>are saying.</em></h2>
+      <span class="label" style="display:block;margin-bottom:10px">What owners say</span>
+      <h2 class="rv">What pet owners <em>are saying.</em></h2>
     </div>
-    <div class="test-grid" style="grid-template-columns:repeat(3,1fr)">
-      <div class="test-card rv">
-        <p class="test-q"><strong>My memory is terrible.</strong> I've shown up to vet appointments on the wrong day, <strong>forgotten to reorder medication,</strong> missed reminders I'd set myself. Halo <strong>remembers everything</strong> so I don't have to. <strong>It's exactly what I needed.</strong></p>
-        <div class="test-footer">
-          <span class="test-name">Priya K.</span>
-          <span class="test-pet">Ragdoll, 3 years old</span>
-        </div>
-      </div>
-      <div class="test-card rv" style="transition-delay:.1s">
-        <p class="test-q">I used to <strong>cancel trips</strong> because I couldn't explain Bruno's routine to anyone in time. The medications, the timings, the emergency contacts, it felt <strong>impossible to hand over.</strong> Now I <strong>share everything in one tap,</strong> and the <strong>anxiety of leaving him is gone.</strong></p>
-        <div class="test-footer">
-          <span class="test-name">Emma R.</span>
-          <span class="test-pet">Labrador, 7 years old</span>
-        </div>
-      </div>
-      <div class="test-card rv" style="transition-delay:.2s">
-        <p class="test-q">My vet kept asking me to log Biscuit's breathing rate at home. I never did. <strong>I'd forget, or lose count halfway through.</strong> Halo <strong>does the counting for me</strong> now, so I stop <strong>showing up embarrassed</strong> when they ask.</p>
-        <div class="test-footer">
-          <span class="test-name">James T.</span>
-          <span class="test-pet">French Bulldog, 5 years old</span>
-        </div>
-      </div>
-      <div class="test-card rv" style="transition-delay:.3s">
-        <p class="test-q">I have three cats. <strong>Three different medications.</strong> Three different personalities who refuse to cooperate. <strong>Halo keeps me organised,</strong> and <strong>possibly sane.</strong></p>
-        <div class="test-footer">
-          <span class="test-name">Sophie L.</span>
-          <span class="test-pet">Three very opinionated cats</span>
-        </div>
-      </div>
-      <div class="test-card rv" style="transition-delay:.4s">
-        <p class="test-q">Beau is 14 and his <strong>care list gets longer every year.</strong> Halo holds all of it, his history, his routine, his contacts, so whoever looks after him when I can't has everything they need. It's <strong>the peace of mind I didn't know I was missing.</strong></p>
-        <div class="test-footer">
-          <span class="test-name">Clare M.</span>
-          <span class="test-pet">Border Collie, 14 years old</span>
-        </div>
-      </div>
-      <div class="test-card rv" style="transition-delay:.5s">
-        <p class="test-q">My vet once described me as <strong>'charmingly disorganised.'</strong> She's had to drop the disorganised part.</p>
-        <div class="test-footer">
-          <span class="test-name">Mark T.</span>
-          <span class="test-pet">Dachshund, 4 years old</span>
-        </div>
-      </div>
-    </div>
-    <div class="test-nav" id="testNav">
+    <div class="test-carousel">
       <button class="test-arrow-btn" id="testPrev" aria-label="Previous">←</button>
-      <div class="test-dots" id="testDots"></div>
+      <div class="test-grid" id="testGrid">
+        <div class="test-card is-active">
+          <p class="test-q"><strong>My memory is terrible.</strong> I've shown up to vet appointments on the wrong day, <strong>forgotten to reorder medication,</strong> missed reminders I'd set myself. Halo <strong>remembers everything</strong> so I don't have to. <strong>It's exactly what I needed.</strong></p>
+          <div class="test-footer">
+            <span class="test-name">Priya K.</span>
+            <span class="test-pet">Ragdoll, 3 years old</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-q">I used to <strong>cancel trips</strong> because I couldn't explain Bruno's routine to anyone in time. The medications, the timings, the emergency contacts, it felt <strong>impossible to hand over.</strong> Now I <strong>share everything in one tap,</strong> and the <strong>anxiety of leaving him is gone.</strong></p>
+          <div class="test-footer">
+            <span class="test-name">Emma R.</span>
+            <span class="test-pet">Labrador, 7 years old</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-q">My vet kept asking me to log Biscuit's breathing rate at home. I never did. <strong>I'd forget, or lose count halfway through.</strong> Halo <strong>does the counting for me</strong> now, so I stop <strong>showing up embarrassed</strong> when they ask.</p>
+          <div class="test-footer">
+            <span class="test-name">James T.</span>
+            <span class="test-pet">French Bulldog, 5 years old</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-q">I have three cats. <strong>Three different medications.</strong> Three different personalities who refuse to cooperate. <strong>Halo keeps me organised,</strong> and <strong>possibly sane.</strong></p>
+          <div class="test-footer">
+            <span class="test-name">Sophie L.</span>
+            <span class="test-pet">Three very opinionated cats</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-q">Beau is 14 and his <strong>care list gets longer every year.</strong> Halo holds all of it, his history, his routine, his contacts, so whoever looks after him when I can't has everything they need. It's <strong>the peace of mind I didn't know I was missing.</strong></p>
+          <div class="test-footer">
+            <span class="test-name">Clare M.</span>
+            <span class="test-pet">Border Collie, 14 years old</span>
+          </div>
+        </div>
+        <div class="test-card">
+          <p class="test-q">My vet once described me as <strong>'charmingly disorganised.'</strong> She's had to drop the disorganised part.</p>
+          <div class="test-footer">
+            <span class="test-name">Mark T.</span>
+            <span class="test-pet">Dachshund, 4 years old</span>
+          </div>
+        </div>
+      </div>
       <button class="test-arrow-btn" id="testNext" aria-label="Next">→</button>
     </div>
+    <div class="test-dots" id="testDots"></div>
   </section>
 
   <!-- ═══ STORY BRIDGE ═══ -->
@@ -1707,34 +1686,32 @@
     const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:0.12});
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
-    // Testimonials swipe carousel (mobile)
+    // Testimonials carousel — one quote at a time, same behaviour on every
+    // breakpoint (desktop included), arrows + dots drive an .is-active toggle.
     (function(){
-      function initTest(){
-        var nav=document.getElementById('testNav');
-        var grid=document.querySelector('.test-grid');
-        var dotsEl=document.getElementById('testDots');
-        if(!nav||!grid) return;
-        var cards=Array.from(grid.querySelectorAll('.test-card'));
-        if(window.innerWidth>640){nav.style.display='none';return;}
-        nav.style.display='flex';
-        dotsEl.innerHTML='';
-        cards.forEach(function(_,i){
-          var d=document.createElement('div');
-          d.className='test-dot'+(i===0?' active':'');
-          d.addEventListener('click',function(){scrollCard(i);});
-          dotsEl.appendChild(d);
-        });
-        function scrollCard(i){grid.scrollTo({left:Math.max(0,cards[i].offsetLeft),behavior:'smooth'});}
-        function getIdx(){var cw=cards.length?(cards[0].offsetWidth+16):1;return Math.min(Math.round(grid.scrollLeft/cw),cards.length-1);}
-        document.getElementById('testPrev').onclick=function(){var i=getIdx();if(i>0)scrollCard(i-1);};
-        document.getElementById('testNext').onclick=function(){var i=getIdx();if(i<cards.length-1)scrollCard(i+1);};
-        grid.addEventListener('scroll',function(){
-          var i=getIdx();
-          dotsEl.querySelectorAll('.test-dot').forEach(function(d,j){d.classList.toggle('active',j===i);});
-        },{passive:true});
+      var grid=document.getElementById('testGrid');
+      var dotsEl=document.getElementById('testDots');
+      var prevBtn=document.getElementById('testPrev');
+      var nextBtn=document.getElementById('testNext');
+      if(!grid||!dotsEl||!prevBtn||!nextBtn) return;
+      var cards=Array.from(grid.querySelectorAll('.test-card'));
+      if(!cards.length) return;
+      var idx=0;
+      dotsEl.innerHTML='';
+      cards.forEach(function(_,i){
+        var d=document.createElement('div');
+        d.className='test-dot'+(i===0?' active':'');
+        d.addEventListener('click',function(){show(i);});
+        dotsEl.appendChild(d);
+      });
+      function show(i){
+        idx=(i+cards.length)%cards.length;
+        cards.forEach(function(c,j){c.classList.toggle('is-active',j===idx);});
+        dotsEl.querySelectorAll('.test-dot').forEach(function(d,j){d.classList.toggle('active',j===idx);});
       }
-      initTest();
-      window.addEventListener('resize',initTest);
+      prevBtn.addEventListener('click',function(){show(idx-1);});
+      nextBtn.addEventListener('click',function(){show(idx+1);});
+      show(0);
     })();
 
     /* ── Mobile: cycling pill for The Problem ── */
