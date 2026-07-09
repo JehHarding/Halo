@@ -93,6 +93,9 @@
   <div id="glow"></div>
 
   <nav id="nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMobilePanel">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links nav-links-left">
       <li><a href="about.html" class="nav-link">Our Story</a></li>
       <li><a href="pricing.html" class="nav-link">Pricing</a></li>
@@ -104,6 +107,12 @@
       <li><a href="faq.html" class="nav-link">FAQ</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
+    <div class="nav-mobile-panel" id="navMobilePanel">
+      <a href="about.html" class="nav-mobile-link">Our Story</a>
+      <a href="pricing.html" class="nav-mobile-link">Pricing</a>
+      <a href="faq.html" class="nav-mobile-link">FAQ</a>
+      <a href="contact.html" class="nav-mobile-link">Contact</a>
+    </div>
   </nav>
 
   <div class="legal-wrap">
@@ -259,6 +268,20 @@
   <script>
     const nav=document.getElementById('nav');
     window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+    const navHamburger=document.getElementById('navHamburger');
+    const navMobilePanel=document.getElementById('navMobilePanel');
+    if(navHamburger&&navMobilePanel){
+      navHamburger.addEventListener('click',()=>{
+        const open=navHamburger.classList.toggle('open');
+        navMobilePanel.classList.toggle('open',open);
+        navHamburger.setAttribute('aria-expanded',open);
+      });
+      navMobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+        navHamburger.classList.remove('open');
+        navMobilePanel.classList.remove('open');
+        navHamburger.setAttribute('aria-expanded','false');
+      }));
+    }
     const glow=document.getElementById('glow');
     let gx=innerWidth/2,gy=innerHeight/2,cx=gx,cy=gy;
     document.addEventListener('mousemove',e=>{gx=e.clientX;gy=e.clientY;});
