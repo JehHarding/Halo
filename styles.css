@@ -96,7 +96,16 @@ nav.scrolled {
   width: 40px; height: 40px;
   object-fit: contain;
 }
-.nav-links { display:flex; gap:20px; list-style:none; align-items:center; }
+/* Single soft pill container holding all nav links — the active page's
+   link (.nav-cta) stands out in solid colour, everything else (.nav-cta-soft)
+   sits flush inside the container as plain text until hovered. */
+.nav-links {
+  display:flex; gap:2px; list-style:none; align-items:center;
+  background: var(--rose-ll);
+  border: 1px solid var(--rose-l);
+  border-radius: 999px;
+  padding: 5px;
+}
 .nav-links a {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--mid); text-decoration: none; transition: color .2s;
@@ -112,20 +121,20 @@ nav.scrolled {
   transition: background .2s !important;
 }
 .nav-cta:hover { background: var(--dark) !important; color: var(--bg) !important; }
-/* Secondary nav pill — softer blush box, same shape as .nav-cta but lighter weight */
+/* Inactive nav pills — plain text, blends into the shared pill container
+   until hovered, rather than each rendering as its own separate box. */
 .nav-cta-soft {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 18px;
-  background: var(--rose-ll);
-  color: var(--rose) !important;
-  border: 1px solid var(--rose-l);
+  padding: 9px 16px;
+  background: transparent;
+  color: var(--mid) !important;
+  border: none;
   border-radius: 999px;
-  transition: background .2s, border-color .2s !important;
+  transition: background .2s, color .2s !important;
 }
 .nav-cta-soft:hover {
-  background: var(--rose-l);
-  border-color: var(--rose);
-  color: var(--rose) !important;
+  background: rgba(255,255,255,.7);
+  color: var(--dark) !important;
 }
 
 /* ─── FOOTER ──────────────────────────────────── */
