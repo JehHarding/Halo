@@ -115,6 +115,49 @@ nav.scrolled { padding: 14px 60px; }
   height: 1px; background: var(--rose);
 }
 
+/* Mobile hamburger — hidden on desktop, swapped in for the two link
+   groups below 640px. Panel drops down from the nav bar itself since
+   nav is position:fixed (a valid containing block for the absolute child). */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 32px; height: 32px;
+  background: none; border: none; cursor: pointer; padding: 0;
+  justify-self: start;
+}
+.nav-hamburger span {
+  display: block; width: 100%; height: 1.5px;
+  background: var(--dark); transition: transform .25s ease, opacity .2s ease;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.nav-mobile-panel { display: none; }
+
+@media(max-width:640px){
+  .nav-links-left, .nav-links-right { display: none; }
+  .nav-hamburger { display: flex; }
+  nav { grid-template-columns: auto 1fr auto; }
+  .nav-mobile-panel {
+    display: block;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(253,250,246,.98);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    max-height: 0; overflow: hidden;
+    transition: max-height .3s ease;
+  }
+  .nav-mobile-panel.open { max-height: 320px; }
+  .nav-mobile-link {
+    display: block;
+    padding: 16px 24px;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--mid); text-decoration: none;
+    border-top: 1px solid var(--border);
+  }
+  .nav-mobile-link.active { color: var(--rose); }
+}
+
 /* ─── FOOTER ──────────────────────────────────── */
 footer {
   background: var(--linen);
@@ -318,15 +361,9 @@ footer {
 /* Two link groups (2 left, 2 right) flanking the centred logo — tighten
    further so the full 3-column row fits on phone widths. */
 @media(max-width:480px){
-  nav { padding:14px 10px; }
-  nav.scrolled { padding:10px 10px; }
+  nav { padding:14px 16px; }
+  nav.scrolled { padding:10px 16px; }
   .nav-logo .site-logo { width: 30px; height: 30px; }
-  .nav-links { gap:8px; }
-  .nav-link {
-    white-space: nowrap;
-    font-size: 8px !important;
-    letter-spacing: 1px !important;
-  }
 }
 
 /* Mobile halo: reduce float amplitude so rings stay aligned with HALO text */

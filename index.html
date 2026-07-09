@@ -17,7 +17,7 @@
   <meta property="og:image" content="https://myhaloapp.co.uk/images/logo-light-2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=10">
   <style>
 
@@ -446,7 +446,7 @@
     .test-q::after { content: '\201D'; color: var(--rose-l); font-size: 38px; line-height: .3; vertical-align: -15px; margin-left: 4px; }
     .test-q strong { font-weight: 600; font-style: italic; color: var(--dark); }
     .test-footer { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-    .test-name { font-size: 11px; font-weight: 400; color: var(--dark); letter-spacing: .5px; }
+    .test-name { font-family: 'Mrs Saint Delafield', cursive; font-size: 26px; font-weight: 400; color: var(--dark); letter-spacing: .3px; margin-top: 2px; }
     .test-pet { font-size: 10px; color: var(--light); }
 
     .test-arrow-btn {
@@ -841,6 +841,9 @@
 
   <!-- NAV -->
   <nav id="nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMobilePanel">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links nav-links-left">
       <li><a href="about.html" class="nav-link">Our Story</a></li>
       <li><a href="pricing.html" class="nav-link">Pricing</a></li>
@@ -852,6 +855,12 @@
       <li><a href="faq.html" class="nav-link">FAQ</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
+    <div class="nav-mobile-panel" id="navMobilePanel">
+      <a href="about.html" class="nav-mobile-link">Our Story</a>
+      <a href="pricing.html" class="nav-mobile-link">Pricing</a>
+      <a href="faq.html" class="nav-mobile-link">FAQ</a>
+      <a href="contact.html" class="nav-mobile-link">Contact</a>
+    </div>
   </nav>
 
   <!-- ═══ HERO ═══ -->
@@ -1683,6 +1692,20 @@
     document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>glow.classList.add('on-link'));el.addEventListener('mouseleave',()=>glow.classList.remove('on-link'));});
     const nav=document.getElementById('nav');
     window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+    const navHamburger=document.getElementById('navHamburger');
+    const navMobilePanel=document.getElementById('navMobilePanel');
+    if(navHamburger&&navMobilePanel){
+      navHamburger.addEventListener('click',()=>{
+        const open=navHamburger.classList.toggle('open');
+        navMobilePanel.classList.toggle('open',open);
+        navHamburger.setAttribute('aria-expanded',open);
+      });
+      navMobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+        navHamburger.classList.remove('open');
+        navMobilePanel.classList.remove('open');
+        navHamburger.setAttribute('aria-expanded','false');
+      }));
+    }
     const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:0.12});
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
