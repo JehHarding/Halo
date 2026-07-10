@@ -431,6 +431,7 @@
     .test-card {
       display: none;
       text-align: center;
+      position: relative;
     }
     .test-card.is-active {
       display: flex; flex-direction: column; align-items: center; width: 100%;
@@ -444,6 +445,26 @@
       transition: opacity .3s ease;
     }
     @keyframes testFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    /* Pet photo, barely there — a soft tinted wash behind the quote, not a
+       visible/attributable photo. Sourced photos aren't ours to publish
+       outright, so this keeps them present only as texture: heavily blurred,
+       desaturated toward the warm palette, and very low opacity. */
+    .test-card::before {
+      content: '';
+      position: absolute;
+      inset: -25% -15%;
+      background-image: var(--photo);
+      background-size: cover;
+      background-position: center;
+      opacity: .4;
+      filter: blur(18px) saturate(.55) sepia(.15);
+      /* Radial fade instead of a hard (if blurred) rectangle — dissolves
+         into the page rather than reading as a smudge/stain. */
+      mask-image: radial-gradient(ellipse 55% 55% at center, black 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse 55% 55% at center, black 0%, transparent 75%);
+      z-index: -1;
+      pointer-events: none;
+    }
     .test-q {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(17px, 1.6vw, 21px); font-weight: 300; font-style: italic;
@@ -523,24 +544,24 @@
        COMPARISON
     ═══════════════════════════════════════ */
     #comparison {
-      padding: 100px 60px;
+      padding: 60px 60px 80px;
       position: relative; z-index: 1;
     }
     #comparison .comp-inner { max-width: 1080px; margin: 0 auto; }
     #comparison .comp-eyebrow {
       font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 14px;
+      color: var(--rose); margin-bottom: 10px;
     }
     #comparison .comp-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(32px, 3.8vw, 48px);
       font-weight: 300; color: var(--dark);
-      line-height: 1.15; margin-bottom: 12px;
+      line-height: 1.15; margin-bottom: 10px;
     }
     #comparison .comp-title em { font-style: italic; color: var(--rose); }
     #comparison .comp-sub {
       font-size: 14px; color: var(--mid);
-      line-height: 1.9; max-width: 540px; margin-bottom: 52px;
+      line-height: 1.7; max-width: 540px; margin-bottom: 28px;
     }
     .comp-card {
       border-radius: 16px;
@@ -554,7 +575,7 @@
       border-bottom: 1px solid var(--border);
     }
     .comp-th-feat {
-      padding: 28px 20px 20px; font-size: 8px;
+      padding: 16px 20px 12px; font-size: 8px;
       letter-spacing: 2.5px; text-transform: uppercase; color: var(--light);
       display: flex; align-items: flex-end;
     }
@@ -563,7 +584,7 @@
       border-top: 3px solid var(--rose);
       border-left: 1px solid var(--rose-l);
       border-right: 1px solid var(--rose-l);
-      padding: 16px 12px 18px;
+      padding: 10px 12px 12px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
     .comp-th-halo-word {
@@ -573,7 +594,7 @@
     .comp-th-comp {
       text-align: center;
       border-right: 1px solid var(--border);
-      padding: 28px 10px 20px;
+      padding: 16px 10px 12px;
       font-size: 8px; letter-spacing: 2px;
       text-transform: uppercase; color: var(--mid);
       display: flex; flex-direction: column;
@@ -593,17 +614,17 @@
     .comp-row:last-child { border-bottom: none; }
     .comp-row:nth-child(odd) .comp-cell-feat,
     .comp-row:nth-child(odd) .comp-cell:not(.halo-col) { background: rgba(244,239,230,0.3); }
-    .comp-cell-feat { padding: 18px 20px; }
+    .comp-cell-feat { padding: 11px 20px; }
     .comp-feat-name {
       font-size: 13px; font-weight: 500;
-      color: var(--dark); margin-bottom: 4px;
+      color: var(--dark); margin-bottom: 2px;
     }
-    .comp-feat-desc { font-size: 11px; color: var(--mid); line-height: 1.55; }
+    .comp-feat-desc { font-size: 11px; color: var(--mid); line-height: 1.4; }
     .comp-cell {
-      padding: 16px 10px;
+      padding: 11px 10px;
       display: flex; align-items: center; justify-content: center;
       font-size: 11px; color: var(--mid);
-      text-align: center; line-height: 1.45; white-space: nowrap;
+      text-align: center; line-height: 1.35; white-space: nowrap;
       border-right: 1px solid var(--border);
     }
     .comp-cell:last-child { border-right: none; }
@@ -1487,42 +1508,42 @@
     <div class="test-carousel">
       <button class="test-arrow-btn" id="testPrev" aria-label="Previous">←</button>
       <div class="test-grid" id="testGrid">
-        <div class="test-card is-active">
+        <div class="test-card is-active" style="--photo:url('images/testimonials/ragdoll.jpg')">
           <p class="test-q"><strong>My memory is terrible.</strong> I've shown up to vet appointments on the wrong day, <strong>forgotten to reorder medication,</strong> missed reminders I'd set myself. Halo <strong>remembers everything</strong> so I don't have to. <strong>It's exactly what I needed.</strong></p>
           <div class="test-footer">
             <span class="test-name">Priya K.</span>
             <span class="test-pet">Ragdoll, 3 years old</span>
           </div>
         </div>
-        <div class="test-card">
+        <div class="test-card" style="--photo:url('images/testimonials/labrador.jpg')">
           <p class="test-q">I used to <strong>cancel trips</strong> because I couldn't explain Bruno's routine to anyone in time. The medications, the timings, the emergency contacts, it felt <strong>impossible to hand over.</strong> Now I <strong>share everything in one tap,</strong> and the <strong>anxiety of leaving him is gone.</strong></p>
           <div class="test-footer">
             <span class="test-name">Emma R.</span>
             <span class="test-pet">Labrador, 7 years old</span>
           </div>
         </div>
-        <div class="test-card">
+        <div class="test-card" style="--photo:url('images/testimonials/french-bulldog.jpg')">
           <p class="test-q">My vet kept asking me to log Biscuit's breathing rate at home. I never did. <strong>I'd forget, or lose count halfway through.</strong> Halo <strong>does the counting for me</strong> now, so I stop <strong>showing up embarrassed</strong> when they ask.</p>
           <div class="test-footer">
             <span class="test-name">James T.</span>
             <span class="test-pet">French Bulldog, 5 years old</span>
           </div>
         </div>
-        <div class="test-card">
+        <div class="test-card" style="--photo:url('images/testimonials/three-cats.jpg')">
           <p class="test-q">I have three cats. <strong>Three different medications.</strong> Three different personalities who refuse to cooperate. <strong>Halo keeps me organised,</strong> and <strong>possibly sane.</strong></p>
           <div class="test-footer">
             <span class="test-name">Sophie L.</span>
             <span class="test-pet">Three very opinionated cats</span>
           </div>
         </div>
-        <div class="test-card">
+        <div class="test-card" style="--photo:url('images/testimonials/border-collie.jpg')">
           <p class="test-q">Beau is 14 and his <strong>care list gets longer every year.</strong> Halo holds all of it, his history, his routine, his contacts, so whoever looks after him when I can't has everything they need. It's <strong>the peace of mind I didn't know I was missing.</strong></p>
           <div class="test-footer">
             <span class="test-name">Clare M.</span>
             <span class="test-pet">Border Collie, 14 years old</span>
           </div>
         </div>
-        <div class="test-card">
+        <div class="test-card" style="--photo:url('images/testimonials/dachshund.jpg')">
           <p class="test-q">My vet once described me as <strong>'charmingly disorganised.'</strong> She's had to drop the disorganised part.</p>
           <div class="test-footer">
             <span class="test-name">Mark T.</span>
