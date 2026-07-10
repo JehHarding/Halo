@@ -136,7 +136,7 @@
     <h1 class="sec-title rv" style="text-align:center;transition-delay:.1s;font-size:clamp(42px,5.5vw,74px)">
       Where <span style="color:var(--rose);font-style:italic">Halo</span><br><em style="color:var(--dark)">began.</em>
     </h1>
-    <p class="rv" style="transition-delay:.18s">Angel had four heart conditions, a prognosis nobody expected her to outlive, and a care routine too complex for any app that existed. So I built one.</p>
+    <p class="rv" style="transition-delay:.18s">Angel has four heart conditions, a prognosis nobody expected her to outlive, and a care routine too complex for any app that existed. So I built one.</p>
   </div>
 
   <!-- STORY 1: HOW IT BEGAN + DIAGNOSIS — photo left, text right -->
@@ -182,6 +182,132 @@
     </div>
   </div>
 
+  <!-- ═══ STORY BRIDGE ═══ -->
+  <section id="story-bridge" style="display:block;padding:80px 60px;max-width:1300px;margin:0 auto">
+    <style>
+      .angel-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+        height: 78vh;
+        min-height: 560px;
+        max-height: 780px;
+      }
+      .angel-grid .ap {
+        overflow: hidden;
+        border-radius: 14px;
+        transition: opacity .4s ease, transform .4s ease;
+      }
+      .angel-grid .ap img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform .6s ease;
+      }
+      .angel-grid:hover .ap { opacity: 0.45; }
+      .angel-grid .ap:hover { opacity: 1 !important; transform: scale(1.02); }
+      .angel-grid .ap:hover img { transform: scale(1.06); }
+      .angel-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        grid-column: 2;
+        grid-row: 2;
+      }
+      @media(max-width:640px){
+        /* Full-width swipeable photo carousel */
+        #story-bridge { padding: 0 !important; }
+        .angel-grid {
+          display: flex !important;
+          flex-direction: row !important;
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          scroll-snap-type: x mandatory !important;
+          overscroll-behavior-x: contain !important;
+          scrollbar-width: none !important;
+          height: auto !important;
+          min-height: 0 !important;
+          max-height: none !important;
+          gap: 0 !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+        }
+        .angel-grid::-webkit-scrollbar { display: none; }
+        .angel-grid .ap {
+          width: 100vw !important;
+          min-width: 100vw !important;
+          max-width: 100vw !important;
+          height: 78vw !important;
+          flex-shrink: 0 !important;
+          flex-grow: 0 !important;
+          scroll-snap-align: start !important;
+          border-radius: 0 !important;
+        }
+        /* The desktop hover-dim effect (.angel-grid:hover .ap { opacity:.45 })
+           has no mouseleave equivalent on touch, so a tap/swipe leaves every
+           slide but the first stuck dimmed. Force full opacity on mobile. */
+        .angel-grid .ap,
+        .angel-grid:hover .ap {
+          opacity: 1 !important;
+        }
+        .angel-center { display: none !important; }
+        #angel-dots {
+          display: flex !important;
+          justify-content: center;
+          gap: 6px;
+          padding: 14px 0 0;
+        }
+        #angel-dots .ad {
+          width: 6px; height: 6px;
+          border-radius: 50%;
+          background: var(--border);
+          transition: background .3s, transform .3s;
+        }
+        #angel-dots .ad.on {
+          background: var(--rose-l);
+          transform: scale(1.25);
+        }
+        #angel-text-mobile {
+          display: block !important;
+          padding: 24px 24px 60px;
+          text-align: center;
+        }
+      }
+    </style>
+    <div class="angel-grid">
+      <!-- Row 1: top-left | top-middle (photo 3) | top-right -->
+      <div class="ap"><img src="images/home/IMG_6278.jpeg" alt="Angel" style="object-position:center 38%" /></div>
+      <div class="ap"><img src="images/home/IMG_5631.jpeg" alt="Angel" style="object-position:center 35%" /></div>
+      <div class="ap"><img src="images/home/IMG_5163.jpeg" alt="Angel" style="object-position:center 40%" /></div>
+      <!-- Row 2: middle-left (photo 1) | text | middle-right (photo 2) -->
+      <div class="ap"><img src="images/home/IMG_5397.jpeg" alt="Angel" style="object-position:center center" loading="lazy" /></div>
+      <div class="angel-center">
+        <span class="label" style="margin-bottom:10px">Behind Halo</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.8vw,40px);font-weight:300;line-height:1.15;color:var(--dark)"><em style="font-style:italic;color:var(--rose)">Angel</em> is the reason why Halo exists.</h2>
+      </div>
+      <div class="ap"><img src="images/home/IMG_2453.jpeg" alt="Angel" style="object-position:center center" loading="lazy" /></div>
+      <!-- Row 3: bottom-left | bottom-middle (photo 4) | bottom-right -->
+      <div class="ap"><img src="images/home/IMG_3969.jpeg" alt="Angel" style="object-position:center 55%" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_6129.jpeg" alt="Angel" style="object-position:center 50%" loading="lazy" /></div>
+      <div class="ap"><img src="images/home/IMG_4621.jpeg" alt="Angel" style="object-position:center 60%" loading="lazy" /></div>
+    </div>
+
+    <!-- Mobile only: dot indicators + text block below carousel -->
+    <div id="angel-dots" aria-hidden="true" style="display:none">
+      <span class="ad on"></span><span class="ad"></span><span class="ad"></span>
+      <span class="ad"></span><span class="ad"></span><span class="ad"></span>
+      <span class="ad"></span><span class="ad"></span>
+    </div>
+    <div id="angel-text-mobile" style="display:none">
+      <span class="label" style="display:block;margin-bottom:10px">Behind Halo</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,40px);font-weight:300;line-height:1.15;color:var(--dark)"><em style="font-style:italic;color:var(--rose)">Angel</em> is the reason why Halo exists.</h2>
+    </div>
+  </section>
+
   <footer>
     <img class="site-logo foot-logo-mark" src="images/logo-light-2.png" alt="Halo" />
     <div class="foot-links">
@@ -225,6 +351,18 @@
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
     const sbObs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); sbObs.unobserve(e.target); } }); }, { threshold: 0.12 });
     document.querySelectorAll('.sb-reveal').forEach(el => sbObs.observe(el));
+
+    /* ── Mobile: Behind Halo carousel dots ── */
+    (function(){
+      if(window.innerWidth > 640) return;
+      const grid = document.querySelector('.angel-grid');
+      const dots = document.querySelectorAll('#angel-dots .ad');
+      if(!grid || !dots.length) return;
+      grid.addEventListener('scroll', function(){
+        const i = Math.round(grid.scrollLeft / grid.clientWidth);
+        dots.forEach(function(d, n){ d.classList.toggle('on', n === i); });
+      }, { passive: true });
+    })();
   </script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2793ba32c7f44681a852a648dcef92fb"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
