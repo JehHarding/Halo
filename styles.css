@@ -93,8 +93,8 @@ nav.scrolled { padding: 14px 60px; }
   display: flex; flex-direction: row; align-items: center; gap: 10px;
   text-decoration: none;
 }
-/* Wordmark next to the icon — an unlabelled icon alone reads as a
-   decorative divider rather than an obvious clickable "go home" link.
+/* Wordmark is the nav's home link, no icon next to it (dropped per
+   Jehane's call: icon + script word competed with each other).
    Echoes the hero's italic serif "Halo" treatment at nav scale. */
 .nav-logo-text {
   font-family: 'Cormorant Garamond', serif;
@@ -102,10 +102,8 @@ nav.scrolled { padding: 14px 60px; }
   font-size: 22px; letter-spacing: .3px;
   color: var(--rose);
 }
-/* Nav logo — the paw+halo mark, already rose-coloured in the source PNG.
-   Plain <img>, not a CSS mask — masks were an unreliable extra rendering
-   step for a plain static icon and were the likely cause of it randomly
-   failing to paint. */
+/* Paw+halo mark, still used by the footer (and favicon). Plain <img>,
+   not a CSS mask, masks were an unreliable extra rendering step. */
 .site-logo {
   display: block;
   width: 40px; height: 40px;
@@ -152,6 +150,10 @@ nav.scrolled { padding: 14px 60px; }
 @media(max-width:640px){
   .nav-links-left, .nav-links-right { display: none; }
   .nav-hamburger { display: flex; }
+  /* Slimmer bar on phones so the hero copy + phone fit in one screen */
+  nav { padding: 9px 16px; }
+  nav.scrolled { padding: 7px 16px; }
+  .nav-logo-text { font-size: 18px; }
   .nav-mobile-panel {
     display: block;
     position: absolute; top: 100%; left: 0; right: 0;
@@ -373,12 +375,11 @@ footer {
   .page-hero { padding:110px 24px 60px; }
 }
 
-/* Two link groups (2 left, 2 right) flanking the centred logo — tighten
-   further so the full 3-column row fits on phone widths. */
+/* Keep the slim bar on the smallest phones too (this block loads after
+   the 640px one, so it must not re-widen the padding). */
 @media(max-width:480px){
-  nav { padding:14px 16px; }
-  nav.scrolled { padding:10px 16px; }
-  .nav-logo .site-logo { width: 30px; height: 30px; }
+  nav { padding:9px 16px; }
+  nav.scrolled { padding:7px 16px; }
   .nav-hamburger { left: 16px; }
 }
 

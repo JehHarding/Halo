@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing, Halo</title>
   <meta name="description" content="Simple pricing for Halo. Start free, or unlock unlimited pets and the full care toolkit with Halo Plus." />
-  <meta property="og:title" content="Pricing — Halo" />
+  <meta property="og:title" content="Pricing, Halo" />
   <meta property="og:description" content="Simple pricing for Halo. Start free, or unlock unlimited pets and the full care toolkit with Halo Plus." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Halo" />
   <meta property="og:url" content="https://myhaloapp.co.uk/pricing.html" />
   <meta property="og:image" content="https://myhaloapp.co.uk/images/logo-light-2.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Pricing — Halo" />
+  <meta name="twitter:title" content="Pricing, Halo" />
   <meta name="twitter:description" content="Simple pricing for Halo. Start free, or unlock unlimited pets and the full care toolkit with Halo Plus." />
   <link rel="icon" type="image/png" href="images/logo-light-2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
   <style>
     .pricing-wrap {
       max-width: 900px;
@@ -88,11 +88,14 @@
       text-align: center; font-size: 12px; color: var(--light);
       max-width: 480px; margin: 24px auto 0; line-height: 1.7;
     }
+    /* "Prefer to pay once?" is the top of the plan hierarchy, so it gets a
+       clearly stronger rose wash + full-rose border than the Plus card,
+       rather than blending into it */
     .lifetime-callout {
       display: flex; align-items: center; justify-content: space-between; gap: 20px;
       margin-top: 18px; padding: 22px 28px;
-      border: 1px solid var(--rose-l); border-radius: 18px;
-      background: var(--rose-ll);
+      border: 1px solid var(--rose); border-radius: 18px;
+      background: rgba(201,137,122,.15);
     }
     .lifetime-title {
       font-family: 'Cormorant Garamond', serif;
@@ -111,6 +114,27 @@
       .plan-price { font-size: 26px; }
       .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 10px; }
       .lifetime-price span { text-align: left; }
+    }
+    /* Dark mode gets its own plan hierarchy rather than the light rules
+       recoloured: Free recedes into the background, Plus carries a clear
+       rose tint, and the pay-once callout is unmistakably the strongest. */
+    @media (prefers-color-scheme: dark) {
+      .price-card {
+        background: rgba(255,255,255,.015);
+        border-color: rgba(255,255,255,.07);
+      }
+      .price-card .plan-name { color: var(--light); }
+      .plan-cta.free { border-color: rgba(255,255,255,.1); color: var(--light); }
+      .price-card.plus {
+        background: rgba(201,137,122,.12);
+        border-color: rgba(201,137,122,.5);
+      }
+      .price-card.plus .plan-name { color: var(--rose); }
+      .lifetime-callout {
+        background: rgba(201,137,122,.22);
+        border-color: rgba(201,137,122,.75);
+        box-shadow: 0 0 42px rgba(201,137,122,.14);
+      }
     }
   </style>
 </head>
@@ -132,7 +156,6 @@
       <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
     </ul>
     <a class="nav-logo" href="index.html">
-      <img class="site-logo" src="images/logo-light-2.png" alt="Halo" />
       <span class="nav-logo-text">Halo</span>
     </a>
     <ul class="nav-links nav-links-right">
@@ -148,7 +171,6 @@
   </nav>
 
   <div class="pricing-wrap">
-    <span class="pricing-eyebrow">Pricing</span>
     <h1 class="pricing-h1">Free to start, <em>Plus</em> when you need it.</h1>
     <p class="pricing-sub">Halo is free to use for the essentials. Upgrade to Halo Plus for unlimited tracking as your pet's care needs grow.</p>
 
