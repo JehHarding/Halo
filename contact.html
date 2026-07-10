@@ -4,21 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact, Halo</title>
-  <meta name="description" content="Get in touch with the Halo team — questions, feedback, or support, we'd love to hear from you." />
-  <meta property="og:title" content="Contact — Halo" />
-  <meta property="og:description" content="Get in touch with the Halo team — questions, feedback, or support, we'd love to hear from you." />
+  <meta name="description" content="Get in touch with the Halo team, questions, feedback, or support, we'd love to hear from you." />
+  <meta property="og:title" content="Contact, Halo" />
+  <meta property="og:description" content="Get in touch with the Halo team, questions, feedback, or support, we'd love to hear from you." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Halo" />
   <meta property="og:url" content="https://myhaloapp.co.uk/contact.html" />
   <meta property="og:image" content="https://myhaloapp.co.uk/images/logo-light-2.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Contact — Halo" />
-  <meta name="twitter:description" content="Get in touch with the Halo team — questions, feedback, or support, we'd love to hear from you." />
+  <meta name="twitter:title" content="Contact, Halo" />
+  <meta name="twitter:description" content="Get in touch with the Halo team, questions, feedback, or support, we'd love to hear from you." />
   <link rel="icon" type="image/png" href="images/logo-light-2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
   <style>
     .contact-wrap {
       max-width: 620px;
@@ -106,7 +106,6 @@
       <li><a href="pricing.html" class="nav-link">Pricing</a></li>
     </ul>
     <a class="nav-logo" href="index.html">
-      <img class="site-logo" src="images/logo-light-2.png" alt="Halo" />
       <span class="nav-logo-text">Halo</span>
     </a>
     <ul class="nav-links nav-links-right">
@@ -223,7 +222,7 @@
           headers: { 'Accept': 'application/json' }
         });
         if (res.ok) {
-          status.textContent = "Thank you — your message has been sent. We'll get back to you soon.";
+          status.textContent = "Thank you, your message has been sent. We'll get back to you soon.";
           form.reset();
         } else {
           throw new Error('Submission failed');
