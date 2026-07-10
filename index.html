@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
   <style>
 
     /* ═══════════════════════════════════════
@@ -110,7 +110,7 @@
     .welcome-copy { margin-top: auto; padding: 0 26px 44px; text-align: left; }
     .welcome-eyebrow {
       font-size: 8px; letter-spacing: 3.5px; text-transform: uppercase;
-      color: var(--rose); display: block; margin-bottom: 12px;
+      font-style: italic; color: var(--rose); display: block; margin-bottom: 12px;
     }
     .welcome-title {
       font-family: 'Cormorant Garamond', serif;
@@ -483,23 +483,27 @@
       transition: opacity .3s ease;
     }
     @keyframes testFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    /* Pet photo, barely there — a soft tinted wash behind the quote, not a
-       visible/attributable photo. Sourced photos aren't ours to publish
-       outright, so this keeps them present only as texture: heavily blurred,
-       desaturated toward the warm palette, and very low opacity. */
+    /* Pet photo, soft but actually visible as a photo, not just texture.
+       Sourced photos aren't ours to publish outright, so this keeps them
+       blurred/desaturated/masked rather than shown outright, but the box
+       is sized and blurred lightly enough that the animal reads clearly
+       through the softness. Mobile default: a defined box centred behind
+       the footer (name/pet type), not a huge diffuse bleed across the
+       whole card — that read as an unrecognisable blob, not a photo. */
     .test-card::before {
       content: '';
       position: absolute;
-      inset: -25% -15%;
+      left: 50%; bottom: -6px; transform: translateX(-50%);
+      width: 220px; height: 210px;
       background-image: var(--photo);
       background-size: cover;
       background-position: center;
-      opacity: .4;
-      filter: blur(18px) saturate(.55) sepia(.15);
+      opacity: .5;
+      filter: blur(6px) saturate(.65) sepia(.1);
       /* Radial fade instead of a hard (if blurred) rectangle — dissolves
-         into the page rather than reading as a smudge/stain. */
-      mask-image: radial-gradient(ellipse 55% 55% at center, black 0%, transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse 55% 55% at center, black 0%, transparent 75%);
+         into the page at the edges rather than reading as a smudge/stain. */
+      mask-image: radial-gradient(ellipse 62% 62% at center, black 0%, transparent 82%);
+      -webkit-mask-image: radial-gradient(ellipse 62% 62% at center, black 0%, transparent 82%);
       z-index: -1;
       pointer-events: none;
     }
@@ -535,6 +539,7 @@
       .test-card::before {
         position: static;
         inset: auto;
+        left: auto; bottom: auto; transform: none;
         grid-column: 2;
         grid-row: 1 / span 2;
         width: 230px; height: 250px;
@@ -775,11 +780,20 @@
     }
 
     @media(max-width:640px){
-      /* ── HERO ── */
-      #hero { padding: 90px 24px 60px !important; }
-
-      .hero-tagline { font-size: 13.5px !important; line-height: 1.75 !important; margin-bottom: 28px !important; }
-      .hero-phones { transform: scale(0.82); transform-origin: top center; margin-top: 10px; }
+      /* ── HERO — tight enough that blurb + phone both fit one screen
+         without scrolling. Nav is slim now (~40px) so the old 90px top
+         clearance was wasted space; every value below is sized against
+         an actual 375x812 budget, not just "smaller than desktop". ── */
+      #hero { padding: 52px 24px 20px !important; }
+      .hero-inner { gap: 14px !important; }
+      /* This div has no line-height of its own so it was inheriting the
+         body's 1.7 — ~20px of pure dead space above/below a single line
+         of "Halo" at any font-size. That, not the font-size itself, was
+         most of what made the mobile hero too tall to fit one screen. */
+      .hero-copy .rv:first-child { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 6px !important; }
+      .hero-h1 { font-size: 25px !important; margin-bottom: 8px !important; }
+      .hero-tagline { font-size: 13px !important; line-height: 1.6 !important; margin-bottom: 0 !important; }
+      .hero-phones { transform: scale(0.64); transform-origin: top center; margin-top: -8px; }
       /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
          a nearly-viewport-width phone off the right edge. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
@@ -874,12 +888,31 @@
     }
 
     /* ─── COMPARISON TABLE — FIX SCROLL ──────── */
+    /* This has broken repeatedly. The actual root cause, finally found:
+       .comp-card has border-radius + overflow:hidden (see the base rule
+       above) — border-radius combined with overflow:hidden/auto/scroll on
+       the SAME element as a position:sticky scroll container is a
+       documented WebKit bug that silently kills sticky, no matter how
+       correct the transform/z-index handling is. Previous passes fixed
+       real but secondary problems (translateZ, halo-col fighting for the
+       sticky slot) without ever touching this. Fix: overflow-y must not
+       be hidden (setting it to visible here makes the browser compute it
+       to auto, since one axis can't be visible while the other scrolls),
+       and border-radius moves onto a non-scrolling wrapper instead of
+       living on the scroll container itself. */
     @media (max-width: 640px) {
+      .comp-card-wrap {
+        border-radius: 14px;
+        overflow: hidden;
+        margin-right: 20px;
+      }
       .comp-card {
         overflow-x: scroll !important;
+        overflow-y: visible !important;
         touch-action: pan-x;
         -webkit-overflow-scrolling: touch;
-        /* translateZ(0) breaks position:sticky on iOS — must remove it */
+        border-radius: 0 !important;
+        margin-right: 0 !important;
         transform: none !important;
       }
       /* Only the Compare (feature-name) column locks while swiping.
@@ -1494,6 +1527,7 @@
       <h2 class="comp-title rv" style="transition-delay:.08s">Simple when you need it.<br><em>Complete when it counts.</em></h2>
       <p class="comp-sub rv" style="transition-delay:.14s">From a single annual vaccine reminder to a full daily care routine, Halo handles every level. And when care gets complicated, no other app comes close.</p>
 
+      <div class="comp-card-wrap">
       <div class="comp-card rv" style="transition-delay:.2s">
         <div class="comp-thead">
           <div class="comp-th-feat">Compare</div>
@@ -1571,6 +1605,7 @@
           <div class="comp-cell"><span class="comp-no">✕</span></div>
         </div>
 
+      </div>
       </div>
       <p class="comp-swipe-hint">← Swipe to compare all →</p>
     </div>
