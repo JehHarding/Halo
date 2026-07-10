@@ -93,6 +93,15 @@ nav.scrolled { padding: 14px 60px; }
   display: flex; flex-direction: row; align-items: center; gap: 10px;
   text-decoration: none;
 }
+/* Wordmark next to the icon — an unlabelled icon alone reads as a
+   decorative divider rather than an obvious clickable "go home" link.
+   Echoes the hero's italic serif "Halo" treatment at nav scale. */
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 400;
+  font-size: 22px; letter-spacing: .3px;
+  color: var(--rose);
+}
 /* Nav logo — the paw+halo mark, already rose-coloured in the source PNG.
    Plain <img>, not a CSS mask — masks were an unreliable extra rendering
    step for a plain static icon and were the likely cause of it randomly
@@ -357,6 +366,7 @@ footer {
   nav.scrolled { padding:12px 20px; }
   .nav-links { gap:14px; }
   .nav-link { font-size: 9px !important; letter-spacing: 1.8px !important; }
+  .nav-logo-text { font-size: 19px; }
   footer { flex-direction:column; gap:18px; padding:32px 24px; text-align:center; }
   .foot-links { justify-content:center; flex-wrap:wrap; gap:16px; }
   .foot-r { text-align:center; }
