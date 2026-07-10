@@ -99,7 +99,7 @@ nav.scrolled { padding: 14px 60px; }
 .nav-logo-text {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic; font-weight: 400;
-  font-size: 22px; letter-spacing: .3px;
+  font-size: 22px; line-height: 1.2; letter-spacing: .3px;
   color: var(--rose);
 }
 /* Paw+halo mark, still used by the footer (and favicon). Plain <img>,
