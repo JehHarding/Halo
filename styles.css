@@ -75,7 +75,7 @@ body {
    reference. Padding still tightens slightly on scroll for a compact feel. */
 nav {
   position: fixed; top:0; left:0; right:0; z-index:100;
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); align-items: center;
   padding: 22px 60px;
   background: rgba(253,250,246,.96);
   backdrop-filter: blur(18px);
@@ -98,10 +98,12 @@ nav.scrolled { padding: 14px 60px; }
   object-fit: contain;
 }
 .nav-links {
-  display:flex; gap:32px; list-style:none; align-items:center;
+  display:flex; gap:28px; list-style:none; align-items:center;
 }
-.nav-links-left { justify-self: start; }
-.nav-links-right { justify-self: end; }
+/* Link groups hug the centred logo (grid col edges nearest the auto
+   column) rather than stretching to the page edges. */
+.nav-links-left { justify-self: end; margin-right: 28px; }
+.nav-links-right { justify-self: start; margin-left: 28px; }
 .nav-link {
   font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--mid); text-decoration: none; transition: color .2s;
@@ -397,8 +399,14 @@ footer {
   }
 
   /* Nav */
+  nav {
+    background: rgba(28, 25, 22, .96);
+  }
   nav.scrolled {
     background: rgba(28, 25, 22, .94);
+  }
+  .nav-mobile-panel {
+    background: rgba(28, 25, 22, .98);
   }
 
   /* iPhone mockup — the phone now inherits the dark root variables so the
