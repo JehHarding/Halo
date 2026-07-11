@@ -468,12 +468,22 @@
        there's no left/right asymmetry to balance. The carousel is wider
        than before (was max-width:880px) specifically so the arrows sit
        further from the text and the quote has room to breathe instead of
-       wrapping tight. */
+       wrapping tight. Grid (not flex) so mobile can rearrange the arrows
+       and dots into one row below the card (see the 640px block) without
+       needing separate markup. */
     .test-carousel {
       position: relative; z-index: 1;
-      display: flex; align-items: center; justify-content: center;
-      gap: 48px; max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      grid-template-areas: "prev grid next" ". dots .";
+      align-items: center; justify-items: center;
+      column-gap: 48px; row-gap: 26px;
+      max-width: 1100px; margin: 0 auto;
     }
+    #testPrev { grid-area: prev; }
+    #testGrid { grid-area: grid; width: 100%; }
+    #testNext { grid-area: next; }
+    #testDots { grid-area: dots; }
     /* Height is locked in JS to the tallest testimonial so the arrows
        (vertically centred in .test-carousel) never shift position when a
        shorter or longer quote swaps in — only the text moves, not the
@@ -525,7 +535,7 @@
       flex-shrink: 0; transition: border-color .2s, background .2s;
     }
     .test-arrow-btn:hover { border-color: var(--rose-l); background: var(--rose-ll); }
-    .test-dots { display: flex; gap: 6px; align-items: center; justify-content: center; margin-top: 26px; position: relative; z-index: 1; }
+    .test-dots { display: flex; gap: 6px; align-items: center; justify-content: center; position: relative; z-index: 1; }
     .test-dot {
       width: 5px; height: 5px; border-radius: 50%;
       background: var(--border); cursor: pointer;
@@ -840,10 +850,25 @@
       /* Dividers cross over the phones — hide them */
       .feat-divider-line { display: none !important; }
 
-      /* ── TESTIMONIALS: same one-at-a-time carousel as desktop ── */
+      /* ── TESTIMONIALS: controls (arrows + dots) move into one row
+         below the card instead of flanking it. Beside-the-card arrows
+         were vertically centred against the whole card, so — even with
+         the height lock below — the gap between "what pet owners are
+         saying" and the stars still looked inconsistent card to card
+         (a short quote centres in the fixed box, pushing its stars down;
+         a long one sits near the top of it). Putting the controls in
+         their own row after the card removes that dependency entirely:
+         the card is top-aligned, its height is still locked (see the JS)
+         so this row never moves, and the heading-to-stars gap is now the
+         same on every quote, not just the same at the arrows. */
       #testimonials { padding: 60px 24px !important; }
       .test-head { margin-bottom: 28px !important; }
-      .test-carousel { gap: 10px; }
+      .test-carousel {
+        grid-template-columns: 1fr auto 1fr;
+        grid-template-areas: "grid grid grid" "prev dots next";
+        column-gap: 14px; row-gap: 22px;
+      }
+      .test-grid { align-items: flex-start !important; }
       .test-arrow-btn { width: 30px !important; height: 30px !important; font-size: 12px !important; }
 
       /* ── STORY BRIDGE: remove horiz padding so scroll strip bleeds ── */
@@ -1651,8 +1676,8 @@
         </div>
       </div>
       <button class="test-arrow-btn" id="testNext" aria-label="Next">→</button>
+      <div class="test-dots" id="testDots"></div>
     </div>
-    <div class="test-dots" id="testDots"></div>
   </section>
 
   <!-- FOOTER -->

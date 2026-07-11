@@ -115,13 +115,34 @@
       font-size: 28px; font-weight: 300; color: var(--dark); white-space: nowrap;
     }
     .lifetime-price span { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--plus-text); display: block; }
+    /* Mobile: Free / Monthly / One-time is a 3-way toggle showing one
+       plan at a time, instead of stacking all three (2 cards then a
+       third callout below) and forcing a scroll to compare. Desktop
+       keeps everything visible at once — plenty of width for it there. */
+    .plan-toggle { display: none; }
     @media(max-width:640px) {
       .pricing-wrap { padding: 70px 20px 40px; }
-      .price-cards { grid-template-columns: 1fr; gap: 14px; }
+      .plan-toggle {
+        display: flex; gap: 2px;
+        background: var(--linen); border-radius: 10px; padding: 3px;
+        margin-bottom: 18px;
+      }
+      .plan-toggle-btn {
+        flex: 1; padding: 10px 6px; border: none; border-radius: 8px;
+        background: transparent; color: var(--mid); cursor: pointer;
+        font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 1px;
+        text-transform: uppercase; transition: background .2s, color .2s;
+      }
+      .plan-toggle-btn.active { background: var(--bg); color: var(--dark); }
+      .price-cards { display: block; }
+      #planFree, #planMonthly { display: none; }
+      #planOnce { display: none !important; }
+      #planFree.mobile-plan-active, #planMonthly.mobile-plan-active { display: block; }
+      #planOnce.mobile-plan-active { display: flex !important; }
       .price-card { padding: 22px 20px; }
       .plan-price { font-size: 26px; }
       .plan-cta { display: block; text-align: center; }
-      .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 14px; padding: 26px 22px 22px; margin-top: 24px; }
+      .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 14px; padding: 26px 22px 22px; margin-top: 0; }
       .lifetime-badge { left: 22px; }
       .lifetime-price-row { width: 100%; }
       .lifetime-price span { text-align: left; }
@@ -186,8 +207,14 @@
     <h1 class="pricing-h1">Free to start, <em>Plus</em> when you need it.</h1>
     <p class="pricing-sub">Halo is free to use for the essentials. Upgrade to Halo Plus for unlimited tracking as your pet's care needs grow.</p>
 
+    <div class="plan-toggle" id="planToggle" role="tablist" aria-label="Choose a plan to view">
+      <button class="plan-toggle-btn active" data-target="planFree" role="tab" aria-selected="true">Free</button>
+      <button class="plan-toggle-btn" data-target="planMonthly" role="tab" aria-selected="false">Monthly</button>
+      <button class="plan-toggle-btn" data-target="planOnce" role="tab" aria-selected="false">One-time</button>
+    </div>
+
     <div class="price-cards">
-      <div class="price-card">
+      <div class="price-card mobile-plan-active" id="planFree">
         <div class="plan-name">Free</div>
         <div class="plan-price">£0</div>
         <div class="plan-note">No card required</div>
@@ -201,7 +228,7 @@
           <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Carer's Pack, view in-app</div>
         </div>
       </div>
-      <div class="price-card plus">
+      <div class="price-card plus" id="planMonthly">
         <div class="plan-name">Halo Plus</div>
         <div class="plan-price">£5.99 <span>/ month</span></div>
         <div class="plan-note">Cancel anytime</div>
@@ -217,7 +244,7 @@
       </div>
     </div>
 
-    <div class="lifetime-callout">
+    <div class="lifetime-callout" id="planOnce">
       <span class="lifetime-badge">Best value</span>
       <div>
         <div class="lifetime-title">Prefer to pay once?</div>
@@ -264,6 +291,19 @@
         navMobilePanel.classList.remove('open');
         navHamburger.setAttribute('aria-expanded','false');
       }));
+    }
+    const planToggle=document.getElementById('planToggle');
+    if(planToggle){
+      const panels=['planFree','planMonthly','planOnce'].map(id=>document.getElementById(id));
+      planToggle.querySelectorAll('.plan-toggle-btn').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          planToggle.querySelectorAll('.plan-toggle-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-selected','false');});
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected','true');
+          const target=btn.getAttribute('data-target');
+          panels.forEach(p=>p.classList.toggle('mobile-plan-active',p.id===target));
+        });
+      });
     }
     const glow=document.getElementById('glow');
     let gx=innerWidth/2,gy=innerHeight/2,cx=gx,cy=gy;
