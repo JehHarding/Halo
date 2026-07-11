@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link rel="stylesheet" href="styles.css?v=15">
   <style>
 
     /* ═══════════════════════════════════════
@@ -746,10 +746,10 @@
 
     @media(max-width:640px){
       /* ── HERO — tight enough that blurb + phone both fit one screen
-         without scrolling. Nav is slim now (~40px) so the old 90px top
+         without scrolling. Nav is slim now (~48px) so the old 90px top
          clearance was wasted space; every value below is sized against
          an actual 375x812 budget, not just "smaller than desktop". ── */
-      #hero { padding: 52px 24px 20px !important; }
+      #hero { padding: 68px 24px 20px !important; }
       .hero-inner { gap: 14px !important; }
       /* Nav already shows the "Halo" wordmark, and on this narrow a
          screen a second big "Halo" above the headline just eats the
@@ -761,8 +761,16 @@
       /* !important: .hero-phones also carries the reveal-on-scroll class
          "rv", and styles.css's ".rv.on { transform:translate(0) }" has
          higher specificity than this single-class selector, so without
-         !important it silently cancelled the scale-down once revealed. */
-      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: 10px; }
+         !important it silently cancelled the scale-down once revealed.
+         The negative margin matters just as much as the scale: transform
+         shrinks the phone visually but NOT its layout box, so without
+         this the untransformed ~590px box was still reserved in the flex
+         column — a ~210px dead gap below the visibly-smaller phone before
+         the next section. (Setting height instead of margin here doesn't
+         work: the phone's inner markup sizes itself relative to this
+         box, so shrinking the box shrinks the content too, and then the
+         transform scales that already-shrunk content a second time.) */
+      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: 10px; margin-bottom: -212px; }
       /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
          a nearly-viewport-width phone off the right edge. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }

@@ -150,10 +150,11 @@ nav.scrolled { padding: 14px 60px; }
 @media(max-width:640px){
   .nav-links-left, .nav-links-right { display: none; }
   .nav-hamburger { display: flex; }
-  /* Slimmer bar on phones so the hero copy + phone fit in one screen */
-  nav { padding: 9px 16px; }
-  nav.scrolled { padding: 7px 16px; }
-  .nav-logo-text { font-size: 18px; }
+  /* Slimmer bar on phones so the hero copy + phone fit in one screen,
+     but not so slim it reads as an afterthought — Jehane's call. */
+  nav { padding: 13px 16px; }
+  nav.scrolled { padding: 10px 16px; }
+  .nav-logo-text { font-size: 20px; }
   .nav-mobile-panel {
     display: block;
     position: absolute; top: 100%; left: 0; right: 0;
@@ -375,11 +376,11 @@ footer {
   .page-hero { padding:110px 24px 60px; }
 }
 
-/* Keep the slim bar on the smallest phones too (this block loads after
-   the 640px one, so it must not re-widen the padding). */
+/* Keep the slightly-bigger slim bar on the smallest phones too (this
+   block loads after the 640px one, so it must not re-shrink it back). */
 @media(max-width:480px){
-  nav { padding:9px 16px; }
-  nav.scrolled { padding:7px 16px; }
+  nav { padding:13px 16px; }
+  nav.scrolled { padding:10px 16px; }
   .nav-hamburger { left: 16px; }
 }
 
