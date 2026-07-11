@@ -93,7 +93,14 @@
     @media(max-width:960px){
       .story-block, .story-block.flip { grid-template-columns: 1fr; min-height: auto; }
       .story-block.flip .story-img, .story-block.flip .story-txt { order: unset; }
-      .story-txt { padding: 52px 24px; }
+      /* Photos carry an inline padding:48px 40px meant to frame them against
+         desktop's side-by-side layout. Stacked on mobile, that padding reads
+         as blank page space (the frame colour barely differs from the page
+         background) between the photo and the heading below it, not as a
+         card edge — so the photo goes full-bleed here instead. */
+      .story-img { padding: 0 !important; }
+      .story-img img { max-height: 320px !important; border-radius: 0 !important; }
+      .story-txt { padding: 32px 24px 52px; }
       .about-cta { padding: 60px 24px; }
     }
   </style>
