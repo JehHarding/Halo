@@ -793,7 +793,11 @@
       .hero-copy .rv:first-child { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 6px !important; }
       .hero-h1 { font-size: 25px !important; margin-bottom: 8px !important; }
       .hero-tagline { font-size: 13px !important; line-height: 1.6 !important; margin-bottom: 0 !important; }
-      .hero-phones { transform: scale(0.64); transform-origin: top center; margin-top: -8px; }
+      /* !important: .hero-phones also carries the reveal-on-scroll class
+         "rv", and styles.css's ".rv.on { transform:translate(0) }" has
+         higher specificity than this single-class selector, so without
+         !important it silently cancelled the scale-down once revealed. */
+      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: -8px; }
       /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
          a nearly-viewport-width phone off the right edge. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
