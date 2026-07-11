@@ -790,6 +790,11 @@
          an actual 375x812 budget, not just "smaller than desktop". ── */
       #hero { padding: 52px 24px 20px !important; }
       .hero-inner { gap: 14px !important; }
+      /* Nav already shows the "Halo" wordmark, and on this narrow a
+         screen a second big "Halo" above the headline just eats the
+         space the phone needs to fit without scrolling. Desktop keeps
+         it (Jehane's call). */
+      .hero-halo-eyebrow { display: none !important; }
       .hero-h1 { font-size: 25px !important; margin-bottom: 8px !important; }
       .hero-tagline { font-size: 13px !important; line-height: 1.6 !important; margin-bottom: 0 !important; }
       /* !important: .hero-phones also carries the reveal-on-scroll class
@@ -1013,6 +1018,8 @@
   <section id="hero">
     <div class="hero-inner">
       <div class="hero-copy">
+        <div class="hero-halo-eyebrow rv" style="transition-delay:.06s;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(40px,4.6vw,64px);letter-spacing:1px;font-weight:300;color:var(--rose);margin-bottom:20px">Halo</div>
+
         <h1 class="hero-h1 rv" style="transition-delay:.18s">
           Because they <em>can't</em><br>remind you.
         </h1>
