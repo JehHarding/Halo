@@ -759,14 +759,14 @@
          without scrolling. Nav is slim now (~48px) so the old 90px top
          clearance was wasted space; every value below is sized against
          an actual 375x812 budget, not just "smaller than desktop". ── */
-      /* Bottom padding here is deliberately generous: it's the gap that
-         keeps the marquee strip below it from peeking into view on load.
-         Real mobile Safari's visible height (address bar + home
-         indicator both showing pre-scroll) is well under the CSS
+      /* Bottom padding here is deliberately generous: it's most of the
+         gap that keeps the marquee strip below it from peeking into
+         view on load. Real mobile Safari's visible height (address bar
+         + home indicator both showing pre-scroll) is well under the CSS
          viewport height, so "fits with room to spare" in a full-height
          test still let the marquee's top edge creep into that shrunk
          real viewport. */
-      #hero { padding: 68px 24px 100px !important; }
+      #hero { padding: 68px 24px 55px !important; }
       .hero-inner { gap: 14px !important; }
       /* Nav already shows the "Halo" wordmark, and on this narrow a
          screen a second big "Halo" above the headline just eats the
@@ -787,7 +787,7 @@
          work: the phone's inner markup sizes itself relative to this
          box, so shrinking the box shrinks the content too, and then the
          transform scales that already-shrunk content a second time.) */
-      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: 10px; margin-bottom: -212px; }
+      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: 41px; margin-bottom: -212px; }
       /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
          a nearly-viewport-width phone off the right edge. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
