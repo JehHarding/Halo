@@ -121,11 +121,12 @@
        keeps everything visible at once — plenty of width for it there. */
     .plan-toggle { display: none; }
     @media(max-width:640px) {
-      .pricing-wrap { padding: 70px 20px 40px; }
+      .pricing-wrap { padding: 58px 20px 32px; }
+      .pricing-sub { margin-bottom: 20px; }
       .plan-toggle {
         display: flex; gap: 2px;
         background: var(--linen); border-radius: 10px; padding: 3px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
       .plan-toggle-btn {
         flex: 1; padding: 10px 6px; border: none; border-radius: 8px;
@@ -139,8 +140,18 @@
       #planOnce { display: none !important; }
       #planFree.mobile-plan-active, #planMonthly.mobile-plan-active { display: block; }
       #planOnce.mobile-plan-active { display: flex !important; }
-      .price-card { padding: 22px 20px; }
-      .plan-price { font-size: 26px; }
+      /* Free/Monthly carry a 6-line feature list the One-time card doesn't,
+         so at the old spacing they ran past the fold and needed a scroll
+         to compare, defeating the point of the toggle. Tightened the card
+         and its feature-list rhythm specifically (not the headline) so it
+         matches One-time's single-screen fit. */
+      .price-card { padding: 18px 18px; }
+      .plan-name { margin-bottom: 5px; }
+      .plan-note { margin-bottom: 10px; }
+      .plan-cta { padding: 9px 16px; margin-bottom: 12px; }
+      .price-feature-list { padding-top: 10px; }
+      .price-feature { padding: 4px 0; font-size: 12.5px; line-height: 1.4; }
+      .plan-price { font-size: 24px; }
       .plan-cta { display: block; text-align: center; }
       .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 14px; padding: 26px 22px 22px; margin-top: 0; }
       .lifetime-badge { left: 22px; }
