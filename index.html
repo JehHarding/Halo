@@ -108,13 +108,14 @@
       opacity: .3; display: block;
     }
     .welcome-copy { margin-top: auto; padding: 0 26px 44px; text-align: left; }
-    /* No text-transform: the real app's WelcomeView renders this label as
-       mixed-case "Halo" (tracked + italic only, never uppercased) — this
-       mockup was silently forcing it to "HALO", the one remaining spot
-       where the wordmark didn't match its treatment everywhere else. */
+    /* Matches WelcomeView.swift: Cormorant Garamond italic, same as every
+       other "Halo" wordmark on the site — the app's own version of this
+       label used to be a tracked sans-serif eyebrow, the one remaining
+       spot where the wordmark didn't match its treatment everywhere else. */
     .welcome-eyebrow {
-      font-size: 8px; letter-spacing: 3.5px;
-      font-style: italic; color: var(--rose); display: block; margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-style: italic;
+      color: var(--rose); display: block; margin-bottom: 12px;
     }
     .welcome-title {
       font-family: 'Cormorant Garamond', serif;
