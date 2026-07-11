@@ -474,7 +474,14 @@
       display: flex; align-items: center; justify-content: center;
       gap: 48px; max-width: 1100px; margin: 0 auto;
     }
-    .test-grid { position: relative; flex: 1 1 760px; max-width: 760px; min-height: 220px; }
+    /* Height is locked in JS to the tallest testimonial so the arrows
+       (vertically centred in .test-carousel) never shift position when a
+       shorter or longer quote swaps in — only the text moves, not the
+       controls you're trying to click again. */
+    .test-grid {
+      position: relative; flex: 1 1 760px; max-width: 760px;
+      display: flex; align-items: center; justify-content: center;
+    }
     .test-card {
       display: none;
       text-align: center;
@@ -1723,6 +1730,32 @@
       }
       prevBtn.addEventListener('click',function(){show(idx-1);});
       nextBtn.addEventListener('click',function(){show(idx+1);});
+
+      // Lock .test-grid to the height of the tallest quote so the arrows
+      // never move as you click through — measure every card off-flow
+      // (absolute + hidden, full width) so this doesn't flash content or
+      // shift the page, then fix the container to that max height. Re-runs
+      // on resize/font-load since line count depends on both.
+      function lockHeight(){
+        var max=0;
+        cards.forEach(function(c){
+          var d=c.style.display, p=c.style.position, v=c.style.visibility, w=c.style.width;
+          c.style.position='absolute';
+          c.style.visibility='hidden';
+          c.style.display='flex';
+          c.style.width='100%';
+          max=Math.max(max,c.offsetHeight);
+          c.style.display=d; c.style.position=p; c.style.visibility=v; c.style.width=w;
+        });
+        grid.style.height=max+'px';
+      }
+      var resizeTimer;
+      window.addEventListener('resize',function(){
+        clearTimeout(resizeTimer);
+        resizeTimer=setTimeout(lockHeight,150);
+      });
+      lockHeight();
+      if(document.fonts&&document.fonts.ready) document.fonts.ready.then(lockHeight);
     })();
 
     /* ── Mobile: cycling pill for The Problem ── */
