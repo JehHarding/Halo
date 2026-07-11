@@ -108,8 +108,12 @@
       opacity: .3; display: block;
     }
     .welcome-copy { margin-top: auto; padding: 0 26px 44px; text-align: left; }
+    /* No text-transform: the real app's WelcomeView renders this label as
+       mixed-case "Halo" (tracked + italic only, never uppercased) — this
+       mockup was silently forcing it to "HALO", the one remaining spot
+       where the wordmark didn't match its treatment everywhere else. */
     .welcome-eyebrow {
-      font-size: 8px; letter-spacing: 3.5px; text-transform: uppercase;
+      font-size: 8px; letter-spacing: 3.5px;
       font-style: italic; color: var(--rose); display: block; margin-bottom: 12px;
     }
     .welcome-title {
@@ -494,16 +498,16 @@
       content: '';
       position: absolute;
       left: 50%; bottom: -6px; transform: translateX(-50%);
-      width: 220px; height: 210px;
+      width: 230px; height: 220px;
       background-image: var(--photo);
       background-size: cover;
       background-position: center;
-      opacity: .5;
-      filter: blur(6px) saturate(.65) sepia(.1);
+      opacity: .72;
+      filter: blur(3px) saturate(.85) sepia(.08);
       /* Radial fade instead of a hard (if blurred) rectangle — dissolves
          into the page at the edges rather than reading as a smudge/stain. */
-      mask-image: radial-gradient(ellipse 62% 62% at center, black 0%, transparent 82%);
-      -webkit-mask-image: radial-gradient(ellipse 62% 62% at center, black 0%, transparent 82%);
+      mask-image: radial-gradient(ellipse 68% 68% at center, black 0%, transparent 86%);
+      -webkit-mask-image: radial-gradient(ellipse 68% 68% at center, black 0%, transparent 86%);
       z-index: -1;
       pointer-events: none;
     }
@@ -542,11 +546,11 @@
         left: auto; bottom: auto; transform: none;
         grid-column: 2;
         grid-row: 1 / span 2;
-        width: 230px; height: 250px;
-        opacity: .55;
-        filter: blur(7px) saturate(.65) sepia(.1);
-        mask-image: radial-gradient(ellipse 58% 58% at center, black 0%, transparent 78%);
-        -webkit-mask-image: radial-gradient(ellipse 58% 58% at center, black 0%, transparent 78%);
+        width: 240px; height: 260px;
+        opacity: .75;
+        filter: blur(4px) saturate(.85) sepia(.08);
+        mask-image: radial-gradient(ellipse 64% 64% at center, black 0%, transparent 84%);
+        -webkit-mask-image: radial-gradient(ellipse 64% 64% at center, black 0%, transparent 84%);
       }
       .test-card .test-q { grid-column: 1; grid-row: 1; }
       .test-card .test-footer { grid-column: 1; grid-row: 2; align-items: flex-start; }
@@ -786,18 +790,13 @@
          an actual 375x812 budget, not just "smaller than desktop". ── */
       #hero { padding: 52px 24px 20px !important; }
       .hero-inner { gap: 14px !important; }
-      /* This div has no line-height of its own so it was inheriting the
-         body's 1.7 — ~20px of pure dead space above/below a single line
-         of "Halo" at any font-size. That, not the font-size itself, was
-         most of what made the mobile hero too tall to fit one screen. */
-      .hero-copy .rv:first-child { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 6px !important; }
       .hero-h1 { font-size: 25px !important; margin-bottom: 8px !important; }
       .hero-tagline { font-size: 13px !important; line-height: 1.6 !important; margin-bottom: 0 !important; }
       /* !important: .hero-phones also carries the reveal-on-scroll class
          "rv", and styles.css's ".rv.on { transform:translate(0) }" has
          higher specificity than this single-class selector, so without
          !important it silently cancelled the scale-down once revealed. */
-      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: -8px; }
+      .hero-phones { transform: scale(0.64) !important; transform-origin: top center; margin-top: 10px; }
       /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
          a nearly-viewport-width phone off the right edge. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
@@ -927,6 +926,12 @@
         position: sticky !important;
         left: 0 !important;
         z-index: 3 !important;
+        /* Odd rows' zebra tint (.comp-row:nth-child(odd) .comp-cell-feat)
+           is a semi-transparent rgba() and beats the base solid background
+           above on specificity, so on odd rows the sticky column let the
+           Halo checkmark scrolling underneath show through it. Dark mode
+           already had this exact override (see below); light mode didn't. */
+        background: var(--bg) !important;
       }
     }
 
@@ -953,7 +958,7 @@
       .test-name { color: #cabcac; }
       .test-pet { color: #7e6f5f; }
       /* Photos glow less against the dark background */
-      .test-card::before { opacity: .3; filter: blur(9px) saturate(.5) brightness(.85); }
+      .test-card::before { opacity: .5; filter: blur(5px) saturate(.65) brightness(.8); }
 
       /* Comparison table */
       .comp-card {
@@ -1008,8 +1013,6 @@
   <section id="hero">
     <div class="hero-inner">
       <div class="hero-copy">
-        <div class="rv" style="transition-delay:.06s;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(40px,4.6vw,64px);letter-spacing:1px;font-weight:300;color:var(--rose);margin-bottom:20px">Halo</div>
-
         <h1 class="hero-h1 rv" style="transition-delay:.18s">
           Because they <em>can't</em><br>remind you.
         </h1>
