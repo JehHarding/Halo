@@ -17,7 +17,8 @@
   <meta name="twitter:title" content="Contact, Halo" />
   <meta name="twitter:description" content="Get in touch with the Halo team, questions, feedback, or support, we'd love to hear from you." />
   <meta name="twitter:image" content="https://myhaloapp.co.uk/images/og-image.png" />
-  <link rel="icon" type="image/png" href="images/logo-light-2.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="canonical" href="https://myhaloapp.co.uk/contact.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -74,6 +75,10 @@
       min-height: 18px; margin-top: -4px;
     }
     .cform-status.error { color: #c0534a; }
+    @media (prefers-color-scheme: dark) {
+      /* the light-mode error red sits below AA contrast on the dark bg */
+      .cform-status.error { color: #e0837a; }
+    }
     .contact-socials {
       display: flex; justify-content: center; gap: 20px;
       margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border);
@@ -159,6 +164,8 @@
       <p class="cform-status" id="cformStatus" role="status"></p>
     </form>
 
+    <!-- Social icons hidden until the Instagram/TikTok accounts exist —
+         restore the block below and swap in the real profile URLs then.
     <div class="contact-socials">
       <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
@@ -167,6 +174,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
       </a>
     </div>
+    -->
   </div>
 
   <footer>
