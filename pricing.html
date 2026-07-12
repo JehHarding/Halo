@@ -17,7 +17,8 @@
   <meta name="twitter:title" content="Pricing, Halo" />
   <meta name="twitter:description" content="Simple pricing for Halo. Start free, or unlock unlimited pets and the full care toolkit with Halo Plus." />
   <meta name="twitter:image" content="https://myhaloapp.co.uk/images/og-image.png" />
-  <link rel="icon" type="image/png" href="images/logo-light-2.png" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="canonical" href="https://myhaloapp.co.uk/pricing.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -222,13 +223,13 @@
     <p class="pricing-sub">Halo is free to use for the essentials. Upgrade to Halo Plus for unlimited tracking as your pet's care needs grow.</p>
 
     <div class="plan-toggle" id="planToggle" role="tablist" aria-label="Choose a plan to view">
-      <button class="plan-toggle-btn active" data-target="planFree" role="tab" aria-selected="true">Free</button>
-      <button class="plan-toggle-btn" data-target="planMonthly" role="tab" aria-selected="false">Monthly</button>
-      <button class="plan-toggle-btn" data-target="planOnce" role="tab" aria-selected="false">One-time</button>
+      <button class="plan-toggle-btn active" data-target="planFree" id="tabFree" role="tab" aria-controls="planFree" aria-selected="true">Free</button>
+      <button class="plan-toggle-btn" data-target="planMonthly" id="tabMonthly" role="tab" aria-controls="planMonthly" aria-selected="false">Monthly</button>
+      <button class="plan-toggle-btn" data-target="planOnce" id="tabOnce" role="tab" aria-controls="planOnce" aria-selected="false">One-time</button>
     </div>
 
     <div class="price-cards">
-      <div class="price-card mobile-plan-active" id="planFree">
+      <div class="price-card mobile-plan-active" id="planFree" role="tabpanel" aria-labelledby="tabFree">
         <div class="plan-name">Free</div>
         <div class="plan-price">£0</div>
         <div class="plan-note">No card required</div>
@@ -242,7 +243,7 @@
           <div class="price-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Carer's Pack, view in-app</div>
         </div>
       </div>
-      <div class="price-card plus" id="planMonthly">
+      <div class="price-card plus" id="planMonthly" role="tabpanel" aria-labelledby="tabMonthly">
         <div class="plan-name">Halo Plus</div>
         <div class="plan-price">£5.99 <span>/ month</span></div>
         <div class="plan-note">Cancel anytime</div>
@@ -258,7 +259,7 @@
       </div>
     </div>
 
-    <div class="lifetime-callout" id="planOnce">
+    <div class="lifetime-callout" id="planOnce" role="tabpanel" aria-labelledby="tabOnce">
       <span class="lifetime-badge">Best value</span>
       <div>
         <div class="lifetime-title">Prefer to pay once?</div>
