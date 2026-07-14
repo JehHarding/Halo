@@ -149,15 +149,24 @@
          to compare, defeating the point of the toggle. Tightened the card
          and its feature-list rhythm specifically (not the headline) so it
          matches One-time's single-screen fit. */
-      .price-card { padding: 18px 18px; }
-      .plan-name { margin-bottom: 5px; }
-      .plan-note { margin-bottom: 10px; }
-      .plan-cta { padding: 9px 16px; margin-bottom: 12px; }
-      .price-feature-list { padding-top: 10px; }
-      .price-feature { padding: 4px 0; font-size: 12.5px; line-height: 1.4; }
-      .plan-price { font-size: 24px; }
+      /* Free/Monthly's 6-line feature list still ran noticeably longer
+         than One-time's callout even after the first tightening pass,
+         so switching tabs shifted the footnote's position and cropped
+         it on Free specifically. Trimmed further so all three panels'
+         total height (and the footnote under them) land in the same
+         place regardless of which tab is active. */
+      .price-card { padding: 14px 16px; }
+      .plan-name { margin-bottom: 3px; }
+      .plan-note { margin-bottom: 6px; }
+      .plan-cta { padding: 8px 16px; margin-bottom: 8px; }
+      .price-feature-list { padding-top: 6px; }
+      .price-feature { padding: 2px 0; font-size: 12.5px; line-height: 1.3; }
+      .plan-price { font-size: 22px; }
       .plan-cta { display: block; text-align: center; }
-      .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 14px; padding: 26px 22px 22px; margin-top: 0; }
+      /* Extra bottom padding closes the remaining gap against Free/Monthly's
+         taller feature-list card, so the footnote below lands in the same
+         spot no matter which of the three tabs is active. */
+      .lifetime-callout { flex-direction: column; align-items: flex-start; gap: 14px; padding: 26px 22px 48px; margin-top: 0; }
       .lifetime-badge { left: 22px; }
       .lifetime-price-row { width: 100%; }
       .lifetime-price span { text-align: left; }

@@ -935,7 +935,13 @@
       .comp-card {
         overflow-x: scroll !important;
         overflow-y: visible !important;
-        touch-action: pan-x;
+        /* pan-x alone told the browser this element only handles
+           horizontal gestures, which silently ate vertical page scroll
+           for any touch that started on the table — you had to lift
+           your finger and touch below it to keep scrolling. Allowing
+           both axes lets a horizontal swipe scroll the table and a
+           vertical swipe scroll the page, from the same touch start. */
+        touch-action: pan-x pan-y;
         -webkit-overflow-scrolling: touch;
         border-radius: 0 !important;
         margin-right: 0 !important;
