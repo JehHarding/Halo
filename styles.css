@@ -389,6 +389,11 @@ footer {
 
 /* ─── DARK MODE ───────────────────────────────── */
 @media (prefers-color-scheme: dark) {
+  /* Dark-mode logo variant (Jehane's own retouch, 2026-07-14): the light
+     asset's swirl highlight relies on a light backdrop and breaks apart
+     on dark, so dark mode swaps in a solid-swirl version of the mark.
+     content:url() swap works on <img> in all current browsers. */
+  .welcome-mark, .foot-logo-mark { content: url("images/logo-dark-2.png"); }
   :root {
     --bg:      #1c1916;
     --linen:   #231f1b;
