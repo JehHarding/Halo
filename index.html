@@ -116,9 +116,12 @@
        other "Halo" wordmark on the site — the app's own version of this
        label used to be a tracked sans-serif eyebrow, the one remaining
        spot where the wordmark didn't match its treatment everywhere else. */
+    /* Sizes swapped per Jehane (15 Jul): "Halo" is now the big line and the
+       tagline the smaller one, mirroring the same swap in WelcomeView.swift
+       (wordmark 46 / display 32 → scaled to this mockup as 31px / 22px). */
     .welcome-eyebrow {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px; font-weight: 500; font-style: italic;
+      font-size: 31px; font-weight: 500; font-style: italic;
       color: var(--rose); display: block; margin-bottom: 12px;
     }
     .mock-alert-red { color: #c0534a; }
@@ -128,7 +131,7 @@
     }
     .welcome-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 31px; font-weight: 300; line-height: 1.16;
+      font-size: 22px; font-weight: 300; line-height: 1.16;
       color: var(--dark); margin-bottom: 20px;
     }
     .welcome-title em { font-style: italic; color: var(--rose); }
