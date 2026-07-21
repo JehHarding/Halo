@@ -1,5 +1,5 @@
-# Facebook — "What it does"
-**Status:** ✍️ AWAITING SIGN-OFF. Moved from Wednesday to Friday 13 July, per Jehane: posting the full feature explanation before the sneak-peek video tease defeated the point of the tease. Now posts the same day as the App Sneak Peek video, as one combined reveal moment across platforms.
+# Facebook - "What it does"
+**Status:** READY TO POST. Screenshots are real, taken from Jehane's 19 July screen recording (status bar recording indicator cleaned up), replacing the earlier placeholder set. Posts the same day as the App Sneak Peek video, as one combined reveal moment across platforms.
 
 ## Photos (post all 4 together, in this order)
 1. `dashboard.png`
@@ -7,12 +7,12 @@
 3. `weight-chart.png`
 4. `carers-pack.png`
 
-(`breathing-chart-SPARE.png` also available if a 5th image is wanted)
+(`respiratory-rate-SPARE.png` also available if a 5th image is wanted)
 
 ## Caption
 > Here's what Halo actually looks like, the app I built for pet parents managing complicated care.
 >
-> One home screen shows you everything at a glance: when the next dose is due, and how weight and breathing are trending.
+> One home screen shows you everything at a glance: when the next dose is due, and how weight and respiratory rate are trending.
 >
 > Medications are logged with exact times and doses, so nothing gets missed.
 >
