@@ -11,6 +11,26 @@ Strategy source: researched per-platform playbook (12 Jul). Content mix target: 
 - Voice: Jehane, Angel's mum, first person. Warm, honest, never corporate.
 - Halo is never "revolutionary" or "game-changing". It is the thing she built because she needed it.
 - TikTok/IG run the same video; Facebook gets a plain-English photo/text version.
+- **Keep burned-in on-screen text in the upper two-thirds of frame.** Found 22 Jul: the app-sneak-peek video's captions overlapped TikTok's own UI (username, caption, sound ticker, right-side icon column all live in a taller bottom safe zone on TikTok than on Instagram, where the same video displayed fine). Preview each export on both platforms before posting, don't assume one safe-zone fits both.
+- **Hashtags need per-platform tuning, not one shared set.** Jehane's noted some platforms cap useful reach around 5 tags while others tolerate more — don't reuse the exact same tag list across TikTok/IG/FB by default. Track what's used per post (already logged in each post's caption.md) and revisit once there's enough posted history to compare.
+- **Every post's `caption.md` uses this exact simple format, nothing more elaborate** (changed 22 Jul, the old version with headers/transcripts/tables was "really hard to read"):
+  ```
+  FILE: filename(s)
+  STATUS: one short line
+
+  SOCIAL NAME: TikTok
+  CAPTION: full caption text as one paragraph, no markdown quote blocks
+  HASHTAG: tags or "None"
+
+  SOCIAL NAME: Instagram
+  CAPTION: ...
+  HASHTAG: ...
+
+  SOCIAL NAME: Facebook
+  CAPTION: ...
+  HASHTAG: None
+  ```
+  One `SOCIAL NAME` block per platform the post goes to. Shot lists/transcripts/production notes, if genuinely needed, go in a separate file in the same folder (e.g. `shot-list.md`), never mixed into `caption.md` itself.
 
 **Who does what:** Jeh films Angel and anything with her hands/face in it. Claude writes every caption, overlay and hashtag set, produces all app screen recordings from the Simulator, and builds carousels/graphics from the brand kit.
 
