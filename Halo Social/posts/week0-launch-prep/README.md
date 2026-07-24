@@ -1,5 +1,5 @@
 # Week 0 launch-prep posts — index
-Last updated: 22 July 2026. Each dated subfolder holds the content (video/photos) and its blurb (`caption.md`) together, nothing lives only in Downloads.
+Last updated: 24 July 2026. Each dated subfolder holds the content (video/photos) and its blurb (`caption.md`) together, nothing lives only in Downloads.
 
 Status key: ✅ signed off, ready to post · ✍️ awaiting your approval · 🔧 in progress
 
@@ -20,6 +20,10 @@ Moved again to 19 July once Jehane's own footage was ready (v1 rejected, she res
 ## 22 July — Angel's message
 Subtle, Angel-led. Shortened version of the "Seven years in" passage from `about.html`, ends on "Live this week!!!" over a new branded outro card. Only post once the launch timing actually holds. Different treatment per platform, see the caption.md for the full breakdown:
 - **`22 July/angel-message/`** — TikTok + Instagram: `angel-message-FINAL.mp4` (39.5s), both `IMG_8724.mov` (alert sit, opens) and `IMG_8787.mov` (wand toy, carries the middle) merged with a branded outro card matched pixel-for-pixel to `19 July/app-sneak-peek/app-sneak-peek-v5-FINAL.mov`'s own end card, captions in the app's actual dusty-pink pill style (not a black box), positioned to avoid the TikTok overlap issue. Facebook: `fb-still.jpg`, a full-res still pulled from `IMG_8724.mov`, photo post not video. ✅ READY TO POST — rendered and sitting in the folder
+
+## 24 July — Kitten vs now
+Pure Angel-story post, no app/launch mention by design (doesn't need to wait on Apple's review or Jehane's manual release, unlike the "Now live" post still pending in `project_halo_pending_admin` memory). Then-vs-now: kitten photos (~2019, one from the original Gumtree adoption listing, cropped to remove browser chrome; two real candid photos) cutting to three recent photos, proving she's outlived her own prognosis.
+- **`24 July/kitten-vs-now/`** — TikTok + Instagram + Facebook: `kitten-vs-now-DRAFT.mp4` (14.2s, silent, no music added), captions "7 years ago..." / "...still going strong." in the same dusty-pink pill style as `angel-message-FINAL.mp4`, ends on Halo paw mark + "here for every year." ✍️ DRAFT — awaiting Jehane's approval before posting
 
 ---
 
