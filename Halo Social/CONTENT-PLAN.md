@@ -41,7 +41,7 @@ Strategy source: researched per-platform playbook (12 Jul). Content mix target: 
 | # | Idea | Format | Platforms |
 |---|------|--------|-----------|
 | 1 | Meet Angel: 4 heart conditions, 3 meds a day, one mum who kept losing track. Ends "so I built her something, coming soon" | Video, her footage + overlay | TT, IG, FB |
-| 2 | The day we nearly lost her. The scare that started everything | Video or carousel, voiceover | TT, IG |
+| 2 | The day we got the diagnosis: told she'd never be a "normal" cat, given a prognosis on how long she had. The moment that started everything | Video or carousel, voiceover | TT, IG |
 | 3 | What "four heart conditions" actually means: a tour of Angel's daily routine | Video | TT, IG |
 | 4 | Morning meds POV: syringe, pill pocket, the whole circus | Video, hands + Angel | TT, IG, FB |
 | 5 | "She can't tell me when something's wrong." The line the whole brand is built on | Video, slow b-roll + text | TT, IG |
