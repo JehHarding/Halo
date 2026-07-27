@@ -124,6 +124,17 @@ nav.scrolled { padding: 14px 60px; }
   content: ''; position: absolute; left: 0; right: 0; bottom: -3px;
   height: 1px; background: var(--rose);
 }
+.nav-cta {
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #fff; background: var(--rose); text-decoration: none;
+  padding: 8px 16px; border-radius: 20px; font-weight: 600;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--dark); }
+.nav-mobile-link.nav-cta {
+  display: inline-block; margin-top: 8px;
+  color: #fff !important;
+}
 
 /* Mobile hamburger — hidden on desktop, swapped in for the two link
    groups below 640px. Absolutely positioned against nav (itself
