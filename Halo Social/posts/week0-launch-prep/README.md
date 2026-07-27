@@ -25,6 +25,10 @@ Subtle, Angel-led. Shortened version of the "Seven years in" passage from `about
 Pure Angel-story post, no app/launch mention by design (doesn't need to wait on Apple's review or Jehane's manual release, unlike the "Now live" post still pending in `project_halo_pending_admin` memory). Then-vs-now: kitten photos (~2019, one from the original Gumtree adoption listing, cropped to remove browser chrome; two real candid photos) cutting to three recent photos, proving she's outlived her own prognosis.
 - **`24 July/kitten-vs-now/`** — TikTok + Instagram + Facebook: `kitten-vs-now-DRAFT.mp4` (14.2s, silent, no music added), captions "7 years ago..." / "...still going strong." in the same dusty-pink pill style as `angel-message-FINAL.mp4`, ends on Halo paw mark + "here for every year." ✍️ DRAFT — awaiting Jehane's approval before posting
 
+## 27 July — A week of medications
+Behind-the-scenes look at Angel's actual weekly medication routine, tying straight into Halo's core feature. Built from two new clips (`IMG_8689.mov`, `IMG_9004.mov`), cut A-B-A-B with soft crossfades between all four segments and into the outro, original ambient audio crossfaded too.
+- **`27 July/weekly-meds/`** — TikTok + Instagram + Facebook: `weekly-meds-FINAL.mp4` (20.1s, 4.5s per clip + 0.6s crossfades), captions "A whole week of Angel's medications, sorted." / "Every dose, every day, one place to see it all." held ~3s each so they're actually readable, in the same dusty-pink pill style, ends on Halo paw mark + wordmark + "Launching soon" + myhaloapp.co.uk. ✅ READY TO POST — rendered and sitting in the folder
+
 ---
 
 ## Folder map
