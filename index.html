@@ -790,6 +790,40 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── PROBLEM PILLS — MID-WIDTH ──
+       .ci-1..8 are positioned with left/right percentages of the full
+       #problem width, but .problem-inner's text column is a fixed
+       780px max-width. On a wide enough viewport those percentages
+       clear the text column with room to spare; below ~1180px the
+       same percentages land the pills on top of the centred text
+       instead (this is exactly what "shrink the window but don't go
+       fully mobile" exposes). Reuse the same hide-pills/cycling-chip
+       swap the sub-640px layout already does, just at a width where
+       the overlap actually starts rather than only on phones. */
+    @media(max-width:1180px) and (min-width:641px){
+      .problem-chaos { display: none !important; }
+      #problem-pill-cycle {
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+        min-height: 34px;
+        align-items: center;
+      }
+      #problem-pill-cycle .cycle-chip {
+        font-size: 12px;
+        color: var(--mid);
+        background: rgba(255,255,255,0.45);
+        border: 1px solid rgba(226,216,202,0.45);
+        border-radius: 20px;
+        padding: 7px 16px;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(3px);
+        transition: opacity 1.1s ease-in-out, transform 1.1s ease-in-out;
+      }
+      #problem-pill-cycle .cycle-chip.pill-on { opacity: 0.55; transform: translateY(0); }
+    }
+
     @media(max-width:640px){
       /* ── HERO — tight enough that blurb + phone both fit one screen
          without scrolling. Nav is slim now (~48px) so the old 90px top
