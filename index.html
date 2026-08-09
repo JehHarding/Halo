@@ -1511,31 +1511,49 @@
     // first viewing had no way to see it again short of clearing storage.
     // prefers-reduced-motion still skips straight to the finished state.
     // Desktop never runs this at all.
+    //
+    // Root cause of the "blink"/glitch reported the same day: the Google
+    // Fonts link uses display=swap, which shows a fallback serif
+    // IMMEDIATELY and swaps to Cormorant Garamond once it downloads —
+    // if the reveal had already started on the fallback font, that swap
+    // mid-sequence reflows the headline (different metrics) and reads as
+    // broken. Likewise the logo <img> has no guarantee it's finished
+    // downloading by the time its fade-in fires, so it could pop in
+    // fully after the transition supposedly finished. Fix: wait for both
+    // document.fonts.ready and the image's load/decode before starting
+    // any timer at all, so everything the sequence touches is already
+    // in its final, stable form before the first frame of the reveal.
     (function(){
       const wrap = document.querySelector('.welcome-copy-mobile');
       if (!wrap || !window.matchMedia('(max-width:640px)').matches) return;
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) {
-        document.getElementById('hero').classList.add('wcm-intro-skip');
-        const cta = document.querySelector('.wcm-cta');
-        if (cta) cta.classList.add('wcm-pulsing');
-        return;
-      }
       const logo = document.querySelector('.welcome-mark');
       const words = document.querySelectorAll('.wcm-w');
       const tagline = document.querySelector('.wcm-tagline');
       const cta = document.querySelector('.wcm-cta');
-      setTimeout(()=>logo && logo.classList.add('wcm-in'), 400);
-      const wordStart = 1300;
-      words.forEach((w,i)=>setTimeout(()=>w.classList.add('wcm-in'), wordStart + i*260));
-      const tagStart = wordStart + words.length*260 + 500;
-      setTimeout(()=>tagline && tagline.classList.add('wcm-in'), tagStart);
-      const ctaStart = tagStart + 1400;
-      setTimeout(()=>{
-        if (!cta) return;
-        cta.classList.add('wcm-in');
-        setTimeout(()=>cta.classList.add('wcm-pulsing'), 600);
-      }, ctaStart);
+      if (reduceMotion) {
+        document.getElementById('hero').classList.add('wcm-intro-skip');
+        if (cta) cta.classList.add('wcm-pulsing');
+        return;
+      }
+      function start(){
+        setTimeout(()=>logo && logo.classList.add('wcm-in'), 400);
+        const wordStart = 1300;
+        words.forEach((w,i)=>setTimeout(()=>w.classList.add('wcm-in'), wordStart + i*260));
+        const tagStart = wordStart + words.length*260 + 500;
+        setTimeout(()=>tagline && tagline.classList.add('wcm-in'), tagStart);
+        const ctaStart = tagStart + 1400;
+        setTimeout(()=>{
+          if (!cta) return;
+          cta.classList.add('wcm-in');
+          setTimeout(()=>cta.classList.add('wcm-pulsing'), 600);
+        }, ctaStart);
+      }
+      const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+      const imgReady = (logo && !logo.complete)
+        ? new Promise(res => { logo.addEventListener('load', res, {once:true}); logo.addEventListener('error', res, {once:true}); })
+        : Promise.resolve();
+      Promise.all([fontsReady, imgReady]).then(start);
     })();
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
     // Testimonials carousel — one quote at a time, same behaviour on every
