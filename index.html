@@ -41,6 +41,10 @@
       gap: 6vw; max-width: 1080px; width: 100%;
     }
     .hero-copy { flex: 1 1 480px; max-width: 480px; text-align: left; }
+    /* Mobile-only "Halo" shown ahead of the phone — see the reorder in the
+       640px breakpoint below. Hidden here so it never appears on desktop,
+       which keeps its own eyebrow inside .hero-copy. */
+    .hero-mobile-eyebrow { display: none; }
     .hero-h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(32px, 3.4vw, 54px);
@@ -836,18 +840,27 @@
          Letting the hero take its natural height and scroll normally
          removes the need for any of that guesswork, and reads as more
          considered than everything crammed into one shrunken screen. ── */
-      #hero { padding: 90px 24px 64px !important; min-height: auto !important; }
-      .hero-inner { gap: 40px !important; }
-      /* Nav already shows the "Halo" wordmark, and on this narrow a
-         screen a second big "Halo" above the headline is redundant.
-         Desktop keeps it (Jehane's call). */
+      #hero { padding: 78px 24px 64px !important; min-height: auto !important; }
+      .hero-inner { gap: 18px !important; }
+      /* Reorder: Halo → full phone → copy, revealed as you scroll.
+         Jehane's call (2026-08-09) — landing on the phone first reads
+         stronger on mobile than opening with the headline. */
+      .hero-mobile-eyebrow {
+        display: block !important; order: 1;
+        font-family: 'Cormorant Garamond', serif; font-style: italic;
+        font-size: 34px; line-height: 1; letter-spacing: 1px; font-weight: 300;
+        color: var(--rose); text-align: center;
+      }
+      .hero-phones { order: 2; }
+      .hero-copy { order: 3; margin-top: 8px; }
+      /* Desktop's own in-copy eyebrow is redundant now that
+         .hero-mobile-eyebrow covers this on narrow screens. */
       .hero-halo-eyebrow { display: none !important; }
       .hero-h1 { font-size: 28px !important; margin-bottom: 14px !important; }
       .hero-tagline { font-size: 14px !important; line-height: 1.75 !important; margin-bottom: 30px !important; }
-      /* Scaled down for a comfortable fit on narrow screens, but not so
-         far it reads as a toy — transform-origin keeps it centred rather
-         than pinned to the box's own top-left. */
-      .hero-phones { transform: scale(0.78); transform-origin: top center; }
+      /* Scaled down enough that the full phone, tilt included, clears the
+         viewport with the eyebrow above it — not so far it reads as a toy. */
+      .hero-phones { transform: scale(0.72); transform-origin: top center; }
       /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
          a nearly-viewport-width phone off the right edge. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
@@ -1082,6 +1095,10 @@
   <!-- ═══ HERO ═══ -->
   <section id="hero">
     <div class="hero-inner">
+      <!-- Mobile-only: shows before the phone so the load order is
+           Halo → full phone → copy (revealed on scroll). Hidden on
+           desktop, which keeps its own eyebrow inside .hero-copy. -->
+      <div class="hero-mobile-eyebrow rv" style="transition-delay:.06s">Halo</div>
       <div class="hero-copy">
         <div class="hero-halo-eyebrow rv" style="transition-delay:.06s;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:1px;font-weight:300;color:var(--rose);margin-bottom:10px">Halo</div>
 
