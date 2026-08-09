@@ -836,15 +836,22 @@
          Letting the hero take its natural height and scroll normally
          removes the need for any of that guesswork, and reads as more
          considered than everything crammed into one shrunken screen. ── */
-      #hero { padding: 78px 24px 64px !important; min-height: auto !important; }
-      .hero-inner { gap: 18px !important; }
-      /* Reorder: full phone → copy, revealed as you scroll. Nav already
-         shows "Halo" so the hero doesn't repeat it. */
-      .hero-phones { order: 1; }
-      .hero-copy { order: 2; margin-top: 8px; }
+      /* Copy owns the entire first screen by itself (its own min-height,
+         content centred within it) so nothing of the phone peeks into
+         view; the phone sits fully below, reached by scrolling.
+         Jehane's call (2026-08-09). */
+      #hero { padding: 50px 32px 0 !important; min-height: auto !important; display: block !important; }
+      .hero-inner { flex-direction: column !important; gap: 0 !important; width: 100%; }
+      .hero-copy {
+        order: 1; min-height: calc(100vh - 50px);
+        display: flex !important; flex-direction: column !important;
+        align-items: center !important; justify-content: center !important;
+      }
+      .hero-phones { order: 2; margin: 0 auto 60px; }
       .hero-halo-eyebrow { display: none !important; }
-      .hero-h1 { font-size: 28px !important; margin-bottom: 14px !important; }
-      .hero-tagline { font-size: 14px !important; line-height: 1.75 !important; margin-bottom: 30px !important; }
+      .hero-h1 { font-size: 34px !important; margin-bottom: 20px !important; }
+      .hero-tagline { font-size: 16px !important; line-height: 1.8 !important; margin-bottom: 36px !important; max-width: 340px !important; margin-left: auto !important; margin-right: auto !important; }
+      .hero-cta-btn { padding: 17px 40px !important; }
       /* Scaled down enough that the full phone, tilt included, clears the
          viewport with no cropping. */
       .hero-phones { transform: scale(0.58); transform-origin: top center; }
