@@ -862,6 +862,27 @@
         padding: 11px 24px; border-radius: 4px; text-decoration: none; font-weight: 600;
       }
 
+      /* ── INTRO SEQUENCE — plays once per browser (see the script near the
+         end of the page), then later visits show the finished state
+         immediately via .wcm-intro-skip. Calm, slow easing throughout —
+         nothing should look like it's "dropping in". Jehane's call
+         (2026-08-09), reworked after the first pass read as too blocky. ── */
+      .welcome-mark { opacity: 0; transition: opacity 1.4s cubic-bezier(.25,.1,.25,1); }
+      .wcm-w { display: inline-block; opacity: 0; transition: opacity 1s cubic-bezier(.25,.1,.25,1); }
+      .wcm-tagline { opacity: 0; transform: translateY(6px); transition: opacity 1.1s cubic-bezier(.25,.1,.25,1), transform 1.1s cubic-bezier(.25,.1,.25,1); }
+      .wcm-cta { opacity: 0; transform: translateY(6px) scale(1); transition: opacity .9s cubic-bezier(.25,.1,.25,1), transform .9s cubic-bezier(.25,.1,.25,1); }
+      .welcome-mark.wcm-in, .wcm-w.wcm-in { opacity: 1; }
+      .wcm-tagline.wcm-in { opacity: 1; transform: translateY(0); }
+      .wcm-cta.wcm-in { opacity: 1; transform: translateY(0) scale(1); }
+      @keyframes wcmPulse { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(0) scale(1.035); } }
+      .wcm-cta.wcm-pulsing { animation: wcmPulse 2.6s ease-in-out infinite; }
+      /* Repeat visits (or prefers-reduced-motion) skip straight to the
+         finished state — no transitions, nothing to wait for. */
+      .wcm-intro-skip .welcome-mark, .wcm-intro-skip .wcm-w,
+      .wcm-intro-skip .wcm-tagline, .wcm-intro-skip .wcm-cta {
+        opacity: 1 !important; transform: none !important; transition: none !important;
+      }
+
       /* ── PROBLEM: hide floating pills, single cycling chip below text ── */
       .problem-chaos { display: none !important; }
       #problem-pill-cycle {
@@ -1119,7 +1140,7 @@
                    screen itself here, hidden on desktop which keeps the
                    real app welcome screen above (.welcome-copy). -->
               <div class="welcome-copy-mobile">
-                <h1 class="wcm-h1">Because they <em>can't</em><br>remind you.</h1>
+                <h1 class="wcm-h1"><span class="wcm-w">Because</span> <span class="wcm-w">they</span> <span class="wcm-w" style="font-style:italic;color:var(--rose)">can't</span><br><span class="wcm-w">remind</span> <span class="wcm-w">you.</span></h1>
                 <p class="wcm-tagline">Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed.</p>
                 <a href="https://apps.apple.com/app/halo-pet-health/id6788889183" class="wcm-cta app-store-link" target="_blank" rel="noopener">Get Halo</a>
               </div>
@@ -1469,6 +1490,38 @@
     }
     const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:0.12});
     document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
+
+    // Mobile hero intro — plays once per browser (localStorage), then
+    // later visits (and prefers-reduced-motion) skip straight to the
+    // finished state. Desktop never runs this at all.
+    (function(){
+      const wrap = document.querySelector('.welcome-copy-mobile');
+      if (!wrap || !window.matchMedia('(max-width:640px)').matches) return;
+      const alreadyPlayed = localStorage.getItem('haloMobileIntroPlayed') === '1';
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (alreadyPlayed || reduceMotion) {
+        document.getElementById('hero').classList.add('wcm-intro-skip');
+        const cta = document.querySelector('.wcm-cta');
+        if (cta) cta.classList.add('wcm-pulsing');
+        return;
+      }
+      const logo = document.querySelector('.welcome-mark');
+      const words = document.querySelectorAll('.wcm-w');
+      const tagline = document.querySelector('.wcm-tagline');
+      const cta = document.querySelector('.wcm-cta');
+      setTimeout(()=>logo && logo.classList.add('wcm-in'), 400);
+      const wordStart = 1300;
+      words.forEach((w,i)=>setTimeout(()=>w.classList.add('wcm-in'), wordStart + i*260));
+      const tagStart = wordStart + words.length*260 + 500;
+      setTimeout(()=>tagline && tagline.classList.add('wcm-in'), tagStart);
+      const ctaStart = tagStart + 1400;
+      setTimeout(()=>{
+        if (!cta) return;
+        cta.classList.add('wcm-in');
+        setTimeout(()=>cta.classList.add('wcm-pulsing'), 600);
+      }, ctaStart);
+      localStorage.setItem('haloMobileIntroPlayed', '1');
+    })();
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
     // Testimonials carousel — one quote at a time, same behaviour on every
     // breakpoint (desktop included), arrows + dots drive an .is-active toggle.
