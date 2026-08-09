@@ -828,41 +828,38 @@
     }
 
     @media(max-width:640px){
-      /* ── HERO — all the marketing copy now lives inside the phone screen
+      /* ── HERO — all the marketing copy lives inside the phone screen
          itself (.welcome-copy-mobile), so the standalone text block
-         (.hero-copy) is no longer needed on mobile at all. Phone sits
-         straight (no tilt) with the logo moved up to leave room for the
-         copy underneath it. Jehane's call (2026-08-09). ── */
-      #hero { padding: 40px 24px 56px !important; min-height: auto !important; display: block !important; }
+         (.hero-copy) is no longer needed on mobile. Phone holds a static
+         slight tilt for character (no bob animation — that was clipping
+         against the frame at the top of its motion). Content is vertically
+         centred as one block within the screen instead of top-loaded with
+         dead space below. Jehane's call (2026-08-09). ── */
+      #hero { padding: 68px 24px 56px !important; min-height: auto !important; display: block !important; }
       .hero-inner { flex-direction: column !important; gap: 0 !important; width: 100%; }
       .hero-copy { display: none !important; }
       .hero-phones { order: 1; margin: 0 auto; transform: scale(0.92); transform-origin: top center; }
-      /* Straight, not tilted — and no lean to correct for since there's no
-         rotation left. Gentle vertical bob only. */
-      .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
-      @keyframes phoneFloatMobile {
-        0%,100% { transform: translateY(0); }
-        50%      { transform: translateY(-10px); }
-      }
-      /* Logo moved up from its desktop position (84px top margin) to free
-         up room for the copy below it. */
-      .welcome-mark { margin-top: 36px !important; }
+      /* Static tilt, no animation — still, not moving. */
+      .hero-phone-float .iphone { animation: none !important; transform: rotate(-4deg); }
+      .iphone-screen.welcome { justify-content: center; }
+      .welcome-mark { margin-top: 0 !important; margin-bottom: 8px; }
       .welcome-copy { display: none !important; }
       .welcome-copy-mobile {
-        display: block !important; margin-top: 22px; padding: 0 22px; text-align: center;
+        display: block !important; margin-top: 30px; padding: 0 22px; text-align: center;
       }
       /* Same typography as the desktop hero copy (.hero-h1/.hero-tagline/
-         .hero-cta-btn), just sized to fit inside the phone screen. */
+         .hero-cta-btn), just sized to fit inside the phone screen, with
+         generous breathing room between each line. */
       .wcm-h1 {
-        font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.15;
-        color: var(--dark); letter-spacing: -.3px; font-size: 19px; margin: 0 0 10px;
+        font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.2;
+        color: var(--dark); letter-spacing: -.3px; font-size: 20px; margin: 0 0 16px;
       }
       .wcm-h1 em { font-style: italic; color: var(--rose); }
-      .wcm-tagline { font-size: 10.5px; color: var(--mid); line-height: 1.6; margin: 0 0 16px; }
+      .wcm-tagline { font-size: 11px; color: var(--mid); line-height: 1.75; margin: 0 0 26px; }
       .wcm-cta {
         display: inline-block; background: var(--rose); color: #fff;
         font-size: 9.5px; letter-spacing: 1px; text-transform: uppercase;
-        padding: 10px 22px; border-radius: 4px; text-decoration: none; font-weight: 600;
+        padding: 11px 24px; border-radius: 4px; text-decoration: none; font-weight: 600;
       }
 
       /* ── PROBLEM: hide floating pills, single cycling chip below text ── */
