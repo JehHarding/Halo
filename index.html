@@ -119,6 +119,9 @@
       opacity: .3; display: block;
     }
     .welcome-copy { margin-top: auto; padding: 0 26px 44px; text-align: left; }
+    /* Mobile-only substitute for .welcome-copy — see the 640px breakpoint
+       for the visible styling. Hidden here so desktop never shows it. */
+    .welcome-copy-mobile { display: none; }
     /* Matches WelcomeView.swift: Cormorant Garamond italic, same as every
        other "Halo" wordmark on the site — the app's own version of this
        label used to be a tracked sans-serif eyebrow, the one remaining
@@ -825,42 +828,41 @@
     }
 
     @media(max-width:640px){
-      /* ── HERO — previously hand-tuned to force everything (headline,
-         tagline, CTA, phone) into exactly one 375×812 screen with zero
-         scrolling, using a scaled-down phone plus a negative margin to
-         erase the dead space the scale left behind. That's fragile by
-         construction: real mobile Safari's visible height shrinks further
-         once the address bar is showing, so the same fixed pixel math
-         that fit a headless 812px viewport ran out of room on taller
-         real devices and cropped the phone against the bottom toolbar.
-         Letting the hero take its natural height and scroll normally
-         removes the need for any of that guesswork, and reads as more
-         considered than everything crammed into one shrunken screen. ── */
-      /* Copy owns the entire first screen by itself (its own min-height,
-         content centred within it) so nothing of the phone peeks into
-         view; the phone sits fully below, reached by scrolling.
-         Jehane's call (2026-08-09). */
-      #hero { padding: 50px 32px 0 !important; min-height: auto !important; display: block !important; }
+      /* ── HERO — all the marketing copy now lives inside the phone screen
+         itself (.welcome-copy-mobile), so the standalone text block
+         (.hero-copy) is no longer needed on mobile at all. Phone sits
+         straight (no tilt) with the logo moved up to leave room for the
+         copy underneath it. Jehane's call (2026-08-09). ── */
+      #hero { padding: 40px 24px 56px !important; min-height: auto !important; display: block !important; }
       .hero-inner { flex-direction: column !important; gap: 0 !important; width: 100%; }
-      .hero-copy {
-        order: 1; min-height: calc(100vh - 50px);
-        display: flex !important; flex-direction: column !important;
-        align-items: center !important; justify-content: center !important;
-      }
-      .hero-phones { order: 2; margin: 0 auto 60px; }
-      .hero-halo-eyebrow { display: none !important; }
-      .hero-h1 { font-size: 34px !important; margin-bottom: 20px !important; }
-      .hero-tagline { font-size: 16px !important; line-height: 1.8 !important; margin-bottom: 36px !important; max-width: 340px !important; margin-left: auto !important; margin-right: auto !important; }
-      .hero-cta-btn { padding: 17px 40px !important; }
-      /* Scaled down enough that the full phone, tilt included, clears the
-         viewport with no cropping. */
-      .hero-phones { transform: scale(0.58); transform-origin: top center; }
-      /* Smaller tilt on narrow viewports — the full 6deg desktop lean pushes
-         a nearly-viewport-width phone off the right edge. */
+      .hero-copy { display: none !important; }
+      .hero-phones { order: 1; margin: 0 auto; transform: scale(0.92); transform-origin: top center; }
+      /* Straight, not tilted — and no lean to correct for since there's no
+         rotation left. Gentle vertical bob only. */
       .hero-phone-float .iphone { animation-name: phoneFloatMobile; }
       @keyframes phoneFloatMobile {
-        0%,100% { transform: translateY(0) rotate(3deg); }
-        50%      { transform: translateY(-10px) rotate(3deg); }
+        0%,100% { transform: translateY(0); }
+        50%      { transform: translateY(-10px); }
+      }
+      /* Logo moved up from its desktop position (84px top margin) to free
+         up room for the copy below it. */
+      .welcome-mark { margin-top: 36px !important; }
+      .welcome-copy { display: none !important; }
+      .welcome-copy-mobile {
+        display: block !important; margin-top: 22px; padding: 0 22px; text-align: center;
+      }
+      /* Same typography as the desktop hero copy (.hero-h1/.hero-tagline/
+         .hero-cta-btn), just sized to fit inside the phone screen. */
+      .wcm-h1 {
+        font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.15;
+        color: var(--dark); letter-spacing: -.3px; font-size: 19px; margin: 0 0 10px;
+      }
+      .wcm-h1 em { font-style: italic; color: var(--rose); }
+      .wcm-tagline { font-size: 10.5px; color: var(--mid); line-height: 1.6; margin: 0 0 16px; }
+      .wcm-cta {
+        display: inline-block; background: var(--rose); color: #fff;
+        font-size: 9.5px; letter-spacing: 1px; text-transform: uppercase;
+        padding: 10px 22px; border-radius: 4px; text-decoration: none; font-weight: 600;
       }
 
       /* ── PROBLEM: hide floating pills, single cycling chip below text ── */
@@ -1115,6 +1117,14 @@
                 <span class="welcome-eyebrow">Halo</span>
                 <div class="welcome-title">For the<br>ones who<br><em>can't</em><br>tell you.</div>
                 <span class="welcome-btn">Enter&nbsp;&nbsp;→</span>
+              </div>
+              <!-- Mobile-only: the marketing copy lives inside the phone
+                   screen itself here, hidden on desktop which keeps the
+                   real app welcome screen above (.welcome-copy). -->
+              <div class="welcome-copy-mobile">
+                <h1 class="wcm-h1">Because they <em>can't</em><br>remind you.</h1>
+                <p class="wcm-tagline">Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed.</p>
+                <a href="https://apps.apple.com/app/halo-pet-health/id6788889183" class="wcm-cta app-store-link" target="_blank" rel="noopener">Get Halo</a>
               </div>
             </div>
           </div>
