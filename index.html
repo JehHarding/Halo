@@ -205,16 +205,27 @@
       66%  { transform: translateY(4px)  rotate(calc(var(--r,0deg) - .8deg)); }
       100% { transform: translateY(0px)  rotate(var(--r,0deg)); }
     }
-    /* stagger the delays so they don't all appear at once */
-    .ci-1 { top:14%; left:18%;   --r:-3deg;  animation-delay:0s;    animation-duration:11s;   transition-delay:.00s; }
-    .ci-2 { top:12%; right:16%;  --r:2deg;   animation-delay:-2.5s; animation-duration:13s;   transition-delay:.05s; }
-    .ci-3 { top:36%; left:12%;   --r:-2deg;  animation-delay:-4s;   animation-duration:10s;   transition-delay:.10s; }
-    .ci-4 { top:34%; right:12%;  --r:4deg;   animation-delay:-1s;   animation-duration:14s;   transition-delay:.15s; }
-    .ci-5 { top:58%; left:14%;   --r:-2deg;  animation-delay:-6s;   animation-duration:12s;   transition-delay:.20s; }
-    .ci-6 { top:56%; right:13%;  --r:-4deg;  animation-delay:-3s;   animation-duration:11.5s; transition-delay:.08s; }
-    .ci-7 { top:76%; left:20%;   --r:2deg;   animation-delay:-5s;   animation-duration:13.5s; transition-delay:.18s; }
-    .ci-8 { top:74%; right:18%;  --r:-1deg;  animation-delay:-7s;   animation-duration:10.5s; transition-delay:.03s; }
-    .ci-9 { top:24%; left:28%;   --r:3deg;   animation-delay:-2s;   animation-duration:12.5s; transition-delay:.12s; }
+    /* stagger the delays so they don't all appear at once.
+       Position is anchored to the fixed 780px .problem-inner column via
+       calc(50% - 390px - Npx), NOT a percentage of the section's full
+       width. Percentage-of-width was the actual bug (found 2026-08-12):
+       .problem-inner is a fixed 780px block, but left/right:X% scales
+       with the full section width, so the two only lined up correctly
+       at very wide viewports — still overlapping the text at 1400px,
+       1650px and even 1800px when tested. calc() keeps a constant gap
+       from the column's edge at every width, so this can't regress the
+       same way again. The below-1460px media query still hides these
+       entirely in favour of the single cycling chip, since a narrow
+       viewport doesn't have room for them at all regardless of method. */
+    .ci-1 { top:14%; left:calc(50% - 390px - 224px);   --r:-3deg;  animation-delay:0s;    animation-duration:11s;   transition-delay:.00s; }
+    .ci-2 { top:12%; right:calc(50% - 390px - 263px);  --r:2deg;   animation-delay:-2.5s; animation-duration:13s;   transition-delay:.05s; }
+    .ci-3 { top:36%; left:calc(50% - 390px - 340px);   --r:-2deg;  animation-delay:-4s;   animation-duration:10s;   transition-delay:.10s; }
+    .ci-4 { top:34%; right:calc(50% - 390px - 340px);  --r:4deg;   animation-delay:-1s;   animation-duration:14s;   transition-delay:.15s; }
+    .ci-5 { top:58%; left:calc(50% - 390px - 301px);   --r:-2deg;  animation-delay:-6s;   animation-duration:12s;   transition-delay:.20s; }
+    .ci-6 { top:56%; right:calc(50% - 390px - 320px);  --r:-4deg;  animation-delay:-3s;   animation-duration:11.5s; transition-delay:.08s; }
+    .ci-7 { top:76%; left:calc(50% - 390px - 186px);   --r:2deg;   animation-delay:-5s;   animation-duration:13.5s; transition-delay:.18s; }
+    .ci-8 { top:74%; right:calc(50% - 390px - 224px);  --r:-1deg;  animation-delay:-7s;   animation-duration:10.5s; transition-delay:.03s; }
+    .ci-9 { top:24%; left:calc(50% - 390px - 32px);    --r:3deg;   animation-delay:-2s;   animation-duration:12.5s; transition-delay:.12s; }
     .problem-inner { max-width: 780px; margin: 0 auto; position: relative; }
     .problem-label {
       font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
@@ -802,16 +813,17 @@
     }
 
     /* ── PROBLEM PILLS — MID-WIDTH ──
-       .ci-1..8 are positioned with left/right percentages of the full
-       #problem width, but .problem-inner's text column is a fixed
-       780px max-width. On a wide enough viewport those percentages
-       clear the text column with room to spare; below ~1180px the
-       same percentages land the pills on top of the centred text
-       instead (this is exactly what "shrink the window but don't go
-       fully mobile" exposes). Reuse the same hide-pills/cycling-chip
-       swap the sub-640px layout already does, just at a width where
-       the overlap actually starts rather than only on phones. */
-    @media(max-width:1180px) and (min-width:641px){
+       .ci-1..9 now position from the fixed 780px .problem-inner column
+       via calc(), not a percentage of #problem's width (see the ci-N
+       rules above for why the old percentage approach overlapped the
+       text at essentially any non-huge viewport). That fixes overlap
+       for good, but the widest-offset pills (ci-3/ci-4, 340px out from
+       the column) go negative and clip off-screen below ~1460px — safe
+       (#problem has overflow:hidden, so no layout break), but it means
+       some pills would be missing rather than all present as a set.
+       Below that width, show the single cycling chip instead so the
+       set always reads as complete, same as the sub-640px layout. */
+    @media(max-width:1460px) and (min-width:641px){
       .problem-chaos { display: none !important; }
       #problem-pill-cycle {
         display: flex;
