@@ -1,29 +1,23 @@
 # Launch Week — Pinned Post
-**Status:** ✅ Copy drafted and approved 14 July — pin to the top of all three profiles the moment the App Store link goes live (#41 origin video + #54 IT'S LIVE, per CONTENT-PLAN.md)
-
-## Video
-Pairs with the pinned origin-story video (Pillar D #41): "I'm Jehane, Angel's mum. She has four heart conditions, so I built her an app." Selfie video, scripted, to be filmed once launch date is confirmed.
+**Status:** ✅ Approved 8 August 2026 — post TikTok + Instagram Saturday 9pm, Facebook Sunday 9am. Video: `its-live-draft-v3.mp4` in this folder (Angel reveal + app announcement, locked outro card).
 
 ## Caption — TikTok / Instagram
-> This is Halo.
->
-> I built it for Angel, my cat with four heart conditions and three daily medications, because I was terrified of getting a dose wrong.
->
-> Now every med, every vital, every vet note lives in one place, and if I'm ever away, one tap makes a full care guide for whoever's looking after her.
->
-> Halo is live on the App Store today. Link in bio.
+> This is Angel. Main character energy, zero chill, and absolutely no idea she's the reason I just launched an app. Halo is live on the App Store today. Link in bio.
+
+## Hashtags — TikTok
+#PetOfTikTok #PetMum #PetHealthAlert #SickPetsClub #AppLaunch
+
+## Hashtags — Instagram
+#PetOfInstagram #PetMum #PetHealthAlert #SickPetsClub #AppLaunch
 
 ## Caption — Facebook
-> Meet Halo, the app I built for my cat Angel.
+> Meet Angel, my very undignified muse.
 >
-> Angel has four heart conditions and takes three medications a day. Between dose times, vet appointments and watching her breathing, I needed one place to keep track of it all, so I built Halo myself.
+> She's not exactly the picture of grace her name suggests, more weird, dramatic, and completely obsessed with anything on the TV. But she's also the reason I built Halo.
 >
-> Halo keeps your pet's medications, vitals, appointments and a shareable carer's guide together in one app. If you ever need a sitter, family member or vet to step in, one tap creates a full care summary for them.
+> Angel has four heart conditions and takes three medications every single day. Keeping track of all of it, every dose, every vet visit, every vital, used to live entirely in my head. So I built an app to hold it instead.
 >
-> Halo is now live on the App Store. You can download it today at [link].
-
-## Hashtags
-#CatsOfTikTok #DogsOfTikTok #CatMum #DogMum #PetHealthAlert #SickPetsClub #HaloApp #AppLaunch
+> Halo is now live on the App Store! You can download it today.
 
 ## Posting steps
-Pin this post/video to the top of TikTok, Instagram and Facebook the same hour the App Store link goes live. Swap `[link]` in the Facebook caption for the real App Store URL once available.
+Post `its-live-draft-v3.mp4` to TikTok and Instagram Saturday at 9pm with the TikTok/Instagram caption above (swap the hashtag block per platform). Post to Facebook Sunday at 9am with the Facebook caption, no hashtags. Pin all three once live.
