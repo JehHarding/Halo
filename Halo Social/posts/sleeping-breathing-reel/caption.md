@@ -9,12 +9,12 @@ Halo has a free breathing counter that does the maths and keeps the history for 
 
 Send this to someone whose cat has a heart condition.
 
-#catsofinstagram #catheartdisease #hcmcats #catbreathing #sleepingrespiratoryrate #catmum #petmeds #catcare #ragdoll #halopetapp
+#pethealth #petcare #restingrespiratoryrate #petparents #petsofinstagram
 
 ## TikTok
 How to check your cat's sleeping breathing rate in 15 seconds. Free counter in Halo, link in bio.
 
-#catsoftiktok #cattok #catcare #catheartdisease #petmeds
+#pethealth #petcare #pettok #petparents #restingrespiratoryrate
 
 ## Blog
 https://myhaloapp.co.uk/blog/why-is-my-cat-breathing-fast-while-asleep.html
