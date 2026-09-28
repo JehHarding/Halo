@@ -7,9 +7,9 @@ I built Halo because I was tired of relying on my memory. It reminds me at the r
 
 Send this to someone else juggling pet meds.
 
-#petmedication #catmedication #catheartdisease #chronicillnesspets #catsofinstagram #catmum #petcare #pillroutine #halopetapp
+#petmedication #petcare #petparents #petsofinstagram #pethealth
 
 ## TikTok
 What my cat Angel takes every day for four heart conditions. Halo reminds me so I never miss a dose. Free, link in bio.
 
-#cattok #catmedication #petmeds #catheartdisease #catmum
+#petmedication #petcare #pettok #petparents #pethealth
