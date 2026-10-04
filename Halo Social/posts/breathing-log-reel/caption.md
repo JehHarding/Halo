@@ -1,20 +1,17 @@
-# Breathing log Reel (2026-10-04)
+# Breathing log Reel v2 (2026-10-04)
 
 ## Instagram / Facebook
-Your cat's sleeping breathing rate can be one of the earliest signs of heart problems, and almost nobody checks it.
+My cat Angel has 4 heart conditions. The first thing I check is her breathing while she sleeps.
 
-Count their breaths for 15 seconds while they sleep, then multiply by 4. For cats, 30 or under is normal. Over 40, call your vet. Write it down every day so you can spot a trend, because a trend over weeks tells you far more than one reading.
+Count the breaths for 15 seconds, then multiply by 4. For cats, 30 or under is normal. Over 40, call your vet. Rising for days? Tell your vet.
 
-I made a free printable log to keep track of it. It's on our website, link in bio. Halo's breathing counter is free too 🐾
+I made a free printable log so you can track it too. Link in bio, or go to myhaloapp.co.uk/log 🐾
 
-Send this to someone with a cat who has a heart condition.
+Send this to a cat owner who needs to see it.
 
-#petcare #pethealth #petparents #petsofinstagram #catcare
+#pethealth #petcare #petparents #petsofinstagram #catcare
 
 ## TikTok
-How to check your cat's sleeping breathing rate in 15 seconds. Free printable log on our website, link in bio.
+My cat has 4 heart conditions, and this is the first thing I check. Free printable log: myhaloapp.co.uk/log
 
 #pethealth #petcare #pettok #petparents #catcare
-
-## Link
-https://myhaloapp.co.uk/blog/free-printable-breathing-rate-log.html
