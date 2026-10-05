@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="apple-itunes-app" content="app-id=6788889183">
+  <meta name="apple-itunes-app" content="app-id=6788889183, affiliate-data=pt=129142729&ct=smart-banner">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Senior Cat Checklist: What Changes After Age 10, Halo</title>
@@ -305,6 +305,36 @@
     document.addEventListener('mousemove',e=>{gx=e.clientX;gy=e.clientY;});
     (function animGlow(){cx+=(gx-cx)*.07;cy+=(gy-cy)*.07;glow.style.left=cx+'px';glow.style.top=cy+'px';requestAnimationFrame(animGlow);})();
     document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>glow.classList.add('on-link'));el.addEventListener('mouseleave',()=>glow.classList.remove('on-link'));});
+  </script>
+    <!-- Halo source tagging: tags the App Store links on this page with where the visitor came from (stored only in this browser session) -->
+  <script>
+  (function(){
+    var PT='129142729';
+    function clean(s){return (s||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,30);}
+    var src='';
+    try{
+      var p=new URLSearchParams(location.search).get('src');
+      if(p){src=clean(p);sessionStorage.setItem('halo_src',src);}
+      else{src=sessionStorage.getItem('halo_src')||'';}
+    }catch(e){}
+    if(!src){
+      var h='';
+      try{h=new URL(document.referrer).hostname.toLowerCase();}catch(e){}
+      if(!h||h.indexOf('myhaloapp.co.uk')>-1){src='website';}
+      else if(/instagram\./.test(h)){src='instagram';}
+      else if(/facebook\.|fb\.com|fb\.me/.test(h)){src='facebook';}
+      else if(/tiktok\./.test(h)){src='tiktok';}
+      else if(/google\.|bing\.|duckduckgo\.|yahoo\.|ecosia\./.test(h)){src='search';}
+      else{src='other-website';}
+      try{sessionStorage.setItem('halo_src',src);}catch(e){}
+    }
+    document.querySelectorAll('a[href*="apps.apple.com"]').forEach(function(a){
+      try{
+        var u=new URL(a.href);
+        if(!u.searchParams.has('ct')){u.searchParams.set('pt',PT);u.searchParams.set('ct',src);u.searchParams.set('mt','8');a.href=u.toString();}
+      }catch(e){}
+    });
+  })();
   </script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2793ba32c7f44681a852a648dcef92fb"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
