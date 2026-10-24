@@ -26,3 +26,6 @@ Canonical intro/outro/caption spec for Halo social videos. Use these exact value
 2. Build the outro card and caption pills as flat PNGs at these exact values before touching ffmpeg.
 3. Only the tagline text and the caption copy should change between posts — nothing else in the layout, fonts, sizes, or colors.
 4. If a genuine redesign is wanted, update this file's values first (with Jehane's sign-off), then every future post automatically matches — don't let one post quietly drift from the last.
+
+## Top caption variant (added 2026-10-13, Jehane's request)
+Captions must never sit on a pet or on the phone screen. When the subject fills the lower part of the frame (pets, app on a phone), use the top variant: same pill (rose-l, white Arial Bold 54px, radius 26, padding 46/34) but centred at y=260 instead of y=1353. The footage is shifted down 300px so there is a clear headroom strip, filled with a mirrored, blurred copy of the top of the picture (never a flat gap). Pets and photos fill the whole frame, no white borders. Build code for this lives in the 2026-10-13 session (render2.py); recreate from this description if needed.
