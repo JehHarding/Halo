@@ -4,4 +4,4 @@
 *.m4a filter=lfs diff=lfs merge=lfs -text
 
 # small hero film is served as a normal file (GitHub Pages cannot serve LFS videos)
-images/hero/*.mp4 -filter -diff -merge text
+images/hero/*.mp4 -filter -diff -merge -text
