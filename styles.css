@@ -7,11 +7,13 @@
   --linen:   #f4efe6;
   --sand:    #ede5d8;
   --border:  #e2d8ca;
-  --light:   #cbbaa6;
-  --mid:     #a89278;
+  --light:   #7b6a56;
+  --mid:     #756450;
   --dark:    #3a3230;
   --ink:     #1a1618;
   --rose:    #c9897a;
+  --rose-text: #9e5949;
+  --rose-btn:  #a05a4a;
   --rose-l:  #e8c4bb;
   --rose-ll: #f7ede8;
   /* App-mockup card surfaces (white cards on cream in light mode) */
@@ -415,6 +417,8 @@ footer {
     --dark:    #e0d5c8;
     --ink:     #f5f0e8;
     --rose:    #c9897a;
+    --rose-text: #c9897a;
+    --rose-btn:  #c9897a;
     --rose-l:  #c07e6e;
     --rose-ll: #2e1e16;
     /* App-mockup card surfaces render the app's DARK palette in dark mode */
@@ -498,3 +502,53 @@ footer {
   .test-q { font-size: 16px; line-height: 1.6; margin-bottom: 14px; }
   .test-q::before, .test-q::after { font-size: 26px; line-height: 1; }
 }
+
+
+/* ── Readability (WCAG AA): deeper shades for small rose text and buttons.
+   The brand rose stays for the Halo wordmark and large headings. ── */
+.comp-eyebrow,
+.blog-card-tag,
+.blog-eyebrow,
+.cform-status,
+.comp-swipe-hint,
+.contact-eyebrow,
+.faq-category,
+.faq-eyebrow,
+.faq-footnote a,
+.feat-tag,
+.form-success,
+.legal-body a,
+.legal-eyebrow,
+.link-arrow,
+.log-eyebrow,
+.nav-link.active,
+.nav-mobile-link.active,
+.plan-name,
+.post-body a.app-store-link,
+.post-callout strong,
+.post-related-card:not(.soon) .post-related-tag,
+.post-table .status-watch,
+.post-tag,
+.pricing-eyebrow,
+.problem-label,
+.price-card.plus .plan-name,
+.log-btn.alt { color: var(--rose-text) !important; }
+.about-cta-btn,
+.hero-cta-btn,
+.hf-cta,
+.nav-cta,
+.post-cta-btn,
+.wcm-cta,
+.plan-cta.plus,
+.log-btn:not(.alt) { background: var(--rose-btn) !important; color: #fff !important; }
+.about-cta-btn:hover,
+.hero-cta-btn:hover,
+.hf-cta:hover,
+.nav-cta:hover,
+.post-cta-btn:hover,
+.wcm-cta:hover,
+.plan-cta.plus:hover,
+.log-btn:not(.alt):hover { background: var(--dark) !important; }
+
+/* images carry width/height attributes to stop layout jumps; let CSS decide the real height */
+img { height: auto; }

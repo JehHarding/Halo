@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found, Halo</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=19">
+  <style>
+    .nf { min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 60px; position: relative; z-index: 1; }
+    .nf h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 5vw, 58px); color: var(--dark); line-height: 1.1; margin-bottom: 16px; }
+    .nf h1 em { font-style: italic; color: var(--rose); }
+    .nf p { font-size: 15.5px; color: var(--mid); line-height: 1.8; max-width: 440px; margin: 0 auto 30px; }
+    .nf a.btn { display: inline-block; background: var(--rose-btn); color: #fff; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; padding: 15px 32px; border-radius: 4px; text-decoration: none; font-weight: 600; margin: 0 6px 10px; }
+    .nf a.btn.alt { background: transparent; color: var(--rose-text); border: 1px solid var(--rose-l); }
+  </style>
+</head>
+<body>
+  <div class="ambient"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+  <nav id="nav">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false" aria-controls="navMobilePanel">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links nav-links-left">
+      <li><a href="/about.html" class="nav-link">Our Story</a></li>
+      <li><a href="/pricing.html" class="nav-link">Pricing</a></li>
+    </ul>
+    <a class="nav-logo" href="/index.html">
+      <span class="nav-logo-text">Halo</span>
+    </a>
+    <ul class="nav-links nav-links-right">
+      <li><a href="/blog.html" class="nav-link">Blog</a></li>
+      <li><a href="/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-mobile-panel" id="navMobilePanel">
+      <a href="/about.html" class="nav-mobile-link">Our Story</a>
+      <a href="/pricing.html" class="nav-mobile-link">Pricing</a>
+      <a href="/blog.html" class="nav-mobile-link">Blog</a>
+      <a href="/contact.html" class="nav-mobile-link">Contact</a>
+    </div>
+  </nav>
+  <main class="nf">
+    <div>
+      <h1>This page has <em>wandered off.</em></h1>
+      <p>We can't find what you were looking for. It may have moved, or the link may have a typo.</p>
+      <a class="btn" href="/">Back to the homepage</a><a class="btn alt" href="/blog.html">Read the blog</a>
+    </div>
+  </main>
+  <footer>
+    <img loading="lazy" decoding="async" width="360" height="339" class="site-logo foot-logo-mark" src="/images/logo-light-2.webp" alt="Halo" />
+    <div class="foot-links">
+      <a href="/about.html">Our Story</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="foot-r">
+      <div>© 2026 Halo. All rights reserved.</div>
+      <div><a href="mailto:hello@myhaloapp.co.uk">hello@myhaloapp.co.uk</a></div>
+    </div>
+  </footer>
+  <script>
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+    const navHamburger=document.getElementById('navHamburger');
+    const navMobilePanel=document.getElementById('navMobilePanel');
+    if(navHamburger&&navMobilePanel){
+      navHamburger.addEventListener('click',()=>{
+        const open=navHamburger.classList.toggle('open');
+        navMobilePanel.classList.toggle('open',open);
+        navHamburger.setAttribute('aria-expanded',open);
+      });
+      navMobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+        navHamburger.classList.remove('open');
+        navMobilePanel.classList.remove('open');
+        navHamburger.setAttribute('aria-expanded','false');
+      }));
+    }
+    const glow=document.getElementById('glow');
+    let gx=innerWidth/2,gy=innerHeight/2,cx=gx,cy=gy;
+    document.addEventListener('mousemove',e=>{gx=e.clientX;gy=e.clientY;});
+    (function animGlow(){cx+=(gx-cx)*.07;cy+=(gy-cy)*.07;glow.style.left=cx+'px';glow.style.top=cy+'px';requestAnimationFrame(animGlow);})();
+    document.querySelectorAll('a,button,input').forEach(el=>{el.addEventListener('mouseenter',()=>glow.classList.add('on-link'));el.addEventListener('mouseleave',()=>glow.classList.remove('on-link'));});
+  </script>
+</body>
+</html>

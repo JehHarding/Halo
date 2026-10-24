@@ -4,9 +4,9 @@
   <meta name="apple-itunes-app" content="app-id=6788889183, affiliate-data=pt=129142729&ct=smart-banner">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halo. Because they can't remind you.</title>
+  <title>Halo: Pet Medication Tracker for iPhone</title>
   <meta name="description" content="Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
-  <meta property="og:title" content="Halo. Because they can't remind you." />
+  <meta property="og:title" content="Halo: Pet Medication Tracker for iPhone" />
   <meta property="og:description" content="Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Halo" />
@@ -15,7 +15,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Halo. Because they can't remind you." />
+  <meta name="twitter:title" content="Halo: Pet Medication Tracker for iPhone" />
   <meta name="twitter:description" content="Halo keeps your pet's medications, vitals, contacts and carer's guide in one place, so nothing gets missed." />
   <meta name="twitter:image" content="https://myhaloapp.co.uk/images/og-image.png" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Inter:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=19">
   <style>
 
     /* ═══════════════════════════════════════
@@ -1140,7 +1140,81 @@
       .hf-pause { top: calc(64px + min(62vh, 560px) - 54px); bottom: auto; right: 16px; }
     }
     @media (prefers-reduced-motion: reduce) { .hf-video { display: none !important; } .hf-pause { display: none !important; } }
+
+    /* comparison footnote */
+    .comp-plus { display: inline-block; margin-left: 6px; font: 600 9px/1 'Inter', sans-serif; letter-spacing: .8px; text-transform: uppercase; color: var(--rose-text); border: 1px solid var(--rose-l); border-radius: 10px; padding: 3px 7px; vertical-align: middle; }
+    .comp-note { max-width: 720px; margin: 18px auto 0; font-size: 12px; line-height: 1.7; color: var(--mid); text-align: center; padding: 0 20px; }
+    /* hero: App Store badge next to the button */
+    .hf-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .hf-badge { display: inline-block; line-height: 0; }
+    .hf-badge img { height: 52px; width: auto; display: block; }
+    @media (max-width: 820px) { .hf-actions { justify-content: center; } }
+    /* closing call to action */
+    #closing { position: relative; z-index: 1; padding: 90px 24px 100px; text-align: center; }
+    .closing-inner { max-width: 640px; margin: 0 auto; }
+    .closing-h { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.15; color: var(--dark); margin-bottom: 16px; }
+    .closing-h em { font-style: italic; color: var(--rose); }
+    .closing-p { font-size: 15px; line-height: 1.85; color: var(--mid); max-width: 480px; margin: 0 auto 30px; }
+    .closing-badge { display: inline-block; line-height: 0; }
+    .closing-badge img { height: 56px; width: auto; display: block; }
 </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://myhaloapp.co.uk/#org",
+      "name": "Halo",
+      "url": "https://myhaloapp.co.uk/",
+      "logo": "https://myhaloapp.co.uk/images/logo-light-2.png",
+      "email": "hello@myhaloapp.co.uk",
+      "sameAs": [
+        "https://www.instagram.com/halo_pet_health_app/",
+        "https://www.facebook.com/halopethealthapp",
+        "https://www.tiktok.com/@halo_pet_health_app"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://myhaloapp.co.uk/#site",
+      "url": "https://myhaloapp.co.uk/",
+      "name": "Halo",
+      "publisher": {
+        "@id": "https://myhaloapp.co.uk/#org"
+      },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "Halo: Pet Medication Tracker",
+      "operatingSystem": "iOS",
+      "applicationCategory": "LifestyleApplication",
+      "description": "Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed. Free for one pet, with Halo Plus for unlimited pets and full history.",
+      "url": "https://myhaloapp.co.uk/",
+      "downloadUrl": "https://apps.apple.com/app/halo-pet-health/id6788889183",
+      "installUrl": "https://apps.apple.com/app/halo-pet-health/id6788889183",
+      "image": "https://myhaloapp.co.uk/images/og-image.png",
+      "screenshot": [
+        "https://myhaloapp.co.uk/images/app-screens/home.png",
+        "https://myhaloapp.co.uk/images/app-screens/medications.png",
+        "https://myhaloapp.co.uk/images/app-screens/vitals.png",
+        "https://myhaloapp.co.uk/images/app-screens/calendar.png",
+        "https://myhaloapp.co.uk/images/app-screens/carers-pack.png"
+      ],
+      "author": {
+        "@id": "https://myhaloapp.co.uk/#org"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "inLanguage": "en-GB"
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -1187,7 +1261,7 @@
       <div class="hf-eyebrow rv" style="transition-delay:.06s">Halo</div>
       <h1 class="hf-h1 rv" style="transition-delay:.18s">Because they <em>can't</em><br>remind you.</h1>
       <p class="hf-tagline rv" style="transition-delay:.28s">Halo keeps your pet's medications, vitals, contacts, reminders and carer's guide in one place, so nothing gets missed.</p>
-      <a href="https://apps.apple.com/app/halo-pet-health/id6788889183" class="hf-cta app-store-link rv" style="transition-delay:.38s" target="_blank" rel="noopener">Get Halo</a>
+      <div class="hf-actions rv" style="transition-delay:.38s"><a href="https://apps.apple.com/app/halo-pet-health/id6788889183" class="hf-cta app-store-link" target="_blank" rel="noopener">Get Halo</a><a href="https://apps.apple.com/app/halo-pet-health/id6788889183" class="hf-badge app-store-link" target="_blank" rel="noopener" aria-label="Download Halo on the App Store"><picture><source media="(prefers-color-scheme: dark)" srcset="images/app-store-badge-white.svg" /><img src="images/app-store-badge.svg" alt="Download on the App Store" width="143" height="48" /></picture></a></div>
       <p class="hf-note rv" style="transition-delay:.48s">Free for one pet. <span class="hf-halo">Halo</span> Plus for the whole family.</p>
     </div>
       <button type="button" class="hf-pause" id="hfPause" aria-label="Pause the background film" hidden>
@@ -1254,7 +1328,7 @@
     <div class="phone-wrap rvr" style="animation:phoneFloatL 5.2s ease-in-out infinite">
       <div class="iphone">
         <div class="iphone-screen shot">
-          <img src="images/app-screens/home.png" alt="Halo home screen showing Angel's next dose, weight, respiratory rate, daily log and events">
+          <img loading="lazy" decoding="async" width="700" height="1518" src="images/app-screens/home.webp" alt="Halo home screen showing Angel's next dose, weight, respiratory rate, daily log and events">
         </div>
       </div>
     </div>
@@ -1272,7 +1346,7 @@
     <div class="phone-wrap rvl" style="animation:phoneFloatR 5.5s ease-in-out .3s infinite">
       <div class="iphone">
         <div class="iphone-screen shot">
-          <img src="images/app-screens/medications.png" alt="Halo medications screen showing Angel's morning, lunch and evening doses">
+          <img loading="lazy" decoding="async" width="700" height="1518" src="images/app-screens/medications.webp" alt="Halo medications screen showing Angel's morning, lunch and evening doses">
         </div>
       </div>
     </div>
@@ -1290,7 +1364,7 @@
     <div class="phone-wrap rvr" style="animation:phoneFloatL 5.3s ease-in-out .5s infinite">
       <div class="iphone">
         <div class="iphone-screen shot">
-          <img src="images/app-screens/calendar.png" alt="Halo calendar screen showing Angel's upcoming vet appointments and vaccinations">
+          <img loading="lazy" decoding="async" width="700" height="1518" src="images/app-screens/calendar.webp" alt="Halo calendar screen showing Angel's upcoming vet appointments and vaccinations">
         </div>
       </div>
     </div>
@@ -1308,7 +1382,7 @@
     <div class="phone-wrap rvl" style="animation:phoneFloatR 5s ease-in-out infinite">
       <div class="iphone">
         <div class="iphone-screen shot">
-          <img src="images/app-screens/vitals.png" alt="Halo vitals screen with the resting respiratory rate counter and recent readings">
+          <img loading="lazy" decoding="async" width="700" height="1518" src="images/app-screens/vitals.webp" alt="Halo vitals screen with the resting respiratory rate counter and recent readings">
         </div>
       </div>
     </div>
@@ -1327,7 +1401,7 @@
     <div class="phone-wrap rvr" style="animation:phoneFloatL 5.6s ease-in-out .8s infinite">
       <div class="iphone">
         <div class="iphone-screen shot">
-          <img src="images/app-screens/carers-pack.png" alt="Halo Carer's Pack screen, sharing a vitals summary with a vet">
+          <img loading="lazy" decoding="async" width="700" height="1518" src="images/app-screens/carers-pack.webp" alt="Halo Carer's Pack screen, sharing a vitals summary with a vet">
         </div>
       </div>
     </div>
@@ -1338,7 +1412,7 @@
     <div class="comp-inner">
       <p class="comp-eyebrow rv">How Halo compares</p>
       <h2 class="comp-title rv" style="transition-delay:.08s">Simple when you need it.<br><em>Complete when it counts.</em></h2>
-      <p class="comp-sub rv" style="transition-delay:.14s">From a single annual vaccine reminder to a full daily care routine, Halo handles every level. And when care gets complicated, no other app comes close.</p>
+      <p class="comp-sub rv" style="transition-delay:.14s">From a single annual vaccine reminder to a full daily care routine, Halo handles every level. And when care gets complicated, Halo keeps going.</p>
 
       <div class="comp-card-wrap">
       <div class="comp-card rv" style="transition-delay:.2s">
@@ -1358,9 +1432,9 @@
             <div class="comp-feat-desc">Multiple meds, different timings, full dose history</div>
           </div>
           <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
-          <div class="comp-cell">Reminders only</div>
-          <div class="comp-cell">Reminders only</div>
-          <div class="comp-cell">Reminders only</div>
+          <div class="comp-cell">Reminders</div>
+          <div class="comp-cell">Custom frequencies</div>
+          <div class="comp-cell">Reminders</div>
         </div>
 
         <div class="comp-row">
@@ -1369,9 +1443,9 @@
             <div class="comp-feat-desc">15-second tap counter, the exact method cardiologists request</div>
           </div>
           <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell">Not listed</div>
+          <div class="comp-cell">Not listed</div>
+          <div class="comp-cell">Not listed</div>
         </div>
 
         <div class="comp-row">
@@ -1380,9 +1454,9 @@
             <div class="comp-feat-desc">Logs against a custom window and flags when your pet goes outside it</div>
           </div>
           <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
-          <div class="comp-cell">Log only</div>
-          <div class="comp-cell">Log only</div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell">Weight log</div>
+          <div class="comp-cell">Charts and goals</div>
+          <div class="comp-cell">Not listed</div>
         </div>
 
         <div class="comp-row">
@@ -1391,9 +1465,9 @@
             <div class="comp-feat-desc">Every appointment has the relevant contacts and direct number attached</div>
           </div>
           <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell"><span class="comp-yes-dim">✓</span></div>
+          <div class="comp-cell">Appointment reminders</div>
+          <div class="comp-cell">Appointment reminders</div>
+          <div class="comp-cell">Appointments</div>
         </div>
 
         <div class="comp-row">
@@ -1402,88 +1476,34 @@
             <div class="comp-feat-desc">Complete care handover with meds, contacts, schedule and emergency info</div>
           </div>
           <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell">Not listed</div>
+          <div class="comp-cell">Not listed</div>
+          <div class="comp-cell">Not listed</div>
         </div>
 
         <div class="comp-row">
           <div class="comp-cell-feat">
-            <div class="comp-feat-name">Export as PDF, share your way</div>
+            <div class="comp-feat-name">Export as PDF, share your way <span class="comp-plus">Halo Plus</span></div>
             <div class="comp-feat-desc">AirDrop, WhatsApp, email, however you like, sent in seconds</div>
           </div>
           <div class="comp-cell halo-col"><span class="comp-yes">✓</span></div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
-          <div class="comp-cell">Export only</div>
-          <div class="comp-cell"><span class="comp-no">✕</span></div>
+          <div class="comp-cell">Share with vet</div>
+          <div class="comp-cell">PDF report</div>
+          <div class="comp-cell">Not listed</div>
         </div>
 
       </div>
       </div>
       <p class="comp-swipe-hint">← Swipe to compare all →</p>
+      <p class="comp-note">Based on each app's App Store listing or website, checked on 24 October 2026. "Not listed" means the listing doesn't mention it, so the app may do more than we can see. Halo's PDF sharing is part of Halo Plus.</p>
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIALS ═══ -->
-  <section id="testimonials">
-    <div class="test-bg-blob" aria-hidden="true"></div>
-    <div class="test-head">
-      <h2 class="rv">What <em>pet owners</em> are saying.</h2>
-    </div>
-    <div class="test-carousel">
-      <button class="test-arrow-btn" id="testPrev" aria-label="Previous">←</button>
-      <div class="test-grid" id="testGrid">
-        <div class="test-card is-active">
-          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="test-q"><strong>My memory is terrible.</strong> I've shown up to vet appointments on the wrong day, <strong>forgotten to reorder medication,</strong> missed reminders I'd set myself. Halo <strong>remembers everything</strong> so I don't have to. <strong>It's exactly what I needed.</strong></p>
-          <div class="test-footer">
-            <span class="test-name">Priya K.</span>
-            <span class="test-pet">Ragdoll, 3 years old</span>
-          </div>
-        </div>
-        <div class="test-card">
-          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="test-q">I used to <strong>cancel trips</strong> because I couldn't explain Bruno's routine to anyone in time. The medications, the timings, the emergency contacts, it felt <strong>impossible to hand over.</strong> Now I <strong>share everything in one tap,</strong> and the <strong>anxiety of leaving him is gone.</strong></p>
-          <div class="test-footer">
-            <span class="test-name">Emma R.</span>
-            <span class="test-pet">Labrador, 7 years old</span>
-          </div>
-        </div>
-        <div class="test-card">
-          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="test-q">My vet kept asking me to log Biscuit's breathing rate at home. I never did. <strong>I'd forget, or lose count halfway through.</strong> Halo <strong>does the counting for me</strong> now, so I stop <strong>showing up embarrassed</strong> when they ask.</p>
-          <div class="test-footer">
-            <span class="test-name">James T.</span>
-            <span class="test-pet">French Bulldog, 5 years old</span>
-          </div>
-        </div>
-        <div class="test-card">
-          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="test-q">I have three cats. <strong>Three different medications.</strong> Three different personalities who refuse to cooperate. <strong>Halo keeps me organised,</strong> and <strong>possibly sane.</strong></p>
-          <div class="test-footer">
-            <span class="test-name">Sophie L.</span>
-            <span class="test-pet">Three very opinionated cats</span>
-          </div>
-        </div>
-        <div class="test-card">
-          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="test-q">Beau is 14 and his <strong>care list gets longer every year.</strong> Halo holds all of it, his history, his routine, his contacts, so whoever looks after him when I can't has everything they need. It's <strong>the peace of mind I didn't know I was missing.</strong></p>
-          <div class="test-footer">
-            <span class="test-name">Clare M.</span>
-            <span class="test-pet">Border Collie, 14 years old</span>
-          </div>
-        </div>
-        <div class="test-card">
-          <div class="test-stars" aria-label="5 out of 5 stars">★★★★★</div>
-          <p class="test-q">My vet once described me as <strong>'charmingly disorganised.'</strong> She's had to drop the disorganised part.</p>
-          <div class="test-footer">
-            <span class="test-name">Mark T.</span>
-            <span class="test-pet">Dachshund, 4 years old</span>
-          </div>
-        </div>
-      </div>
-      <button class="test-arrow-btn" id="testNext" aria-label="Next">→</button>
-      <div class="test-dots" id="testDots"></div>
+  <section id="closing">
+    <div class="closing-inner">
+      <h2 class="closing-h rv">Free to download. <em>Made by one pet parent.</em></h2>
+      <p class="closing-p rv" style="transition-delay:.1s">Halo is free for one pet. Add every pet and unlock full history and trend charts with <span style="color:var(--rose)">Halo</span> Plus whenever you're ready.</p>
+      <a href="https://apps.apple.com/app/halo-pet-health/id6788889183" class="closing-badge app-store-link rv" style="transition-delay:.2s" target="_blank" rel="noopener" aria-label="Download Halo on the App Store"><picture><source media="(prefers-color-scheme: dark)" srcset="images/app-store-badge-white.svg" /><img src="images/app-store-badge.svg" alt="Download on the App Store" width="143" height="48" /></picture></a>
     </div>
   </section>
 
@@ -1493,7 +1513,7 @@
   </div>
 
   <footer>
-    <img class="site-logo foot-logo-mark" src="images/logo-light-2.png" alt="Halo" />
+    <img loading="lazy" decoding="async" width="360" height="339" class="site-logo foot-logo-mark" src="images/logo-light-2.webp" alt="Halo" />
     <div class="foot-links">
       <a href="about.html">Our Story</a>
       <a href="pricing.html">Pricing</a>
@@ -1585,72 +1605,6 @@
       Promise.all([fontsReady, imgReady]).then(start);
     })();
     function onSubmit(e,id){e.preventDefault();document.getElementById(id).textContent='✓ You\'re on the list.';e.target.reset();}
-    // Testimonials carousel — one quote at a time, same behaviour on every
-    // breakpoint (desktop included), arrows + dots drive an .is-active toggle.
-    (function(){
-      var grid=document.getElementById('testGrid');
-      var dotsEl=document.getElementById('testDots');
-      var prevBtn=document.getElementById('testPrev');
-      var nextBtn=document.getElementById('testNext');
-      if(!grid||!dotsEl||!prevBtn||!nextBtn) return;
-      var cards=Array.from(grid.querySelectorAll('.test-card'));
-      if(!cards.length) return;
-      var idx=0;
-      dotsEl.innerHTML='';
-      cards.forEach(function(_,i){
-        var d=document.createElement('button');
-        d.type='button';
-        d.className='test-dot'+(i===0?' active':'');
-        d.setAttribute('aria-label','Show testimonial '+(i+1)+' of '+cards.length);
-        d.addEventListener('click',function(){show(i);});
-        dotsEl.appendChild(d);
-      });
-      var transitioning=false;
-      function show(i){
-        var next=(i+cards.length)%cards.length;
-        if(next===idx||transitioning) return;
-        transitioning=true;
-        var current=cards[idx];
-        current.classList.remove('is-active');
-        current.classList.add('leaving');
-        setTimeout(function(){
-          current.classList.remove('leaving');
-          idx=next;
-          cards.forEach(function(c,j){c.classList.toggle('is-active',j===idx);});
-          dotsEl.querySelectorAll('.test-dot').forEach(function(d,j){d.classList.toggle('active',j===idx);});
-          transitioning=false;
-        },300);
-      }
-      prevBtn.addEventListener('click',function(){show(idx-1);});
-      nextBtn.addEventListener('click',function(){show(idx+1);});
-
-      // Lock .test-grid to the height of the tallest quote so the arrows
-      // never move as you click through — measure every card off-flow
-      // (absolute + hidden, full width) so this doesn't flash content or
-      // shift the page, then fix the container to that max height. Re-runs
-      // on resize/font-load since line count depends on both.
-      function lockHeight(){
-        var max=0;
-        cards.forEach(function(c){
-          var d=c.style.display, p=c.style.position, v=c.style.visibility, w=c.style.width;
-          c.style.position='absolute';
-          c.style.visibility='hidden';
-          c.style.display='flex';
-          c.style.width='100%';
-          max=Math.max(max,c.offsetHeight);
-          c.style.display=d; c.style.position=p; c.style.visibility=v; c.style.width=w;
-        });
-        grid.style.height=max+'px';
-      }
-      var resizeTimer;
-      window.addEventListener('resize',function(){
-        clearTimeout(resizeTimer);
-        resizeTimer=setTimeout(lockHeight,150);
-      });
-      lockHeight();
-      if(document.fonts&&document.fonts.ready) document.fonts.ready.then(lockHeight);
-    })();
-
     /* ── Mobile: cycling pill for The Problem ── */
     (function(){
       if(window.innerWidth > 640) return;
