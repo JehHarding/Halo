@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /scheduled-blogs/
 
 Sitemap: https://myhaloapp.co.uk/sitemap.xml
